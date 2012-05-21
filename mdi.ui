@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Mdi</class>
+ <widget class="QMainWindow" name="Mdi">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1298</width>
+    <height>863</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Kitchen Sink - Qt Framework</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QMdiArea" name="mdiArea"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1298</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionExit_Program"/>
+   </widget>
+   <widget class="QMenu" name="menuLayouts">
+    <property name="title">
+     <string>Views</string>
+    </property>
+    <addaction name="actionTableView"/>
+    <addaction name="actionTreeView"/>
+    <addaction name="actionListView"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuWidgets">
+    <property name="title">
+     <string>Widgets</string>
+    </property>
+    <addaction name="actionCalendar"/>
+    <addaction name="actionLineEdit"/>
+    <addaction name="actionSliders"/>
+   </widget>
+   <widget class="QMenu" name="menuWindows">
+    <property name="title">
+     <string>Samples</string>
+    </property>
+    <addaction name="actionColorPicker"/>
+    <addaction name="actionFonts"/>
+    <addaction name="separator"/>
+    <addaction name="actionDraw"/>
+    <addaction name="actionStandardDialog"/>
+    <addaction name="actionStyleSheetDialog"/>
+    <addaction name="separator"/>
+    <addaction name="actionHTML_Viewer"/>
+    <addaction name="actionWebBrowser"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuWindows"/>
+   <addaction name="menuLayouts"/>
+   <addaction name="menuWidgets"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionExit_Program">
+   <property name="text">
+    <string>Exit Kitchen Sink</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionTreeView">
+   <property name="text">
+    <string>Tree View Model</string>
+   </property>
+  </action>
+  <action name="actionListView">
+   <property name="text">
+    <string>List View Model</string>
+   </property>
+  </action>
+  <action name="actionLineEdit">
+   <property name="text">
+    <string>LineEdit</string>
+   </property>
+  </action>
+  <action name="actionSliders">
+   <property name="text">
+    <string>Sliders</string>
+   </property>
+  </action>
+  <action name="actionCalendar">
+   <property name="text">
+    <string>Calendar</string>
+   </property>
+  </action>
+  <action name="actionPushButtons">
+   <property name="text">
+    <string>Push Buttons</string>
+   </property>
+  </action>
+  <action name="actionStandardDialog">
+   <property name="text">
+    <string>Dialogs</string>
+   </property>
+  </action>
+  <action name="actionWebBrowser">
+   <property name="text">
+    <string>Web Browser</string>
+   </property>
+  </action>
+  <action name="actionFonts">
+   <property name="text">
+    <string>Fonts</string>
+   </property>
+  </action>
+  <action name="actionColorPicker">
+   <property name="text">
+    <string>Color Picker</string>
+   </property>
+  </action>
+  <action name="actionStyleSheetDialog">
+   <property name="text">
+    <string>Style Sheets</string>
+   </property>
+  </action>
+  <action name="actionHTML_Viewer">
+   <property name="text">
+    <string>HTML Viewer</string>
+   </property>
+  </action>
+  <action name="actionDraw">
+   <property name="text">
+    <string>Drawing</string>
+   </property>
+  </action>
+  <action name="actionTableView">
+   <property name="text">
+    <string>Table View Model</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

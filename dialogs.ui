@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialogs</class>
+ <widget class="QWidget" name="Dialogs">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>508</width>
+    <height>566</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog Samples</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox_1">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="title">
+      <string>Dialogs</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_1">
+      <property name="leftMargin">
+       <number>14</number>
+      </property>
+      <property name="topMargin">
+       <number>9</number>
+      </property>
+      <property name="rightMargin">
+       <number>14</number>
+      </property>
+      <property name="bottomMargin">
+       <number>14</number>
+      </property>
+      <property name="horizontalSpacing">
+       <number>14</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>9</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="integer_pushButton">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>QInputDialog  getInt()</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="integer_lineEdit"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="double_pushButton">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>QInputDialog  getDoouble()</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="double_lineEdit"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="getItem_pushButton">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>QInputDialog  getItem()</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="getItem_lineEdit"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="getText_pushButton">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>QInputDialog  getText()</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="getText_lineEdit"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="dir_pushButton">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>QFileDialog  getExistingDirectory()</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QPushButton" name="openFile_pushButton">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>QFileDialog  getOpenFileName()</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QPushButton" name="openFiles_pushButton">
+        <property name="minimumSize">
+         <size>
+          <width>225</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>QFileDialog  getOpenFileNames()</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="dir_lineEdit"/>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="openFile_lineEdit"/>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="openFiles_lineEdit">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>0</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="title">
+      <string>Messages</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <property name="leftMargin">
+       <number>14</number>
+      </property>
+      <property name="rightMargin">
+       <number>14</number>
+      </property>
+      <property name="bottomMargin">
+       <number>14</number>
+      </property>
+      <property name="horizontalSpacing">
+       <number>14</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>9</number>
+      </property>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="warn_lineEdit"/>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="quest_lineEdit"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="error_pushButton">
+        <property name="minimumSize">
+         <size>
+          <width>225</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>QMessageBox  error()</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="info_pushButton">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>QMessageBox  information()</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="critical_lineEdit"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="quest_pushButton">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>QMessageBox  question()</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="error_lineEdit">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>0</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="critical_pushButton">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>QMessageBox  critical()</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="info_lineEdit"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="warn_pushButton">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>QMessageBox  warning()</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QCheckBox" name="native_checkBox">
+     <property name="text">
+      <string>Use Native Dialogs</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <zorder>groupBox_2</zorder>
+  <zorder>groupBox_1</zorder>
+  <zorder>native_checkBox</zorder>
+ </widget>
+ <tabstops>
+  <tabstop>integer_pushButton</tabstop>
+  <tabstop>double_pushButton</tabstop>
+  <tabstop>getItem_pushButton</tabstop>
+  <tabstop>getText_pushButton</tabstop>
+  <tabstop>dir_pushButton</tabstop>
+  <tabstop>openFile_pushButton</tabstop>
+  <tabstop>openFiles_pushButton</tabstop>
+  <tabstop>critical_pushButton</tabstop>
+  <tabstop>info_pushButton</tabstop>
+  <tabstop>quest_pushButton</tabstop>
+  <tabstop>warn_pushButton</tabstop>
+  <tabstop>error_pushButton</tabstop>
+  <tabstop>integer_lineEdit</tabstop>
+  <tabstop>double_lineEdit</tabstop>
+  <tabstop>getItem_lineEdit</tabstop>
+  <tabstop>getText_lineEdit</tabstop>
+  <tabstop>dir_lineEdit</tabstop>
+  <tabstop>openFile_lineEdit</tabstop>
+  <tabstop>openFiles_lineEdit</tabstop>
+  <tabstop>info_lineEdit</tabstop>
+  <tabstop>quest_lineEdit</tabstop>
+  <tabstop>warn_lineEdit</tabstop>
+  <tabstop>error_lineEdit</tabstop>
+  <tabstop>critical_lineEdit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

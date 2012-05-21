@@ -1,0 +1,144 @@
+#include "util.h"
+#include "calendar.h"
+#include "colorpicker.h"
+#include "dialogs.h"
+#include "draw.h"
+#include "fontpicker.h"
+#include "html_viewer.h"
+#include "line_edit.h"
+#include "listview.h"
+#include "sliders.h"
+#include "style_dw.h"
+#include "tableview.h"
+#include "treeview.h"
+#include "web_browser.h"
+
+#include "mdi.h"
+#include "ui_mdi.h"
+
+#include <QMdiSubWindow>
+
+Mdi::Mdi()
+   : QMainWindow(), ui(new Ui::Mdi)
+{
+   ui->setupUi(this);
+   setWindowTitle(tr("Kitchen Sink - Qt Framework"));
+}
+
+Mdi::~Mdi()
+{
+   delete ui;
+}
+
+void Mdi::addMdiChild(QWidget *oDw)
+{
+   QMdiSubWindow *subWindow = ui->mdiArea->addSubWindow(oDw);
+   subWindow->show();
+}
+
+void Mdi::removeMdiChild(QWidget *oDw)
+{
+   // not used as the child can call subWindow->close()
+   // ui->mdiArea->closeActiveSubWindow();
+}
+
+
+// file
+void Mdi::on_actionExit_Program_triggered()
+{
+   close();
+}
+
+
+// views
+void Mdi::on_actionTableView_triggered()
+{
+   TableView *oDw = new TableView();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionTreeView_triggered()
+{
+   TreeView *oDw = new TreeView();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionListView_triggered()
+{
+   ListView *oDw = new ListView();
+   addMdiChild(oDw);
+}
+
+
+// widgets
+void Mdi::on_actionCalendar_triggered()
+{
+   Calendar *oDw = new Calendar();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionLineEdit_triggered()
+{
+   LineEdit *oDw = new LineEdit();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionSliders_triggered()
+{
+   Sliders *oDw = new Sliders();
+   addMdiChild(oDw);
+}
+
+
+// windows
+void Mdi::on_actionDraw_triggered()
+{
+   Draw *oDw = new Draw();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionColorPicker_triggered()
+{
+   ColorPicker *oDw = new ColorPicker();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionFonts_triggered()
+{
+   FontPicker *oDw = new FontPicker();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionStandardDialog_triggered()
+{
+   Dialogs *oDw = new Dialogs();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionStyleSheetDialog_triggered()
+{
+   Style_DW *oDw = new Style_DW();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionHTML_Viewer_triggered()
+{
+   Html_Viewer *oDw = new Html_Viewer();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionWebBrowser_triggered()
+{   
+   WebBrowser *oDw = new WebBrowser(this);
+   addMdiChild(oDw);
+}
+
+//  help
+void Mdi::on_actionAbout_triggered()
+{
+   QMessageBox::about(this, tr("About Kitchen Sink"),
+                      tr("<center>Version: 0.1<br/>"
+                         "(Build: 5/21/2012)<br/><br/>"
+                         "Developed by Barbara Geller & Ansel Sermersheim<br/>"
+                         "barbara@2moredays.com</center><br/>"));
+}
