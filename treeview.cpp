@@ -58,6 +58,7 @@ TreeView::TreeView() :
 
    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Food Categories"));
    model->sort(0);
+
    treeView->setModel(model);
    treeView->expandAll();
 

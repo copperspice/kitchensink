@@ -3,7 +3,7 @@
         <file>qss/default.qss</file>
         <file>qss/coffee.qss</file>
         <file>qss/pagefold.qss</file>
-        <file>qss/shiny.qss</file>        
+        <file>qss/shiny.qss</file>
         <file>images/pagefold.png</file>
         <file>images/frame.png</file>
         <file>images/radiobutton_unchecked.png</file>
@@ -27,12 +27,13 @@
         <file>images/up_arrow_disabled.png</file>
         <file>images/sizegrip.png</file>
         <file>images/spinup.png</file>
-        <file>images/spinup_off.png</file>
         <file>images/spinup_hover.png</file>
         <file>images/spinup_pressed.png</file>
         <file>images/spindown.png</file>
-        <file>images/spindown_off.png</file>
         <file>images/spindown_hover.png</file>
-        <file>images/spindown_pressed.png</file>        
+        <file>images/spindown_pressed.png</file>
+        <file>images/minus.png</file>
+        <file>images/plus.png</file>
+        <file>images/brick.png</file>
     </qresource>
 </RCC>

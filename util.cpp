@@ -1,29 +1,22 @@
 #include "util.h"
 
- void bgMsg(QString msg)
- {
-    QMessageBox msgB;
-    msgB.setWindowTitle("Debug Informatoin");
-    msgB.setText(msg);
-    msgB.exec();
+void bgMsg(QString msg)
+{
+   QMessageBox msgB;
+   msgB.setWindowTitle("Debug Informatoin");
+   msgB.setText(msg);
+   msgB.exec();
 }
 
 
-/* void bgDebug(QtMsgType type, QString msg)
+void bgMsg(QString msg, int value)
 {
-    switch (type) {
+   msg = msg + "   " + QString::number(value);
 
-       case QtDebugMsg:
-          fprintf(stdout, "Debug: %s\n", msg);
-          break;
-
-       case QtWarningMsg:
-          fprintf(stdout, "Warning: %s\n", msg);
-          break;
-
-       case QtCriticalMsg:
-          fprintf(stdout, "Critical: %s\n", msg);
-          break;
-    }
-}           */
+   //
+   QMessageBox msgB;
+   msgB.setWindowTitle("Debug Information");
+   msgB.setText(msg);
+   msgB.exec();
+}
 

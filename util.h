@@ -4,6 +4,7 @@
 #include <QMessageBox>
 
 void bgMsg(QString msg);
-//void bgDebug(QtMsgType type, QString msg);
+void bgMsg(QString msg, int value);
+
 
 #endif // UTIL_H
