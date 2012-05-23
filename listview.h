@@ -25,4 +25,4 @@ class ListView : public QWidget
 
 };
 
-#endif // LISTVIEW_H
+#endif

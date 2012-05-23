@@ -6,10 +6,12 @@
 
 QT += core
 QT += gui
+QT += network
+QT += phonon
+QT += sql
 QT += webkit
 QT += widgets
-QT += network
-QT += sql
+
 
 TARGET = KitchenSink
 TEMPLATE = app
@@ -32,7 +34,9 @@ SOURCES  += \
     fontpicker.cpp \
     treeview.cpp \
     listview.cpp \
-    tableview.cpp
+    tableview.cpp \
+    musicplayer.cpp \
+    systray.cpp
 
 HEADERS  += \
     mdi.h \
@@ -51,7 +55,9 @@ HEADERS  += \
     fontpicker.h \
     treeview.h \
     listview.h \
-    tableview.h
+    tableview.h \
+    musicplayer.h \
+    systray.h
 
 FORMS    += \
     mdi.ui \
@@ -62,7 +68,8 @@ FORMS    += \
     colorpicker.ui \
     fontpicker.ui \
     dialogs.ui \
-    listview.ui
+    listview.ui \
+    musicplayer.ui
 
 RESOURCES  += kitchensink.qrc
 

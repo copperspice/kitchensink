@@ -14,8 +14,6 @@ ListView::ListView(QWidget *parent)
    ui->setupUi(this);
    setWindowTitle("List View Model");
 
-   // m_noSort = false;
-
    //
    QStringListModel *model = new QStringListModel(this);
    model->setStringList( getData() );
@@ -34,10 +32,6 @@ ListView::ListView(QWidget *parent)
    // adjust the size
    QSize size = this->size();
    this->setMinimumHeight( size.height() );
-
-   // signal
-   //connect( model, SIGNAL( dataChanged(const QModelIndex &, const QModelIndex &) ),
-   //    this, SLOT( reSort(const QModelIndex &, const QModelIndex &)) );
 
    connect( ui->insert_PB,  SIGNAL(clicked()), this, SLOT(addRow()) );
    connect( ui->delete_PB,  SIGNAL(clicked()), this, SLOT(delRow()) );

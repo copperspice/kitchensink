@@ -35,5 +35,8 @@
         <file>images/minus.png</file>
         <file>images/plus.png</file>
         <file>images/brick.png</file>
+        <file>images/bad.svg</file>
+        <file>images/heart.svg</file>
+        <file>images/trash.svg</file>
     </qresource>
 </RCC>

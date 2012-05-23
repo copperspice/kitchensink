@@ -9,7 +9,9 @@ FontPicker::FontPicker(QWidget *parent) :
    QWidget(parent), ui(new Ui::FontPicker)
 {
    ui->setupUi(this);
-   ui->fontEdit->setText("The fox and the pig jumped over the moon.");
+   setWindowTitle("Font Selector");
+
+   ui->fontEdit->setText("A wacky fox and sizeable pig jumped over the blue moon.");
 
    connect( ui->selectFont_pushButton, SIGNAL(clicked()), this, SLOT(setFont()));
 }
@@ -24,8 +26,9 @@ void FontPicker::setFont()
     bool ok;
     QFont font = QFontDialog::getFont(&ok, QFont(ui->fontEdit->text()), this);
 
-    if (ok) {
-        ui->fontEdit->setText(font.key());
+    if (ok) {        
         ui->fontEdit->setFont(font);
+        ui->fontEdit->home(true);
+        ui->fontEdit->setFocus();
     }
 }

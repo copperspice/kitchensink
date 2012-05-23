@@ -3,7 +3,7 @@
 void bgMsg(QString msg)
 {
    QMessageBox msgB;
-   msgB.setWindowTitle("Debug Informatoin");
+   msgB.setWindowTitle("Debug Information");
    msgB.setText(msg);
    msgB.exec();
 }

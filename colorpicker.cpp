@@ -9,8 +9,9 @@ ColorPicker::ColorPicker(QWidget *parent)
    : QWidget(parent), ui(new Ui::ColorPicker)
 {
    ui->setupUi(this);
+   setWindowTitle("Color Selector");
 
-   ui->colorEdit->setText("The fox and the pig jumped over the moon." );
+   ui->colorEdit->setText("A wacky fox and sizeable pig jumped over the blue moon.");
    ui->native_checkBox->setChecked(true);
 
    connect(ui->selectColor_pushButton, SIGNAL(clicked()), this, SLOT(setColor()));

@@ -5,10 +5,12 @@
 #include "draw.h"
 #include "fontpicker.h"
 #include "html_viewer.h"
+#include "musicplayer.h"
 #include "line_edit.h"
 #include "listview.h"
 #include "sliders.h"
 #include "style_dw.h"
+#include "systray.h"
 #include "tableview.h"
 #include "treeview.h"
 #include "web_browser.h"
@@ -47,6 +49,84 @@ void Mdi::removeMdiChild(QWidget *oDw)
 void Mdi::on_actionExit_Program_triggered()
 {
    close();
+}
+
+
+// samples
+void Mdi::on_actionColorPicker_triggered()
+{
+   ColorPicker *oDw = new ColorPicker();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionFonts_triggered()
+{
+   FontPicker *oDw = new FontPicker();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionDraw_triggered()
+{
+   Draw *oDw = new Draw();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionInternational_triggered()
+{
+   //Draw *oDw = new Draw();
+   //addMdiChild(oDw);
+
+   bgMsg("International sample has not been implemented");
+}
+
+void Mdi::on_actionMusicPlayer_triggered()
+{
+   MusicPlayer *oDw = new MusicPlayer();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionPieChart_triggered()
+{
+   //Draw *oDw = new Draw();
+   //addMdiChild(oDw);
+
+   bgMsg("Pie Chart sample has not been implemented");
+}
+
+void Mdi::on_actionSystemTray_triggered()
+{
+   SysTray *oDw = new SysTray();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionStandardDialog_triggered()
+{
+   Dialogs *oDw = new Dialogs();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionStyleSheetDialog_triggered()
+{
+   Style_DW *oDw = new Style_DW();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionTabs_triggered()
+{
+   //Draw *oDw = new Draw();
+   //addMdiChild(oDw);
+}
+
+void Mdi::on_actionHTML_Viewer_triggered()
+{
+   Html_Viewer *oDw = new Html_Viewer();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionWebBrowser_triggered()
+{   
+   WebBrowser *oDw = new WebBrowser(this);
+   addMdiChild(oDw);
 }
 
 
@@ -89,49 +169,6 @@ void Mdi::on_actionSliders_triggered()
    addMdiChild(oDw);
 }
 
-
-// windows
-void Mdi::on_actionDraw_triggered()
-{
-   Draw *oDw = new Draw();
-   addMdiChild(oDw);
-}
-
-void Mdi::on_actionColorPicker_triggered()
-{
-   ColorPicker *oDw = new ColorPicker();
-   addMdiChild(oDw);
-}
-
-void Mdi::on_actionFonts_triggered()
-{
-   FontPicker *oDw = new FontPicker();
-   addMdiChild(oDw);
-}
-
-void Mdi::on_actionStandardDialog_triggered()
-{
-   Dialogs *oDw = new Dialogs();
-   addMdiChild(oDw);
-}
-
-void Mdi::on_actionStyleSheetDialog_triggered()
-{
-   Style_DW *oDw = new Style_DW();
-   addMdiChild(oDw);
-}
-
-void Mdi::on_actionHTML_Viewer_triggered()
-{
-   Html_Viewer *oDw = new Html_Viewer();
-   addMdiChild(oDw);
-}
-
-void Mdi::on_actionWebBrowser_triggered()
-{   
-   WebBrowser *oDw = new WebBrowser(this);
-   addMdiChild(oDw);
-}
 
 //  help
 void Mdi::on_actionAbout_triggered()

@@ -7,4 +7,4 @@ void bgMsg(QString msg);
 void bgMsg(QString msg, int value);
 
 
-#endif // UTIL_H
+#endif
