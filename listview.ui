@@ -92,7 +92,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../Qt/Recipe/otherFiles/plus.png</normaloff>../../Qt/Recipe/otherFiles/plus.png</iconset>
+         <normaloff>images/plus.png</normaloff>images/plus.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -115,7 +115,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../Qt/Recipe/otherFiles/minus.png</normaloff>../../Qt/Recipe/otherFiles/minus.png</iconset>
+         <normaloff>images/minus.png</normaloff>images/minus.png</iconset>
        </property>
        <property name="iconSize">
         <size>

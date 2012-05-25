@@ -36,6 +36,8 @@ class Mdi : public QMainWindow
       void on_actionTableView_triggered();
       void on_actionTreeView_triggered();
       void on_actionListView_triggered();
+      void on_actionTableWidget_View_triggered();
+      void on_actionTableView_Delegate_triggered();
 
       void on_actionCalendar_triggered();
       void on_actionLineEdit_triggered();      

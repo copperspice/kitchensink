@@ -11,8 +11,13 @@ ColorPicker::ColorPicker(QWidget *parent)
    ui->setupUi(this);
    setWindowTitle("Color Selector");
 
-   ui->colorEdit->setText("A wacky fox and sizeable pig jumped over the blue moon.");
+   ui->colorEdit->setText("A wacky fox and sizeable pig jumped halfway over a blue moon.");
    ui->native_checkBox->setChecked(true);
+
+   //
+   QPalette temp = ui->colorEdit->palette();
+   QString colorname = temp.color(QPalette::Base).name();
+   ui->label->setText("Sample Text Background in " + colorname.toUpper() );
 
    connect(ui->selectColor_pushButton, SIGNAL(clicked()), this, SLOT(setColor()));
 }
@@ -35,6 +40,8 @@ void ColorPicker::setColor()
     }
 
     if (color.isValid()) {
+         ui->label->setText("Sample Text Background in " + color.name().toUpper() );
+
          QPalette temp = ui->colorEdit->palette();
          temp.setColor( QPalette::Base, color);
          ui->colorEdit->setPalette(temp);

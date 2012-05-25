@@ -11,7 +11,11 @@ FontPicker::FontPicker(QWidget *parent) :
    ui->setupUi(this);
    setWindowTitle("Font Selector");
 
-   ui->fontEdit->setText("A wacky fox and sizeable pig jumped over the blue moon.");
+   QString fontname = ui->fontEdit->font().family();
+   ui->label->setText("Sample Text Displayed in " + fontname);
+
+   // missing two letters
+   ui->fontEdit->setText("A wacky fox and sizeable pig jumped halfway over a blue moon.");
 
    connect( ui->selectFont_pushButton, SIGNAL(clicked()), this, SLOT(setFont()));
 }
@@ -27,8 +31,10 @@ void FontPicker::setFont()
     QFont font = QFontDialog::getFont(&ok, QFont(ui->fontEdit->text()), this);
 
     if (ok) {        
+        ui->label->setText("Sample Text Displayed in " + font.family());
+
         ui->fontEdit->setFont(font);
-        ui->fontEdit->home(true);
         ui->fontEdit->setFocus();
+        ui->fontEdit->setSelection(0,0);
     }
 }

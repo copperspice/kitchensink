@@ -12,6 +12,7 @@
 #include "style_dw.h"
 #include "systray.h"
 #include "tableview.h"
+#include "tablewidget_view.h"
 #include "treeview.h"
 #include "web_browser.h"
 
@@ -115,6 +116,8 @@ void Mdi::on_actionTabs_triggered()
 {
    //Draw *oDw = new Draw();
    //addMdiChild(oDw);
+
+   bgMsg("Tab sample has not been implemented");
 }
 
 void Mdi::on_actionHTML_Viewer_triggered()
@@ -149,6 +152,21 @@ void Mdi::on_actionListView_triggered()
    addMdiChild(oDw);
 }
 
+void Mdi::on_actionTableWidget_View_triggered()
+{
+   TableWidget_View *oDw = new TableWidget_View();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionTableView_Delegate_triggered()
+{
+   //TableView *oDw = new TableView();
+   //addMdiChild(oDw);
+
+   bgMsg("Delegate sample has not been implemented");
+}
+
+
 
 // widgets
 void Mdi::on_actionCalendar_triggered()
@@ -175,7 +193,7 @@ void Mdi::on_actionAbout_triggered()
 {
    QMessageBox::about(this, tr("About Kitchen Sink"),
                       tr("<center>Version: 0.1<br/>"
-                         "(Build: 5/21/2012)<br/><br/>"
+                         "(Build: 5/24/2012)<br/><br/>"
                          "Developed by Barbara Geller & Ansel Sermersheim<br/>"
                          "barbara@2moredays.com</center><br/>"));
 }

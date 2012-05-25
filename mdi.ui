@@ -43,6 +43,7 @@
     <addaction name="actionTreeView"/>
     <addaction name="actionListView"/>
     <addaction name="separator"/>
+    <addaction name="actionTableWidget_View"/>
     <addaction name="actionTableView_Delegate"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -194,6 +195,11 @@
   <action name="actionSystemTray">
    <property name="text">
     <string>System Tray</string>
+   </property>
+  </action>
+  <action name="actionTableWidget_View">
+   <property name="text">
+    <string>Table Widget / View</string>
    </property>
   </action>
  </widget>

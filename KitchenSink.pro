@@ -10,7 +10,6 @@ QT += network
 QT += phonon
 QT += sql
 QT += webkit
-QT += widgets
 
 
 TARGET = KitchenSink
@@ -36,7 +35,8 @@ SOURCES  += \
     listview.cpp \
     tableview.cpp \
     musicplayer.cpp \
-    systray.cpp
+    systray.cpp \
+    tablewidget_view.cpp
 
 HEADERS  += \
     mdi.h \
@@ -57,7 +57,8 @@ HEADERS  += \
     listview.h \
     tableview.h \
     musicplayer.h \
-    systray.h
+    systray.h \
+    tablewidget_view.h
 
 FORMS    += \
     mdi.ui \
@@ -69,7 +70,8 @@ FORMS    += \
     fontpicker.ui \
     dialogs.ui \
     listview.ui \
-    musicplayer.ui
+    musicplayer.ui \
+    tablewidget_view.ui
 
 RESOURCES  += kitchensink.qrc
 

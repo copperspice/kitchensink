@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>405</width>
+    <width>465</width>
     <height>152</height>
    </rect>
   </property>
@@ -35,7 +35,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Sample Text</string>
+      <string>Sample Text Displayed in COURIER</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -90,7 +90,7 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>150</width>
+       <width>180</width>
        <height>20</height>
       </size>
      </property>
@@ -110,7 +110,7 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>150</width>
+       <width>180</width>
        <height>20</height>
       </size>
      </property>
