@@ -19,4 +19,4 @@ class ColorPicker : public QWidget
       void setColor();
 };
 
-#endif // COLORPICKER_H
+#endif

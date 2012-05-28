@@ -36,7 +36,10 @@ SOURCES  += \
     tableview.cpp \
     musicplayer.cpp \
     systray.cpp \
-    tablewidget_view.cpp
+    tablewidget_view.cpp \
+    aboutcs.cpp \
+    tabdialog.cpp \
+    test.cpp
 
 HEADERS  += \
     mdi.h \
@@ -58,7 +61,10 @@ HEADERS  += \
     tableview.h \
     musicplayer.h \
     systray.h \
-    tablewidget_view.h
+    tablewidget_view.h \
+    aboutcs.h \
+    tabdialog.h \
+    test.h
 
 FORMS    += \
     mdi.ui \
@@ -71,7 +77,9 @@ FORMS    += \
     dialogs.ui \
     listview.ui \
     musicplayer.ui \
-    tablewidget_view.ui
+    tablewidget_view.ui \
+    tabdialog.ui \
+    test.ui
 
 RESOURCES  += kitchensink.qrc
 

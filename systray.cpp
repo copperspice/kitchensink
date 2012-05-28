@@ -66,9 +66,7 @@ SysTray::SysTray()
    setLayout(mainLayout);
 
    iconComboBox->setCurrentIndex(1);
-   trayIcon->show();
-
-   resize(400, 300);
+   trayIcon->show();  
 }
 
 void SysTray::createIconGroupBox()

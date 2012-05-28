@@ -43,6 +43,7 @@ class Mdi : public QMainWindow
       void on_actionLineEdit_triggered();      
       void on_actionSliders_triggered();
 
+      void on_actionAbout_CopperSpice_triggered();
       void on_actionAbout_triggered();
       void on_actionExit_Program_triggered();
 };

@@ -160,14 +160,14 @@ Draw::Draw()
     setLayout(mainLayout);
 
     // signals
-    connect(shapeComboBox, SIGNAL(activated(int)),          this, SLOT(shapeChanged()));
-    connect(penWidthSpinBox, SIGNAL(valueChanged(int)),     this, SLOT(penChanged()));
-    connect(penStyleComboBox, SIGNAL(activated(int)),       this, SLOT(penChanged()));
-    connect(penCapComboBox, SIGNAL(activated(int)),         this, SLOT(penChanged()));
-    connect(penJoinComboBox, SIGNAL(activated(int)),        this, SLOT(penChanged()));
-    connect(brushStyleComboBox, SIGNAL(activated(int)),     this, SLOT(brushChanged()));
-    connect(antialiasingCheckBox, SIGNAL(toggled(bool)),    m_renderArea, SLOT(setAntialiased(bool)));
-    connect(transformationsCheckBox, SIGNAL(toggled(bool)), m_renderArea, SLOT(setTransformed(bool)));
+    connect(shapeComboBox,           SIGNAL(activated(int)),     this, SLOT(shapeChanged()));
+    connect(penWidthSpinBox,         SIGNAL(valueChanged(int)),  this, SLOT(penChanged()));
+    connect(penStyleComboBox,        SIGNAL(activated(int)),     this, SLOT(penChanged()));
+    connect(penCapComboBox,          SIGNAL(activated(int)),     this, SLOT(penChanged()));
+    connect(penJoinComboBox,         SIGNAL(activated(int)),     this, SLOT(penChanged()));
+    connect(brushStyleComboBox,      SIGNAL(activated(int)),     this, SLOT(brushChanged()));
+    connect(antialiasingCheckBox,    SIGNAL(toggled(bool)),      m_renderArea, SLOT(setAntialiased(bool)));
+    connect(transformationsCheckBox, SIGNAL(toggled(bool)),      m_renderArea, SLOT(setTransformed(bool)));
 
     shapeChanged();
     penChanged();

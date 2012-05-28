@@ -1,4 +1,5 @@
 #include "util.h"
+#include "aboutcs.h"
 #include "calendar.h"
 #include "colorpicker.h"
 #include "dialogs.h"
@@ -11,6 +12,7 @@
 #include "sliders.h"
 #include "style_dw.h"
 #include "systray.h"
+#include "tabdialog.h"
 #include "tableview.h"
 #include "tablewidget_view.h"
 #include "treeview.h"
@@ -114,10 +116,8 @@ void Mdi::on_actionStyleSheetDialog_triggered()
 
 void Mdi::on_actionTabs_triggered()
 {
-   //Draw *oDw = new Draw();
-   //addMdiChild(oDw);
-
-   bgMsg("Tab sample has not been implemented");
+   TabDialog *oDw = new TabDialog();
+   addMdiChild(oDw);
 }
 
 void Mdi::on_actionHTML_Viewer_triggered()
@@ -189,11 +189,17 @@ void Mdi::on_actionSliders_triggered()
 
 
 //  help
+void Mdi::on_actionAbout_CopperSpice_triggered()
+{
+   AboutCS *oDw = new AboutCS();
+   addMdiChild(oDw);
+}
+
 void Mdi::on_actionAbout_triggered()
 {
    QMessageBox::about(this, tr("About Kitchen Sink"),
-                      tr("<center>Version: 0.1<br/>"
-                         "(Build: 5/24/2012)<br/><br/>"
-                         "Developed by Barbara Geller & Ansel Sermersheim<br/>"
-                         "barbara@2moredays.com</center><br/>"));
+       tr("<center>Version: 1.0<br/>"
+       "(Build: 5/25/2012)<br/><br/>"
+       "Developed by Barbara Geller        barbara@2copperspice.com<br/>"
+       "Developed by Ansel Sermershemim    ansel@copperspice.comm<br/></center><br/>"));
 }

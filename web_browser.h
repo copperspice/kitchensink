@@ -51,13 +51,22 @@ class WebBrowser : public QMainWindow
    public:
       WebBrowser(Mdi *parent);
 
+   private:
+      QWebView  *m_view;
+      QLineEdit *m_urlEdit;
+
+      Mdi *m_parent;
+      int  m_progress;
+
    protected slots:
-      void adjustLocation();
-      void adjustTitle();
       void changeLocation();
+      void setTitle();
+      void setLocation();
       void setProgress(int p);
+      void actionLinkHovered(const QString & link, const QString & title, const QString & textContent);
 
       void goNasa();
+      void goCS();
       void goFood();
       void goGoogle();
       void goHuffPo();
@@ -67,11 +76,4 @@ class WebBrowser : public QMainWindow
       void getSource();
       void displaySource();
       void actionClose();
-
-   private:     
-      QWebView *m_view;
-      QLineEdit *m_locationEdit;
-      Mdi *m_parent;
-      int m_progress;
-
 };

@@ -4,7 +4,6 @@
 
 #include <QColorDialog>
 
-
 ColorPicker::ColorPicker(QWidget *parent)
    : QWidget(parent), ui(new Ui::ColorPicker)
 {

@@ -13,6 +13,9 @@ TableWidget_View::TableWidget_View(QWidget *parent)
    setUpWidget();
    setUpView();
 
+   // this was done in the UI form see observe the affect
+   // ui->splitter->setHandleWidth(10);
+
    // adjust the size
    QSize size = this->size();
    setMinimumWidth( size.width() );
@@ -46,6 +49,9 @@ void TableWidget_View::setUpWidget()
 
    ui->tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
    ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+   ui->tableWidget->setSortingEnabled(true);
+   ui->tableWidget->sortByColumn(0);
 
    // data
    int row = ui->tableWidget->rowCount();
@@ -99,8 +105,8 @@ void TableWidget_View::setUpWidget()
    ui->tableWidget->setItem(row, 1, typeItem);
    ui->tableWidget->setItem(row, 2, airedItem);
 
-   // sort now
-   ui->tableWidget->sortItems(0,Qt::AscendingOrder);
+   // initial sort
+   ui->tableWidget->sortItems(0, Qt::AscendingOrder);
 
    // signals - complies but will fail at run time since tableClicked is not defined!
    connect(ui->tableWidget, SIGNAL(cellPressed(int,int)),this, SLOT(tableClicked(int,int)));
@@ -120,6 +126,9 @@ void TableWidget_View::setUpView()
    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+   ui->tableView->setSortingEnabled(true);
+   ui->tableView->sortByColumn(0);
 
    ui->tableView->setColumnWidth(0, 175);
    ui->tableView->setColumnWidth(1, 175);   
@@ -182,6 +191,6 @@ void TableWidget_View::setUpView()
    m_model->setItem(row, 1, typeItem);
    m_model->setItem(row, 2, airedItem);
 
-   // sort now
-   m_model->sort(0,Qt::AscendingOrder);
+   // initial sort   
+   m_model->sort(0, Qt::AscendingOrder);
 }

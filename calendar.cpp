@@ -51,6 +51,8 @@ Calendar::Calendar()
    createDatesGroupBox();
    createTextFormatsGroupBox();
 
+   setWindowTitle(tr("Calendar Widget"));
+
    QGridLayout *layout = new QGridLayout;
    layout->addWidget(previewGroupBox, 0, 0);
    layout->addWidget(generalOptionsGroupBox, 0, 1);
@@ -60,17 +62,13 @@ Calendar::Calendar()
    setLayout(layout);
 
    previewLayout->setRowMinimumHeight(0, calendar->sizeHint().height());
-   previewLayout->setColumnMinimumWidth(0, calendar->sizeHint().width());
-
-   setWindowTitle(tr("Calendar Widget"));
+   previewLayout->setColumnMinimumWidth(0, calendar->sizeHint().width());   
 }
-
 
 void Calendar::localeChanged(int index)
 {
    calendar->setLocale(localeCombo->itemData(index).toLocale());
 }
-
 
 void Calendar::firstDayChanged(int index)
 {

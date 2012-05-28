@@ -109,7 +109,6 @@ void MusicPlayer::setupActions()
    m_stopAction = new QAction(style()->standardIcon(QStyle::SP_MediaStop), tr("Stop"), this);
    m_stopAction->setShortcut(tr("Ctrl+S"));
    m_stopAction->setDisabled(true);
-
 }
 
 void MusicPlayer::setupUi()
@@ -130,10 +129,13 @@ void MusicPlayer::setupUi()
 
    //  
    QPalette palette;
-   palette.setBrush(QPalette::Light, Qt::darkGray);
-   palette.setBrush(QPalette::Dark,  Qt::darkYellow);
-
+   palette.setBrush(QPalette::Light, Qt::darkYellow);    //  darkGray);
+   palette.setBrush(QPalette::Dark,  Qt::black);         //  darkYellow);                       
    ui->timerLCD->setPalette(palette);
+
+   ui->timerLCD->setSegmentStyle(QLCDNumber::Filled);
+   ui->timerLCD->setFrameStyle(QFrame::Panel);
+   ui->timerLCD->setLineWidth(1);
    ui->timerLCD->display("00:00");
 
    //

@@ -45,6 +45,7 @@
 #include <QtWebKit>
 
 WebBrowser::WebBrowser(Mdi *parent)
+   : QMainWindow()
 {
    m_parent   = parent;
    m_progress = 0;
@@ -56,15 +57,13 @@ WebBrowser::WebBrowser(Mdi *parent)
    QUrl url = QUrl("http://www.google.com");
    m_view->load(url);
 
-   // new web site
-   m_locationEdit = new QLineEdit(this);
-   m_locationEdit->setSizePolicy(QSizePolicy::Expanding, m_locationEdit->sizePolicy().verticalPolicy());
+   //
+   m_urlEdit = new QLineEdit(this);
+   m_urlEdit->setSizePolicy(QSizePolicy::Expanding, m_urlEdit->sizePolicy().verticalPolicy());
 
-   QFont font = m_locationEdit->font();
+   QFont font = m_urlEdit->font();
    font.setPointSize(font.pointSize()+2);
-   m_locationEdit->setFont(font);
-
-   connect(m_locationEdit, SIGNAL(returnPressed()), SLOT(changeLocation()));
+   m_urlEdit->setFont(font);
 
    //
    QToolBar *toolBar = addToolBar(tr("Navigation"));
@@ -72,7 +71,7 @@ WebBrowser::WebBrowser(Mdi *parent)
    toolBar->addAction(m_view->pageAction(QWebPage::Forward));
    toolBar->addAction(m_view->pageAction(QWebPage::Reload));
    toolBar->addAction(m_view->pageAction(QWebPage::Stop));
-   toolBar->addWidget(m_locationEdit);
+   toolBar->addWidget(m_urlEdit);
 
    //
    QMenu *viewMenu = menuBar()->addMenu(tr("&File"));
@@ -86,39 +85,30 @@ WebBrowser::WebBrowser(Mdi *parent)
 
    //
    QMenu *toolsMenu = menuBar()->addMenu(tr("&Bookmarks"));
-   toolsMenu->addAction(tr("Astronomy Picture"), this, SLOT(goNasa()));
-   toolsMenu->addAction(tr("Cooking for Engineers"), this, SLOT(goFood()));
-   toolsMenu->addAction(tr("Google"), this, SLOT(goGoogle()));
-   toolsMenu->addAction(tr("Huffington Post"), this, SLOT(goHuffPo()));
-   toolsMenu->addAction(tr("Slashdot"), this, SLOT(goSlash()));
-   toolsMenu->addAction(tr("Wikipedia"), this, SLOT(goWiki()));
+   toolsMenu->addAction(tr("Astronomy Picture"),      this, SLOT(goNasa()));
+   toolsMenu->addAction(tr("Cooking for Engineers"),  this, SLOT(goFood()));
+   toolsMenu->addAction(tr("CopperSpice"),            this, SLOT(goCS()));
+   toolsMenu->addAction(tr("Google"),                 this, SLOT(goGoogle()));
+   toolsMenu->addAction(tr("Huffington Post"),        this, SLOT(goHuffPo()));
+   toolsMenu->addAction(tr("Slashdot"),               this, SLOT(goSlash()));
+   toolsMenu->addAction(tr("Wikipedia"),              this, SLOT(goWiki()));
 
    // signals
-   connect(m_view, SIGNAL(loadFinished(bool)),    SLOT(adjustLocation()));
-   connect(m_view, SIGNAL(titleChanged(QString)), SLOT(adjustTitle()));
-   connect(m_view, SIGNAL(loadProgress(int)),     SLOT(setProgress(int)));
+   connect(m_urlEdit, SIGNAL(returnPressed()),           SLOT(changeLocation()));
+   connect(m_view,    SIGNAL(loadProgress(int)),         SLOT(setProgress(int)));
+   connect(m_view,    SIGNAL(loadFinished(bool)),        SLOT(setLocation()));
+   connect(m_view,    SIGNAL(titleChanged(QString)),     SLOT(setTitle()));
+
+  // connect(m_view->page(),  SIGNAL(linkHovered(const QString &, const QString &, const QString &)),
+  //                                SLOT(actionLinkHovered(const QString &, const QString &, const QString &)) );
 
    setCentralWidget(m_view);
    setUnifiedTitleAndToolBarOnMac(true);
 }
 
-void WebBrowser::adjustLocation()
-{
-   m_locationEdit->setText(m_view->url().toString());
-}
-
-void WebBrowser::adjustTitle()
-{
-   if (m_progress <= 0 || m_progress >= 100) {
-      setWindowTitle(m_view->title());
-   } else {
-      setWindowTitle(QString("%1 (%2%)").arg(m_view->title()).arg(m_progress));
-   }
-}
-
 void WebBrowser::changeLocation()
 {
-   QString urlString = m_locationEdit->text();
+   QString urlString = m_urlEdit->text();
 
    QUrl url = QUrl(urlString);
 
@@ -135,10 +125,36 @@ void WebBrowser::changeLocation()
    m_view->setFocus();
 }
 
+void WebBrowser::setLocation()
+{
+   m_urlEdit->setText(m_view->url().toString());
+}
+
 void WebBrowser::setProgress(int p)
 {
    m_progress = p;
-   adjustTitle();
+   setTitle();
+}
+
+void WebBrowser::setTitle()
+{
+   if (m_progress <= 0 || m_progress >= 100) {
+      setWindowTitle(m_view->title());
+   } else {
+      setWindowTitle(QString("%1 (%2%)").arg(m_view->title()).arg(m_progress));
+   }
+}
+
+void WebBrowser::actionLinkHovered(const QString & link, const QString & title, const QString & textContent)
+{
+
+   bgMsg("A");
+
+   bgMsg(link);
+
+   bgMsg("B");
+
+
 }
 
 void WebBrowser::getSource()
@@ -168,10 +184,16 @@ void WebBrowser::displaySource()
    reply->deleteLater();
 }
 
-
 void WebBrowser::goNasa()
 {
    QUrl url = QUrl("http://apod.nasa.gov");
+   m_view->load(url);
+   m_view->setFocus();
+}
+
+void WebBrowser::goCS()
+{
+   QUrl url = QUrl("http://192.168.10.39/copperspice/");
    m_view->load(url);
    m_view->setFocus();
 }

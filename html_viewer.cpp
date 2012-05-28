@@ -59,7 +59,6 @@ Html_Viewer::Html_Viewer()
    connect(ui->webView,       SIGNAL(loadFinished(bool)),this, SLOT(updateTextEdit()));
    connect(ui->clearButton,   SIGNAL(clicked()), ui->plainTextEdit, SLOT(clear()) );
    connect(ui->previewButton, SIGNAL(clicked()), this, SLOT(actionPreview()) );
-
 }
 
 Html_Viewer::~Html_Viewer()
@@ -108,7 +107,6 @@ void Html_Viewer::createActions()
    connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
    helpMenu->addAction(aboutAct);
 }
-
 
 void Html_Viewer::setStartupText()
 {
