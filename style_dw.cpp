@@ -13,6 +13,13 @@ Style_DW::Style_DW()
 
    ui->nameLabel->setProperty("class", "mandatory QLabel");
 
+   // add data
+   ui->nameCB->addItem(tr("Amy Pond"));
+   ui->nameCB->addItem(tr("Jack Harkness"));
+   ui->nameCB->addItem(tr("River Song"));
+   ui->nameCB->addItem(tr("Rose Tyler"));
+   ui->nameCB->addItem(tr("Martha Jones"));
+
    //
    QString qssName = Style_Edit::getQssName();
    Style_Edit::loadStyleSheet(qssName);

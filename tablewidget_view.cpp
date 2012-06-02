@@ -50,8 +50,9 @@ void TableWidget_View::setUpWidget()
    ui->tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
    ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-   ui->tableWidget->setSortingEnabled(true);
-   ui->tableWidget->sortByColumn(0);
+   // not needed here since this is false by degault, shown here as an example
+   // set to false before adding data
+   // ui->tableWidget->setSortingEnabled(false);
 
    // data
    int row = ui->tableWidget->rowCount();
@@ -87,7 +88,7 @@ void TableWidget_View::setUpWidget()
 
    //
    nameItem  = new QTableWidgetItem("Friends");
-   typeItem  = new QTableWidgetItem(tr("Comdey"));
+   typeItem  = new QTableWidgetItem(tr("Comedy"));
    airedItem = new QTableWidgetItem("1994");
 
    ui->tableWidget->insertRow(row);
@@ -106,7 +107,8 @@ void TableWidget_View::setUpWidget()
    ui->tableWidget->setItem(row, 2, airedItem);
 
    // initial sort
-   ui->tableWidget->sortItems(0, Qt::AscendingOrder);
+   ui->tableWidget->sortByColumn(0, Qt::AscendingOrder);
+   ui->tableWidget->setSortingEnabled(true);
 
    // signals - complies but will fail at run time since tableClicked is not defined!
    connect(ui->tableWidget, SIGNAL(cellPressed(int,int)),this, SLOT(tableClicked(int,int)));
@@ -117,27 +119,28 @@ void TableWidget_View::setUpView()
    // setup
    m_model = new QStandardItemModel;
    m_model->setColumnCount(3);
-   m_model->setHeaderData(0, Qt::Horizontal, "Name");
-   m_model->setHeaderData(1, Qt::Horizontal, "Type");
-   m_model->setHeaderData(2, Qt::Horizontal, "First Aired");     
+   m_model->setHeaderData(0, Qt::Horizontal, tr("Name"));
+   m_model->setHeaderData(1, Qt::Horizontal, tr("Type"));
+   m_model->setHeaderData(2, Qt::Horizontal, tr("First Aired"));
 
    //
    ui->tableView->setModel(m_model);
    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-   ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-   ui->tableView->setSortingEnabled(true);
-   ui->tableView->sortByColumn(0);
+   ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);  
 
    ui->tableView->setColumnWidth(0, 175);
    ui->tableView->setColumnWidth(1, 175);   
 
-   // resize the last column
+   // resize the last column, shown here as an example
    // ui->tableView->horizontalHeader()->setStretchLastSection(true);
 
    ui->tableView->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
    ui->tableView->horizontalHeader()->setResizeMode(1, QHeaderView::Stretch);
+
+   // not needed here since this is false by degault, shown here as an example
+   // set to false before adding data
+   // ui->tableView->setSortingEnabled(false);
 
    // data
    int row = m_model->rowCount();
@@ -191,6 +194,43 @@ void TableWidget_View::setUpView()
    m_model->setItem(row, 1, typeItem);
    m_model->setItem(row, 2, airedItem);
 
-   // initial sort   
-   m_model->sort(0, Qt::AscendingOrder);
+   // initial sort
+   ui->tableView->sortByColumn(0, Qt::AscendingOrder);
+   ui->tableView->setSortingEnabled(true);
+
+   // signals - complies but will fail at run time since tableClicked is not defined!
+   // connect(ui->tableWidget, SIGNAL(cellPressed(int,int)),this, SLOT(tableClicked(int,int)));
 }
+
+
+/*
+
+QTableView::sortByColumn(int column, Qt::SortOrder order) SLOT
+   Sorts the view by column
+
+QTableView::sortingEnabled(bool)
+   When set to true, sorting is enabled.
+
+QStandardItemModel::sort(int column, Qt::SortOrder order )
+   Sorts the model by column
+
+QHeaderView::sortIndicatorChanged() SIGNAL
+
+
+// how this works
+connection automatically made from SIGNAL(sortIndicatorChanged) to SLOT(sortByColumn)
+   slot calls model->sort()
+
+
+QTableWidget->sortItems(0, Qt::AscendingOrder)
+   would also call model->sort
+   not a SLOT
+
+*/
+
+
+
+
+
+
+

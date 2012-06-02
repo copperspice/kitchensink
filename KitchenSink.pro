@@ -39,7 +39,9 @@ SOURCES  += \
     tablewidget_view.cpp \
     aboutcs.cpp \
     tabdialog.cpp \
-    test.cpp
+    i18n_lang.cpp \
+    translate.cpp
+
 
 HEADERS  += \
     mdi.h \
@@ -64,7 +66,7 @@ HEADERS  += \
     tablewidget_view.h \
     aboutcs.h \
     tabdialog.h \
-    test.h
+    translate.h
 
 FORMS    += \
     mdi.ui \
@@ -79,7 +81,13 @@ FORMS    += \
     musicplayer.ui \
     tablewidget_view.ui \
     tabdialog.ui \
-    test.ui
+    translate.ui
 
 RESOURCES  += kitchensink.qrc
+
+TRANSLATIONS += translations/qt_de.ts   \
+                translations/qt_fr.ts
+
+
+
 

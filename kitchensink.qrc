@@ -38,5 +38,7 @@
         <file>images/bad.svg</file>
         <file>images/heart.svg</file>
         <file>images/trash.svg</file>
+        <file>translations/qt_de.qm</file>
+        <file>translations/qt_fr.qm</file>
     </qresource>
 </RCC>

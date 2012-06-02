@@ -7,6 +7,7 @@
 #include "fontpicker.h"
 #include "html_viewer.h"
 #include "musicplayer.h"
+#include "translate.h"
 #include "line_edit.h"
 #include "listview.h"
 #include "sliders.h"
@@ -22,6 +23,7 @@
 #include "ui_mdi.h"
 
 #include <QMdiSubWindow>
+
 
 Mdi::Mdi()
    : QMainWindow(), ui(new Ui::Mdi)
@@ -76,10 +78,8 @@ void Mdi::on_actionDraw_triggered()
 
 void Mdi::on_actionInternational_triggered()
 {
-   //Draw *oDw = new Draw();
-   //addMdiChild(oDw);
-
-   bgMsg("International sample has not been implemented");
+   Translate *oDw = new Translate();
+   addMdiChild(oDw);
 }
 
 void Mdi::on_actionMusicPlayer_triggered()

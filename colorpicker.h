@@ -2,6 +2,7 @@
 #define COLORPICKER_H
 
 #include "ui_colorpicker.h"
+
 #include <QWidget>
 
 class ColorPicker : public QWidget

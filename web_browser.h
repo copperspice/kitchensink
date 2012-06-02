@@ -64,6 +64,7 @@ class WebBrowser : public QMainWindow
       void setLocation();
       void setProgress(int p);
       void actionLinkHovered(const QString & link, const QString & title, const QString & textContent);
+      void actionOpenWindow();
 
       void goNasa();
       void goCS();

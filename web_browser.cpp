@@ -94,13 +94,15 @@ WebBrowser::WebBrowser(Mdi *parent)
    toolsMenu->addAction(tr("Wikipedia"),              this, SLOT(goWiki()));
 
    // signals
-   connect(m_urlEdit, SIGNAL(returnPressed()),           SLOT(changeLocation()));
-   connect(m_view,    SIGNAL(loadProgress(int)),         SLOT(setProgress(int)));
-   connect(m_view,    SIGNAL(loadFinished(bool)),        SLOT(setLocation()));
-   connect(m_view,    SIGNAL(titleChanged(QString)),     SLOT(setTitle()));
+   connect(m_urlEdit, SIGNAL(returnPressed()),        SLOT(changeLocation()));
+   connect(m_view,    SIGNAL(loadProgress(int)),      SLOT(setProgress(int)));
+   connect(m_view,    SIGNAL(loadFinished(bool)),     SLOT(setLocation()));
+   connect(m_view,    SIGNAL(titleChanged(QString)),  SLOT(setTitle()));
 
-  // connect(m_view->page(),  SIGNAL(linkHovered(const QString &, const QString &, const QString &)),
-  //                                SLOT(actionLinkHovered(const QString &, const QString &, const QString &)) );
+
+   // connect(m_view->page(), SIGNAL(),                  SLOT(actionOpenWindow() );
+   connect(m_view->page(), SIGNAL(linkHovered(const QString &, const QString &, const QString &)),
+                                  SLOT(actionLinkHovered(const QString &, const QString &, const QString &)) );
 
    setCentralWidget(m_view);
    setUnifiedTitleAndToolBarOnMac(true);
@@ -147,14 +149,7 @@ void WebBrowser::setTitle()
 
 void WebBrowser::actionLinkHovered(const QString & link, const QString & title, const QString & textContent)
 {
-
-   bgMsg("A");
-
-   bgMsg(link);
-
-   bgMsg("B");
-
-
+  statusBar()->showMessage(link);
 }
 
 void WebBrowser::getSource()
@@ -184,6 +179,16 @@ void WebBrowser::displaySource()
    reply->deleteLater();
 }
 
+void WebBrowser::actionOpenWindow( )
+{
+
+   // add new tab
+
+}
+
+
+
+//
 void WebBrowser::goNasa()
 {
    QUrl url = QUrl("http://apod.nasa.gov");

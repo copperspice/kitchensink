@@ -100,7 +100,7 @@ void Sliders::createOptionsGroupBox()
    m_buttonsOrientationComboBox->addItem(tr("Vertical"),   Qt::Vertical);
 
    connect(m_buttonsOrientationComboBox, SIGNAL(currentIndexChanged(int)),
-           this, SLOT(m_buttonsOrientationChanged(int)));
+           this, SLOT(buttonsOrientationChanged(int)));
 
    m_optionsLayout = new QGridLayout;
    m_optionsLayout->addWidget(m_buttonsOrientationLabel, 0, 0);

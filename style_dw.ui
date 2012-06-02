@@ -91,7 +91,7 @@
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
          <property name="buddy">
-          <cstring>nameCombo</cstring>
+          <cstring>nameCB</cstring>
          </property>
         </widget>
        </item>
@@ -226,7 +226,7 @@
         </widget>
        </item>
        <item row="0" column="1" colspan="4">
-        <widget class="QComboBox" name="nameCombo">
+        <widget class="QComboBox" name="nameCB">
          <property name="toolTip">
           <string>Specify your name</string>
          </property>
