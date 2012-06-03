@@ -44,7 +44,7 @@
 #include <QtGui>
 #include <QtWebKit>
 
-WebBrowser::WebBrowser(Mdi *parent)
+WebBrowser::WebBrowser(Mdi *parent, QUrl url)
    : QMainWindow()
 {
    m_parent   = parent;
@@ -54,7 +54,9 @@ WebBrowser::WebBrowser(Mdi *parent)
 
    m_view = new QWebView(this);
 
-   QUrl url = QUrl("http://www.google.com");
+   if (url.isEmpty()) {
+      url = QUrl("http://192.168.10.39/copperspice/");
+   }
    m_view->load(url);
 
    //
@@ -73,36 +75,63 @@ WebBrowser::WebBrowser(Mdi *parent)
    toolBar->addAction(m_view->pageAction(QWebPage::Stop));
    toolBar->addWidget(m_urlEdit);
 
-   //
-   QMenu *viewMenu = menuBar()->addMenu(tr("&File"));
-   QAction* fileaction_1 = new QAction("Page Source", this);
-   connect(fileaction_1, SIGNAL(triggered()), SLOT(getSource()));
-   viewMenu->addAction(fileaction_1);
+   // 1
+   QMenu *fileMenu = menuBar()->addMenu(tr("&File"));
 
-   QAction* fileaction_2 = new QAction("Exit Browser", this);
-   connect(fileaction_2, SIGNAL(triggered()), SLOT(actionClose()));
-   viewMenu->addAction(fileaction_2);
+   QAction* temp1 = new QAction(tr("Page Source"), this);
+   connect(temp1, SIGNAL(triggered()), SLOT(getSource()));
+   fileMenu->addAction(temp1);
 
-   //
-   QMenu *toolsMenu = menuBar()->addMenu(tr("&Bookmarks"));
-   toolsMenu->addAction(tr("Astronomy Picture"),      this, SLOT(goNasa()));
-   toolsMenu->addAction(tr("Cooking for Engineers"),  this, SLOT(goFood()));
-   toolsMenu->addAction(tr("CopperSpice"),            this, SLOT(goCS()));
-   toolsMenu->addAction(tr("Google"),                 this, SLOT(goGoogle()));
-   toolsMenu->addAction(tr("Huffington Post"),        this, SLOT(goHuffPo()));
-   toolsMenu->addAction(tr("Slashdot"),               this, SLOT(goSlash()));
-   toolsMenu->addAction(tr("Wikipedia"),              this, SLOT(goWiki()));
+   QAction* temp2 = new QAction(tr("Close Browser"), this);
+   connect(temp2, SIGNAL(triggered()), SLOT(actionClose()));
+   fileMenu->addAction(temp2);
+
+   // 2
+   QMenu *bookMarkMenu = menuBar()->addMenu(tr("&Bookmarks"));
+
+   bookMarkMenu->addAction(tr("Astronomy Picture"),      this, SLOT(goNasa()));
+   bookMarkMenu->addAction(tr("Cooking for Engineers"),  this, SLOT(goFood()));
+   bookMarkMenu->addAction(tr("CopperSpice"),            this, SLOT(goCS()));
+   bookMarkMenu->addAction(tr("Google"),                 this, SLOT(goGoogle()));
+   bookMarkMenu->addAction(tr("Huffington Post"),        this, SLOT(goHuffPo()));
+   bookMarkMenu->addAction(tr("Slashdot"),               this, SLOT(goSlash()));
+   bookMarkMenu->addAction(tr("Wikipedia"),              this, SLOT(goWiki()));
+   bookMarkMenu->addAction(tr("You Tube"),               this, SLOT(goYouTube()));
+
+   // 3
+   QMenu *toolsMenu = menuBar()->addMenu(tr("&Tools"));
+
+   QAction* temp3 = new QAction(tr("Enable Developer Tools"), this);
+   temp3->setCheckable(true);
+   temp3->setChecked(false);
+   connect(temp3, SIGNAL(triggered( bool)), this, SLOT(actionDevTool( bool)));
+   toolsMenu->addAction(temp3);
+
+   QAction* temp4 = new QAction(tr("Enable JavaScript"), this);
+   temp4->setCheckable(true);
+   temp4->setChecked(true);
+   connect(temp4, SIGNAL(triggered( bool)), this, SLOT(actionJavaScript( bool)));
+   toolsMenu->addAction(temp4);
+
+   QAction* temp5 = new QAction(tr("Enable Plugins"), this);
+   temp5->setCheckable(true);
+   temp5->setChecked(false);
+   connect(temp5, SIGNAL(triggered( bool)), this, SLOT(actionPlugins( bool)));
+   toolsMenu->addAction(temp5);
+
+   // set up custom context menu
+   m_view->setContextMenuPolicy(Qt::CustomContextMenu);
+   connect(m_view,    SIGNAL(customContextMenuRequested(const QPoint)), this,
+           SLOT(setCustomContextMenu(const QPoint)) );
 
    // signals
-   connect(m_urlEdit, SIGNAL(returnPressed()),        SLOT(changeLocation()));
-   connect(m_view,    SIGNAL(loadProgress(int)),      SLOT(setProgress(int)));
-   connect(m_view,    SIGNAL(loadFinished(bool)),     SLOT(setLocation()));
-   connect(m_view,    SIGNAL(titleChanged(QString)),  SLOT(setTitle()));
+   connect(m_urlEdit, SIGNAL(returnPressed()),        this, SLOT(changeLocation()));
+   connect(m_view,    SIGNAL(loadProgress(int)),      this, SLOT(setProgress(int)));
+   connect(m_view,    SIGNAL(loadFinished(bool)),     this, SLOT(setLocation()));
+   connect(m_view,    SIGNAL(titleChanged(QString)),  this, SLOT(setTitle()));
 
-
-   // connect(m_view->page(), SIGNAL(),                  SLOT(actionOpenWindow() );
    connect(m_view->page(), SIGNAL(linkHovered(const QString &, const QString &, const QString &)),
-                                  SLOT(actionLinkHovered(const QString &, const QString &, const QString &)) );
+           SLOT(actionLinkHovered(const QString &, const QString &, const QString &)) );
 
    setCentralWidget(m_view);
    setUnifiedTitleAndToolBarOnMac(true);
@@ -149,7 +178,7 @@ void WebBrowser::setTitle()
 
 void WebBrowser::actionLinkHovered(const QString & link, const QString & title, const QString & textContent)
 {
-  statusBar()->showMessage(link);
+   statusBar()->showMessage(link);
 }
 
 void WebBrowser::getSource()
@@ -179,16 +208,141 @@ void WebBrowser::displaySource()
    reply->deleteLater();
 }
 
-void WebBrowser::actionOpenWindow( )
+void WebBrowser::actionDevTool(bool checked)
 {
+   // disabled by default
+   m_view->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, checked);
+}
 
-   // add new tab
+void WebBrowser::actionPlugins(bool checked)
+{  
+   // disabled by default
+   m_view->page()->settings()->setAttribute(QWebSettings::PluginsEnabled, checked);
+}
 
+void WebBrowser::actionJavaScript(bool checked)
+{
+   // enabled by default
+   m_view->page()->settings()->setAttribute(QWebSettings::JavascriptEnabled, checked);
 }
 
 
+//  context menu
+void WebBrowser::setCustomContextMenu(const QPoint &pos)
+{
+   QWebHitTestResult testHit = m_view->page()->mainFrame()->hitTestContent(pos);
 
-//
+   QUrl url = testHit.linkUrl();
+
+   if ( ! url.isEmpty()) {
+
+      // retrieves the default menu, can add additional actions
+      // QMenu *menu = m_view->page()->createStandardContextMenu();
+
+      //
+      QMenu *menu = new QMenu(this);
+
+      menu->addAction(m_view->pageAction(QWebPage::OpenLink));
+
+      QAction *temp1 = menu->addAction(tr("Open New Window"), this, SLOT(actionOpenNewWindow()));
+      temp1->setData(url);
+
+      QAction *temp2 = menu->addAction(tr("Open New Tab"),    this, SLOT(actionOpenInNewTab()));
+      temp2->setData(url);
+
+      menu->addSeparator();
+      QAction *temp3 = menu->addAction(tr("Save Link"),       this, SLOT(actionDownloadLinkToDisk()));
+      temp3->setData(url);
+
+      menu->addAction(m_view->pageAction(QWebPage::CopyLinkToClipboard));
+
+      //
+      menu->addSeparator();
+      if (m_view->page()->settings()->testAttribute(QWebSettings::DeveloperExtrasEnabled)) {
+         menu->addAction(m_view->pageAction(QWebPage::InspectElement));
+      }
+
+      menu->exec(mapToGlobal(pos));
+   }
+}
+
+void WebBrowser::actionOpenNewWindow()
+{
+   // need url
+
+   // next two lines of code are sadly not good C++ code
+   // CopperSpice provides a way to pass a parameter to the Slot
+
+   QObject *p = sender();
+   QAction *action = qobject_cast<QAction *>(p);
+
+   if (action)  {
+      QUrl url = action->data().toUrl();
+
+      WebBrowser *browser = new WebBrowser(m_parent, url);
+      m_parent->addMdiChild(browser);
+   }
+}
+
+void WebBrowser::actionOpenInNewTab( )
+{
+   bgMsg("This feature has not been implemented. The WebBrowser would need to inherit from QTabWidget.");
+}
+
+void WebBrowser::actionDownloadLinkToDisk()
+{   
+   // retrieve url
+
+   // next two lines of code are sadly not good C++ code
+   // CopperSpice provides a way to pass a parameter to the Slot
+
+   QObject *p = sender();
+   QAction *action = qobject_cast<QAction *>(p);
+
+   if (action)  {
+      QUrl url = action->data().toUrl();
+
+      QFileInfo temp = QFileInfo(url.toString());
+      QString defaultFileName = temp.fileName();
+
+      QString fileName = QFileDialog::getSaveFileName(this, tr("Save Link"),defaultFileName, tr("All Files (*.*)")  );
+
+      if (! fileName.isEmpty()) {
+         // some of the following code was adapted from http://www.linuxjournal.com
+
+         // create a request and save the file name
+         QNetworkRequest *newRequest = new QNetworkRequest(url);
+         newRequest->setAttribute(QNetworkRequest::User, fileName);
+
+         // request sent to network manager
+         QNetworkAccessManager *networkManager = m_view->page()->networkAccessManager();
+         QNetworkReply *reply = networkManager->get(*newRequest);
+
+         connect(reply, SIGNAL(finished()), this, SLOT(downloadFinished()));
+      }
+   }
+}
+
+void WebBrowser::downloadFinished()
+{
+   QObject *p = sender();
+   QNetworkReply *reply = qobject_cast<QNetworkReply *>(p);
+
+   //
+   QNetworkRequest request = reply->request();
+
+   QVariant temp = request.attribute(QNetworkRequest::User);
+   QString fileName = temp.toString();
+
+   QFile file(fileName);
+
+   if (file.open(QFile::ReadWrite)) {
+      file.write(reply->readAll());
+   }
+}
+
+
+// bookmarks
 void WebBrowser::goNasa()
 {
    QUrl url = QUrl("http://apod.nasa.gov");
@@ -234,6 +388,13 @@ void WebBrowser::goSlash()
 void WebBrowser::goWiki()
 {
    QUrl url = QUrl("http://en.wikipedia.org");
+   m_view->load(url);
+   m_view->setFocus();
+}
+
+void WebBrowser::goYouTube()
+{
+   QUrl url = QUrl("http://www.youtube.com");
    m_view->load(url);
    m_view->setFocus();
 }

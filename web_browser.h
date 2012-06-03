@@ -49,14 +49,14 @@ class WebBrowser : public QMainWindow
    Q_OBJECT
 
    public:
-      WebBrowser(Mdi *parent);
+      WebBrowser(Mdi *parent, QUrl url = QUrl() );
 
    private:
       QWebView  *m_view;
       QLineEdit *m_urlEdit;
 
       Mdi *m_parent;
-      int  m_progress;
+      int  m_progress;      
 
    protected slots:
       void changeLocation();
@@ -64,7 +64,16 @@ class WebBrowser : public QMainWindow
       void setLocation();
       void setProgress(int p);
       void actionLinkHovered(const QString & link, const QString & title, const QString & textContent);
-      void actionOpenWindow();
+
+      void actionDevTool(bool checked);
+      void actionJavaScript(bool checked);
+      void actionPlugins(bool checked);
+
+      void setCustomContextMenu(const QPoint &pos);      
+      void actionOpenNewWindow();
+      void actionOpenInNewTab();
+      void actionDownloadLinkToDisk();
+      void downloadFinished();
 
       void goNasa();
       void goCS();
@@ -73,8 +82,9 @@ class WebBrowser : public QMainWindow
       void goHuffPo();
       void goSlash();
       void goWiki();
+      void goYouTube();
 
       void getSource();
-      void displaySource();
+      void displaySource();      
       void actionClose();
 };

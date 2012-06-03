@@ -24,7 +24,7 @@
         <location filename="../calendar.cpp" line="146"/>
         <location filename="../calendar.cpp" line="433"/>
         <source>Green</source>
-        <translation type="unfinished"></translation>
+        <translation>Vert</translation>
     </message>
     <message>
         <location filename="../calendar.cpp" line="179"/>
@@ -136,7 +136,7 @@
     <message>
         <location filename="../calendar.cpp" line="315"/>
         <source>Dates</source>
-        <translation type="unfinished"></translation>
+        <translation>Dates</translation>
     </message>
     <message>
         <location filename="../calendar.cpp" line="327"/>
@@ -173,7 +173,7 @@
         <location filename="../calendar.cpp" line="380"/>
         <location filename="../calendar.cpp" line="434"/>
         <source>Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Rouge</translation>
     </message>
     <message>
         <location filename="../calendar.cpp" line="382"/>
@@ -203,17 +203,17 @@
     <message>
         <location filename="../calendar.cpp" line="432"/>
         <source>Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Bleu</translation>
     </message>
     <message>
         <location filename="../calendar.cpp" line="435"/>
         <source>Magenta</source>
-        <translation type="unfinished"></translation>
+        <translation>Magenta</translation>
     </message>
     <message>
         <location filename="../calendar.cpp" line="436"/>
         <source>Yellow</source>
-        <translation type="unfinished"></translation>
+        <translation>Jaune</translation>
     </message>
 </context>
 <context>
@@ -425,7 +425,7 @@
     <message>
         <location filename="../dialogs.cpp" line="193"/>
         <source>Retry</source>
-        <translation>Essayer de nouveau</translation>
+        <translation>Réessayer</translation>
     </message>
     <message>
         <location filename="../dialogs.cpp" line="196"/>
@@ -480,7 +480,7 @@
     <message>
         <location filename="../dialogs.cpp" line="233"/>
         <source>&amp;Continue</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Continuer</translation>
     </message>
     <message>
         <location filename="../dialogs.cpp" line="236"/>
@@ -568,7 +568,7 @@
     <message>
         <location filename="../draw.cpp" line="68"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="70"/>
@@ -589,7 +589,7 @@
         <location filename="../draw.cpp" line="81"/>
         <location filename="../draw.cpp" line="112"/>
         <source>Solid</source>
-        <translation type="unfinished"></translation>
+        <translation>Trait continu</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="82"/>
@@ -681,17 +681,17 @@
     <message>
         <location filename="../draw.cpp" line="113"/>
         <source>Horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>Horizontal</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="114"/>
         <source>Vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertical</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="115"/>
         <source>Cross</source>
-        <translation type="unfinished"></translation>
+        <translation>Croix</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="116"/>
@@ -711,37 +711,37 @@
     <message>
         <location filename="../draw.cpp" line="119"/>
         <source>Dense 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Dense 1</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="120"/>
         <source>Dense 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Dense 2</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="121"/>
         <source>Dense 3</source>
-        <translation type="unfinished"></translation>
+        <translation>Dense 3</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="122"/>
         <source>Dense 4</source>
-        <translation type="unfinished"></translation>
+        <translation>Dense 4</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="123"/>
         <source>Dense 5</source>
-        <translation type="unfinished"></translation>
+        <translation>Dense 5</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="124"/>
         <source>Dense 6</source>
-        <translation type="unfinished"></translation>
+        <translation>Dense 6</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="125"/>
         <source>Dense 7</source>
-        <translation type="unfinished"></translation>
+        <translation>Dense 7</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="128"/>
@@ -751,7 +751,7 @@
     <message>
         <location filename="../draw.cpp" line="131"/>
         <source>Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Options:</translation>
     </message>
     <message>
         <location filename="../draw.cpp" line="132"/>
@@ -828,7 +828,7 @@
     <message>
         <location filename="../html_viewer.cpp" line="74"/>
         <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ouvrir...</translation>
     </message>
     <message>
         <location filename="../html_viewer.cpp" line="76"/>
@@ -863,12 +863,12 @@
     <message>
         <location filename="../html_viewer.cpp" line="94"/>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../html_viewer.cpp" line="95"/>
         <source>Exit Viewer</source>
-        <translation type="unfinished"></translation>
+        <translation>Quitter spectateur</translation>
     </message>
     <message>
         <location filename="../html_viewer.cpp" line="103"/>
@@ -878,7 +878,7 @@
     <message>
         <location filename="../html_viewer.cpp" line="105"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;À propos</translation>
     </message>
     <message>
         <location filename="../html_viewer.cpp" line="106"/>
@@ -909,7 +909,7 @@
     <message>
         <location filename="../html_viewer.cpp" line="164"/>
         <source>URL:</source>
-        <translation type="unfinished"></translation>
+        <translation>URL :</translation>
     </message>
 </context>
 <context>
@@ -922,7 +922,7 @@
     <message>
         <location filename="../line_edit.ui" line="28"/>
         <source>Validation</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../line_edit.ui" line="49"/>
@@ -1094,7 +1094,7 @@
         <location filename="../mdi.ui" line="14"/>
         <location filename="../mdi.cpp" line="32"/>
         <source>Kitchen Sink - Qt Framework</source>
-        <translation type="unfinished"></translation>
+        <translation>Kitchen Sink Qt Framework</translation>
     </message>
     <message>
         <location filename="../mdi.ui" line="34"/>
@@ -1104,32 +1104,32 @@
     <message>
         <location filename="../mdi.ui" line="40"/>
         <source>Views</source>
-        <translation type="unfinished"></translation>
+        <translation>Vues</translation>
     </message>
     <message>
         <location filename="../mdi.ui" line="51"/>
         <source>Help</source>
-        <translation>?</translation>
+        <translation>Aide</translation>
     </message>
     <message>
         <location filename="../mdi.ui" line="59"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Widgets</translation>
     </message>
     <message>
         <location filename="../mdi.ui" line="67"/>
         <source>Samples</source>
-        <translation type="unfinished"></translation>
+        <translation>Exemples</translation>
     </message>
     <message>
         <location filename="../mdi.ui" line="94"/>
         <source>Exit Kitchen Sink</source>
-        <translation type="unfinished"></translation>
+        <translation>Quitter Kitchen Sink</translation>
     </message>
     <message>
         <location filename="../mdi.ui" line="99"/>
         <source>About</source>
-        <translation>A propos</translation>
+        <translation>À propos</translation>
     </message>
     <message>
         <location filename="../mdi.ui" line="104"/>
@@ -1144,7 +1144,7 @@
     <message>
         <location filename="../mdi.ui" line="114"/>
         <source>LineEdit</source>
-        <translation type="unfinished"></translation>
+        <translation>LineEdit</translation>
     </message>
     <message>
         <location filename="../mdi.ui" line="119"/>
@@ -1239,12 +1239,12 @@
     <message>
         <location filename="../mdi.ui" line="209"/>
         <source>About CopperSpice</source>
-        <translation type="unfinished"></translation>
+        <translation>À propos CopperSpice</translation>
     </message>
     <message>
         <location filename="../mdi.cpp" line="200"/>
         <source>About Kitchen Sink</source>
-        <translation type="unfinished"></translation>
+        <translation>À propos Kitchen Sink</translation>
     </message>
     <message>
         <location filename="../mdi.cpp" line="201"/>
@@ -1277,7 +1277,7 @@
     <message>
         <location filename="../musicplayer.ui" line="59"/>
         <source>Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir...</translation>
     </message>
     <message>
         <location filename="../musicplayer.ui" line="64"/>
@@ -1297,7 +1297,7 @@
     <message>
         <location filename="../musicplayer.cpp" line="102"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../musicplayer.cpp" line="105"/>
@@ -1307,7 +1307,7 @@
     <message>
         <location filename="../musicplayer.cpp" line="106"/>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../musicplayer.cpp" line="109"/>
@@ -1317,7 +1317,7 @@
     <message>
         <location filename="../musicplayer.cpp" line="110"/>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../musicplayer.cpp" line="144"/>
@@ -1413,12 +1413,12 @@
     <message>
         <location filename="../sliders.cpp" line="99"/>
         <source>Horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>Horizontal</translation>
     </message>
     <message>
         <location filename="../sliders.cpp" line="100"/>
         <source>Vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertical</translation>
     </message>
     <message>
         <location filename="../sliders.cpp" line="115"/>
@@ -1726,7 +1726,7 @@
     <message>
         <location filename="../systray.cpp" line="106"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Avertissement</translation>
     </message>
     <message>
         <location filename="../systray.cpp" line="109"/>
@@ -1787,7 +1787,7 @@ Click this balloon for details.</source>
     <message>
         <location filename="../systray.cpp" line="175"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Quitter</translation>
     </message>
     <message>
         <location filename="../systray.cpp" line="193"/>
@@ -2183,17 +2183,17 @@ This example requires SQLite.
     <message>
         <location filename="../translate.ui" line="40"/>
         <source>Sample Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Exemple de texte</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="46"/>
         <source>&amp;Name:</source>
-        <translation>&amp;Nom : </translation>
+        <translation>&amp;Nom:</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="59"/>
         <source>Gender:</source>
-        <translation type="unfinished"></translation>
+        <translation>Genger:</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="69"/>
@@ -2203,7 +2203,7 @@ This example requires SQLite.
     <message>
         <location filename="../translate.ui" line="72"/>
         <source>&amp;Male</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mâle</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="79"/>
@@ -2213,12 +2213,12 @@ This example requires SQLite.
     <message>
         <location filename="../translate.ui" line="82"/>
         <source>&amp;Female</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Femelle</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="102"/>
         <source>&amp;Age:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Âge:</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="115"/>
@@ -2229,7 +2229,7 @@ This example requires SQLite.
     <message>
         <location filename="../translate.ui" line="131"/>
         <source>Country:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pays:</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="144"/>
@@ -2240,42 +2240,42 @@ This example requires SQLite.
     <message>
         <location filename="../translate.ui" line="154"/>
         <source>Brazil</source>
-        <translation type="unfinished"></translation>
+        <translation>Brésil</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="159"/>
         <source>Canada</source>
-        <translation type="unfinished"></translation>
+        <translation>Canada</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="164"/>
         <source>France</source>
-        <translation type="unfinished"></translation>
+        <translation>France</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="169"/>
         <source>Germany</source>
-        <translation type="unfinished"></translation>
+        <translation>Allemagne</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="174"/>
         <source>Italy</source>
-        <translation type="unfinished"></translation>
+        <translation>Italie</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="179"/>
         <source>Norway</source>
-        <translation type="unfinished"></translation>
+        <translation>Norvège</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="184"/>
         <source>United States</source>
-        <translation type="unfinished"></translation>
+        <translation>États-Unis</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="192"/>
         <source>Mail product information</source>
-        <translation type="unfinished"></translation>
+        <translation>Envoyer de l&apos;information produit</translation>
     </message>
     <message>
         <location filename="../translate.ui" line="233"/>
@@ -2320,7 +2320,7 @@ This example requires SQLite.
     <message>
         <location filename="../translate.ui" line="331"/>
         <source>Select a Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionner une langue</translation>
     </message>
     <message>
         <location filename="../translate.cpp" line="29"/>
@@ -2384,7 +2384,7 @@ Click Cancel to exit.</source>
     <message>
         <location filename="../web_browser.cpp" line="69"/>
         <source>Navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigation</translation>
     </message>
     <message>
         <location filename="../web_browser.cpp" line="77"/>
@@ -2394,42 +2394,42 @@ Click Cancel to exit.</source>
     <message>
         <location filename="../web_browser.cpp" line="87"/>
         <source>&amp;Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Si&amp;gnets</translation>
     </message>
     <message>
         <location filename="../web_browser.cpp" line="88"/>
         <source>Astronomy Picture</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;image d&apos;astronomie</translation>
     </message>
     <message>
         <location filename="../web_browser.cpp" line="89"/>
         <source>Cooking for Engineers</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../web_browser.cpp" line="90"/>
         <source>CopperSpice</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../web_browser.cpp" line="91"/>
         <source>Google</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../web_browser.cpp" line="92"/>
         <source>Huffington Post</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../web_browser.cpp" line="93"/>
         <source>Slashdot</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../web_browser.cpp" line="94"/>
         <source>Wikipedia</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 </TS>

@@ -39,7 +39,6 @@ SOURCES  += \
     tablewidget_view.cpp \
     aboutcs.cpp \
     tabdialog.cpp \
-    i18n_lang.cpp \
     translate.cpp
 
 

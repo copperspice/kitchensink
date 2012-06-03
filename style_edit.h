@@ -15,16 +15,19 @@ class Style_Edit : public QDialog
       static QString getQssName();
       static QString loadStyleSheet(const QString &sheetName);
 
-   private slots:
-      void on_styleCombo_activated(const QString &styleName);
-      void on_styleSheetCombo_activated(const QString &styleSheetName);
-      void on_styleTextEdit_textChanged();
-      void on_applyButton_clicked();
-
    private:
       Ui::Style_Edit *ui;      
       static QString qssName;
       static QString readStyleSheet(const QString &name);
+
+   public slots:
+      void actionClose();
+
+   private slots:
+      void on_styleCombo_activated(const QString &styleName);
+      void on_styleSheetCombo_activated(const QString &styleSheetName);
+      void on_styleTextEdit_textChanged();
+      void on_applyButton_clicked();     
 };
 
 #endif

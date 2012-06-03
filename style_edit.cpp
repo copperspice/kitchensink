@@ -13,9 +13,6 @@ Style_Edit::Style_Edit(QWidget *parent)
    QRegExp regExp(".(.*)\\+?Style");
    QString defaultStyle = QApplication::style()->metaObject()->className();
 
-   bgMsg("The default style " + defaultStyle);
-
-
    if (regExp.exactMatch(defaultStyle)) {
       defaultStyle = regExp.cap(1);
    }
@@ -91,7 +88,9 @@ void Style_Edit::on_applyButton_clicked()
    ui->applyButton->setEnabled(false);
 }
 
-
+void Style_Edit::actionClose() {
+   this->parentWidget()->close();
+}
 
 
 

@@ -84,7 +84,7 @@ MusicPlayer::MusicPlayer()
    connect(ui->musicTable,  SIGNAL(clicked(const QModelIndex &)), this, SLOT(tableClicked(const QModelIndex &)) );
 
    connect(ui->actionAbout, SIGNAL(triggered()), SLOT(actionAbout()));
-   connect(ui->actionExit,  SIGNAL(triggered()), SLOT(actionClose()));
+   connect(ui->actionClose, SIGNAL(triggered()), SLOT(actionClose()));
 
    // adjust the size
    QSize size = this->size();

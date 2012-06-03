@@ -37,6 +37,16 @@ Mdi::~Mdi()
    delete ui;
 }
 
+void Mdi::changeEvent(QEvent *event)
+{
+   if (event->type() == QEvent::LanguageChange) {
+      ui->retranslateUi(this);
+   }
+
+   // calls parent, will change the title bar
+   QMainWindow::changeEvent(event);
+}
+
 void Mdi::addMdiChild(QWidget *oDw)
 {
    QMdiSubWindow *subWindow = ui->mdiArea->addSubWindow(oDw);
@@ -110,7 +120,7 @@ void Mdi::on_actionStandardDialog_triggered()
 
 void Mdi::on_actionStyleSheetDialog_triggered()
 {
-   Style_DW *oDw = new Style_DW();
+   Style_DW *oDw = new Style_DW(this);
    addMdiChild(oDw);
 }
 

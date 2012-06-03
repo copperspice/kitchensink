@@ -17,6 +17,7 @@ class Mdi : public QMainWindow
 
    private:
       Ui::Mdi *ui;
+      void changeEvent(QEvent *event);
 
    private slots:
       void on_actionColorPicker_triggered();

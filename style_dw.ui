@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string/>
+   <string>Style Sheets</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout">
@@ -294,7 +294,7 @@
     </property>
     <addaction name="actionEditStyle"/>
     <addaction name="separator"/>
-    <addaction name="actionExit"/>
+    <addaction name="actionClose"/>
    </widget>
    <widget class="QMenu" name="menu_Help">
     <property name="title">
@@ -305,9 +305,9 @@
    <addaction name="menu_File"/>
    <addaction name="menu_Help"/>
   </widget>
-  <action name="actionExit">
+  <action name="actionClose">
    <property name="text">
-    <string>&amp;Exit</string>
+    <string>Close Style Sheets</string>
    </property>
   </action>
   <action name="actionEditStyle">

@@ -37,7 +37,8 @@
      <string>File</string>
     </property>
     <addaction name="actionOpen"/>
-    <addaction name="actionExit"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -59,9 +60,9 @@
     <string>Open...</string>
    </property>
   </action>
-  <action name="actionExit">
+  <action name="actionClose">
    <property name="text">
-    <string>Exit</string>
+    <string>Close Music Player</string>
    </property>
   </action>
  </widget>

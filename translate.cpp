@@ -49,8 +49,7 @@ Translate::~Translate()
 
 void Translate::actionEnglish()
 {
-   qApp->removeTranslator(m_translator);
-   ui->retranslateUi(this);
+   qApp->removeTranslator(m_translator);   
 }
 
 void Translate::actionFrench()
@@ -59,8 +58,7 @@ void Translate::actionFrench()
       bgMsg("Error while loading international file.");
    }
 
-   qApp->installTranslator(m_translator);
-   ui->retranslateUi(this);
+   qApp->installTranslator(m_translator);   
 }
 
 void Translate::actionGerman()
@@ -69,8 +67,7 @@ void Translate::actionGerman()
       bgMsg("Error while loading international file.");
    }
 
-   qApp->installTranslator(m_translator);
-   ui->retranslateUi(this);
+   qApp->installTranslator(m_translator);   
 }
 
 void Translate::changeEvent(QEvent *event)
@@ -79,6 +76,7 @@ void Translate::changeEvent(QEvent *event)
       ui->retranslateUi(this);
    }
 
+   // calls parent, will change the title bar
    QWidget::changeEvent(event);
 }
 
