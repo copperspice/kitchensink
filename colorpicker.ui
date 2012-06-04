@@ -83,7 +83,7 @@
     </spacer>
    </item>
    <item row="5" column="2">
-    <widget class="QPushButton" name="selectColor_pushButton">
+    <widget class="QPushButton" name="selectColor_PB">
      <property name="text">
       <string>Select Color</string>
      </property>

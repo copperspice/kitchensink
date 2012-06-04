@@ -4,6 +4,7 @@
 #include "ui_translate.h"
 
 #include <QWidget>
+#include <QStringListModel>
 
 class Translate : public QWidget
 {
@@ -15,9 +16,11 @@ class Translate : public QWidget
 
    private:
       Ui::Translate *ui;
+      QStringListModel *m_model;
       QTranslator *m_translator;
       void retranslateUi();
       void changeEvent(QEvent *event);
+      void getListData();
 
    private slots:
       void actionClose();      

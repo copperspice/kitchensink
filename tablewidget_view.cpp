@@ -1,3 +1,4 @@
+#include "util.h"
 #include "tablewidget_view.h"
 #include "ui_tablewidget_view.h"
 
@@ -110,8 +111,12 @@ void TableWidget_View::setUpWidget()
    ui->tableWidget->sortByColumn(0, Qt::AscendingOrder);
    ui->tableWidget->setSortingEnabled(true);
 
-   // signals - complies but will fail at run time since tableClicked is not defined!
-   connect(ui->tableWidget, SIGNAL(cellPressed(int,int)),this, SLOT(tableClicked(int,int)));
+   // signals
+   connect(ui->tableWidget, SIGNAL(cellPressed(int,int)),this, SLOT(tableClicked_W(int,int)));
+
+   // complies but will fail at run time since the SLOT is not defined
+   connect(ui->tableWidget, SIGNAL(itemChanged(QTableWidgetItem * )),
+           this, SLOT( actionItemChanged(QTableWidgetItem *)));
 }
 
 void TableWidget_View::setUpView()
@@ -198,9 +203,30 @@ void TableWidget_View::setUpView()
    ui->tableView->sortByColumn(0, Qt::AscendingOrder);
    ui->tableView->setSortingEnabled(true);
 
+   // signals
+   connect(ui->tableView, SIGNAL(clicked(const QModelIndex &)),this, SLOT(tableClicked_V(const QModelIndex &)));
+
    // signals - complies but will fail at run time since tableClicked is not defined!
-   // connect(ui->tableWidget, SIGNAL(cellPressed(int,int)),this, SLOT(tableClicked(int,int)));
+   // add something here
 }
+
+void TableWidget_View::tableClicked_W(int row, int column)
+{
+   ksMsg(this, "Table Widget", "SIGNAL cellPressed() SLOT tableClicked_W\nint row & int column values passed\n\n"
+         "Row: " + QString::number(row) + "  Column:" + QString::number(column) );
+}
+
+void TableWidget_View::tableClicked_V(const QModelIndex & index)
+{
+   int row    = index.row();
+   int column = index.column();
+
+   ksMsg(this, "Table View", "SIGNAL clicked() SLOT tableClicked_V()\nModel index value passed\n\n"
+         "Row: " + QString::number(row) + "  Column:" + QString::number(column) );
+}
+
+
+
 
 
 /*

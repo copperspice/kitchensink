@@ -18,6 +18,7 @@
 #include "tablewidget_view.h"
 #include "treeview.h"
 #include "web_browser.h"
+#include "xml.h"
 
 #include "mdi.h"
 #include "ui_mdi.h"
@@ -103,7 +104,7 @@ void Mdi::on_actionPieChart_triggered()
    //Draw *oDw = new Draw();
    //addMdiChild(oDw);
 
-   bgMsg("Pie Chart sample has not been implemented");
+   ksMsg("Pie Chart sample has not been implemented");
 }
 
 void Mdi::on_actionSystemTray_triggered()
@@ -124,12 +125,6 @@ void Mdi::on_actionStyleSheetDialog_triggered()
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionTabs_triggered()
-{
-   TabDialog *oDw = new TabDialog();
-   addMdiChild(oDw);
-}
-
 void Mdi::on_actionHTML_Viewer_triggered()
 {
    Html_Viewer *oDw = new Html_Viewer();
@@ -139,6 +134,12 @@ void Mdi::on_actionHTML_Viewer_triggered()
 void Mdi::on_actionWebBrowser_triggered()
 {   
    WebBrowser *oDw = new WebBrowser(this);
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionXml_triggered()
+{
+   Xml *oDw = new Xml();
    addMdiChild(oDw);
 }
 
@@ -173,7 +174,7 @@ void Mdi::on_actionTableView_Delegate_triggered()
    //TableView *oDw = new TableView();
    //addMdiChild(oDw);
 
-   bgMsg("Delegate sample has not been implemented");
+   ksMsg("Delegate sample has not been implemented");
 }
 
 
@@ -197,6 +198,11 @@ void Mdi::on_actionSliders_triggered()
    addMdiChild(oDw);
 }
 
+void Mdi::on_actionTabs_triggered()
+{
+   TabDialog *oDw = new TabDialog();
+   addMdiChild(oDw);
+}
 
 //  help
 void Mdi::on_actionAbout_CopperSpice_triggered()

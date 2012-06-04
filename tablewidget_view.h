@@ -20,6 +20,10 @@ class TableWidget_View : public QWidget
 
       void setUpWidget();
       void setUpView();
+
+   private slots:
+      void tableClicked_W(int row, int col);
+      void tableClicked_V(const QModelIndex & index);
 };
 
 #endif

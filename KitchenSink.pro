@@ -10,6 +10,7 @@ QT += network
 QT += phonon
 QT += sql
 QT += webkit
+QT += xml
 
 
 TARGET = KitchenSink
@@ -39,7 +40,8 @@ SOURCES  += \
     tablewidget_view.cpp \
     aboutcs.cpp \
     tabdialog.cpp \
-    translate.cpp
+    translate.cpp \
+    xml.cpp
 
 
 HEADERS  += \
@@ -65,7 +67,8 @@ HEADERS  += \
     tablewidget_view.h \
     aboutcs.h \
     tabdialog.h \
-    translate.h
+    translate.h \
+    xml.h
 
 FORMS    += \
     mdi.ui \
@@ -80,11 +83,13 @@ FORMS    += \
     musicplayer.ui \
     tablewidget_view.ui \
     tabdialog.ui \
-    translate.ui
+    translate.ui \
+    xml.ui
 
 RESOURCES  += kitchensink.qrc
 
-TRANSLATIONS += translations/qt_de.ts   \
+TRANSLATIONS += translations/qt_en.ts   \
+                translations/qt_de.ts   \
                 translations/qt_fr.ts
 
 

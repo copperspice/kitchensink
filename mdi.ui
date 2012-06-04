@@ -61,6 +61,7 @@
     <addaction name="actionCalendar"/>
     <addaction name="actionLineEdit"/>
     <addaction name="actionSliders"/>
+    <addaction name="actionTabs"/>
    </widget>
    <widget class="QMenu" name="menuWindows">
     <property name="title">
@@ -77,10 +78,12 @@
     <addaction name="separator"/>
     <addaction name="actionStandardDialog"/>
     <addaction name="actionStyleSheetDialog"/>
-    <addaction name="actionTabs"/>
     <addaction name="separator"/>
     <addaction name="actionHTML_Viewer"/>
     <addaction name="actionWebBrowser"/>
+    <addaction name="separator"/>
+    <addaction name="actionXml"/>
+    <addaction name="actionXmlPatterns"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuWindows"/>
@@ -184,11 +187,6 @@
     <string>Music Player</string>
    </property>
   </action>
-  <action name="actionTabs">
-   <property name="text">
-    <string>Tabs</string>
-   </property>
-  </action>
   <action name="actionPieChart">
    <property name="text">
     <string>Pie Chart</string>
@@ -207,6 +205,21 @@
   <action name="actionAbout_CopperSpice">
    <property name="text">
     <string>About CopperSpice</string>
+   </property>
+  </action>
+  <action name="actionXml">
+   <property name="text">
+    <string>XML</string>
+   </property>
+  </action>
+  <action name="actionXmlPatterns">
+   <property name="text">
+    <string>XML Patterns</string>
+   </property>
+  </action>
+  <action name="actionTabs">
+   <property name="text">
+    <string>Tabs</string>
    </property>
   </action>
  </widget>

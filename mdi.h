@@ -29,10 +29,10 @@ class Mdi : public QMainWindow
       void on_actionSystemTray_triggered();
 
       void on_actionStandardDialog_triggered();
-      void on_actionStyleSheetDialog_triggered();
-      void on_actionTabs_triggered();
+      void on_actionStyleSheetDialog_triggered();     
       void on_actionHTML_Viewer_triggered();
       void on_actionWebBrowser_triggered();
+      void on_actionXml_triggered();
 
       void on_actionTableView_triggered();
       void on_actionTreeView_triggered();
@@ -43,6 +43,7 @@ class Mdi : public QMainWindow
       void on_actionCalendar_triggered();
       void on_actionLineEdit_triggered();      
       void on_actionSliders_triggered();
+      void on_actionTabs_triggered();
 
       void on_actionAbout_CopperSpice_triggered();
       void on_actionAbout_triggered();

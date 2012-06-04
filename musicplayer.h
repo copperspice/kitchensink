@@ -67,12 +67,9 @@ class MusicPlayer : public QMainWindow
       QStandardItemModel *m_model;
       QString m_dir;
 
-      void setupActions();
-      void setupUi();
-
       Phonon::AudioOutput *m_audioOutput;
       Phonon::MediaObject *m_mediaObject;
-      Phonon::MediaObject *m_metaInfo;
+      Phonon::MediaObject *m_metaParser;
 
       Phonon::SeekSlider   *m_seekSlider;
       Phonon::VolumeSlider *m_volumeSlider;
@@ -82,20 +79,21 @@ class MusicPlayer : public QMainWindow
       QAction *m_playAction;
       QAction *m_pauseAction;
       QAction *m_stopAction;
-      QAction *m_nextAction;
-      QAction *m_previousAction;
+
+      void closeEvent(QCloseEvent *event);
+      void setupActions();
+      void setupUi();      
 
    private slots:
       void on_actionOpen_triggered();
-
-      void actionClose();
       void actionAbout();
+      void actionClose();
 
       void stateChanged(Phonon::State newState, Phonon::State oldState);
       void tick(qint64 time);
       void tableClicked(const QModelIndex &);
       void sourceChanged(const Phonon::MediaSource &source);
-      void metaStateChanged(Phonon::State newState, Phonon::State oldState);
+      void metaParserStateChanged(Phonon::State newState, Phonon::State oldState);
       void aboutToFinish();
 };
 

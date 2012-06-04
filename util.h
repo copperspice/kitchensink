@@ -3,8 +3,8 @@
 
 #include <QMessageBox>
 
-void bgMsg(QString msg);
-void bgMsg(QString msg, int value);
-
+void ksMsg(const QString &msg);
+void ksMsg(QString msg, int value);
+void ksMsg(QWidget *parent, const QString &title, const QString &msg);
 
 #endif

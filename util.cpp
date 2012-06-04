@@ -1,21 +1,36 @@
 #include "util.h"
 
-void bgMsg(QString msg)
+
+void ksMsg(const QString &msg)
 {
    QMessageBox msgB;
-   msgB.setWindowTitle("Information");
+
+   msgB.setWindowTitle("Debug Information");
    msgB.setText(msg);
    msgB.exec();
 }
 
-
-void bgMsg(QString msg, int value)
+void ksMsg(QString msg, int value)
 {
    msg = msg + "   " + QString::number(value);
 
    //
    QMessageBox msgB;
-   msgB.setWindowTitle("Information");
+
+   msgB.setWindowTitle("Debug Information");
+   msgB.setText(msg);
+   msgB.exec();
+}
+
+void ksMsg(QWidget *parent, const QString &title, const QString &msg)
+{
+   QMessageBox msgB;
+
+   if (parent) {
+      msgB.setWindowModality(Qt::WindowModal);
+   }
+
+   msgB.setWindowTitle(title);
    msgB.setText(msg);
    msgB.exec();
 }

@@ -97,7 +97,7 @@
     </spacer>
    </item>
    <item row="5" column="1">
-    <widget class="QPushButton" name="selectFont_pushButton">
+    <widget class="QPushButton" name="selectFont_PB">
      <property name="text">
       <string>Select Font</string>
      </property>

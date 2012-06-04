@@ -11,22 +11,8 @@
 
 #include <QSqlError>
 
-/*
-   QTableWidget            This class provides an "item based" table view with a default model.
-                           The items in a QTableWidget are QTableWidgetItem(s)
-
-   QTableView              This class provides a "model/view" implementation of a table.
-                           With a QTableView a model must be supplied.
-
-   Models for QTableView
-
-      QSqlTableModel
-      QSqlRelationalTableModel
-
-*/
-
-TableView::TableView() :
-   QWidget()
+TableView::TableView()
+   : QWidget()
 {
    if (! this->createConnection()) {
       QString msg = "** Create Database Error";
@@ -44,7 +30,7 @@ TableView::TableView() :
    QSqlError error = model->lastError();
 
    if ( error.isValid() )  {
-      bgMsg( error.text() );
+      ksMsg( this, "Table View - SQL Error", error.text() );
    }
 
    model->setEditStrategy(QSqlTableModel::OnManualSubmit);
@@ -106,3 +92,17 @@ bool TableView::createConnection()
    return true;
 }
 
+
+/*
+   QTableWidget            This class provides an "item based" table view with a default model.
+                           The items in a QTableWidget are QTableWidgetItem(s)
+
+   QTableView              This class provides a "model/view" implementation of a table.
+                           With a QTableView a model must be supplied.
+
+   Models for QTableView
+
+      QSqlTableModel
+      QSqlRelationalTableModel
+
+*/

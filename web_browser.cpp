@@ -286,7 +286,8 @@ void WebBrowser::actionOpenNewWindow()
 
 void WebBrowser::actionOpenInNewTab( )
 {
-   bgMsg("This feature has not been implemented. The WebBrowser would need to inherit from QTabWidget.");
+   ksMsg(this, "Web Browser", "This feature has not been implemented. The WebBrowser can inherit "
+         " from QTabWidget to add this functionality.");
 }
 
 void WebBrowser::actionDownloadLinkToDisk()
