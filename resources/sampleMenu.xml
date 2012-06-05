@@ -1,0 +1,86 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml >
+<restaurant>
+   <meal name="Breakfast">
+      <course name="Main Course">
+         <item>
+            <descript>Zucchini Frittata</descript>
+         </item>
+         <item>
+            <descript>Crab Avocado Omlette</descript>
+         </item>
+         <item>
+            <descript>Veggie Omlette</descript>
+         </item>
+         <item>
+            <descript>Pancakes</descript>
+         </item>
+         <item>
+            <descript>Waffles</descript>
+         </item>
+      </course>
+      <course name="Sides">
+         <item>
+            <descript>Raisin Toast</descript>
+         </item>
+         <item>
+            <descript>Sourdough Toast</descript>
+         </item>
+         <item>
+            <descript>Oven Roasted Potatoes</descript>
+         </item>
+      </course>
+
+   </meal>
+
+   <meal name="Lunch">
+      <course name="Main Course">
+         <item>
+            <descript>Pastrami on Rye</descript>
+         </item>
+         <item>
+            <descript>Turkey/Avadco on Sourdough</descript>
+         </item>
+         <item>
+            <descript>Roasted Chicken on Dutch Crucn</descript>
+         </item>
+         <item>
+            <descript>Grilled Veggies on Sourdough</descript>
+         </item>
+         <item>
+            <descript>Shrimp/Crab Organic Salad</descript>
+         </item>
+      </course>
+      <course name="Sides">
+         <item>
+            <descript>BBQ Potato Chips</descript>
+         </item>
+         <item>
+            <descript>Onion Chips</descript>
+         </item>
+         <item>
+            <descript>Clow Slaw</descript>
+         </item>
+      </course>
+   </meal>
+
+   <meal name="Drinks">
+      <course name="">
+         <item>
+            <descript>Orange Juice</descript>
+         </item>
+         <item>
+            <descript>Fresh Leamonade</descript>
+         </item>
+         <item>
+            <descript>Root Beer</descript>
+         </item>
+         <item>
+            <descript>Coffee</descript>
+         </item>
+         <item>
+            <descript>Tea</descript>
+         </item>
+      </course>
+   </meal>
+</restaurant>

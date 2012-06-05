@@ -150,7 +150,7 @@ void Sliders::buttonsOrientationChanged(int index)
 
 void Sliders::rotateWidgets()
 {
-   Q_ASSERT(rotableWidgets.count() % 2 == 0);
+   Q_ASSERT(m_rotableWidgets.count() % 2 == 0);
 
    foreach (QWidget *widget, m_rotableWidgets) {
       m_rotableLayout->removeWidget(widget);

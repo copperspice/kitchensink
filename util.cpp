@@ -1,6 +1,5 @@
 #include "util.h"
 
-
 void ksMsg(const QString &msg)
 {
    QMessageBox msgB;

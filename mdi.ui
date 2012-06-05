@@ -73,7 +73,6 @@
     <addaction name="actionDraw"/>
     <addaction name="actionInternational"/>
     <addaction name="actionMusicPlayer"/>
-    <addaction name="actionPieChart"/>
     <addaction name="actionSystemTray"/>
     <addaction name="separator"/>
     <addaction name="actionStandardDialog"/>
@@ -187,9 +186,9 @@
     <string>Music Player</string>
    </property>
   </action>
-  <action name="actionPieChart">
+  <action name="actionOpenGL">
    <property name="text">
-    <string>Pie Chart</string>
+    <string>OpenGL</string>
    </property>
   </action>
   <action name="actionSystemTray">

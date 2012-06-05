@@ -24,8 +24,7 @@ class Mdi : public QMainWindow
       void on_actionFonts_triggered();
       void on_actionDraw_triggered();
       void on_actionInternational_triggered();
-      void on_actionMusicPlayer_triggered();
-      void on_actionPieChart_triggered();
+      void on_actionMusicPlayer_triggered();      
       void on_actionSystemTray_triggered();
 
       void on_actionStandardDialog_triggered();
@@ -33,6 +32,7 @@ class Mdi : public QMainWindow
       void on_actionHTML_Viewer_triggered();
       void on_actionWebBrowser_triggered();
       void on_actionXml_triggered();
+      void on_actionXmlPatterns_triggered();
 
       void on_actionTableView_triggered();
       void on_actionTreeView_triggered();

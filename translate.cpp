@@ -3,15 +3,14 @@
 
 #include <QtGui>
 
-static const QString qmPath = ":/translations";
+static const QString qmPath = ":/resources";
+QTranslator *Translate::m_translator = new QTranslator;
 
 Translate::Translate()
    : QWidget(), ui(new Ui::Translate )
 {
    ui->setupUi(this);
    setWindowTitle(tr("Translate")); 
-
-   ui->englishRB->setChecked(true);
 
    // add the model
    m_model = new QStringListModel();
@@ -24,15 +23,13 @@ Translate::Translate()
    ui->nameCB->addItem("Rose Tyler");
    ui->nameCB->addItem("Martha Jones");
 
-   this->getListData();
-
-   //
-   m_translator = new QTranslator;
+   this->getListData();  
 
    // signals
    connect(ui->englishRB,  SIGNAL(clicked()), this, SLOT(actionEnglish()));
    connect(ui->frenchRB,   SIGNAL(clicked()), this, SLOT(actionFrench()));
    connect(ui->germanRB,   SIGNAL(clicked()), this, SLOT(actionGerman()));
+   connect(ui->okPB,       SIGNAL(clicked()), this, SLOT(actionClose()));
    connect(ui->closePB,    SIGNAL(clicked()), this, SLOT(actionClose()));
 }
 
@@ -43,7 +40,11 @@ Translate::~Translate()
 
 void Translate::actionEnglish()
 {
-   qApp->removeTranslator(m_translator);   
+   if (! m_translator->load("qt_en.qm",qmPath)) {
+      ksMsg(this, tr("Translate"), tr("Error while loading English international file."));
+   }
+
+   qApp->installTranslator(m_translator);
 }
 
 void Translate::actionFrench()

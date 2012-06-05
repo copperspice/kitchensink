@@ -99,14 +99,6 @@ void Mdi::on_actionMusicPlayer_triggered()
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionPieChart_triggered()
-{
-   //Draw *oDw = new Draw();
-   //addMdiChild(oDw);
-
-   ksMsg("Pie Chart sample has not been implemented");
-}
-
 void Mdi::on_actionSystemTray_triggered()
 {
    SysTray *oDw = new SysTray();
@@ -140,7 +132,15 @@ void Mdi::on_actionWebBrowser_triggered()
 void Mdi::on_actionXml_triggered()
 {
    Xml *oDw = new Xml();
-   addMdiChild(oDw);
+   addMdiChild(oDw);  
+}
+
+void Mdi::on_actionXmlPatterns_triggered()
+{
+   //Xml *oDw = new Xml();
+   //addMdiChild(oDw);
+
+   ksMsg("XML Patterns sample has not been implemented");
 }
 
 

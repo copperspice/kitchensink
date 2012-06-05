@@ -40,8 +40,8 @@ TreeView::TreeView() :
 
    for (nK = itemList.begin(); nK != itemList.end(); ++nK) {
 
-      QStandardItem *item = new QStandardItem();
-      item->setText( nK->catName);
+      QStandardItem *item = new QStandardItem;
+      item->setText(nK->catName);
       item->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable );
 
       if ( nK->catParent == 0 ) {

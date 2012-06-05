@@ -16,8 +16,9 @@ class Translate : public QWidget
 
    private:
       Ui::Translate *ui;
-      QStringListModel *m_model;
-      QTranslator *m_translator;
+      QStringListModel *m_model;      
+      static QTranslator *m_translator;
+
       void retranslateUi();
       void changeEvent(QEvent *event);
       void getListData();

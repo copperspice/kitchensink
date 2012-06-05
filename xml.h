@@ -6,6 +6,8 @@
 
 #include <QWidget>
 #include <QDomDocument>
+#include <QStandardItemModel>
+#include <QStandardItem>
 
 class Xml : public QWidget
 {
@@ -17,7 +19,13 @@ class Xml : public QWidget
 
    private:
       Ui::Xml *ui;
-      //void parseMenu(QDomElement element);
+      QString m_fileName;
+      QStandardItemModel *m_model;
+
+      void processXml();
+      void parseElement(QStandardItem *parentItem, QDomElement element);
+      void parseMealElement(QStandardItem *parentItem, QDomElement element);
+      QStandardItem *addElement(QStandardItem *parentItem, QString text);
 
    private slots:
       void actionOpenXml();

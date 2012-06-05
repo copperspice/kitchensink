@@ -12,7 +12,6 @@ QT += sql
 QT += webkit
 QT += xml
 
-
 TARGET = KitchenSink
 TEMPLATE = app
 
@@ -88,9 +87,9 @@ FORMS    += \
 
 RESOURCES  += kitchensink.qrc
 
-TRANSLATIONS += translations/qt_en.ts   \
-                translations/qt_de.ts   \
-                translations/qt_fr.ts
+TRANSLATIONS += resources/qt_en.ts   \
+                resources/qt_de.ts   \
+                resources/qt_fr.ts
 
 
 
