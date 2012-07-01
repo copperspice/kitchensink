@@ -18,6 +18,7 @@ class ColorPicker : public QWidget
 
    private slots:
       void setColor();
+      void actionClose();
 };
 
 #endif

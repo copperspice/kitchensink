@@ -18,7 +18,7 @@ class FontPicker : public QWidget
 
    private slots:
       void setFont();
-
+      void actionClose();
 };
 
 #endif // FONTPICKER_H

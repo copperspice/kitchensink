@@ -91,8 +91,8 @@
         <string>...</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>resources/plus.png</normaloff>resources/plus.png</iconset>
+        <iconset resource="kitchensink.qrc">
+         <normaloff>:/resources/plus.png</normaloff>:/resources/plus.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -114,8 +114,8 @@
         <string>...</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>resources/minus.png</normaloff>resources/minus.png</iconset>
+        <iconset resource="kitchensink.qrc">
+         <normaloff>:/resources/minus.png</normaloff>:/resources/minus.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -145,6 +145,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="kitchensink.qrc"/>
+ </resources>
  <connections/>
 </ui>

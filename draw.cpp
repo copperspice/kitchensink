@@ -54,18 +54,18 @@ Draw::Draw()
     m_renderArea = new DrawArea;
 
     shapeComboBox = new QComboBox;
-    shapeComboBox->addItem(tr("Polygon"), DrawArea::Polygon);
-    shapeComboBox->addItem(tr("Rectangle"), DrawArea::Rect);
+    shapeComboBox->addItem(tr("Polygon"),    DrawArea::Polygon);
+    shapeComboBox->addItem(tr("Rectangle"),  DrawArea::Rect);
     shapeComboBox->addItem(tr("Rounded Rectangle"), DrawArea::RoundedRect);
-    shapeComboBox->addItem(tr("Ellipse"), DrawArea::Ellipse);
-    shapeComboBox->addItem(tr("Pie"), DrawArea::Pie);
-    shapeComboBox->addItem(tr("Chord"), DrawArea::Chord);
-    shapeComboBox->addItem(tr("Path"), DrawArea::Path);
-    shapeComboBox->addItem(tr("Line"), DrawArea::Line);
-    shapeComboBox->addItem(tr("Polyline"), DrawArea::Polyline);
-    shapeComboBox->addItem(tr("Arc"), DrawArea::Arc);
-    shapeComboBox->addItem(tr("Points"), DrawArea::Points);
-    shapeComboBox->addItem(tr("Text"), DrawArea::Text);
+    shapeComboBox->addItem(tr("Ellipse"),    DrawArea::Ellipse);
+    shapeComboBox->addItem(tr("Pie"),        DrawArea::Pie);
+    shapeComboBox->addItem(tr("Chord"),      DrawArea::Chord);
+    shapeComboBox->addItem(tr("Path"),       DrawArea::Path);
+    shapeComboBox->addItem(tr("Line"),       DrawArea::Line);
+    shapeComboBox->addItem(tr("Polyline"),   DrawArea::Polyline);
+    shapeComboBox->addItem(tr("Arc"),        DrawArea::Arc);
+    shapeComboBox->addItem(tr("Points"),     DrawArea::Points);
+    shapeComboBox->addItem(tr("Text"),       DrawArea::Text);
 
     shapeLabel = new QLabel(tr("&Shape:"));
     shapeLabel->setBuddy(shapeComboBox);
@@ -222,7 +222,7 @@ void Draw::brushChanged()
         m_renderArea->setBrush(conicalGradient);
 
     } else if (style == Qt::TexturePattern) {
-        m_renderArea->setBrush(QBrush(QPixmap(":/images/brick.png")));
+        m_renderArea->setBrush(QBrush(QPixmap(":/resources/brick.png")));
 
     } else {
         m_renderArea->setBrush(QBrush(Qt::green, style));

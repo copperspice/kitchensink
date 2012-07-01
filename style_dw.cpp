@@ -27,8 +27,11 @@ Style_DW::Style_DW(Mdi *parent)
    QString qssName = Style_Edit::getQssName();
    Style_Edit::loadStyleSheet(qssName);
 
-   connect(ui->buttonBox,   SIGNAL(clicked(QAbstractButton *)), this, SLOT(actionButton(QAbstractButton *)));
-   connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(actionClose()));
+   connect(ui->okPB,    SIGNAL(clicked()), this, SLOT(actionOk()));
+   connect(ui->closePB, SIGNAL(clicked()), this, SLOT(actionClose()));
+
+   // force
+   ui->nameCB->setFocus();
 }
 
 Style_DW::~Style_DW()
@@ -50,27 +53,16 @@ void Style_DW::on_actionEditStyle_triggered()
    m_parent->addMdiChild(m_style);
 }
 
-void Style_DW::actionButton(QAbstractButton *button)
+void Style_DW::actionOk()
 {
-   QMessageBox msgB;
-
-   if (button->text().toLower() == "ok") {
-      msgB.setText("Ok button pressed. Closing Style Sheets.");
-      msgB.exec();
-
-   } else {
-      msgB.setText("Cancel button pressed. Closing Style Sheets.");
-      msgB.exec();
-   }
-
-   //
+   ksMsg(this, "Style Sheets", "Ok button pressed. Closing Style Sheets.");
    this->actionClose();
 }
 
 void Style_DW::actionClose() {
 
    // close child window if open
-   if (m_style) {
+   if (m_style != NULL) {
       m_style->actionClose();
    }
 

@@ -23,7 +23,7 @@ Translate::Translate()
    ui->nameCB->addItem("Rose Tyler");
    ui->nameCB->addItem("Martha Jones");
 
-   this->getListData();  
+   this->getListData();     
 
    // signals
    connect(ui->englishRB,  SIGNAL(clicked()), this, SLOT(actionEnglish()));
@@ -31,6 +31,9 @@ Translate::Translate()
    connect(ui->germanRB,   SIGNAL(clicked()), this, SLOT(actionGerman()));
    connect(ui->okPB,       SIGNAL(clicked()), this, SLOT(actionClose()));
    connect(ui->closePB,    SIGNAL(clicked()), this, SLOT(actionClose()));
+
+   // force
+   ui->nameCB->setFocus();
 }
 
 Translate::~Translate()

@@ -36,14 +36,14 @@
         <file>resources/spinup_hover.png</file>
         <file>resources/spinup_pressed.png</file>
         <file>resources/up_arrow.png</file>
-        <file>resources/trash.svg</file>
-        <file>resources/bad.svg</file>
-        <file>resources/heart.svg</file>
         <file>resources/qt_fr.ts</file>
         <file>resources/qt_de.qm</file>
         <file>resources/qt_fr.qm</file>
         <file>resources/qt_de.ts</file>
         <file>resources/qt_en.ts</file>
         <file>resources/qt_en.qm</file>
+        <file>resources/trash.png</file>
+        <file>resources/bad.png</file>
+        <file>resources/heart.png</file>
     </qresource>
 </RCC>

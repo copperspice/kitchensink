@@ -17,7 +17,8 @@ FontPicker::FontPicker(QWidget *parent) :
    // missing two letters
    ui->fontEdit->setText("A wacky fox and sizeable pig jumped halfway over a blue moon.");
 
-   connect( ui->selectFont_PB, SIGNAL(clicked()), this, SLOT(setFont()));
+   connect(ui->selectFont_PB, SIGNAL(clicked()), this, SLOT(setFont()));
+   connect(ui->closePB,       SIGNAL(clicked()), this, SLOT(actionClose()));
 }
 
 FontPicker::~FontPicker()
@@ -37,4 +38,8 @@ void FontPicker::setFont()
         ui->fontEdit->setFocus();
         ui->fontEdit->setSelection(0,0);
     }
+}
+
+void FontPicker::actionClose() {
+   this->parentWidget()->close();
 }

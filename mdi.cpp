@@ -213,9 +213,25 @@ void Mdi::on_actionAbout_CopperSpice_triggered()
 
 void Mdi::on_actionAbout_triggered()
 {
-   QMessageBox::about(this, tr("About Kitchen Sink"),
-       tr("<center>Version: 1.0<br/>"
-       "(Build: 5/25/2012)<br/><br/>"
-       "Developed by Barbara Geller        barbara@2copperspice.com<br/>"
-       "Developed by Ansel Sermershemim    ansel@copperspice.comm<br/></center><br/>"));
+   QString textBody = "<font color='#000080'><table style=margin-right:25>"
+                      "<tr><td><nobr>Developed by Barbara Geller</nobr></td><td>barbara@copperspice.com</td></tr>"
+                      "<tr><td style=padding-right:25><nobr>Developed by Ansel Sermersheim</nobr></td><td>ansel@copperspice.com</td></tr>"
+                      "</table></font>"
+                      "<br>"
+                      "<p><small>Copyright 2012 BG Consulting, All rights reserved.<br>"
+                      "This program is provided AS IS with no warranty of any kind.<br></small></p>";
+
+   //
+   QMessageBox msgB;
+   msgB.setIcon(QMessageBox::NoIcon);
+   msgB.setWindowIcon( QIcon("://resources/plus.png"));
+
+   msgB.setWindowTitle(tr("About Kitchen Sink"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 6.13.2012</h5></center></p>"));
+   msgB.setInformativeText(textBody);
+
+   msgB.setStandardButtons(QMessageBox::Ok);
+   msgB.setDefaultButton(QMessageBox::Ok);
+
+   msgB.exec();
 }

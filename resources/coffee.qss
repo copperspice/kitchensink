@@ -1,39 +1,60 @@
-.QWidget {
+QWidget {
    background-color: beige;
 }
 
-/* Nice Windows-XP-style password character. */
+QLineEdit, QFrame {
+    border-width: 2px;
+    padding: 1px;
+    border-style: solid;
+    border-color: darkkhaki;
+    border-radius: 4px;
+}
+
+QLabel {
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+QLabel, QAbstractButton {    
+}
+
+/* custom QLineEdit */
+.QLineEdit {
+   background: #FFE4C4;  
+}
+
+QLineEdit:focus, QFrame:focus {
+    border-width: 3px;
+    padding: 0px;
+}
+
+/* Windows XP style password character. */
 QLineEdit[echoMode="2"] {
     lineedit-password-character: 9679;
 }
 
-/* We provide a min-width and min-height for push buttons
-   so that they look elegant regardless of the width of the text. */
+/* provide a min-width and min-height so they look nice
+   regardless of the width of the text. */
 QPushButton {
     background-color: palegoldenrod;
-    border-width: 2px;
     border-color: darkkhaki;
+    border-width: 2px;
     border-style: solid;
-    border-radius: 5;
     padding: 3px;
+    border-radius: 5;   
     min-width: 9ex;
-    min-height: 2.5ex;
+    min-height: 2.5ex;  
 }
 
 QPushButton:hover {
    background-color: khaki;
 }
 
-/* Increase the padding, so the text is shifted when the button is
-   pressed. */
 QPushButton:pressed {
     padding-left: 5px;
     padding-top: 5px;
     background-color: #d0d67c;
-}
-
-QLabel, QAbstractButton {
-    font: bold;
 }
 
 /* Mark mandatory fields with a brownish color. */
@@ -41,7 +62,7 @@ QLabel, QAbstractButton {
     color: brown;
 }
 
-/* Bold text on status bar looks awful. */
+/* Bold text on status bar looks bad. */
 QStatusBar QLabel {
    font: normal;
 }
@@ -54,9 +75,9 @@ QStatusBar::item {
 }
 
 QComboBox, QLineEdit, QSpinBox, QTextEdit, QListView {
-    background-color: cornsilk;
-    selection-color: #0a214c; 
-    selection-background-color: #C19A6B;
+    background-color: beige;
+    selection-color: black; 
+    selection-background-color: #C19A6B;   /* coffee color */
 }
 
 QListView {
@@ -67,46 +88,67 @@ QListView::item:hover {
     background-color: wheat;
 }
 
-/* We reserve 1 pixel space in padding. When we get the focus,
-   we kill the padding and enlarge the border. This makes the items
-   glow. */
-QLineEdit, QFrame {
-    border-width: 2px;
-    padding: 1px;
-    border-style: solid;
-    border-color: darkkhaki;
-    border-radius: 5px;
-}
-
-/* As mentioned above, eliminate the padding and increase the border. */
-QLineEdit:focus, QFrame:focus {
-    border-width: 3px;
-    padding: 0px;
-}
-
-/* A QLabel is a QFrame ... */
-QLabel {
-    border: none;
-    padding: 0;
-    background: none;
-}
-
-/* A QToolTip is a QLabel ... */
+/* A QToolTip is a QLabel */
 QToolTip {
+    background-color: BurlyWood;
     border: 2px solid darkkhaki;
     padding: 5px;
     border-radius: 3px;
     opacity: 200;
 }
 
-/* Nice to have the background color change when hovered. */
+/* shows the background color change when hovered. */
 QRadioButton:hover, QCheckBox:hover {
-    background-color: wheat;
+   background-color: wheat;
 }
 
-/* Force the dialog's buttons to follow the Windows guidelines. */
+/* Force dialog buttons to follow the Windows guidelines. */
 QDialogButtonBox {
-    button-layout: 0;
+   button-layout: 0;
+}
+
+/* custom calendar */
+QCalendarWidget  * {        
+   background-color: DarkKhaki;   
+   color: black;
+   padding: 0px;
+}
+
+QCalendarWidget  QFrame {   
+   background-color: beige;         
+   color: grey;  
+   border-width: 0px;      
+}
+
+/* custom menubar */
+QMenuBar {       
+    border-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: DarkSlateGray;    
+}
+QMenuBar::item:pressed {
+    background: LightGray;
+}
+
+QMenu::item {     
+    selection-background-color:  BurlyWood;
 }
 
 
+/* custom tab controls */
+QTabBar::tab:selected {
+     background-color: BurlyWood;
+     border: 1px solid;
+     padding: 3px;
+     border-radius: 3px;
+}
+
+QTabBar::tab:unselected {   
+     border: 1px solid;
+     padding: 3px;
+     border-radius: 3px;
+}
+
+QScrollBar:vertical {
+     background: BurlyWood;  
+}

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>413</height>
+    <width>407</width>
+    <height>398</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,13 +29,26 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QGridLayout">
-       <property name="margin">
-        <number>9</number>
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="leftMargin">
+        <number>14</number>
        </property>
-       <property name="spacing">
-        <number>6</number>
+       <property name="rightMargin">
+        <number>14</number>
        </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <item row="1" column="2" colspan="2">
+        <widget class="QRadioButton" name="femaleRadioButton">
+         <property name="toolTip">
+          <string>Check this if you are female</string>
+         </property>
+         <property name="text">
+          <string>&amp;Female</string>
+         </property>
+        </widget>
+       </item>
        <item row="4" column="1" colspan="4">
         <widget class="QListWidget" name="professionList">
          <property name="toolTip">
@@ -82,79 +95,7 @@
          </item>
         </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="nameLabel">
-         <property name="text">
-          <string>&amp;Name:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-         <property name="buddy">
-          <cstring>nameCB</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Profession:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
-         </property>
-         <property name="buddy">
-          <cstring>professionList</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2" colspan="2">
-        <widget class="QRadioButton" name="femaleRadioButton">
-         <property name="toolTip">
-          <string>Check this if you are female</string>
-         </property>
-         <property name="text">
-          <string>&amp;Female</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="genderLabel">
-         <property name="text">
-          <string>Gender:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="3" colspan="2">
-        <widget class="QDialogButtonBox" name="buttonBox">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="standardButtons">
-          <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1" colspan="2">
-        <widget class="QSpinBox" name="ageSpinBox">
-         <property name="toolTip">
-          <string>Specify your age</string>
-         </property>
-         <property name="statusTip">
-          <string>Specify your age</string>
-         </property>
-         <property name="minimum">
-          <number>12</number>
-         </property>
-         <property name="value">
-          <number>22</number>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1" colspan="4">
+       <item row="3" column="1" colspan="2">
         <widget class="QComboBox" name="countryCombo">
          <property name="toolTip">
           <string>Specify country of origin</string>
@@ -202,13 +143,84 @@
          </item>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QRadioButton" name="maleRadioButton">
-         <property name="toolTip">
-          <string>Check this if you are male</string>
+       <item row="1" column="4">
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>100</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label">
          <property name="text">
-          <string>&amp;Male</string>
+          <string>Profession:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+         </property>
+         <property name="buddy">
+          <cstring>professionList</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="countryLabel">
+         <property name="text">
+          <string>Country:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+         <property name="buddy">
+          <cstring>countryCombo</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>15</width>
+           <height>8</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="1" colspan="2">
+        <widget class="QComboBox" name="nameCB">
+         <property name="toolTip">
+          <string>Specify your name</string>
+         </property>
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="ageSpinBox">
+         <property name="toolTip">
+          <string>Specify your age</string>
+         </property>
+         <property name="statusTip">
+          <string>Specify your age</string>
+         </property>
+         <property name="minimum">
+          <number>12</number>
+         </property>
+         <property name="value">
+          <number>22</number>
          </property>
         </widget>
        </item>
@@ -225,18 +237,18 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="1" colspan="4">
-        <widget class="QComboBox" name="nameCB">
-         <property name="toolTip">
-          <string>Specify your name</string>
+       <item row="1" column="0">
+        <widget class="QLabel" name="genderLabel">
+         <property name="text">
+          <string>Gender:</string>
          </property>
-         <property name="editable">
-          <bool>true</bool>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
        <item row="2" column="3" colspan="2">
-        <spacer>
+        <spacer name="horizontalSpacer_5">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -248,8 +260,31 @@
          </property>
         </spacer>
        </item>
-       <item row="1" column="4">
-        <spacer>
+       <item row="0" column="0">
+        <widget class="QLabel" name="nameLabel">
+         <property name="text">
+          <string>&amp;Name:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+         <property name="buddy">
+          <cstring>nameCB</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QRadioButton" name="maleRadioButton">
+         <property name="toolTip">
+          <string>Check this if you are male</string>
+         </property>
+         <property name="text">
+          <string>&amp;Male</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="5">
+        <spacer name="horizontalSpacer">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -261,18 +296,65 @@
          </property>
         </spacer>
        </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="countryLabel">
-         <property name="text">
-          <string>Country:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-         <property name="buddy">
-          <cstring>countryCombo</cstring>
-         </property>
-        </widget>
+       <item row="6" column="0" colspan="6">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <spacer name="horizontalSpacer_1">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="okPB">
+           <property name="text">
+            <string>Ok</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>10</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="closePB">
+           <property name="text">
+            <string>Close</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
@@ -284,7 +366,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>407</width>
      <height>24</height>
     </rect>
    </property>
@@ -321,6 +403,16 @@
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>nameCB</tabstop>
+  <tabstop>maleRadioButton</tabstop>
+  <tabstop>femaleRadioButton</tabstop>
+  <tabstop>ageSpinBox</tabstop>
+  <tabstop>countryCombo</tabstop>
+  <tabstop>professionList</tabstop>
+  <tabstop>okPB</tabstop>
+  <tabstop>closePB</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

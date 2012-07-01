@@ -36,13 +36,13 @@
    <meal name="Lunch">
       <course name="Main Course">
          <item>
-            <descript>Pastrami on Rye</descript>
+            <descript>Pastrami on Rye Bread</descript>
          </item>
          <item>
-            <descript>Turkey/Avadco on Sourdough</descript>
+            <descript>Turkey/Avadco on Sourdough Bread</descript>
          </item>
          <item>
-            <descript>Roasted Chicken on Dutch Crucn</descript>
+            <descript>Roasted Chicken on Dutch Crunch</descript>
          </item>
          <item>
             <descript>Grilled Veggies on Sourdough</descript>

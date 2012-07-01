@@ -91,10 +91,10 @@ void Xml::processXml()
    m_model->setHeaderData(0, Qt::Horizontal, QObject::tr("CopperSpice Diner"));
    ui->treeView->expandAll();
 
-   // adjust the size
-//   QSize size1 = this->parentWidget()->sizeHint();
-//   QSize size2 = ui->textEdit->sizeHint();
-//   this->parentWidget()->resize(size1.width()+size2.width(), size1.height()+size2.height());
+   // adjust the size by hand for nwo
+
+   this->parentWidget()->resize(300, 300);
+
 
 }
 

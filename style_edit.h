@@ -27,7 +27,7 @@ class Style_Edit : public QDialog
       void on_styleCombo_activated(const QString &styleName);
       void on_styleSheetCombo_activated(const QString &styleSheetName);
       void on_styleTextEdit_textChanged();
-      void on_applyButton_clicked();     
+      void on_applyPB_clicked();
 };
 
 #endif

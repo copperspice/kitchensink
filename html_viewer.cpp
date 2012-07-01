@@ -56,9 +56,9 @@ Html_Viewer::Html_Viewer()
    setStartupText();
 
    // signals
-   connect(ui->webView,       SIGNAL(loadFinished(bool)),this, SLOT(updateTextEdit()));
-   connect(ui->clearButton,   SIGNAL(clicked()), ui->plainTextEdit, SLOT(clear()) );
-   connect(ui->previewButton, SIGNAL(clicked()), this, SLOT(actionPreview()) );
+   connect(ui->webView,   SIGNAL(loadFinished(bool)), this,              SLOT(updateTextEdit()));
+   connect(ui->clearPB,   SIGNAL(clicked()),          ui->plainTextEdit, SLOT(clear()) );
+   connect(ui->previewPB, SIGNAL(clicked()),          this,              SLOT(actionPreview()) );
 }
 
 Html_Viewer::~Html_Viewer()

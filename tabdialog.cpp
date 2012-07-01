@@ -51,6 +51,9 @@ TabDialog::TabDialog(QWidget *parent)
    connect(ui->kitchenSink_RB, SIGNAL(clicked()), this, SLOT(actionRollYourOwn()));
 
    connect(ui->closePB,        SIGNAL(clicked()), this, SLOT(actionClose()));
+
+   // force
+   ui->ticketLineEdit->setFocus();
 }
 
 TabDialog::~TabDialog()

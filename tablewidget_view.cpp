@@ -17,10 +17,13 @@ TableWidget_View::TableWidget_View(QWidget *parent)
    // this was done in the UI form see observe the affect
    // ui->splitter->setHandleWidth(10);
 
-   // adjust the size
+   // adjust the size of the wiget based on the ui
    QSize size = this->size();
    setMinimumWidth( size.width() );
    setMinimumHeight( size.height() );
+
+
+   // this->parentWidget()->resize(size.width(), size.height());
 }
 
 TableWidget_View::~TableWidget_View()
@@ -42,11 +45,12 @@ void TableWidget_View::setUpWidget()
    // name the columns
    ui->tableWidget->setHorizontalHeaderLabels(headers);
 
-   // resize the last column
+   // resize the last column, shown here as an example
    // ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
 
-   ui->tableWidget->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
-   ui->tableWidget->horizontalHeader()->setResizeMode(1, QHeaderView::Stretch);
+   ui->tableWidget->setColumnWidth(0, 140);
+   ui->tableWidget->setColumnWidth(0, 140);
+   ui->tableWidget->horizontalHeader()->setResizeMode(QHeaderView::Interactive);
 
    ui->tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
    ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -143,7 +147,7 @@ void TableWidget_View::setUpView()
    ui->tableView->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
    ui->tableView->horizontalHeader()->setResizeMode(1, QHeaderView::Stretch);
 
-   // not needed here since this is false by degault, shown here as an example
+   // not needed since this is false by default, shown here as an example
    // set to false before adding data
    // ui->tableView->setSortingEnabled(false);
 

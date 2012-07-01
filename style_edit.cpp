@@ -3,6 +3,7 @@
 
 #include <QtGui>
 
+const static QString qsPath = ":/resources/";
 QString Style_Edit::qssName = "Shiny";
 
 Style_Edit::Style_Edit(QWidget *parent)
@@ -26,8 +27,10 @@ Style_Edit::Style_Edit(QWidget *parent)
 
    QString styleSheet = this->readStyleSheet(Style_Edit::qssName);
    ui->styleTextEdit->setPlainText(styleSheet);
-   ui->applyButton->setEnabled(false);
+   ui->applyPB->setEnabled(false);
 
+   // signal
+   connect(ui->closePB, SIGNAL(clicked()), this, SLOT(actionClose()));
 }
 
 Style_Edit::~Style_Edit()
@@ -52,7 +55,7 @@ QString Style_Edit::loadStyleSheet(const QString &name)
 
 QString Style_Edit::readStyleSheet(const QString &name)
 {
-   QFile file(":/qss/" + name.toLower() + ".qss");
+   QFile file(qsPath + name.toLower() + ".qss");
    file.open(QFile::ReadOnly);
 
    QString styleSheet = QLatin1String(file.readAll());
@@ -63,7 +66,7 @@ QString Style_Edit::readStyleSheet(const QString &name)
 void Style_Edit::on_styleCombo_activated(const QString &styleName)
 {
    qApp->setStyle(styleName);
-   ui->applyButton->setEnabled(false);
+   ui->applyPB->setEnabled(false);
 }
 
 void Style_Edit::on_styleSheetCombo_activated(const QString &name)
@@ -74,18 +77,18 @@ void Style_Edit::on_styleSheetCombo_activated(const QString &name)
    QString styleSheet = this->loadStyleSheet(Style_Edit::qssName);
 
    ui->styleTextEdit->setPlainText(styleSheet);
-   ui->applyButton->setEnabled(false);
+   ui->applyPB->setEnabled(false);
 }
 
 void Style_Edit::on_styleTextEdit_textChanged()
 {
-   ui->applyButton->setEnabled(true);
+   ui->applyPB->setEnabled(true);
 }
 
-void Style_Edit::on_applyButton_clicked()
+void Style_Edit::on_applyPB_clicked()
 {
    qApp->setStyleSheet(ui->styleTextEdit->toPlainText());
-   ui->applyButton->setEnabled(false);
+   ui->applyPB->setEnabled(false);
 }
 
 void Style_Edit::actionClose() {

@@ -21,7 +21,7 @@ class Style_DW : public QMainWindow
    private slots:
       void on_actionAbout_triggered();
       void on_actionEditStyle_triggered();
-      void actionButton(QAbstractButton *button);      
+      void actionOk();
       void actionClose();
 };
 

@@ -46,7 +46,7 @@
 Calendar::Calendar()
    : QWidget()
 {
-   createPreviewGroupBox();
+   createCalendarGroupBox();
    createGeneralOptionsGroupBox();
    createDatesGroupBox();
    createTextFormatsGroupBox();
@@ -54,60 +54,59 @@ Calendar::Calendar()
    setWindowTitle(tr("Calendar Widget"));
 
    QGridLayout *layout = new QGridLayout;
-   layout->addWidget(previewGroupBox, 0, 0);
+   layout->addWidget(calendarGroupBox, 0, 0);
    layout->addWidget(generalOptionsGroupBox, 0, 1);
    layout->addWidget(datesGroupBox, 1, 0);
    layout->addWidget(textFormatsGroupBox, 1, 1);
    layout->setSizeConstraint(QLayout::SetFixedSize);
    setLayout(layout);
 
-   previewLayout->setRowMinimumHeight(0, calendar->sizeHint().height());
-   previewLayout->setColumnMinimumWidth(0, calendar->sizeHint().width());   
+   calendarLayout->setRowMinimumHeight(0,   m_calendar->sizeHint().height());
+   calendarLayout->setColumnMinimumWidth(0, m_calendar->sizeHint().width());
 }
 
 void Calendar::localeChanged(int index)
 {
-   calendar->setLocale(localeCombo->itemData(index).toLocale());
+   m_calendar->setLocale(localeCombo->itemData(index).toLocale());
 }
 
 void Calendar::firstDayChanged(int index)
 {
-   calendar->setFirstDayOfWeek(Qt::DayOfWeek(firstDayCombo->itemData(index).toInt()));
+   m_calendar->setFirstDayOfWeek(Qt::DayOfWeek(firstDayCombo->itemData(index).toInt()));
 }
-
 
 void Calendar::selectionModeChanged(int index)
 {
-   calendar->setSelectionMode(QCalendarWidget::SelectionMode(selectionModeCombo->itemData(index).toInt()));
+   m_calendar->setSelectionMode(QCalendarWidget::SelectionMode(selectionModeCombo->itemData(index).toInt()));
 }
 
 void Calendar::horizontalHeaderChanged(int index)
 {
-   calendar->setHorizontalHeaderFormat(
+   m_calendar->setHorizontalHeaderFormat(
             QCalendarWidget::HorizontalHeaderFormat(horizontalHeaderCombo->itemData(index).toInt()));
 }
 
 void Calendar::verticalHeaderChanged(int index)
 {
-   calendar->setVerticalHeaderFormat(
+   m_calendar->setVerticalHeaderFormat(
             QCalendarWidget::VerticalHeaderFormat(verticalHeaderCombo->itemData(index).toInt()));
 }
 
 void Calendar::selectedDateChanged()
 {
-   currentDateEdit->setDate(calendar->selectedDate());
+   currentDateEdit->setDate(m_calendar->selectedDate());
 }
 
 void Calendar::minimumDateChanged(const QDate &date)
 {
-   calendar->setMinimumDate(date);
-   maximumDateEdit->setDate(calendar->maximumDate());
+   m_calendar->setMinimumDate(date);
+   maximumDateEdit->setDate(m_calendar->maximumDate());
 }
 
 void Calendar::maximumDateChanged(const QDate &date)
 {
-   calendar->setMaximumDate(date);
-   minimumDateEdit->setDate(calendar->minimumDate());
+   m_calendar->setMaximumDate(date);
+   minimumDateEdit->setDate(m_calendar->minimumDate());
 }
 
 void Calendar::weekdayFormatChanged()
@@ -115,11 +114,11 @@ void Calendar::weekdayFormatChanged()
    QTextCharFormat format;
 
    format.setForeground(qvariant_cast<QColor>(weekdayColorCombo->itemData(weekdayColorCombo->currentIndex())));
-   calendar->setWeekdayTextFormat(Qt::Monday,    format);
-   calendar->setWeekdayTextFormat(Qt::Tuesday,   format);
-   calendar->setWeekdayTextFormat(Qt::Wednesday, format);
-   calendar->setWeekdayTextFormat(Qt::Thursday,  format);
-   calendar->setWeekdayTextFormat(Qt::Friday,    format);
+   m_calendar->setWeekdayTextFormat(Qt::Monday,    format);
+   m_calendar->setWeekdayTextFormat(Qt::Tuesday,   format);
+   m_calendar->setWeekdayTextFormat(Qt::Wednesday, format);
+   m_calendar->setWeekdayTextFormat(Qt::Thursday,  format);
+   m_calendar->setWeekdayTextFormat(Qt::Friday,    format);
 }
 
 void Calendar::weekendFormatChanged()
@@ -128,8 +127,8 @@ void Calendar::weekendFormatChanged()
 
    format.setForeground(qvariant_cast<QColor>(
                weekendColorCombo->itemData(weekendColorCombo->currentIndex())));
-   calendar->setWeekdayTextFormat(Qt::Saturday, format);
-   calendar->setWeekdayTextFormat(Qt::Sunday,   format);
+   m_calendar->setWeekdayTextFormat(Qt::Saturday, format);
+   m_calendar->setWeekdayTextFormat(Qt::Sunday,   format);
 }
 
 void Calendar::reformatHeaders()
@@ -147,13 +146,13 @@ void Calendar::reformatHeaders()
       format.setForeground(Qt::green);
 
    }
-   calendar->setHeaderTextFormat(format);
+   m_calendar->setHeaderTextFormat(format);
 }
 
 void Calendar::reformatCalendarPage()
 {
    if (firstFridayCheckBox->isChecked()) {
-      QDate firstFriday(calendar->yearShown(), calendar->monthShown(), 1);
+      QDate firstFriday(m_calendar->yearShown(), m_calendar->monthShown(), 1);
 
       while (firstFriday.dayOfWeek() != Qt::Friday) {
          firstFriday = firstFriday.addDays(1);
@@ -161,37 +160,37 @@ void Calendar::reformatCalendarPage()
 
       QTextCharFormat firstFridayFormat;
       firstFridayFormat.setForeground(Qt::blue);
-      calendar->setDateTextFormat(firstFriday, firstFridayFormat);
+      m_calendar->setDateTextFormat(firstFriday, firstFridayFormat);
    }
 
-   //May First in Red takes precedence
+   // May 1st in red takes precedence
    if (mayFirstCheckBox->isChecked()) {
-      const QDate mayFirst(calendar->yearShown(), 5, 1);
+      const QDate mayFirst(m_calendar->yearShown(), 5, 1);
 
       QTextCharFormat mayFirstFormat;
       mayFirstFormat.setForeground(Qt::red);
-      calendar->setDateTextFormat(mayFirst, mayFirstFormat);
+      m_calendar->setDateTextFormat(mayFirst, mayFirstFormat);
    }
 }
 
-void Calendar::createPreviewGroupBox()
+void Calendar::createCalendarGroupBox()
 {
-   previewGroupBox = new QGroupBox(tr("Preview"));
+   calendarGroupBox = new QGroupBox(tr("Preview"));
 
-   QFont font = previewGroupBox->font();
+   QFont font = calendarGroupBox->font();
    font.setPointSize(10);
-   previewGroupBox->setFont(font);
+   calendarGroupBox->setFont(font);
 
-   calendar = new QCalendarWidget;
-   calendar->setMinimumDate(QDate(1900, 1, 1));
-   calendar->setMaximumDate(QDate(3000, 1, 1));
-   calendar->setGridVisible(true);
+   m_calendar = new QCalendarWidget;
+   m_calendar->setMinimumDate(QDate(1900, 1, 1));
+   m_calendar->setMaximumDate(QDate(2500, 1, 1));
+   m_calendar->setGridVisible(true);
 
-   connect(calendar, SIGNAL(currentPageChanged(int,int)), this, SLOT(reformatCalendarPage()));
+   connect(m_calendar, SIGNAL(currentPageChanged(int,int)), this, SLOT(reformatCalendarPage()));
 
-   previewLayout = new QGridLayout;
-   previewLayout->addWidget(calendar, 0, 0, Qt::AlignCenter);
-   previewGroupBox->setLayout(previewLayout);
+   calendarLayout = new QGridLayout;
+   calendarLayout->addWidget(m_calendar, 0, 0, Qt::AlignCenter);
+   calendarGroupBox->setLayout(calendarLayout);
 }
 
 void Calendar::createGeneralOptionsGroupBox()
@@ -253,7 +252,7 @@ void Calendar::createGeneralOptionsGroupBox()
    selectionModeLabel->setBuddy(selectionModeCombo);
 
    gridCheckBox = new QCheckBox(tr("&Grid"));
-   gridCheckBox->setChecked(calendar->isGridVisible());
+   gridCheckBox->setChecked(m_calendar->isGridVisible());
 
    navigationCheckBox = new QCheckBox(tr("&Navigation bar"));
    navigationCheckBox->setChecked(true);
@@ -274,15 +273,13 @@ void Calendar::createGeneralOptionsGroupBox()
    verticalHeaderLabel = new QLabel(tr("&Vertical header:"));
    verticalHeaderLabel->setBuddy(verticalHeaderCombo);
 
-
    connect(localeCombo,          SIGNAL(currentIndexChanged(int)), this, SLOT(localeChanged(int)));
    connect(firstDayCombo,        SIGNAL(currentIndexChanged(int)), this, SLOT(firstDayChanged(int)));
    connect(selectionModeCombo,   SIGNAL(currentIndexChanged(int)), this, SLOT(selectionModeChanged(int)));
-   connect(gridCheckBox,         SIGNAL(toggled(bool)), calendar,        SLOT(setGridVisible(bool)));
-   connect(navigationCheckBox,   SIGNAL(toggled(bool)), calendar,        SLOT(setNavigationBarVisible(bool)));
+   connect(gridCheckBox,         SIGNAL(toggled(bool)), m_calendar,       SLOT(setGridVisible(bool)));
+   connect(navigationCheckBox,   SIGNAL(toggled(bool)), m_calendar,       SLOT(setNavigationBarVisible(bool)));
    connect(horizontalHeaderCombo,SIGNAL(currentIndexChanged(int)), this, SLOT(horizontalHeaderChanged(int)));
    connect(verticalHeaderCombo,  SIGNAL(currentIndexChanged(int)), this, SLOT(verticalHeaderChanged(int)));
-   //! [11]
 
    QHBoxLayout *checkBoxLayout = new QHBoxLayout;
    checkBoxLayout->addWidget(gridCheckBox);
@@ -303,7 +300,6 @@ void Calendar::createGeneralOptionsGroupBox()
    outerLayout->addWidget(verticalHeaderCombo, 5, 1);
    generalOptionsGroupBox->setLayout(outerLayout);
 
-   //! [12]
    firstDayChanged(firstDayCombo->currentIndex());
    selectionModeChanged(selectionModeCombo->currentIndex());
    horizontalHeaderChanged(horizontalHeaderCombo->currentIndex());
@@ -318,37 +314,34 @@ void Calendar::createDatesGroupBox()
    font.setPointSize(10);
    datesGroupBox->setFont(font);
 
-
    minimumDateEdit = new QDateEdit;
    minimumDateEdit->setDisplayFormat("MMM d yyyy");
-   minimumDateEdit->setDateRange(calendar->minimumDate(),calendar->maximumDate());
-   minimumDateEdit->setDate(calendar->minimumDate());
+   minimumDateEdit->setDateRange(m_calendar->minimumDate(),m_calendar->maximumDate());
+   minimumDateEdit->setDate(m_calendar->minimumDate());
 
    minimumDateLabel = new QLabel(tr("&Minimum Date:"));
    minimumDateLabel->setBuddy(minimumDateEdit);
 
    currentDateEdit = new QDateEdit;
    currentDateEdit->setDisplayFormat("MMM d yyyy");
-   currentDateEdit->setDate(calendar->selectedDate());
-   currentDateEdit->setDateRange(calendar->minimumDate(),calendar->maximumDate());
+   currentDateEdit->setDate(m_calendar->selectedDate());
+   currentDateEdit->setDateRange(m_calendar->minimumDate(),m_calendar->maximumDate());
 
    currentDateLabel = new QLabel(tr("&Current Date:"));
    currentDateLabel->setBuddy(currentDateEdit);
 
    maximumDateEdit = new QDateEdit;
    maximumDateEdit->setDisplayFormat("MMM d yyyy");
-   maximumDateEdit->setDateRange(calendar->minimumDate(),calendar->maximumDate());
-   maximumDateEdit->setDate(calendar->maximumDate());
+   maximumDateEdit->setDateRange(m_calendar->minimumDate(),m_calendar->maximumDate());
+   maximumDateEdit->setDate(m_calendar->maximumDate());
 
    maximumDateLabel = new QLabel(tr("Ma&ximum Date:"));
    maximumDateLabel->setBuddy(maximumDateEdit);
 
-
-   connect(currentDateEdit, SIGNAL(dateChanged(QDate)),calendar, SLOT(setSelectedDate(QDate)));
-   connect(calendar, SIGNAL(selectionChanged()),        this, SLOT(selectedDateChanged()));
-   connect(minimumDateEdit, SIGNAL(dateChanged(QDate)), this, SLOT(minimumDateChanged(QDate)));
-   connect(maximumDateEdit, SIGNAL(dateChanged(QDate)), this, SLOT(maximumDateChanged(QDate)));
-
+   connect(currentDateEdit, SIGNAL(dateChanged(QDate)), m_calendar, SLOT(setSelectedDate(QDate)));
+   connect(m_calendar,      SIGNAL(selectionChanged()), this,       SLOT(selectedDateChanged()));
+   connect(minimumDateEdit, SIGNAL(dateChanged(QDate)), this,       SLOT(minimumDateChanged(QDate)));
+   connect(maximumDateEdit, SIGNAL(dateChanged(QDate)), this,       SLOT(maximumDateChanged(QDate)));
 
    QGridLayout *dateBoxLayout = new QGridLayout;
    dateBoxLayout->addWidget(currentDateLabel, 1, 0);
@@ -437,4 +430,3 @@ QComboBox *Calendar::createColorComboBox()
 
    return comboBox;
 }
-

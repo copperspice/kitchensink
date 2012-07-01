@@ -1,0 +1,6 @@
+*.o
+ui*.h
+Makefile*
+*.pro.user
+object_script.*
+/release

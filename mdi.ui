@@ -153,7 +153,7 @@
   </action>
   <action name="actionStyleSheetDialog">
    <property name="text">
-    <string>Dialog Style Sheets</string>
+    <string>Style Sheets</string>
    </property>
   </action>
   <action name="actionHTML_Viewer">

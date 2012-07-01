@@ -74,15 +74,15 @@ class Calendar : public QWidget
       void reformatCalendarPage();
 
    private:
-      void createPreviewGroupBox();
+      void createCalendarGroupBox();
       void createGeneralOptionsGroupBox();
       void createDatesGroupBox();
       void createTextFormatsGroupBox();
       QComboBox *createColorComboBox();
 
-      QGroupBox *previewGroupBox;
-      QGridLayout *previewLayout;
-      QCalendarWidget *calendar;
+      QGroupBox *calendarGroupBox;
+      QGridLayout *calendarLayout;
+      QCalendarWidget *m_calendar;
 
       QGroupBox *generalOptionsGroupBox;
       QLabel *localeLabel;

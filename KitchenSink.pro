@@ -11,6 +11,7 @@ QT += phonon
 QT += sql
 QT += webkit
 QT += xml
+QT += xmlpatterns
 
 TARGET = KitchenSink
 TEMPLATE = app
