@@ -11,9 +11,9 @@ QT += phonon
 QT += sql
 QT += webkit
 QT += xml
-QT += xmlpatterns
 
-TARGET = KitchenSink
+
+TARGET = KitchenSink-Cs1
 TEMPLATE = app
 
 SOURCES  += \
@@ -91,6 +91,7 @@ RESOURCES  += kitchensink.qrc
 TRANSLATIONS += resources/qt_en.ts   \
                 resources/qt_de.ts   \
                 resources/qt_fr.ts
+
 
 
 
