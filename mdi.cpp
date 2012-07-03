@@ -1,12 +1,12 @@
 #include "util.h"
-#include "aboutcs.h"
+//Cs  #include "aboutcs.h"
 #include "calendar.h"
 #include "colorpicker.h"
 #include "dialogs.h"
 #include "draw.h"
 #include "fontpicker.h"
-#include "html_viewer.h"
-#include "musicplayer.h"
+//Cs #include "html_viewer.h"
+//Cs #include "musicplayer.h"
 #include "translate.h"
 #include "line_edit.h"
 #include "listview.h"
@@ -17,7 +17,7 @@
 #include "tableview.h"
 #include "tablewidget_view.h"
 #include "treeview.h"
-#include "web_browser.h"
+//Cs #include "web_browser.h"
 #include "xml.h"
 
 #include "mdi.h"
@@ -30,7 +30,7 @@ Mdi::Mdi()
    : QMainWindow(), ui(new Ui::Mdi)
 {
    ui->setupUi(this);
-   setWindowTitle(tr("Kitchen Sink - Qt Framework"));
+   setWindowTitle(tr("Kitchen Sink-Cs1"));
 }
 
 Mdi::~Mdi()
@@ -94,9 +94,9 @@ void Mdi::on_actionInternational_triggered()
 }
 
 void Mdi::on_actionMusicPlayer_triggered()
-{
-   MusicPlayer *oDw = new MusicPlayer();
-   addMdiChild(oDw);
+{       
+//Cs     MusicPlayer *oDw = new MusicPlayer();
+//Cs     addMdiChild(oDw);
 }
 
 void Mdi::on_actionSystemTray_triggered()
@@ -119,14 +119,14 @@ void Mdi::on_actionStyleSheetDialog_triggered()
 
 void Mdi::on_actionHTML_Viewer_triggered()
 {
-   Html_Viewer *oDw = new Html_Viewer();
-   addMdiChild(oDw);
+//Cs     Html_Viewer *oDw = new Html_Viewer();
+//Cs     addMdiChild(oDw);
 }
 
 void Mdi::on_actionWebBrowser_triggered()
 {   
-   WebBrowser *oDw = new WebBrowser(this);
-   addMdiChild(oDw);
+//Cs     WebBrowser *oDw = new WebBrowser(this);
+//Cs     addMdiChild(oDw);
 }
 
 void Mdi::on_actionXml_triggered()
@@ -207,8 +207,8 @@ void Mdi::on_actionTabs_triggered()
 //  help
 void Mdi::on_actionAbout_CopperSpice_triggered()
 {
-   AboutCS *oDw = new AboutCS();
-   addMdiChild(oDw);
+//Cs     AboutCS *oDw = new AboutCS();
+//Cs     addMdiChild(oDw);
 }
 
 void Mdi::on_actionAbout_triggered()
@@ -226,8 +226,8 @@ void Mdi::on_actionAbout_triggered()
    msgB.setIcon(QMessageBox::NoIcon);
    msgB.setWindowIcon( QIcon("://resources/plus.png"));
 
-   msgB.setWindowTitle(tr("About Kitchen Sink"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 6.13.2012</h5></center></p>"));
+   msgB.setWindowTitle(tr("About Kitchen Sink-Cs1"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 7.02.2012</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

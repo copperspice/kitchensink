@@ -7,13 +7,13 @@
 QT += core
 QT += gui
 QT += network
-QT += phonon
 QT += sql
-QT += webkit
 QT += xml
 
+#QT += phonon
+#QT += webkit
 
-TARGET = KitchenSink-Cs1
+TARGET = KitchenSink
 TEMPLATE = app
 
 SOURCES  += \
@@ -21,8 +21,6 @@ SOURCES  += \
     mdi.cpp \
     util.cpp \
     line_edit.cpp \
-    web_browser.cpp \
-    html_viewer.cpp \
     calendar.cpp \
     draw.cpp \
     draw_area.cpp \
@@ -35,21 +33,22 @@ SOURCES  += \
     treeview.cpp \
     listview.cpp \
     tableview.cpp \
-    musicplayer.cpp \
     systray.cpp \
     tablewidget_view.cpp \
-    aboutcs.cpp \
     tabdialog.cpp \
     translate.cpp \
     xml.cpp
+
+#   aboutcs.cpp
+#   musicplayer.cpp
+#   html_viewer.cpp
+#   web_browser.cpp
 
 
 HEADERS  += \
     mdi.h \
     util.h \
     line_edit.h \
-    web_browser.h \
-    html_viewer.h \
     calendar.h \
     draw.h \
     draw_area.h \
@@ -62,29 +61,35 @@ HEADERS  += \
     treeview.h \
     listview.h \
     tableview.h \
-    musicplayer.h \
     systray.h \
     tablewidget_view.h \
-    aboutcs.h \
     tabdialog.h \
     translate.h \
     xml.h
 
-FORMS    += \
+#   aboutcs.h
+#   musicplayer.h
+#   html_viewer.h
+#   web_browser.h
+
+
+FORMS += \
     mdi.ui \
     line_edit.ui \
-    html_viewer.ui \
     style_dw.ui \
     style_edit.ui \
     colorpicker.ui \
     fontpicker.ui \
     dialogs.ui \
     listview.ui \
-    musicplayer.ui \
     tablewidget_view.ui \
     tabdialog.ui \
     translate.ui \
     xml.ui
+
+#   musicplayer.ui
+#   html_viewer.ui
+
 
 RESOURCES  += kitchensink.qrc
 

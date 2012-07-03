@@ -14,16 +14,13 @@ TableWidget_View::TableWidget_View(QWidget *parent)
    setUpWidget();
    setUpView();
 
-   // this was done in the UI form see observe the affect
+   // this was done in the UI form
    // ui->splitter->setHandleWidth(10);
 
-   // adjust the size of the wiget based on the ui
+   // adjust size of the widget based
    QSize size = this->size();
    setMinimumWidth( size.width() );
-   setMinimumHeight( size.height() );
-
-
-   // this->parentWidget()->resize(size.width(), size.height());
+   setMinimumHeight( size.height() ); 
 }
 
 TableWidget_View::~TableWidget_View()

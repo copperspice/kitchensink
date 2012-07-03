@@ -14,7 +14,7 @@ class Xml : public QWidget
    Q_OBJECT
 
    public:
-      explicit Xml(Mdi *parent = 0);
+      explicit Xml();
       ~Xml();
 
    private:

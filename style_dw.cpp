@@ -49,7 +49,7 @@ void Style_DW::on_actionAbout_triggered()
 
 void Style_DW::on_actionEditStyle_triggered()
 {   
-   m_style = new Style_Edit(m_parent);
+   m_style = new Style_Edit(m_parent, this);
    m_parent->addMdiChild(m_style);
 }
 
@@ -59,10 +59,16 @@ void Style_DW::actionOk()
    this->actionClose();
 }
 
+void Style_DW::styleEditClose()
+{
+   // marks the style_edit window closed
+   m_style  = NULL;
+}
+
 void Style_DW::actionClose() {
 
    // close child window if open
-   if (m_style != NULL) {
+   if (m_style != NULL) {      
       m_style->actionClose();
    }
 

@@ -1,15 +1,17 @@
 #include "util.h"
 #include "style_edit.h"
+#include "style_dw.h"
 
 #include <QtGui>
 
 const static QString qsPath = ":/resources/";
 QString Style_Edit::qssName = "Shiny";
 
-Style_Edit::Style_Edit(QWidget *parent)
+Style_Edit::Style_Edit(QWidget *parent, QWidget *dwFrom)
    : QDialog(parent), ui(new Ui::Style_Edit)
 {
    ui->setupUi(this);
+   m_dwFrom = dwFrom;
 
    QRegExp regExp(".(.*)\\+?Style");
    QString defaultStyle = QApplication::style()->metaObject()->className();
@@ -95,5 +97,21 @@ void Style_Edit::actionClose() {
    this->parentWidget()->close();
 }
 
+void Style_Edit::closeEvent(QCloseEvent *event)
+{
+   Style_DW *temp;
+   temp = dynamic_cast<Style_DW *>(m_dwFrom);
+
+   if (temp) {
+      // saftey check
+      temp->styleEditClose();
+      event->accept();
+
+   } else {
+      // yes, this window will not close
+      // however, closing DW_Style will close this window
+      event->ignore();
+   }
+}
 
 

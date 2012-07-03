@@ -12,6 +12,7 @@ class Style_DW : public QMainWindow
    public:
       Style_DW(Mdi *parent);
       ~Style_DW();
+      void styleEditClose();
 
    private:     
       Ui::Style_DW *ui;

@@ -3,7 +3,7 @@
 
 #include <QFileDialog>
 
-Xml::Xml(Mdi *parent)
+Xml::Xml()
    : QWidget(), ui(new Ui::Xml)
 {     
    ui->setupUi(this);
@@ -39,8 +39,8 @@ void Xml::actionOpenXml()
 void Xml::processXml()
 {
    QFile file(m_fileName);
-   if (! file.open(QFile::ReadOnly | QFile::Text)) {
 
+   if (! file.open(QFile::ReadOnly | QFile::Text)) {
       const QString msg = "Unable to open file " + m_fileName + " : " + file.errorString();
       QMessageBox::warning( 0, "XML", msg );
       return;
@@ -89,13 +89,9 @@ void Xml::processXml()
 
    //
    m_model->setHeaderData(0, Qt::Horizontal, QObject::tr("CopperSpice Diner"));
-   ui->treeView->expandAll();
+   ui->treeView->expandAll();   
 
-   // adjust the size by hand for nwo
-
-   this->parentWidget()->resize(300, 300);
-
-
+   // nice to adjust the widget according to the data (BROOM)
 }
 
 void Xml::parseElement(QStandardItem *rootItem, QDomElement element)

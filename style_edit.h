@@ -1,5 +1,5 @@
-#ifndef STYLESHEETEDITOR_H
-#define STYLESHEETEDITOR_H
+#ifndef STYLE_EDIT_H
+#define STYLE_EDIT_H
 
 #include "ui_style_edit.h"
 
@@ -7,18 +7,20 @@
 
 class Style_Edit : public QDialog
 {
-      Q_OBJECT
+   Q_OBJECT
 
    public:
-      Style_Edit(QWidget *parent = 0);
+      Style_Edit(QWidget *parent, QWidget *dwFrom);
       ~Style_Edit();
       static QString getQssName();
       static QString loadStyleSheet(const QString &sheetName);
 
    private:
-      Ui::Style_Edit *ui;      
+      Ui::Style_Edit *ui;
+      QWidget *m_dwFrom;
       static QString qssName;
       static QString readStyleSheet(const QString &name);
+      void closeEvent(QCloseEvent *event);
 
    public slots:
       void actionClose();
