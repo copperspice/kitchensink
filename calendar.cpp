@@ -243,7 +243,6 @@ void Calendar::createGeneralOptionsGroupBox()
    firstDayLabel = new QLabel(tr("Wee&k starts on:"));
    firstDayLabel->setBuddy(firstDayCombo);
 
-
    selectionModeCombo = new QComboBox;
    selectionModeCombo->addItem(tr("Single selection"), QCalendarWidget::SingleSelection);
    selectionModeCombo->addItem(tr("None"), QCalendarWidget::NoSelection);

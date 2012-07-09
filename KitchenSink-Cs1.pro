@@ -6,11 +6,14 @@
 
 QT += core
 QT += gui
+QT += multimedia
 QT += network
+QT += phonon
 QT += sql
+QT += svg
 QT += xml
+QT += xmlpatterns
 
-#QT += phonon
 #QT += webkit
 
 TARGET = KitchenSink
@@ -33,14 +36,20 @@ SOURCES  += \
     treeview.cpp \
     listview.cpp \
     tableview.cpp \
+    musicplayer.cpp \
     systray.cpp \
     tablewidget_view.cpp \
     tabdialog.cpp \
     translate.cpp \
-    xml.cpp
+    xml.cpp \
+    svg_view.cpp \
+    svgtextobject.cpp \  
+    videowidget.cpp \
+    videoplayer.cpp \
+    videosurface.cpp
+
 
 #   aboutcs.cpp
-#   musicplayer.cpp
 #   html_viewer.cpp
 #   web_browser.cpp
 
@@ -57,18 +66,23 @@ HEADERS  += \
     style_dw.h \    
     dialogs.h \
     colorpicker.h \
-    fontpicker.h \
-    treeview.h \
-    listview.h \
-    tableview.h \
+    fontpicker.h \   
+    listview.h \   
+    musicplayer.h \    
     systray.h \
+    treeview.h \
+    tableview.h \
     tablewidget_view.h \
     tabdialog.h \
     translate.h \
-    xml.h
+    xml.h \
+    svg_view.h \
+    svgtextobject.h \
+    videowidget.h \
+    videoplayer.h \
+    videosurface.h
 
 #   aboutcs.h
-#   musicplayer.h
 #   html_viewer.h
 #   web_browser.h
 
@@ -82,12 +96,12 @@ FORMS += \
     fontpicker.ui \
     dialogs.ui \
     listview.ui \
+    musicplayer.ui \
     tablewidget_view.ui \
     tabdialog.ui \
     translate.ui \
     xml.ui
 
-#   musicplayer.ui
 #   html_viewer.ui
 
 

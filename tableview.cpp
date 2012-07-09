@@ -58,6 +58,12 @@ TableView::TableView()
    this->setMinimumHeight( size.height() );
 }
 
+TableView::~TableView()
+{
+   // does not work as the model is still open *BROOM
+   m_db.close();
+}
+
 bool TableView::createConnection()
 {
    m_db = QSqlDatabase::addDatabase("QSQLITE","table");

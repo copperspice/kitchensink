@@ -6,17 +6,19 @@
 #include "draw.h"
 #include "fontpicker.h"
 //Cs #include "html_viewer.h"
-//Cs #include "musicplayer.h"
+#include "musicplayer.h"
 #include "translate.h"
 #include "line_edit.h"
 #include "listview.h"
 #include "sliders.h"
 #include "style_dw.h"
 #include "systray.h"
+#include "svg_view.h"
 #include "tabdialog.h"
 #include "tableview.h"
 #include "tablewidget_view.h"
 #include "treeview.h"
+#include "videoplayer.h"
 //Cs #include "web_browser.h"
 #include "xml.h"
 
@@ -93,15 +95,16 @@ void Mdi::on_actionInternational_triggered()
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionMusicPlayer_triggered()
-{       
-//Cs     MusicPlayer *oDw = new MusicPlayer();
-//Cs     addMdiChild(oDw);
-}
 
 void Mdi::on_actionSystemTray_triggered()
 {
    SysTray *oDw = new SysTray();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionSvgView_triggered()
+{
+   Svg_View *oDw = new Svg_View();
    addMdiChild(oDw);
 }
 
@@ -114,6 +117,18 @@ void Mdi::on_actionStandardDialog_triggered()
 void Mdi::on_actionStyleSheetDialog_triggered()
 {
    Style_DW *oDw = new Style_DW(this);
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionMusicPlayer_triggered()
+{
+   MusicPlayer *oDw = new MusicPlayer();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionVideoWidget_triggered()
+{
+   VideoPlayer *oDw = new VideoPlayer();
    addMdiChild(oDw);
 }
 
@@ -227,7 +242,7 @@ void Mdi::on_actionAbout_triggered()
    msgB.setWindowIcon( QIcon("://resources/plus.png"));
 
    msgB.setWindowTitle(tr("About Kitchen Sink-Cs1"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 7.02.2012</h5></center></p>"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 7.06.2012</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

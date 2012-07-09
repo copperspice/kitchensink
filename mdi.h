@@ -23,9 +23,12 @@ class Mdi : public QMainWindow
       void on_actionColorPicker_triggered();
       void on_actionFonts_triggered();
       void on_actionDraw_triggered();
-      void on_actionInternational_triggered();
-      void on_actionMusicPlayer_triggered();      
+      void on_actionInternational_triggered();        
       void on_actionSystemTray_triggered();
+      void on_actionSvgView_triggered();
+
+      void on_actionMusicPlayer_triggered();
+      void on_actionVideoWidget_triggered();
 
       void on_actionStandardDialog_triggered();
       void on_actionStyleSheetDialog_triggered();     

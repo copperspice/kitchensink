@@ -6,7 +6,7 @@
 #include <QMessageBox>
 
 Style_DW::Style_DW(Mdi *parent)
-   : QMainWindow(), ui(new Ui::Style_DW)
+   : QMainWindow(parent), ui(new Ui::Style_DW)
 {
    m_parent = parent;
    m_style  = NULL;

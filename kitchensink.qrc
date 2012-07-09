@@ -45,5 +45,14 @@
         <file>resources/trash.png</file>
         <file>resources/bad.png</file>
         <file>resources/heart.png</file>
+        <file>resources/watermelon.svg</file>
+        <file>resources/cake1.svg</file>
+        <file>resources/cake2.svg</file>
+        <file>resources/cup_cake.svg</file>
+        <file>resources/pineapple.svg</file>
+        <file>resources/ice_cream.svg</file>
+        <file>resources/email_3.gif</file>
+        <file>resources/email_1.gif</file>
+        <file>resources/email_2.gif</file>
     </qresource>
 </RCC>

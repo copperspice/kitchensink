@@ -10,6 +10,7 @@ class TableView : public QWidget
 
    public:
       TableView();
+      ~TableView();
       QSqlDatabase m_db;
 
    private:

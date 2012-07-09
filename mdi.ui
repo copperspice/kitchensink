@@ -72,11 +72,14 @@
     <addaction name="separator"/>
     <addaction name="actionDraw"/>
     <addaction name="actionInternational"/>
-    <addaction name="actionMusicPlayer"/>
     <addaction name="actionSystemTray"/>
+    <addaction name="actionSvgView"/>
     <addaction name="separator"/>
     <addaction name="actionStandardDialog"/>
     <addaction name="actionStyleSheetDialog"/>
+    <addaction name="separator"/>
+    <addaction name="actionMusicPlayer"/>
+    <addaction name="actionVideoWidget"/>
     <addaction name="separator"/>
     <addaction name="actionHTML_Viewer"/>
     <addaction name="actionWebBrowser"/>
@@ -219,6 +222,16 @@
   <action name="actionTabs">
    <property name="text">
     <string>Tabs</string>
+   </property>
+  </action>
+  <action name="actionSvgView">
+   <property name="text">
+    <string>SVG View</string>
+   </property>
+  </action>
+  <action name="actionVideoWidget">
+   <property name="text">
+    <string>Video Widget</string>
    </property>
   </action>
  </widget>
