@@ -27,15 +27,16 @@ class Mdi : public QMainWindow
       void on_actionSystemTray_triggered();
       void on_actionSvgView_triggered();
 
-      void on_actionMusicPlayer_triggered();
-      void on_actionVideoWidget_triggered();
-
       void on_actionStandardDialog_triggered();
-      void on_actionStyleSheetDialog_triggered();     
-      void on_actionHTML_Viewer_triggered();
-      void on_actionWebBrowser_triggered();
+      void on_actionStyleSheetDialog_triggered();          
+      void on_actionScript_triggered();
       void on_actionXml_triggered();
       void on_actionXmlPatterns_triggered();
+
+      void on_actionMusicPlayer_triggered();
+      void on_actionVideoWidget_triggered();
+      void on_actionHTML_Viewer_triggered();
+      void on_actionWebBrowser_triggered();
 
       void on_actionTableView_triggered();
       void on_actionTreeView_triggered();

@@ -10,6 +10,7 @@
 #include "translate.h"
 #include "line_edit.h"
 #include "listview.h"
+#include "script.h"
 #include "sliders.h"
 #include "style_dw.h"
 #include "systray.h"
@@ -95,7 +96,6 @@ void Mdi::on_actionInternational_triggered()
    addMdiChild(oDw);
 }
 
-
 void Mdi::on_actionSystemTray_triggered()
 {
    SysTray *oDw = new SysTray();
@@ -120,6 +120,27 @@ void Mdi::on_actionStyleSheetDialog_triggered()
    addMdiChild(oDw);
 }
 
+void Mdi::on_actionScript_triggered()
+{
+   Script *oDw = new Script();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionXml_triggered()
+{
+   Xml *oDw = new Xml();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionXmlPatterns_triggered()
+{
+   //Xml *oDw = new Xml();
+   //addMdiChild(oDw);
+
+   ksMsg("XML Patterns sample has not been implemented");
+}
+
+// audio & visual
 void Mdi::on_actionMusicPlayer_triggered()
 {
    MusicPlayer *oDw = new MusicPlayer();
@@ -142,20 +163,6 @@ void Mdi::on_actionWebBrowser_triggered()
 {   
 //Cs     WebBrowser *oDw = new WebBrowser(this);
 //Cs     addMdiChild(oDw);
-}
-
-void Mdi::on_actionXml_triggered()
-{
-   Xml *oDw = new Xml();
-   addMdiChild(oDw);  
-}
-
-void Mdi::on_actionXmlPatterns_triggered()
-{
-   //Xml *oDw = new Xml();
-   //addMdiChild(oDw);
-
-   ksMsg("XML Patterns sample has not been implemented");
 }
 
 
@@ -242,7 +249,7 @@ void Mdi::on_actionAbout_triggered()
    msgB.setWindowIcon( QIcon("://resources/plus.png"));
 
    msgB.setWindowTitle(tr("About Kitchen Sink-Cs1"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 7.06.2012</h5></center></p>"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 7.16.2012</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

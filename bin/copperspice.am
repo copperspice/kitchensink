@@ -1,0 +1,54 @@
+AUTOMAKE_OPTIONS=subdir-objects
+ACLOCAL_AMFLAGS=-I autotools/m4 --install
+
+# adjustment for windows slash vs backslash
+CS_HOME:=$(shell cd $(CS_HOME); pwd)
+
+# location of includes, libs, defines for compiling
+AM_CXXFLAGS=$(AM_CFLAGS) -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DQ_LITTLE_ENDIAN=1234 -DQ_BIG_ENDIAN=4321  \
+    -DQT_EDITION=QT_EDITION_OPENSOURCE  -DQT_ARCH_I386  -DQT_NO_STYLE_S60   \
+     -I$(CS_HOME)/include   $(patsubst %,-I$(CS_HOME)/include/Qt%,$(cslibs))    
+     
+# location of CopperSpice libraries for linking
+AM_LDFLAGS=-L$(CS_HOME)/lib     
+
+# location of CopperSpice programs
+LRELEASE=$(CS_HOME)/bin/lrelease
+MOC=$(CS_HOME)/bin/moc
+RCC=$(CS_HOME)/bin/rcc
+UIC=$(CS_HOME)/bin/uic
+
+# 'deploy' is the folder where your install will be located
+deploydir=$(abs_top_builddir)/deploy
+
+# compiling .ui files
+BUILT_SOURCES=$(patsubst %.ui,ui_%.h,$(FORMS))    
+EXTRA_DIST=$(FORMS)    
+
+# compiling .qrc files
+BUILT_SOURCES+=$(patsubst %.qrc,qrc_%.cpp,$(RESOURCES))    
+EXTRA_DIST+=$(RESOURCES)    
+
+# compiling .ts files
+BUILT_SOURCES+=$(patsubst %.ts,%.qm,$(TRANSLATIONS))    
+EXTRA_DIST+=$(TRANSLATIONS)     
+
+# rules
+%.qm: %.ts
+	$(LRELEASE) $< $@
+	
+moc_%.cpp: %.h
+	$(MOC) $< -o $@  $(patsubst %,-I$(CS_HOME)/include/Qt%,$(cslibs))  		
+    
+qrc_%.cpp: %.qrc
+	$(RCC) $< -o $@ -name $(notdir $(basename $<))
+
+ui_%.h: %.ui
+	$(UIC) $< -o $@
+    
+# additional files to delete on 'make clean'
+clean-local:
+	-rm moc_*.cpp
+	-rm qrc_*.cpp
+	-rm ui_*.h
+	

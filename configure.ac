@@ -6,8 +6,12 @@ AC_INIT( [KitchenSink-Cs1], 1.0, [barbara@copperspice.com] )
 AC_CONFIG_AUX_DIR([autotools/build-aux])
 AC_CONFIG_MACRO_DIR([autotools/m4]) 
 
-# name of one source of your files
-AC_CONFIG_SRCDIR( [main.cpp] )
+AC_CANONICAL_BUILD
+AC_CANONICAL_HOST
+AC_CANONICAL_TARGET
+
+# name of one source file
+AC_CONFIG_SRCDIR([main.cpp])
 
 # not a gnu project
 AM_INIT_AUTOMAKE( [foreign] )
@@ -15,10 +19,10 @@ AM_INIT_AUTOMAKE( [foreign] )
 # checking build environment
 AC_PROG_INSTALL
 AC_PROG_LIBTOOL
-AC_PROG_CC_C99
+AC_PROG_CC_C99c
 AC_PROG_CXX
 AC_PROG_CC_C_O
 
-# value of 'bin' is the folder were the build will be located
-AC_CONFIG_FILES( [bin/Makefile] )
+# location of .am files that will create Makefiles
+AC_CONFIG_FILES( [Makefile bin/Makefile ] )
 AC_OUTPUT

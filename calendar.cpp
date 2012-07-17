@@ -183,7 +183,7 @@ void Calendar::createCalendarGroupBox()
 
    m_calendar = new QCalendarWidget;
    m_calendar->setMinimumDate(QDate(1900, 1, 1));
-   m_calendar->setMaximumDate(QDate(2500, 1, 1));
+   m_calendar->setMaximumDate(QDate(2300, 1, 1));
    m_calendar->setGridVisible(true);
 
    connect(m_calendar, SIGNAL(currentPageChanged(int,int)), this, SLOT(reformatCalendarPage()));
@@ -343,12 +343,12 @@ void Calendar::createDatesGroupBox()
    connect(maximumDateEdit, SIGNAL(dateChanged(QDate)), this,       SLOT(maximumDateChanged(QDate)));
 
    QGridLayout *dateBoxLayout = new QGridLayout;
-   dateBoxLayout->addWidget(currentDateLabel, 1, 0);
-   dateBoxLayout->addWidget(currentDateEdit, 1, 1);
-   dateBoxLayout->addWidget(minimumDateLabel, 0, 0);
-   dateBoxLayout->addWidget(minimumDateEdit, 0, 1);
-   dateBoxLayout->addWidget(maximumDateLabel, 2, 0);
-   dateBoxLayout->addWidget(maximumDateEdit, 2, 1);
+   dateBoxLayout->addWidget(currentDateLabel,   1, 0);
+   dateBoxLayout->addWidget(currentDateEdit,    1, 1);
+   dateBoxLayout->addWidget(minimumDateLabel,   0, 0);
+   dateBoxLayout->addWidget(minimumDateEdit,    0, 1);
+   dateBoxLayout->addWidget(maximumDateLabel,   2, 0);
+   dateBoxLayout->addWidget(maximumDateEdit,    2, 1);
    dateBoxLayout->setRowStretch(3, 1);
 
    datesGroupBox->setLayout(dateBoxLayout);

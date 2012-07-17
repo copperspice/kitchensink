@@ -78,16 +78,23 @@
     <addaction name="actionStandardDialog"/>
     <addaction name="actionStyleSheetDialog"/>
     <addaction name="separator"/>
-    <addaction name="actionMusicPlayer"/>
-    <addaction name="actionVideoWidget"/>
-    <addaction name="separator"/>
-    <addaction name="actionHTML_Viewer"/>
-    <addaction name="actionWebBrowser"/>
+    <addaction name="actionScript"/>
     <addaction name="separator"/>
     <addaction name="actionXml"/>
     <addaction name="actionXmlPatterns"/>
    </widget>
+   <widget class="QMenu" name="menuFoo">
+    <property name="title">
+     <string>Audio/Web</string>
+    </property>
+    <addaction name="actionMusicPlayer"/>
+    <addaction name="actionVideoWidget"/>
+    <addaction name="separator"/>
+    <addaction name="actionWebBrowser"/>
+    <addaction name="actionHTML_Viewer"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuFoo"/>
    <addaction name="menuWindows"/>
    <addaction name="menuLayouts"/>
    <addaction name="menuWidgets"/>
@@ -232,6 +239,11 @@
   <action name="actionVideoWidget">
    <property name="text">
     <string>Video Widget</string>
+   </property>
+  </action>
+  <action name="actionScript">
+   <property name="text">
+    <string>JS Script</string>
    </property>
   </action>
  </widget>

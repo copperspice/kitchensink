@@ -11,6 +11,7 @@ QT += network
 QT += phonon
 QT += sql
 QT += svg
+QT += script
 QT += xml
 QT += xmlpatterns
 
@@ -46,7 +47,8 @@ SOURCES  += \
     svgtextobject.cpp \  
     videowidget.cpp \
     videoplayer.cpp \
-    videosurface.cpp
+    videosurface.cpp \
+    script.cpp
 
 
 #   aboutcs.cpp
@@ -80,7 +82,8 @@ HEADERS  += \
     svgtextobject.h \
     videowidget.h \
     videoplayer.h \
-    videosurface.h
+    videosurface.h \
+    script.h
 
 #   aboutcs.h
 #   html_viewer.h
@@ -100,7 +103,8 @@ FORMS += \
     tablewidget_view.ui \
     tabdialog.ui \
     translate.ui \
-    xml.ui
+    xml.ui \
+    script.ui
 
 #   html_viewer.ui
 
