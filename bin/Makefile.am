@@ -9,8 +9,8 @@ gcclibs=libgcc_s_sjlj-1  libstdc++-6  libwinpthread-1
 # list of CopperSpice libraries your app uses
 cslibs=Core Gui Multimedia Network Phonon Script Svg Sql Xml XmlPatterns
 
-# location of includes, libs, defines for compiling
-AM_CXXFLAGS+=-mwindows  -I$(CS_HOME)/include/phonon 
+# location of includes, libs, defines for compiling, turn off debugging
+AM_CXXFLAGS+=-mwindows  -I$(CS_HOME)/include/phonon  -gtoggle 
     
 # copy the required CopperSpice and gcc files for deployment - windows only
 install-exec-hook:	
@@ -142,7 +142,7 @@ MOCS = \
     videosurface.h  \
     xml.h
     
-KitchenSink_Cs1_LDADD=$(patsubst ../%.h,moc_%.$(OBJEXT),$(MOCS))    
+KitchenSink_Cs1_LDADD=$(patsubst %.h,moc_%.$(OBJEXT),$(MOCS))    
            
 #
 FORMS = \
@@ -168,7 +168,7 @@ TRANSLATIONS =  \
     resources/qt_fr.ts
     
 #
-RESOURCES  =  ../kitchensink.qrc
+RESOURCES  =  kitchensink.qrc
 
 #    
 KitchenSink_Cs1_SOURCES += qrc_kitchensink.cpp   

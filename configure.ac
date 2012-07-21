@@ -19,7 +19,7 @@ AM_INIT_AUTOMAKE( [foreign] )
 # checking build environment
 AC_PROG_INSTALL
 AC_PROG_LIBTOOL
-AC_PROG_CC_C99c
+AC_PROG_CC_C99
 AC_PROG_CXX
 AC_PROG_CC_C_O
 

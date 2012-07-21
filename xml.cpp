@@ -39,8 +39,8 @@ void Xml::actionOpenXml()
 void Xml::processXml()
 {
    QFile file(m_fileName);
-
    if (! file.open(QFile::ReadOnly | QFile::Text)) {
+
       const QString msg = "Unable to open file " + m_fileName + " : " + file.errorString();
       QMessageBox::warning( 0, "XML", msg );
       return;
@@ -89,7 +89,7 @@ void Xml::processXml()
 
    //
    m_model->setHeaderData(0, Qt::Horizontal, QObject::tr("CopperSpice Diner"));
-   ui->treeView->expandAll();   
+   ui->treeView->expandAll();
 
    // nice to adjust the widget according to the data (BROOM)
 }

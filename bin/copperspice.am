@@ -1,5 +1,4 @@
 AUTOMAKE_OPTIONS=subdir-objects
-ACLOCAL_AMFLAGS=-I autotools/m4 --install
 
 # adjustment for windows slash vs backslash
 CS_HOME:=$(shell cd $(CS_HOME); pwd)

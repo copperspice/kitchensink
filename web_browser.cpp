@@ -45,7 +45,7 @@
 #include <QtWebKit>
 
 WebBrowser::WebBrowser(Mdi *parent, QUrl url)
-   : QMainWindow()
+   : QMainWindow(parent)
 {
    m_parent   = parent;
    m_progress = 0;
