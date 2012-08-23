@@ -7,13 +7,16 @@ gccpath=/c/MingW
 gcclibs=libgcc_s_sjlj-1  libstdc++-6  libwinpthread-1
 
 # list of CopperSpice libraries your app uses
-cslibs=Core Gui Multimedia Network Phonon Script Svg Sql Xml XmlPatterns
+cslibs=Core Gui Multimedia Network Phonon Script Svg Sql WebKit Xml XmlPatterns
 
 # location of includes, libs, defines for compiling, turn off debugging
 AM_CXXFLAGS+=-mwindows  -I$(CS_HOME)/include/phonon  -gtoggle 
+
+# 'KitchenSink-Cs1' target app name
+deploy_PROGRAMS = KitchenSink-Cs1
     
 # copy the required CopperSpice and gcc files for deployment - windows only
-install-exec-hook:	
+install-data-hook:	
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend	
 	cp --preserve=timestamps  $(patsubst %,$(gccpath)/bin/%.dll,$(gcclibs))  $(deploydir)
@@ -24,20 +27,8 @@ install-exec-hook:
 		@echo "Phonon library was not found"		
     endif
 
-# copy the required CopperSpice dll files for deployment - x11 only
-# install-exe-hook:
-#		install -p  -D $(patsubst %,$(CS_HOME)/lib/libCs%1.so,$(cslibs))   $(deploydir)
-#      ifeq ($(findstring Phonon,$(cslibs)),Phonon)		
-#			install -p  $(CS_HOME)/lib/phonon_gstreamer.so  $(deploydir)/phonon_backend
-#      else		
-#			@echo "Phonon library was not found"		
-#      endif
-
 # search path for source
 VPATH = ../
-
-# 'KitchenSink-Cs1' target app name
-deploy_PROGRAMS = KitchenSink-Cs1
 
 # linking
 KitchenSink_Cs1_LDFLAGS=$(AM_LDFLAGS)   $(patsubst %,-lCs%1,$(cslibs))
@@ -45,12 +36,14 @@ KitchenSink_Cs1_LDFLAGS=$(AM_LDFLAGS)   $(patsubst %,-lCs%1,$(cslibs))
 # 'KitchenSink_Cs1' must match the app name ( dash had to be replaced )
 KitchenSink_Cs1_SOURCES = \
     main.cpp \
+    aboutcs.cpp \
     calendar.cpp \
     colorpicker.cpp \
     dialogs.cpp \
     draw.cpp \
     draw_area.cpp \
     fontpicker.cpp \
+    html_viewer.cpp \
     line_edit.cpp \
     listview.cpp \
     mdi.cpp \
@@ -71,6 +64,7 @@ KitchenSink_Cs1_SOURCES = \
     videoplayer.cpp \
     videowidget.cpp \
     videosurface.cpp \
+    web_browser.cpp \
     xml.cpp   \
     core_me.cpp   \
     sql_me.cpp  \
@@ -80,18 +74,19 @@ KitchenSink_Cs1_SOURCES = \
 	svg_me.cpp \
 	multi_me.cpp \
 	xmlpat_me.cpp \
-    network_me.cpp	
- 	
-# ../web_me.cpp
+    network_me.cpp	\
+	web_me.cpp
      
 #              
 noinst_HEADERS = \
+	aboutcs.h \
 	calendar.h \
 	colorpicker.h \
 	dialogs.h \
 	draw.h \
     draw_area.h \
 	fontpicker.h \
+	html_viewer.h  \
 	line_edit.h \
 	listview.h \
     mdi.h \
@@ -112,16 +107,19 @@ noinst_HEADERS = \
 	videoplayer.h \
     videowidget.h \
     videosurface.h \
+    web_browser.h \
     xml.h
                 
 # list of files that require compiling with moc
 MOCS = \
+    aboutcs.h \
     calendar.h \
 	colorpicker.h \
 	dialogs.h \
     draw.h \
     draw_area.h \
 	fontpicker.h \
+	html_viewer.h \
 	line_edit.h \
 	listview.h \
     mdi.h \
@@ -140,6 +138,7 @@ MOCS = \
     videoplayer.h \
     videowidget.h \
     videosurface.h  \
+    web_browser.h \
     xml.h
     
 KitchenSink_Cs1_LDADD=$(patsubst %.h,moc_%.$(OBJEXT),$(MOCS))    
@@ -147,14 +146,15 @@ KitchenSink_Cs1_LDADD=$(patsubst %.h,moc_%.$(OBJEXT),$(MOCS))
 #
 FORMS = \
     mdi.ui \
-    line_edit.ui \
-    style_dw.ui \
-    style_edit.ui \
     colorpicker.ui \
     fontpicker.ui \
     dialogs.ui \
+    html_viewer.ui \
+    line_edit.ui \
     listview.ui \
     musicplayer.ui \
+    style_dw.ui \
+    style_edit.ui \
     script.ui \
 	tabdialog.ui \
     tablewidget_view.ui \
@@ -173,4 +173,5 @@ RESOURCES  =  kitchensink.qrc
 #    
 KitchenSink_Cs1_SOURCES += qrc_kitchensink.cpp   
     
-#depedency to build qrc     * do this  *
+# use wilcard to obtain just the dependency list
+qrc_kitchensink.cpp: kitchensink.qrc   $(wildcard resources/*)

@@ -17,8 +17,8 @@ AC_CONFIG_SRCDIR([main.cpp])
 AM_INIT_AUTOMAKE( [foreign] )
 
 # checking build environment
+LT_INIT
 AC_PROG_INSTALL
-AC_PROG_LIBTOOL
 AC_PROG_CC_C99
 AC_PROG_CXX
 AC_PROG_CC_C_O

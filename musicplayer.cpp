@@ -52,6 +52,8 @@ MusicPlayer::MusicPlayer()
    setupActions();
    setupUi();
 
+   setUnifiedTitleAndToolBarOnMac(true);
+
    // configure Phonon
    m_audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
 

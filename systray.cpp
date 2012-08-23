@@ -53,6 +53,8 @@ SysTray::SysTray()
    createActions();
    createTrayIcon();
 
+   m_quitNow = false;
+
    iconLabel->setMinimumWidth(durationLabel->sizeHint().width());
 
    connect(showMessageButton, SIGNAL(clicked()), this, SLOT(showMessage()));
@@ -119,17 +121,17 @@ void SysTray::createMessageGroupBox()
    durationSpinBox->setSuffix(" s");
    durationSpinBox->setValue(15);
 
-   durationWarningLabel = new QLabel(tr("(Some systems might ignore this hint)"));
+   durationWarningLabel = new QLabel(tr("(Some systems might ignore this hint.)"));
    durationWarningLabel->setIndent(10);
 
    titleLabel = new QLabel(tr("Title:"));
 
-   titleEdit = new QLineEdit(tr("Can not connect to a network"));
+   titleEdit = new QLineEdit(tr("Can not connect to a network."));
 
    bodyLabel = new QLabel(tr("Body:"));
 
    bodyEdit = new QTextEdit;
-   bodyEdit->setPlainText(tr("I have no idea how to provide tech support.\nClick this balloon for details."));
+   bodyEdit->setPlainText(tr("We have no idea how to provide support.\nClick the balloon for details."));
 
    showMessageButton = new QPushButton(tr("Show Message"));
    showMessageButton->setDefault(true);
@@ -175,7 +177,7 @@ void SysTray::createActions()
    connect(restoreAction,  SIGNAL(triggered()), this, SLOT(showNormal()));
 
    quitAction = new QAction(tr("&Quit"), this);
-   connect(quitAction,     SIGNAL(triggered()), this, SLOT(actionClose()));
+   connect(quitAction,     SIGNAL(triggered()), this, SLOT(actionQuit()));
 }
 
 //
@@ -186,19 +188,6 @@ void SysTray::setVisible(bool visible)
    restoreAction->setEnabled(isMaximized() || ! visible);
 
    QDialog::setVisible(visible);
-}
-
-void SysTray::closeEvent(QCloseEvent *event)
-{
-   if (trayIcon->isVisible()) {
-      QMessageBox::information(this, tr("System Tray"),
-           tr("The System Tray sample will continue to run. To terminate choose "
-              "<b>Quit</b> in the context menu of the system tray."));
-
-      this->parentWidget()->hide();
-      event->ignore();
-   }
-
 }
 
 void SysTray::setIcon(int index)
@@ -241,10 +230,24 @@ void SysTray::showMessage()
 void SysTray::messageClicked()
 {
    QMessageBox::information(0, tr("Systray"),
-           tr("I already provided the best support I know how.\nMaybe you should try asking someone else."));
+           tr("We already provided the best known support.\nMaybe you can ask another user."));
 }
 
-void SysTray::actionClose() {
+void SysTray::closeEvent(QCloseEvent *event)
+{
+   if (! m_quitNow) {
+      QMessageBox::information(this, tr("System Tray"),
+           tr("The System Tray sample will continue to run. To terminate choose "
+              "<b>Quit</b> in the context menu of the system tray."));
+
+      this->parentWidget()->hide();
+      event->ignore();
+   }
+}
+
+void SysTray::actionQuit() {
+   // called from the sys tray menu
+   m_quitNow = true;
    this->parentWidget()->close();
 }
 

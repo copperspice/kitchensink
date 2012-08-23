@@ -1,11 +1,11 @@
 #include "util.h"
-//Cs  #include "aboutcs.h"
+#include "aboutcs.h"
 #include "calendar.h"
 #include "colorpicker.h"
 #include "dialogs.h"
 #include "draw.h"
 #include "fontpicker.h"
-//Cs #include "html_viewer.h"
+#include "html_viewer.h"
 #include "musicplayer.h"
 #include "translate.h"
 #include "line_edit.h"
@@ -20,7 +20,7 @@
 #include "tablewidget_view.h"
 #include "treeview.h"
 #include "videoplayer.h"
-//Cs #include "web_browser.h"
+#include "web_browser.h"
 #include "xml.h"
 
 #include "mdi.h"
@@ -57,14 +57,21 @@ void Mdi::addMdiChild(QWidget *oDw)
    subWindow->show();
 }
 
-void Mdi::removeMdiChild(QWidget *oDw)
+// file
+void Mdi::on_actionClose_Window_triggered()
 {
-   // not used as the child can call subWindow->close()
-   // ui->mdiArea->closeActiveSubWindow();
+   QMdiSubWindow *temp = ui->mdiArea->currentSubWindow();
+
+   if (temp) {
+      temp->close();
+   }
 }
 
+void Mdi::on_actionCloseAll_Windows_triggered()
+{
+   ui->mdiArea->closeAllSubWindows();
+}
 
-// file
 void Mdi::on_actionExit_Program_triggered()
 {
    close();
@@ -155,14 +162,14 @@ void Mdi::on_actionVideoWidget_triggered()
 
 void Mdi::on_actionHTML_Viewer_triggered()
 {
-//Cs     Html_Viewer *oDw = new Html_Viewer();
-//Cs     addMdiChild(oDw);
+   Html_Viewer *oDw = new Html_Viewer();
+   addMdiChild(oDw);
 }
 
 void Mdi::on_actionWebBrowser_triggered()
 {   
-//Cs     WebBrowser *oDw = new WebBrowser(this);
-//Cs     addMdiChild(oDw);
+   WebBrowser *oDw = new WebBrowser(this);
+   addMdiChild(oDw);
 }
 
 
@@ -190,15 +197,6 @@ void Mdi::on_actionTableWidget_View_triggered()
    TableWidget_View *oDw = new TableWidget_View();
    addMdiChild(oDw);
 }
-
-void Mdi::on_actionTableView_Delegate_triggered()
-{
-   //TableView *oDw = new TableView();
-   //addMdiChild(oDw);
-
-   ksMsg("Delegate sample has not been implemented");
-}
-
 
 
 // widgets
@@ -229,8 +227,8 @@ void Mdi::on_actionTabs_triggered()
 //  help
 void Mdi::on_actionAbout_CopperSpice_triggered()
 {
-//Cs     AboutCS *oDw = new AboutCS();
-//Cs     addMdiChild(oDw);
+   AboutCS *oDw = new AboutCS();
+   addMdiChild(oDw);
 }
 
 void Mdi::on_actionAbout_triggered()
@@ -249,7 +247,7 @@ void Mdi::on_actionAbout_triggered()
    msgB.setWindowIcon( QIcon("://resources/plus.png"));
 
    msgB.setWindowTitle(tr("About Kitchen Sink-Cs1"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 7.16.2012</h5></center></p>"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 8.17.2012</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

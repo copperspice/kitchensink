@@ -104,20 +104,23 @@ WebBrowser::WebBrowser(Mdi *parent, QUrl url)
    QAction* temp3 = new QAction(tr("Enable Developer Tools"), this);
    temp3->setCheckable(true);
    temp3->setChecked(false);
-   connect(temp3, SIGNAL(triggered( bool)), this, SLOT(actionDevTool( bool)));
+   connect(temp3, SIGNAL(triggered(bool)), this, SLOT(actionDevTool( bool)));
    toolsMenu->addAction(temp3);
 
    QAction* temp4 = new QAction(tr("Enable JavaScript"), this);
    temp4->setCheckable(true);
    temp4->setChecked(true);
-   connect(temp4, SIGNAL(triggered( bool)), this, SLOT(actionJavaScript( bool)));
+   connect(temp4, SIGNAL(triggered(bool)), this, SLOT(actionJavaScript( bool)));
    toolsMenu->addAction(temp4);
 
    QAction* temp5 = new QAction(tr("Enable Plugins"), this);
    temp5->setCheckable(true);
-   temp5->setChecked(false);
-   connect(temp5, SIGNAL(triggered( bool)), this, SLOT(actionPlugins( bool)));
+   temp5->setChecked(true);
+   connect(temp5, SIGNAL(triggered(bool)), this, SLOT(actionPlugins( bool)));
    toolsMenu->addAction(temp5);
+
+   // override default of false
+   this->actionPlugins(true);
 
    // set up custom context menu
    m_view->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -176,7 +179,7 @@ void WebBrowser::setTitle()
    }
 }
 
-void WebBrowser::actionLinkHovered(const QString & link, const QString & title, const QString & textContent)
+void WebBrowser::actionLinkHovered(const QString & link, const QString & /* title */, const QString & /* textContent */ )
 {
    statusBar()->showMessage(link);
 }
@@ -214,16 +217,16 @@ void WebBrowser::actionDevTool(bool checked)
    m_view->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, checked);
 }
 
-void WebBrowser::actionPlugins(bool checked)
-{  
-   // disabled by default
-   m_view->page()->settings()->setAttribute(QWebSettings::PluginsEnabled, checked);
-}
-
 void WebBrowser::actionJavaScript(bool checked)
 {
    // enabled by default
    m_view->page()->settings()->setAttribute(QWebSettings::JavascriptEnabled, checked);
+}
+
+void WebBrowser::actionPlugins(bool checked)
+{  
+   // enabled by default
+   m_view->page()->settings()->setAttribute(QWebSettings::PluginsEnabled, checked);
 }
 
 

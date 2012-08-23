@@ -75,11 +75,8 @@ VideoPlayer::VideoPlayer(QWidget *parent)
    e_body->setFont(font);
 
    //
-   QPushButton *close_PB  = new QPushButton(tr(""));   //  Close BROOM
+   QPushButton *close_PB  = new QPushButton(tr("Close"));
    close_PB->setFont(font);
-
-   QIcon foo = QIcon(":/resources/email1.gif");
-   close_PB->setIcon(foo);
 
    //
    VideoWidget *videoWidget = new VideoWidget;     
@@ -137,9 +134,6 @@ VideoPlayer::~VideoPlayer()
 
 void VideoPlayer::stateChanged(QMovie::MovieState state)
 {
-
-    ksMsg("Test stateChanged");
-
    // not used in this example, left here for reference
    switch(state) {
       case QMovie::NotRunning:
@@ -156,9 +150,6 @@ void VideoPlayer::stateChanged(QMovie::MovieState state)
 
 void VideoPlayer::frameChanged(int frame)
 {
-
-   ksMsg("i am in FRAME CHANGED");
-
    if (! presentImage(m_movie.currentImage())) {
       m_movie.stop();
       ksMsg("Unable to display image.");
@@ -169,15 +160,11 @@ bool VideoPlayer::presentImage(const QImage &image)
 {
    QVideoFrame frame(image);
 
-   ksMsg("i am in presentImage A");
-
    if (! frame.isValid()) {
       return false;
    }
 
    QVideoSurfaceFormat currentFormat = m_surface->surfaceFormat();
-
-   ksMsg("i am in presentImage B");
 
    if (frame.pixelFormat() != currentFormat.pixelFormat()
          || frame.size() != currentFormat.frameSize()) {
@@ -188,8 +175,6 @@ bool VideoPlayer::presentImage(const QImage &image)
          return false;
       }
    }
-
-   ksMsg("i am in presentImage C");
 
    if (! m_surface->present(frame)) {
       m_surface->stop();

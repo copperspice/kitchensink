@@ -12,10 +12,9 @@ QT += phonon
 QT += sql
 QT += svg
 QT += script
+QT += webkit
 QT += xml
 QT += xmlpatterns
-
-#QT += webkit
 
 TARGET = KitchenSink
 TEMPLATE = app
@@ -48,12 +47,10 @@ SOURCES  += \
     videowidget.cpp \
     videoplayer.cpp \
     videosurface.cpp \
-    script.cpp
-
-
-#   aboutcs.cpp
-#   html_viewer.cpp
-#   web_browser.cpp
+    script.cpp \
+    aboutcs.cpp  \
+    html_viewer.cpp  \
+    web_browser.cpp
 
 
 HEADERS  += \
@@ -83,11 +80,10 @@ HEADERS  += \
     videowidget.h \
     videoplayer.h \
     videosurface.h \
-    script.h
-
-#   aboutcs.h
-#   html_viewer.h
-#   web_browser.h
+    script.h \
+    aboutcs.h \
+    html_viewer.h  \
+    web_browser.h
 
 
 FORMS += \
@@ -104,9 +100,8 @@ FORMS += \
     tabdialog.ui \
     translate.ui \
     xml.ui \
-    script.ui
-
-#   html_viewer.ui
+    script.ui \
+    html_viewer.ui
 
 
 RESOURCES  += kitchensink.qrc

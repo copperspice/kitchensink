@@ -12,14 +12,17 @@ class Mdi : public QMainWindow
    public:
       explicit Mdi();
       ~Mdi();
-      void addMdiChild(QWidget *);
-      void removeMdiChild(QWidget *);
+      void addMdiChild(QWidget *);     
 
    private:
       Ui::Mdi *ui;
       void changeEvent(QEvent *event);
 
    private slots:
+      void on_actionClose_Window_triggered();
+      void on_actionCloseAll_Windows_triggered();
+      void on_actionExit_Program_triggered();
+
       void on_actionColorPicker_triggered();
       void on_actionFonts_triggered();
       void on_actionDraw_triggered();
@@ -42,7 +45,6 @@ class Mdi : public QMainWindow
       void on_actionTreeView_triggered();
       void on_actionListView_triggered();
       void on_actionTableWidget_View_triggered();
-      void on_actionTableView_Delegate_triggered();
 
       void on_actionCalendar_triggered();
       void on_actionLineEdit_triggered();      
@@ -50,8 +52,7 @@ class Mdi : public QMainWindow
       void on_actionTabs_triggered();
 
       void on_actionAbout_CopperSpice_triggered();
-      void on_actionAbout_triggered();
-      void on_actionExit_Program_triggered();
+      void on_actionAbout_triggered();     
 };
 
-#endif // MDI_H
+#endif

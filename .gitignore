@@ -1,3 +1,4 @@
+*_me.cpp
 *.o
 *.exe
 ui*.h
@@ -5,6 +6,7 @@ ui*.h
 object_script.*
 .deps
 .libs
+/bin/config.log
 /release
 /autotools
 /deploy
@@ -13,8 +15,9 @@ object_script.*
 /config.log
 /config.status
 /configure
-/Makefile.*
 /libtool
+Makefile.Release
 Makefile
 Makefile.in
 qrc_*.cpp
+

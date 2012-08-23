@@ -84,8 +84,6 @@ bool VideoSurface::start(const QVideoSurfaceFormat &format)
    const QImage::Format temp = QVideoFrame::imageFormatFromPixelFormat(format.pixelFormat());
    const QSize size = format.frameSize();
 
-   ksMsg("i am in START AA");
-
    if (temp != QImage::Format_Invalid && ! size.isEmpty()) {
 
       m_imageFormat = temp;

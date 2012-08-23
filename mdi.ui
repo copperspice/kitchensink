@@ -33,6 +33,9 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionClose_Window"/>
+    <addaction name="actionCloseAll_Windows"/>
+    <addaction name="separator"/>
     <addaction name="actionExit_Program"/>
    </widget>
    <widget class="QMenu" name="menuLayouts">
@@ -44,7 +47,6 @@
     <addaction name="actionListView"/>
     <addaction name="separator"/>
     <addaction name="actionTableWidget_View"/>
-    <addaction name="actionTableView_Delegate"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -109,6 +111,9 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::AboutRole</enum>
    </property>
   </action>
   <action name="actionTreeView">
@@ -215,6 +220,9 @@
    <property name="text">
     <string>About CopperSpice</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionXml">
    <property name="text">
@@ -244,6 +252,22 @@
   <action name="actionScript">
    <property name="text">
     <string>JS Script</string>
+   </property>
+  </action>
+  <action name="actionClose_Window">
+   <property name="text">
+    <string>Close Window</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionCloseAll_Windows">
+   <property name="text">
+    <string>Close All Windows</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
  </widget>

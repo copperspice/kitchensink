@@ -97,18 +97,17 @@ class SysTray : public QDialog
       QAction *maximizeAction;
       QAction *restoreAction;
       QAction *quitAction;
+      bool m_quitNow;
 
       QSystemTrayIcon *trayIcon;
       QMenu *trayIconMenu;
-
 
    private slots:
       void setIcon(int index);
       void iconActivated(QSystemTrayIcon::ActivationReason reason);
       void showMessage();
       void messageClicked();
-      void actionClose();
-
+      void actionQuit();
 };
 
 
