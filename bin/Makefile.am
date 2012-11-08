@@ -7,10 +7,10 @@ gccpath=/c/MingW
 gcclibs=libgcc_s_sjlj-1  libstdc++-6  libwinpthread-1
 
 # list of CopperSpice libraries your app uses
-cslibs=Core Gui Multimedia Network Phonon Script Svg Sql WebKit Xml XmlPatterns
+cslibs=Core Gui Multimedia Network Phonon Script Svg Sql WebKit Xml
 
 # location of includes, libs, defines for compiling, turn off debugging
-AM_CXXFLAGS+=-mwindows  -I$(CS_HOME)/include/phonon  -gtoggle 
+AM_CXXFLAGS+=-mwindows  -I$(CS_HOME)/include/phonon
 
 # 'KitchenSink-Cs1' target app name
 deploy_PROGRAMS = KitchenSink-Cs1
@@ -65,81 +65,71 @@ KitchenSink_Cs1_SOURCES = \
     videowidget.cpp \
     videosurface.cpp \
     web_browser.cpp \
-    xml.cpp   \
-    core_me.cpp   \
-    sql_me.cpp  \
-    xml_me.cpp  \
-    gui_me.cpp  \
-	phone_me.cpp \
-	svg_me.cpp \
-	multi_me.cpp \
-	xmlpat_me.cpp \
-    network_me.cpp	\
-	web_me.cpp
-     
+    xml.cpp
+    
 #              
 noinst_HEADERS = \
-	aboutcs.h \
-	calendar.h \
-	colorpicker.h \
-	dialogs.h \
-	draw.h \
-    draw_area.h \
-	fontpicker.h \
-	html_viewer.h  \
-	line_edit.h \
-	listview.h \
-    mdi.h \
-    musicplayer.h \
-	script.h \
-    sliders.h \
-	style_dw.h  \
-    style_edit.h  \
-    svg_view.h  \
-    svgtextobject.h \
-    systray.h \
-	tabdialog.h \
-    tableview.h \
-    tablewidget_view.h \
-    translate.h \
-    treeview.h \
-	util.h \
-	videoplayer.h \
-    videowidget.h \
-    videosurface.h \
-    web_browser.h \
-    xml.h
+   aboutcs.h \
+   calendar.h \
+   colorpicker.h \
+   dialogs.h \
+   draw.h \
+   draw_area.h \
+   fontpicker.h \
+   html_viewer.h  \
+   line_edit.h \
+   listview.h \
+   mdi.h \
+   musicplayer.h \
+   script.h \
+   sliders.h \
+   style_dw.h  \
+   style_edit.h  \
+   svg_view.h  \
+   svgtextobject.h \
+   systray.h \
+   tabdialog.h \
+   tableview.h \
+   tablewidget_view.h \
+   translate.h \
+   treeview.h \
+   util.h \
+   videoplayer.h \
+   videowidget.h \
+   videosurface.h \
+   web_browser.h \
+   xml.h
                 
 # list of files that require compiling with moc
 MOCS = \
-    aboutcs.h \
-    calendar.h \
-	colorpicker.h \
-	dialogs.h \
-    draw.h \
-    draw_area.h \
-	fontpicker.h \
-	html_viewer.h \
-	line_edit.h \
-	listview.h \
-    mdi.h \
-    musicplayer.h \
-    script.h \
-    sliders.h \
-	style_dw.h \
-    style_edit.h \
-    svg_view.h  \
-    svgtextobject.h \
-    systray.h \
-	tableview.h \
-    tablewidget_view.h \
-    tabdialog.h \
-    translate.h \
-    videoplayer.h \
-    videowidget.h \
-    videosurface.h  \
-    web_browser.h \
-    xml.h
+   aboutcs.h \
+   calendar.h \
+   colorpicker.h \
+   dialogs.h \
+   draw.h \
+   draw_area.h \
+   fontpicker.h \
+   html_viewer.h \
+   line_edit.h \
+   listview.h \
+   mdi.h \
+   musicplayer.h \
+   script.h \
+   sliders.h \
+   style_dw.h \
+   style_edit.h \
+   svg_view.h  \
+   svgtextobject.h \
+   systray.h \
+   tableview.h \
+   tablewidget_view.h \
+   tabdialog.h \
+   translate.h \
+   videoplayer.h \
+   videowidget.h \
+   videosurface.h  \
+   web_browser.h \
+   xml.h
     
 KitchenSink_Cs1_LDADD=$(patsubst %.h,moc_%.$(OBJEXT),$(MOCS))    
            
@@ -174,4 +164,4 @@ RESOURCES  =  kitchensink.qrc
 KitchenSink_Cs1_SOURCES += qrc_kitchensink.cpp   
     
 # use wilcard to obtain just the dependency list
-qrc_kitchensink.cpp: kitchensink.qrc   $(wildcard resources/*)
+qrc_kitchensink.cpp: kitchensink.qrc   $(wildcard ../resources/*)

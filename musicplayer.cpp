@@ -1,42 +1,37 @@
-/****************************************************************************
-**
-** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
-** All rights reserved.
-** Contact: Nokia Corporation (qt-info@nokia.com)
-**
-** This file is part of the examples of the Qt Toolkit.
-**
-** $QT_BEGIN_LICENSE:BSD$
-** You may use this file under the terms of the BSD license as follows:
-**
-** "Redistribution and use in source and binary forms, with or without
-** modification, are permitted provided that the following conditions are
-** met:
-**   * Redistributions of source code must retain the above copyright
-**     notice, this list of conditions and the following disclaimer.
-**   * Redistributions in binary form must reproduce the above copyright
-**     notice, this list of conditions and the following disclaimer in
-**     the documentation and/or other materials provided with the
-**     distribution.
-**   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
-**     the names of its contributors may be used to endorse or promote
-**     products derived from this software without specific prior written
-**     permission.
-**
-** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-** "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
-** $QT_END_LICENSE$
-**
-***************************************************************************/
+/**********************************************************************
+*
+* Copyright (c) 2012 Barbara Geller
+* Copyright (c) 2011 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions are
+* met:
+*
+* * Redistributions of source code must retain the above copyright notice,
+*   this list of conditions and the following disclaimer.
+*
+* * Redistributions in binary form must reproduce the above copyright
+*   notice, this list of conditions and the following disclaimer in the
+*   documentation and/or other materials provided with the distribution.
+*
+* * Neither the name of the Nokia Corporation nor the names of its
+*   contributors may be used to endorse or promote products derived from
+*   this software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+* "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+* LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+* A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+* HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+* SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+* LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+* THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+* OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*
+***********************************************************************/
 
 #include "musicplayer.h"
 #include "util.h"
@@ -46,16 +41,18 @@
 MusicPlayer::MusicPlayer()
    : QMainWindow(), ui(new Ui::MusicPlayer)
 {
-   ui->setupUi(this);
-   setWindowTitle(tr("Music Player"));
-
-   setupActions();
-   setupUi();
-
-   setUnifiedTitleAndToolBarOnMac(true);
-
    // configure Phonon
    m_audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
+
+   // new method in CopperSpice
+   if (! m_audioOutput->pluginLoaded())  {
+      // plugin did not load, proper practice is to throw an exception
+      // review KitchenSink-Cs2 for exception code
+
+      ksMsg("Unable to load Audio plugin. Program may terminate.");
+      m_loaded = false;
+      return;
+   }
 
    m_mediaObject = new Phonon::MediaObject(this);
    m_mediaObject->setTickInterval(1000);
@@ -64,8 +61,17 @@ MusicPlayer::MusicPlayer()
    m_metaParser = new Phonon::MediaObject(this);
 
    Phonon::createPath(m_mediaObject, m_audioOutput);
+   m_loaded = true;
 
-   //
+   // ui
+   ui->setupUi(this);
+   setWindowTitle(tr("Music Player"));
+
+   setupActions();
+   setupUi();
+
+   setUnifiedTitleAndToolBarOnMac(true);
+
    m_seekSlider->setMediaObject(m_mediaObject);
    m_volumeSlider->setAudioOutput(m_audioOutput);
 
@@ -82,7 +88,6 @@ MusicPlayer::MusicPlayer()
    // call back when meta data is parsed
    connect(m_metaParser, SIGNAL(stateChanged(Phonon::State,Phonon::State)),
            this, SLOT(metaParserStateChanged(Phonon::State,Phonon::State)));
-
 
    // signals
    connect(m_playAction,    SIGNAL(triggered()), m_mediaObject, SLOT(play()));
@@ -101,6 +106,11 @@ MusicPlayer::MusicPlayer()
 MusicPlayer::~MusicPlayer()
 {
    delete ui;
+}
+
+bool MusicPlayer::loaded()
+{
+   return m_loaded;
 }
 
 void MusicPlayer::setupActions()

@@ -83,7 +83,6 @@
     <addaction name="actionScript"/>
     <addaction name="separator"/>
     <addaction name="actionXml"/>
-    <addaction name="actionXmlPatterns"/>
    </widget>
    <widget class="QMenu" name="menuFoo">
     <property name="title">
