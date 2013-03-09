@@ -39,6 +39,7 @@
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QSize>
 
 AboutCS::AboutCS()
    : QWidget()
@@ -73,13 +74,12 @@ AboutCS::AboutCS()
 
    mainLayout->setContentsMargins(0, 0, 0, 15);
 
+   QSize size = QSize(1100, 700);
+   resize(size);
+
    // signals
    connect(homePB,   SIGNAL(clicked()), this, SLOT(actionHome()) );
-   connect(closePB,  SIGNAL(clicked()), this, SLOT(actionClose()) );
-
-   // adjust the size
-   QSize size = this->size();
-   this->setMinimumHeight( size.height() );
+   connect(closePB,  SIGNAL(clicked()), this, SLOT(actionClose()) );  
 }
 
 void AboutCS::actionHome() {

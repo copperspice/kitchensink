@@ -1,7 +1,7 @@
 include copperspice.am
 
 # path to gcc
-gccpath=/c/MingW
+gccpath=/c/MingW/bin
 
 # list of gcc libraries your app uses
 gcclibs=libgcc_s_sjlj-1  libstdc++-6  libwinpthread-1
@@ -19,8 +19,11 @@ deploy_PROGRAMS = KitchenSink-Cs1
 install-data-hook:	
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend	
-	cp --preserve=timestamps  $(patsubst %,$(gccpath)/bin/%.dll,$(gcclibs))  $(deploydir)
+
+	cp --preserve=timestamps  $(patsubst %,$(gccpath)/%.dll,$(gcclibs))  $(deploydir)
+	cp --preserve=timestamps  $(CS_HOME)/bin/lupdate*  $(deploydir)
 	cp --preserve=timestamps  $(patsubst %,$(CS_HOME)/bin/libCs%1-0.dll,$(cslibs))  $(deploydir)
+
     ifeq ($(findstring Phonon,$(cslibs)),Phonon)		
 		cp --preserve=timestamps  $(CS_HOME)/lib/phonon_ds9-0.dll  $(deploydir)/phonon_backend
     else		
@@ -44,6 +47,7 @@ KitchenSink_Cs1_SOURCES = \
     draw_area.cpp \
     fontpicker.cpp \
     html_viewer.cpp \
+    international.cpp \
     line_edit.cpp \
     listview.cpp \
     mdi.cpp \
@@ -58,7 +62,6 @@ KitchenSink_Cs1_SOURCES = \
     tableview.cpp \
     tablewidget_view.cpp \
     tabdialog.cpp \
-    translate.cpp \
     treeview.cpp \
     util.cpp \
     videoplayer.cpp \
@@ -77,6 +80,7 @@ noinst_HEADERS = \
    draw_area.h \
    fontpicker.h \
    html_viewer.h  \
+   international.h \
    line_edit.h \
    listview.h \
    mdi.h \
@@ -91,7 +95,6 @@ noinst_HEADERS = \
    tabdialog.h \
    tableview.h \
    tablewidget_view.h \
-   translate.h \
    treeview.h \
    util.h \
    videoplayer.h \
@@ -110,6 +113,7 @@ MOCS = \
    draw_area.h \
    fontpicker.h \
    html_viewer.h \
+   international.h \
    line_edit.h \
    listview.h \
    mdi.h \
@@ -124,7 +128,6 @@ MOCS = \
    tableview.h \
    tablewidget_view.h \
    tabdialog.h \
-   translate.h \
    videoplayer.h \
    videowidget.h \
    videosurface.h  \
@@ -140,6 +143,7 @@ FORMS = \
     fontpicker.ui \
     dialogs.ui \
     html_viewer.ui \
+    international.ui \
     line_edit.ui \
     listview.ui \
     musicplayer.ui \
@@ -148,7 +152,6 @@ FORMS = \
     script.ui \
 	tabdialog.ui \
     tablewidget_view.ui \
-	translate.ui \
     xml.ui    
           
 #

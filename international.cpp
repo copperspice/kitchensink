@@ -34,18 +34,18 @@
 ***********************************************************************/
 
 #include "util.h"
-#include "translate.h"
+#include "international.h"
 
 #include <QtGui>
 
 static const QString qmPath = ":/resources";
-QTranslator *Translate::m_translator = new QTranslator;
+QTranslator *International::m_translator = new QTranslator;
 
-Translate::Translate()
-   : QWidget(), ui(new Ui::Translate )
+International::International()
+   : QWidget(), ui(new Ui::International )
 {
    ui->setupUi(this);
-   setWindowTitle(tr("Translate")); 
+   setWindowTitle(tr("International"));
 
    // add the model
    m_model = new QStringListModel();
@@ -71,39 +71,39 @@ Translate::Translate()
    ui->nameCB->setFocus();
 }
 
-Translate::~Translate()
+International::~International()
 {
    delete ui;
 }
 
-void Translate::actionEnglish()
+void International::actionEnglish()
 {
    if (! m_translator->load("qt_en.qm",qmPath)) {
-      ksMsg(this, tr("Translate"), tr("Error while loading English international file."));
+      ksMsg(this, tr("International"), tr("Error while loading English international file."));
    }
 
    qApp->installTranslator(m_translator);
 }
 
-void Translate::actionFrench()
+void International::actionFrench()
 {
    if (! m_translator->load("qt_fr.qm",qmPath)) {
-      ksMsg(this, tr("Translate"), tr("Error while loading French international file."));
+      ksMsg(this, tr("International"), tr("Error while loading French international file."));
    }
 
    qApp->installTranslator(m_translator);
 }
 
-void Translate::actionGerman()
+void International::actionGerman()
 {
    if (! m_translator->load("qt_de.qm",qmPath)) {
-      ksMsg(this, tr("Translate"), tr("Error while loading German international file."));
+      ksMsg(this, tr("International"), tr("Error while loading German international file."));
    }
 
    qApp->installTranslator(m_translator);   
 }
 
-void Translate::changeEvent(QEvent *event)
+void International::changeEvent(QEvent *event)
 {
    if (event->type() == QEvent::LanguageChange) {
       ui->retranslateUi(this);
@@ -114,7 +114,7 @@ void Translate::changeEvent(QEvent *event)
    QWidget::changeEvent(event);
 }
 
-void Translate::getListData()
+void International::getListData()
 {
    QStringList list;
    list.append(tr("Chocolate Cake"));
@@ -127,7 +127,7 @@ void Translate::getListData()
    m_model->setStringList(list);
 }
 
-void Translate::actionClose()
+void International::actionClose()
 {
    this->parentWidget()->close();
 }

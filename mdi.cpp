@@ -41,8 +41,8 @@
 #include "draw.h"
 #include "fontpicker.h"
 #include "html_viewer.h"
+#include "international.h"
 #include "musicplayer.h"
-#include "translate.h"
 #include "line_edit.h"
 #include "listview.h"
 #include "script.h"
@@ -134,7 +134,7 @@ void Mdi::on_actionDraw_triggered()
 
 void Mdi::on_actionInternational_triggered()
 {
-   Translate *oDw = new Translate();
+   International *oDw = new International();
    addMdiChild(oDw);
 }
 
@@ -270,7 +270,7 @@ void Mdi::on_actionAbout_triggered()
                       "<tr><td style=padding-right:25><nobr>Developed by Ansel Sermersheim</nobr></td><td>ansel@copperspice.com</td></tr>"
                       "</table></font>"
                       "<br>"
-                      "<p><small>Copyright 2012 BG Consulting, All rights reserved.<br>"
+                      "<p><small>Copyright 2012-2013 BG Consulting, All rights reserved.<br>"
                       "This program is provided AS IS with no warranty of any kind.<br></small></p>";
 
    //
@@ -279,7 +279,7 @@ void Mdi::on_actionAbout_triggered()
    msgB.setWindowIcon( QIcon("://resources/plus.png"));
 
    msgB.setWindowTitle(tr("About Kitchen Sink-Cs1"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 10.09.2012</h5></center></p>"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 3.01.2013</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

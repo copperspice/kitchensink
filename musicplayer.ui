@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>274</width>
-    <height>284</height>
+    <height>263</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,7 +49,6 @@
    <addaction name="menuFile"/>
    <addaction name="menuHelp"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAbout">
    <property name="text">
     <string>About</string>

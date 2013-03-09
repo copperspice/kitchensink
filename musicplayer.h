@@ -39,8 +39,9 @@
 #include "ui_musicplayer.h"
 
 #include <QMainWindow>
-#include <QList>
 #include <QAction>
+#include <QList>
+#include <QPushButton>
 #include <QStandardItemModel>
 
 #include <phonon/audiooutput.h>
@@ -57,7 +58,7 @@ class MusicPlayer : public QMainWindow
       MusicPlayer();
       ~MusicPlayer();
 
-      bool loaded();
+      bool loaded();    // new in CS
 
    private:
       Ui::MusicPlayer *ui;
@@ -71,6 +72,8 @@ class MusicPlayer : public QMainWindow
 
       Phonon::SeekSlider   *m_seekSlider;
       Phonon::VolumeSlider *m_volumeSlider;
+
+      QPushButton *m_openFilePB;
 
       QList<Phonon::MediaSource> m_sources;
 

@@ -20,8 +20,12 @@ AM_INIT_AUTOMAKE( [foreign] )
 LT_INIT
 AC_PROG_INSTALL
 AC_PROG_CC_C99
-AC_PROG_CXX
 AC_PROG_CC_C_O
+AC_PROG_CXX
+
+# set flags for c+11
+AC_LANG([C++])
+AX_CXX_COMPILE_STDCXX_11([noext])
 
 # location of .am files that will create Makefiles
 AC_CONFIG_FILES( [Makefile bin/Makefile ] )

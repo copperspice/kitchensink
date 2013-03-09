@@ -24,7 +24,7 @@ musicplayer.cpp
 systray.cpp
 tablewidget_view.cpp
 tabdialog.cpp
-translate.cpp
+international.cpp
 xml.cpp
 svg_view.cpp
 svgtextobject.cpp
@@ -55,7 +55,7 @@ treeview.h
 tableview.h
 tablewidget_view.h
 tabdialog.h
-translate.h
+international.h
 xml.h
 svg_view.h
 svgtextobject.h
@@ -78,7 +78,7 @@ listview.ui
 musicplayer.ui
 tablewidget_view.ui
 tabdialog.ui
-translate.ui
+international.ui
 xml.ui
 script.ui
 html_viewer.ui

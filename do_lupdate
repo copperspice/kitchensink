@@ -1,0 +1,6 @@
+# leave obsolete
+deploy/lupdate  *.cpp  *.h  bin/*.h  -ts resources/*.ts
+
+# remove obsolete
+#deploy/lupdate -no-obsolete *.cpp  *.h  bin/*.h  -ts resources/*.ts
+ 

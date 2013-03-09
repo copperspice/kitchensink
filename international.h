@@ -33,24 +33,24 @@
 *
 ***********************************************************************/
 
-#ifndef TRANSLATE_H
-#define TRANSLATE_H
+#ifndef INTERNATIOANL_H
+#define INTERNATIONAl_H
 
-#include "ui_translate.h"
+#include "ui_international.h"
 
 #include <QWidget>
 #include <QStringListModel>
 
-class Translate : public QWidget
+class International : public QWidget
 {
    Q_OBJECT
 
    public:
-      Translate();
-      ~Translate();
+      International();
+      ~International();
 
    private:
-      Ui::Translate *ui;
+      Ui::International *ui;
       QStringListModel *m_model;      
       static QTranslator *m_translator;
 

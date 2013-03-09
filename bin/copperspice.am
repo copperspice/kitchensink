@@ -1,7 +1,8 @@
 AUTOMAKE_OPTIONS=subdir-objects
 
 # adjustment for windows slash vs backslash
-CS_HOME:=$(shell cd $(CS_HOME); pwd)
+# CS_HOME:=$(shell cd $(CS_HOME); pwd)
+CS_HOME:=/z/cs2_Lib
 
 # location of includes, libs, defines for compiling
 AM_CXXFLAGS=$(AM_CFLAGS) -DQT_NO_STYLE_S60   \
@@ -16,7 +17,7 @@ MOC=$(CS_HOME)/bin/moc
 RCC=$(CS_HOME)/bin/rcc
 UIC=$(CS_HOME)/bin/uic
 
-# 'deploy' is the folder where your install will be located
+# 'deploy' is the folder where the install will be located
 deploydir=$(abs_top_builddir)/deploy
 
 # compiling .ui files

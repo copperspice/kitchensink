@@ -75,7 +75,7 @@ MusicPlayer::MusicPlayer()
    m_seekSlider->setMediaObject(m_mediaObject);
    m_volumeSlider->setAudioOutput(m_audioOutput);
 
-   // Phonon Signals
+   // phonon Signals
    connect(m_mediaObject, SIGNAL(tick(qint64)),    this, SLOT(tick(qint64)));
    connect(m_mediaObject, SIGNAL(aboutToFinish()), this, SLOT(aboutToFinish()));
 
@@ -90,6 +90,8 @@ MusicPlayer::MusicPlayer()
            this, SLOT(metaParserStateChanged(Phonon::State,Phonon::State)));
 
    // signals
+   connect(m_openFilePB,    SIGNAL(clicked()), this, SLOT(on_actionOpen_triggered()) );
+
    connect(m_playAction,    SIGNAL(triggered()), m_mediaObject, SLOT(play()));
    connect(m_pauseAction,   SIGNAL(triggered()), m_mediaObject, SLOT(pause()) );
    connect(m_stopAction,    SIGNAL(triggered()), m_mediaObject, SLOT(stop()));
@@ -169,6 +171,15 @@ void MusicPlayer::setupUi()
    ui->musicTable->setColumnWidth(1, 175);
    ui->musicTable->horizontalHeader()->setStretchLastSection(true);
 
+   // OS X has no menu bar
+   m_openFilePB = new QPushButton;
+   m_openFilePB->setText("Open File");
+
+   QHBoxLayout *buttonLayout = new QHBoxLayout;
+   buttonLayout->addStretch();
+   buttonLayout->addWidget(m_openFilePB);
+   buttonLayout->addStretch();
+
    //
    QHBoxLayout *seekerLayout = new QHBoxLayout;
    seekerLayout->addWidget(m_seekSlider);
@@ -183,6 +194,9 @@ void MusicPlayer::setupUi()
    mainLayout->addWidget(ui->musicTable);
    mainLayout->addLayout(seekerLayout);
    mainLayout->addLayout(playbackLayout);
+   mainLayout->addSpacing(6);
+   mainLayout->addLayout(buttonLayout);
+   mainLayout->addSpacing(4);
 
    QWidget *widget = new QWidget;
    widget->setLayout(mainLayout);
