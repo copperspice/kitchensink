@@ -54,6 +54,7 @@ KitchenSink_Cs1_SOURCES = \
     musicplayer.cpp \
     sliders.cpp \
     script.cpp \
+	stdpath.cpp \
     style_edit.cpp \
     style_dw.cpp \
     svg_view.cpp  \
@@ -86,6 +87,7 @@ noinst_HEADERS = \
    mdi.h \
    musicplayer.h \
    script.h \
+   stdpath.h \
    sliders.h \
    style_dw.h  \
    style_edit.h  \
@@ -119,6 +121,7 @@ MOCS = \
    mdi.h \
    musicplayer.h \
    script.h \
+   stdpath.h \
    sliders.h \
    style_dw.h \
    style_edit.h \
@@ -138,21 +141,22 @@ KitchenSink_Cs1_LDADD=$(patsubst %.h,moc_%.$(OBJEXT),$(MOCS))
            
 #
 FORMS = \
-    mdi.ui \
-    colorpicker.ui \
-    fontpicker.ui \
-    dialogs.ui \
-    html_viewer.ui \
-    international.ui \
-    line_edit.ui \
-    listview.ui \
-    musicplayer.ui \
-    style_dw.ui \
-    style_edit.ui \
-    script.ui \
-	tabdialog.ui \
-    tablewidget_view.ui \
-    xml.ui    
+    forms/mdi.ui \
+    forms/colorpicker.ui \
+    forms/fontpicker.ui \
+    forms/dialogs.ui \
+    forms/html_viewer.ui \
+    forms/international.ui \
+    forms/line_edit.ui \
+    forms/listview.ui \
+    forms/musicplayer.ui \
+    forms/stdpath.ui \
+    forms/style_dw.ui \
+    forms/style_edit.ui \
+    forms/script.ui \
+	forms/tabdialog.ui \
+    forms/tablewidget_view.ui \
+    forms/xml.ui    
           
 #
 TRANSLATIONS =  \

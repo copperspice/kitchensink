@@ -131,8 +131,7 @@ WebBrowser::WebBrowser(Mdi *parent, QUrl url)
    connect(m_view->page(), SIGNAL(linkHovered(const QString &, const QString &, const QString &)),
            SLOT(actionLinkHovered(const QString &, const QString &, const QString &)) );
 
-   setCentralWidget(m_view);
-   setUnifiedTitleAndToolBarOnMac(true);
+   setCentralWidget(m_view);   
 }
 
 void WebBrowser::changeLocation()

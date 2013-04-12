@@ -70,8 +70,6 @@ MusicPlayer::MusicPlayer()
    setupActions();
    setupUi();
 
-   setUnifiedTitleAndToolBarOnMac(true);
-
    m_seekSlider->setMediaObject(m_mediaObject);
    m_volumeSlider->setAudioOutput(m_audioOutput);
 

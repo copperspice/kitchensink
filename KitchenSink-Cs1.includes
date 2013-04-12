@@ -1,13 +1,13 @@
-z:\cs_lib\include\QtCore
-z:\cs_lib\include\QtGui
-z:\cs_lib\include\QtMultimedia
-z:\cs_lib\include\QtNetwork
-z:\cs_lib\include\QtPhonon
-z:\cs_lib\include\QtScript
-z:\cs_lib\include\QtSvg
-z:\cs_lib\include\QtSql
-z:\cs_lib\include\QtWebkit
-z:\cs_lib\include\QtXml
+z:\cs2_lib\include\QtCore
+z:\cs2_lib\include\QtGui
+z:\cs2_lib\include\QtMultimedia
+z:\cs2_lib\include\QtNetwork
+z:\cs2_lib\include\QtPhonon
+z:\cs2_lib\include\QtScript
+z:\cs2_lib\include\QtSvg
+z:\cs2_lib\include\QtSql
+z:\cs2_lib\include\QtWebkit
+z:\cs2_lib\include\QtXml
 
-z:\cs_lib\include\phonon
+z:\cs2_lib\include\phonon
 z:\KitchenSink-Cs1\bin

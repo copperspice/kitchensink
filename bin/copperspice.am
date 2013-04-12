@@ -21,7 +21,7 @@ UIC=$(CS_HOME)/bin/uic
 deploydir=$(abs_top_builddir)/deploy
 
 # compiling .ui files
-BUILT_SOURCES=$(patsubst %.ui,ui_%.h,$(FORMS))    
+BUILT_SOURCES=$(patsubst forms/%.ui, ui_%.h,$(FORMS))     
 EXTRA_DIST=$(FORMS)    
 
 # compiling .qrc files
@@ -42,7 +42,7 @@ moc_%.cpp: %.h
 qrc_%.cpp: %.qrc
 	$(RCC) $< -o $@ -name $(notdir $(basename $<))
 
-ui_%.h: %.ui
+ui_%.h: forms/%.ui
 	$(UIC) $< -o $@
     
 # additional files to delete on 'make clean'

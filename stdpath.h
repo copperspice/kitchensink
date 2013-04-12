@@ -1,7 +1,7 @@
 /**********************************************************************
 *
-* Copyright (c) 2012 Barbara Geller
-* Copyright (c) 2011 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2012-2013 Barbara Geller
+* Copyright (c) 2013 Jeff Tranter
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -33,61 +33,36 @@
 *
 ***********************************************************************/
 
-#ifndef MDI_H
-#define MDI_H
+#ifndef STDPATH_H
+#define STDPATH_H
 
-#include "ui_mdi.h"
+#include "ui_stdpath.h"
 
-#include <QtGui/QMainWindow>
+#include <QString>
+#include <QStandardPaths>
+#include <QWidget>
 
-class Mdi : public QMainWindow
+class StdPath : public QWidget
 {
    Q_OBJECT
 
    public:
-      explicit Mdi();
-      ~Mdi();
-      void addMdiChild(QWidget *);     
+       StdPath(QWidget *parent = 0);
+       ~StdPath();
 
    private:
-      Ui::Mdi *ui;
-      void changeEvent(QEvent *event);
+       Ui::StdPath *m_ui;
 
-   private slots:
-      void on_actionClose_Window_triggered();
-      void on_actionCloseAll_Windows_triggered();
-      void on_actionExit_Program_triggered();
+   public slots:       
+       void standardLocations(int);
+       void writeableLocation(int);
+       void find();
+       void locate();
+       void locateAll();
 
-      void on_actionColorPicker_triggered();
-      void on_actionFonts_triggered();
-      void on_actionDraw_triggered();
-      void on_actionInternational_triggered();        
-      void on_actionSystemTray_triggered();
-      void on_actionSvgView_triggered();
-
-      void on_actionStandardDialog_triggered();
-      void on_actionStandardPath_triggered();
-      void on_actionStyleSheetDialog_triggered();          
-      void on_actionScript_triggered();
-      void on_actionXml_triggered();
-
-      void on_actionMusicPlayer_triggered();
-      void on_actionVideoWidget_triggered();
-      void on_actionHTML_Viewer_triggered();
-      void on_actionWebBrowser_triggered();
-
-      void on_actionTableView_triggered();
-      void on_actionTreeView_triggered();
-      void on_actionListView_triggered();
-      void on_actionTableWidget_View_triggered();
-
-      void on_actionCalendar_triggered();
-      void on_actionLineEdit_triggered();      
-      void on_actionSliders_triggered();
-      void on_actionTabs_triggered();
-
-      void on_actionAbout_CopperSpice_triggered();
-      void on_actionAbout_triggered();     
 };
+
+// add type to QVarient
+Q_DECLARE_METATYPE(QStandardPaths::StandardLocation)
 
 #endif

@@ -46,6 +46,7 @@
 #include "line_edit.h"
 #include "listview.h"
 #include "script.h"
+#include "stdpath.h"
 #include "sliders.h"
 #include "style_dw.h"
 #include "systray.h"
@@ -69,6 +70,7 @@ Mdi::Mdi()
 {
    ui->setupUi(this);
    setWindowTitle(tr("Kitchen Sink-Cs1"));
+   setUnifiedTitleAndToolBarOnMac(true);
 }
 
 Mdi::~Mdi()
@@ -153,6 +155,12 @@ void Mdi::on_actionSvgView_triggered()
 void Mdi::on_actionStandardDialog_triggered()
 {
    Dialogs *oDw = new Dialogs();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionStandardPath_triggered()
+{
+   StdPath *oDw = new StdPath();
    addMdiChild(oDw);
 }
 
@@ -279,7 +287,7 @@ void Mdi::on_actionAbout_triggered()
    msgB.setWindowIcon( QIcon("://resources/plus.png"));
 
    msgB.setWindowTitle(tr("About Kitchen Sink-Cs1"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 3.01.2013</h5></center></p>"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 5.01.2013</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

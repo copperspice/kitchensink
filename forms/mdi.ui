@@ -78,6 +78,7 @@
     <addaction name="actionSvgView"/>
     <addaction name="separator"/>
     <addaction name="actionStandardDialog"/>
+    <addaction name="actionStandardPath"/>
     <addaction name="actionStyleSheetDialog"/>
     <addaction name="separator"/>
     <addaction name="actionScript"/>
@@ -267,6 +268,11 @@
    </property>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionStandardPath">
+   <property name="text">
+    <string>Standard Path</string>
    </property>
   </action>
  </widget>
