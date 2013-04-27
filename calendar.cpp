@@ -159,13 +159,16 @@ void Calendar::reformatCalendarPage()
    }
 
    // May 1st in red takes precedence
-   if (mayFirstCheckBox->isChecked()) {
-      const QDate mayFirst(m_calendar->yearShown(), 5, 1);
+   const QDate mayFirst(m_calendar->yearShown(), 5, 1);
+   QTextCharFormat mayFirstFormat;
 
-      QTextCharFormat mayFirstFormat;
+   if (mayFirstCheckBox->isChecked()) {
       mayFirstFormat.setForeground(Qt::red);
-      m_calendar->setDateTextFormat(mayFirst, mayFirstFormat);
+   } else  {
+      mayFirstFormat.setForeground(qvariant_cast<QColor>(weekdayColorCombo->itemData(weekdayColorCombo->currentIndex())));
    }
+
+   m_calendar->setDateTextFormat(mayFirst, mayFirstFormat);
 }
 
 void Calendar::createCalendarGroupBox()

@@ -7,7 +7,7 @@ gccpath=/c/MingW/bin
 gcclibs=libgcc_s_sjlj-1  libstdc++-6  libwinpthread-1
 
 # list of CopperSpice libraries your app uses
-cslibs=Core Gui Multimedia Network Phonon Script Svg Sql WebKit Xml
+cslibs=Core Gui Multimedia Network Phonon Script Sql Svg WebKit Xml
 
 # location of includes, libs, defines for compiling, turn off debugging
 AM_CXXFLAGS+=-mwindows  -I$(CS_HOME)/include/phonon
