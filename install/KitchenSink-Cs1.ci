@@ -22,7 +22,7 @@
    <volsize ></>
    <volpattern >disk%i.pak</>
    <password ></>
-   <progname >KitchenSink</>
+   <progname >CopperSpice</>
    <appname >KitchenSink-Cs1</>
    <bl ></>
    <blurl ></>
@@ -156,15 +156,32 @@
                                  <exclude ></>
                               </>
                               <_ >
-                                 <filename >Z:\apps\KitchenSink-Cs1\deploy\phonon_backend</>
-                                 <recurse >1</>
+                                 <filename >Z:\apps\KitchenSink-Cs1\install\cs.conf</>
+                                 <recurse >0</>
                                  <justfile >0</>
                                  <emptydir >0</>
                                  <exclude ></>
                               </>
+                           </>
+                        </>
+                        <varlist >
+                           <rows ></>
+                        </>
+                     </>
+                     <_ tag = 0 id = unpack >
+                        <desc >Plugins</>
+                        <comptype >default</>
+                        <ratio >r5</>
+                        <solid >1</>
+                        <path >inst</>
+                        <custpath >plugins</>
+                        <ifexist >overnewer</>
+                        <if ></>
+                        <srclist >
+                           <rows rel = unpack >
                               <_ >
-                                 <filename >Z:\Diamond\resources\diamond.ico</>
-                                 <recurse >1</>
+                                 <filename >Z:\apps\KitchenSink-Cs1\deploy\phonon_backend</>
+                                 <recurse >0</>
                                  <justfile >0</>
                                  <emptydir >0</>
                                  <exclude ></>
@@ -186,6 +203,13 @@
                         <if ></>
                         <srclist >
                            <rows rel = unpack >
+                              <_ >
+                                 <filename >Z:\apps\KitchenSink-Cs1\resources\ks_cs1.ico</>
+                                 <recurse >1</>
+                                 <justfile >0</>
+                                 <emptydir >0</>
+                                 <exclude ></>
+                              </>
                               <_ >
                                  <filename >Z:\apps\KitchenSink-Cs1\resources\script.js</>
                                  <recurse >0</>
@@ -219,7 +243,35 @@
                         <shfile >KS-Cs1</>
                         <path >inst</>
                         <file >KitchenSink-Cs1.exe</>
-                        <icon >diamond.ico</>
+                        <icon >#setuppath#\resources\ks_cs1.ico</>
+                        <cmdline ></>
+                        <comment ></>
+                        <work >inst</>
+                        <defwork ></>
+                        <runas >norm</>
+                        <runasadmin >0</>
+                     </>
+                     <_ id = shcut >
+                        <desc >Program Group</>
+                        <shpath >prog</>
+                        <shfile >KitchenSink-Cs1</>
+                        <path >inst</>
+                        <file >KitchenSink-Cs1.exe</>
+                        <icon >Z:\apps\KitchenSink-Cs1\resources\ks_cs1.ico</>
+                        <cmdline ></>
+                        <comment ></>
+                        <work >inst</>
+                        <defwork ></>
+                        <runas >norm</>
+                        <runasadmin >0</>
+                     </>
+                     <_ id = shcut >
+                        <desc >uninstall.exe</>
+                        <shpath >prog</>
+                        <shfile >Uninstall KS-Cs1</>
+                        <path >inst</>
+                        <file >uninstall.exe</>
+                        <icon ></>
                         <cmdline ></>
                         <comment ></>
                         <work >inst</>
@@ -269,7 +321,7 @@
                   </>
                   <head ></>
                   <headtext ></>
-                  <dlgtext >Thank you for installing KitchenSink-Cs1. If you have any questions or comments please vist our forum at <b>http://sourceforge.net/p/copperspice/discussion/general/&x3c;/b></>
+                  <dlgtext >Thank you for installing KitchenSink-Cs1. If you have any questions or comments please visit our forum at http://sourceforge.net/p/copperspice/discussion/kitchensink/</>
                </>
             </>
             <icofile >default</>
@@ -277,7 +329,7 @@
             <leftimg >install - 1</>
             <caption ></>
             <verinfo >1</>
-            <noadmin >0</>
+            <noadmin >1</>
             <selfdelete >0</>
          </>
       </>
@@ -353,7 +405,7 @@
                   </>
                   <head >KitchenSink-Cs1 Uninstall</>
                   <headtext ></>
-                  <dlgtext >Thank you for reviewing KitchenSink-Cs1. If you have comments or feedback regarding this program or CopperSpice, please take a few minutes to vist our discussion forums on SourceForge.</>
+                  <dlgtext >Thank you for reviewing KitchenSink-Cs1. If you have comments or feedback regarding this program or CopperSpice, please take a few minutes to visit our discussion forums on SourceForge.</>
                   <feedback >http://sourceforge.net/p/copperspice/discussion/kitchensink</>
                   <if ></>
                </>
