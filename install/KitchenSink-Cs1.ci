@@ -15,7 +15,7 @@
    <aftfile ></>
    <uninclude >1</>
    <lang >english</>
-   <addlang >french, german, spanish</>
+   <addlang >french, german, italian, portuguese_br, spanish</>
    <selfextr >1</>
    <instpath >C:\Program Files\KitchenSink-Cs1</>
    <voltype >nolimit</>
@@ -290,7 +290,7 @@
                      </>
                      <_ id = unar >
                         <desc ></>
-                        <name >KitchenSink-Cs1 Editor</>
+                        <name >KitchenSink-Cs1</>
                         <path >inst</>
                         <ifile ></>
                      </>
@@ -303,7 +303,7 @@
                   <varlist >
                      <rows ></>
                   </>
-                  <head ></>
+                  <head >KitchenSink-Cs1 Installation</>
                   <headtext ></>
                   <dlgtext ></>
                   <if ></>

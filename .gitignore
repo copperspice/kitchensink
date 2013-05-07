@@ -23,5 +23,6 @@ config.log
 /install/*.exe
 /install/*.log
 /install/*.zip
-KitchenSink-Cs1*.6pre1
+/runtime
+KitchenSink-Qt*.6pre1
 

@@ -1,12 +1,10 @@
 AUTOMAKE_OPTIONS=subdir-objects
 
 # adjustment for windows slash vs backslash
-# CS_HOME:=$(shell cd $(CS_HOME); pwd)
-CS_HOME:=/z/cs2_Lib
+CS_HOME:=$(shell cd $(CS_HOME); pwd)
 
 # location of includes, libs, defines for compiling
-AM_CXXFLAGS=$(AM_CFLAGS) -DQT_NO_STYLE_S60   \
-     -I$(CS_HOME)/include   $(patsubst %,-I$(CS_HOME)/include/Qt%,$(cslibs))    
+AM_CXXFLAGS=$(AM_CFLAGS) -I$(CS_HOME)/include $(patsubst %,-I$(CS_HOME)/include/Qt%,$(cslibs))    
      
 # location of CopperSpice libraries for linking
 AM_LDFLAGS=-L$(CS_HOME)/lib     
