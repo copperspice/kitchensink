@@ -9,7 +9,7 @@
    <dlgfont >verdana</>
    <headlogo >default - 1</>
    <dlgfontsize >s10</>
-   <output >Z:\apps\KitchenSink-Cs1\install</>
+   <output >Z:\apps\KitchenSink-Cs1\install_win</>
    <exename >setup-ks-cs1.exe</>
    <beffile ></>
    <aftfile ></>
@@ -156,7 +156,7 @@
                                  <exclude ></>
                               </>
                               <_ >
-                                 <filename >Z:\apps\KitchenSink-Cs1\install\cs.conf</>
+                                 <filename >Z:\apps\KitchenSink-Cs1\install_files\cs.conf</>
                                  <recurse >0</>
                                  <justfile >0</>
                                  <emptydir >0</>
