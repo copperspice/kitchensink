@@ -50,7 +50,7 @@ WebBrowser::WebBrowser(Mdi *parent, QUrl url)
    m_view = new QWebView(this);
 
    if (url.isEmpty()) {
-      url = QUrl("http://192.168.10.39/copperspice/");
+      url = QUrl("http://www.copperspice.com/");
    }
    m_view->load(url);
 
@@ -350,7 +350,7 @@ void WebBrowser::goNasa()
 
 void WebBrowser::goCS()
 {
-   QUrl url = QUrl("http://192.168.10.39/copperspice/");
+   QUrl url = QUrl("http://www.copperspice.com/");
    m_view->load(url);
    m_view->setFocus();
 }

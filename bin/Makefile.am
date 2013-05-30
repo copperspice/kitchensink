@@ -12,8 +12,8 @@ cslibs=Core Gui Multimedia Network Phonon Script Sql Svg WebKit Xml
 # location of includes, libs, defines for compiling, turn off debugging
 AM_CXXFLAGS+=-mwindows  -I$(CS_HOME)/include/phonon
 
-# 'KitchenSink-Cs1' target app name
-deploy_PROGRAMS = KitchenSink-Cs1
+# 'KitchenSink-CS' target app name
+deploy_PROGRAMS = KitchenSink-CS
     
 # copy the required CopperSpice and gcc files for deployment - windows only
 install-data-hook:	
@@ -34,10 +34,10 @@ install-data-hook:
 VPATH = ../
 
 # linking
-KitchenSink_Cs1_LDFLAGS=$(AM_LDFLAGS)   $(patsubst %,-lCs%1,$(cslibs))
+KitchenSink_CS_LDFLAGS=$(AM_LDFLAGS)   $(patsubst %,-lCs%1,$(cslibs))
 
-# 'KitchenSink_Cs1' must match the app name ( dash had to be replaced )
-KitchenSink_Cs1_SOURCES = \
+# 'KitchenSink_CS' must match the app name ( dash had to be replaced )
+KitchenSink_CS_SOURCES = \
     main.cpp \
     aboutcs.cpp \
     calendar.cpp \
@@ -137,7 +137,7 @@ MOCS = \
    web_browser.h \
    xml.h
     
-KitchenSink_Cs1_LDADD=$(patsubst %.h,moc_%.$(OBJEXT),$(MOCS))    
+KitchenSink_CS_LDADD=$(patsubst %.h,moc_%.$(OBJEXT),$(MOCS))    
            
 #
 FORMS = \
@@ -154,7 +154,7 @@ FORMS = \
     forms/style_dw.ui \
     forms/style_edit.ui \
     forms/script.ui \
-	forms/tabdialog.ui \
+	 forms/tabdialog.ui \
     forms/tablewidget_view.ui \
     forms/xml.ui    
           
@@ -168,7 +168,7 @@ TRANSLATIONS =  \
 RESOURCES  =  kitchensink.qrc
 
 #    
-KitchenSink_Cs1_SOURCES += qrc_kitchensink.cpp   
+KitchenSink_CS_SOURCES += qrc_kitchensink.cpp   
     
 # use wilcard to obtain just the dependency list
 qrc_kitchensink.cpp: kitchensink.qrc   $(wildcard ../resources/*)

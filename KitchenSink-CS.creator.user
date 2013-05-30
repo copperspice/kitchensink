@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by Qt Creator 2.6.1, 2013-05-09T18:49:43. -->
+<!-- Written by Qt Creator 2.6.1, 2013-05-29T23:31:44. -->
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -123,7 +123,7 @@
     <value type="QByteArray" key="ProjectExplorer.ProjectConfiguration.Id">GenericProjectManager.GenericBuildConfiguration</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
-    <value type="QString" key="GenericProjectManager.GenericBuildConfiguration.BuildDirectory">Z:/apps/KitchenSink-Cs1</value>
+    <value type="QString" key="GenericProjectManager.GenericBuildConfiguration.BuildDirectory">Z:/apps/KitchenSink-CS1</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <valuelist type="QVariantList" key="GenericProjectManager.GenericMakeStep.BuildTargets">
@@ -238,12 +238,12 @@
     </valuelist>
     <value type="QString" key="ProjectExplorer.CustomExecutableRunConfiguration.Arguments"></value>
     <value type="int" key="ProjectExplorer.CustomExecutableRunConfiguration.BaseEnvironmentBase">2</value>
-    <value type="QString" key="ProjectExplorer.CustomExecutableRunConfiguration.Executable">Z:/apps/KitchenSink-Cs1/deploy/KitchenSink-Cs1.exe</value>
+    <value type="QString" key="ProjectExplorer.CustomExecutableRunConfiguration.Executable">Z:/apps/KitchenSink-Cs1/deploy/KitchenSink-CS.exe</value>
     <value type="bool" key="ProjectExplorer.CustomExecutableRunConfiguration.UseTerminal">false</value>
     <valuelist type="QVariantList" key="ProjectExplorer.CustomExecutableRunConfiguration.UserEnvironmentChanges"/>
     <value type="QString" key="ProjectExplorer.CustomExecutableRunConfiguration.WorkingDirectory">%{buildDir}</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Run Z:\apps\KitchenSink-Cs1\deploy\KitchenSink-Cs1.exe</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Run Z:\apps\KitchenSink-Cs1\deploy\KitchenSink-CS.exe</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Run Z:\apps\KitchenSink-Cs1\deploy\KitchenSink-CS.exe</value>
     <value type="QByteArray" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.CustomExecutableRunConfiguration</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">true</value>

@@ -55,6 +55,6 @@
         <file>resources/email_1.gif</file>
         <file>resources/email_2.gif</file>
         <file>resources/script.js</file>
-        <file>resources/ks_cs1.ico</file>
+        <file>resources/ks_cs.ico</file>
     </qresource>
 </RCC>

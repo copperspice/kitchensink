@@ -69,7 +69,9 @@ Mdi::Mdi()
    : QMainWindow(), ui(new Ui::Mdi)
 {
    ui->setupUi(this);
-   setWindowTitle(tr("Kitchen Sink-Cs1"));
+   setWindowTitle(tr("Kitchen Sink-CS"));   
+   setWindowIcon(QIcon("://resources/ks_cs.ico"));
+
    setUnifiedTitleAndToolBarOnMac(true);
 }
 
@@ -284,10 +286,10 @@ void Mdi::on_actionAbout_triggered()
    //
    QMessageBox msgB;
    msgB.setIcon(QMessageBox::NoIcon);
-   msgB.setWindowIcon( QIcon("://resources/plus.png"));
+   msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
-   msgB.setWindowTitle(tr("About Kitchen Sink-Cs1"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 5.01.2013</h5></center></p>"));
+   msgB.setWindowTitle(tr("About Kitchen Sink-CS"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 7.01.2013</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

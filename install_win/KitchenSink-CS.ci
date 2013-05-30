@@ -10,20 +10,20 @@
    <headlogo >default - 1</>
    <dlgfontsize >s10</>
    <output >Z:\apps\KitchenSink-Cs1\install_win</>
-   <exename >setup-ks-cs1.exe</>
+   <exename >setup-ks-cs.exe</>
    <beffile ></>
    <aftfile ></>
    <uninclude >1</>
    <lang >english</>
    <addlang >french, german, italian, portuguese_br, spanish</>
    <selfextr >1</>
-   <instpath >C:\Program Files\KitchenSink-Cs1</>
+   <instpath >C:\Program Files\KitchenSink-CS</>
    <voltype >nolimit</>
    <volsize ></>
    <volpattern >disk%i.pak</>
    <password ></>
    <progname >CopperSpice</>
-   <appname >KitchenSink-Cs1</>
+   <appname >KitchenSink-CS</>
    <bl ></>
    <blurl ></>
    <unpath >inst</>
@@ -66,7 +66,7 @@
                </>
                <_ tag = 0 id = dlglang >
                   <desc ></>
-                  <head >KitchenSink-Cs1 Installation</>
+                  <head >KitchenSink-CS Installation</>
                   <headtext ></>
                   <dlgtext ></>
                   <headlogo ></>
@@ -84,7 +84,7 @@
                   <varlist >
                      <rows ></>
                   </>
-                  <head >KitchenSink-Cs1 Installation</>
+                  <head >KitchenSink-CS Installation</>
                   <headtext ></>
                   <dlgtext ></>
                   <if ></>
@@ -120,7 +120,7 @@
                   <varlist >
                      <rows ></>
                   </>
-                  <head >KitchenSink-Cs1 Installation</>
+                  <head >KitchenSink-CS Installation</>
                   <headtext ></>
                   <dlgtext ></>
                   <pathadd ></>
@@ -142,7 +142,7 @@
                         <srclist >
                            <rows rel = unpack >
                               <_ >
-                                 <filename >Z:\apps\KitchenSink-Cs1\deploy\KitchenSink-Cs1.exe</>
+                                 <filename >Z:\apps\KitchenSink-Cs1\deploy\KitchenSink-CS.exe</>
                                  <recurse >0</>
                                  <justfile >0</>
                                  <emptydir >0</>
@@ -204,7 +204,7 @@
                         <srclist >
                            <rows rel = unpack >
                               <_ >
-                                 <filename >Z:\apps\KitchenSink-Cs1\resources\ks_cs1.ico</>
+                                 <filename >Z:\apps\KitchenSink-Cs1\resources\ks_cs.ico</>
                                  <recurse >1</>
                                  <justfile >0</>
                                  <emptydir >0</>
@@ -238,12 +238,12 @@
                         </>
                      </>
                      <_ id = shcut >
-                        <desc >KitchenSink-Cs1</>
+                        <desc >KitchenSink-CS</>
                         <shpath >desk</>
-                        <shfile >KS-Cs1</>
+                        <shfile >KS-CS</>
                         <path >inst</>
-                        <file >KitchenSink-Cs1.exe</>
-                        <icon >#setuppath#\resources\ks_cs1.ico</>
+                        <file >KitchenSink-CS.exe</>
+                        <icon >#setuppath#\resources\ks_cs.ico</>
                         <cmdline ></>
                         <comment ></>
                         <work >inst</>
@@ -254,10 +254,10 @@
                      <_ id = shcut >
                         <desc >Program Group</>
                         <shpath >prog</>
-                        <shfile >KitchenSink-Cs1</>
+                        <shfile >KitchenSink-CS</>
                         <path >inst</>
-                        <file >KitchenSink-Cs1.exe</>
-                        <icon >Z:\apps\KitchenSink-Cs1\resources\ks_cs1.ico</>
+                        <file >KitchenSink-CS.exe</>
+                        <icon >#setuppath#\resources\ks_cs.ico</>
                         <cmdline ></>
                         <comment ></>
                         <work >inst</>
@@ -268,7 +268,7 @@
                      <_ id = shcut >
                         <desc >uninstall.exe</>
                         <shpath >prog</>
-                        <shfile >Uninstall KS-Cs1</>
+                        <shfile >Uninstall KS-CS</>
                         <path >inst</>
                         <file >uninstall.exe</>
                         <icon ></>
@@ -290,7 +290,7 @@
                      </>
                      <_ id = unar >
                         <desc ></>
-                        <name >KitchenSink-Cs1</>
+                        <name >KitchenSink-CS</>
                         <path >inst</>
                         <ifile ></>
                      </>
@@ -303,13 +303,13 @@
                   <varlist >
                      <rows ></>
                   </>
-                  <head >KitchenSink-Cs1 Installation</>
+                  <head >KitchenSink-CS Installation</>
                   <headtext ></>
                   <dlgtext ></>
                   <if ></>
                </>
                <_ id = dlgfin >
-                  <desc >KitchenSink-Cs1 Installation</>
+                  <desc >KitchenSink-CS Installation</>
                   <buttons >c</>
                   <design >left</>
                   <headlogo ></>
@@ -321,7 +321,7 @@
                   </>
                   <head ></>
                   <headtext ></>
-                  <dlgtext >Thank you for installing KitchenSink-Cs1. If you have any questions or comments please visit our forum at http://sourceforge.net/p/copperspice/discussion/kitchensink/</>
+                  <dlgtext >Thank you for installing KitchenSink-CS. If you have any questions or comments please visit our forum at http://sourceforge.net/p/copperspice/discussion/kitchensink/</>
                </>
             </>
             <icofile >default</>
@@ -340,7 +340,7 @@
             <children >
                <_ tag = 0 id = dlglang >
                   <desc ></>
-                  <head >KitchenSink-Cs1 Uninstall</>
+                  <head >KitchenSink-CS Uninstall</>
                   <headtext ></>
                   <dlgtext ></>
                   <headlogo ></>
@@ -358,7 +358,7 @@
                   <varlist >
                      <rows ></>
                   </>
-                  <head >KitchenSink-Cs1 Uninstall</>
+                  <head >KitchenSink-CS Uninstall</>
                   <headtext ></>
                   <dlgtext ></>
                   <if ></>
@@ -377,7 +377,7 @@
                      <rows ></>
                   </>
                   <auto >0</>
-                  <head >KitchenSink-Cs1 Uninstall</>
+                  <head >KitchenSink-CS Uninstall</>
                   <headtext ></>
                   <dlgtext ></>
                   <if ></>
@@ -390,7 +390,7 @@
                   <varlist >
                      <rows ></>
                   </>
-                  <head >KitchenSink-Cs1 Uninstall</>
+                  <head >KitchenSink-CS Uninstall</>
                   <headtext ></>
                   <dlgtext ></>
                   <if ></>
@@ -403,9 +403,9 @@
                   <varlist >
                      <rows ></>
                   </>
-                  <head >KitchenSink-Cs1 Uninstall</>
+                  <head >KitchenSink-CS Uninstall</>
                   <headtext ></>
-                  <dlgtext >Thank you for reviewing KitchenSink-Cs1. If you have comments or feedback regarding this program or CopperSpice, please take a few minutes to visit our discussion forums on SourceForge.</>
+                  <dlgtext >Thank you for reviewing KitchenSink-CS. If you have comments or feedback regarding this program or CopperSpice, please take a few minutes to visit our discussion forums on SourceForge.</>
                   <feedback >http://sourceforge.net/p/copperspice/discussion/kitchensink</>
                   <if ></>
                </>

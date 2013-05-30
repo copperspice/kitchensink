@@ -55,7 +55,7 @@ AboutCS::AboutCS()
    //
    m_viewer = new QWebView;
 
-   QString url = "http://192.168.10.39/copperspice/kitchensink.html";
+   QString url = "http://www.copperspice.com/kitchensink.html";
    m_viewer->setUrl(url);
 
    //
@@ -83,7 +83,7 @@ AboutCS::AboutCS()
 }
 
 void AboutCS::actionHome() {
-   QString url = "http://192.168.10.39/copperspice/kitchensink.html";
+   QString url = "http://www.copperspice.com/kitchensink.html";
    m_viewer->setUrl(url);
 }
 
