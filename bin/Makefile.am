@@ -1,5 +1,8 @@
 include copperspice.am
 
+# dist windows
+distdir_custom=install_win/dist
+
 # path to gcc
 gccpath=/c/MingW/bin
 
@@ -9,12 +12,12 @@ gcclibs=libgcc_s_sjlj-1  libstdc++-6  libwinpthread-1
 # list of CopperSpice libraries your app uses
 cslibs=Core Gui Multimedia Network Phonon Script Sql Svg WebKit Xml
 
-# location of includes, libs, defines for compiling, turn off debugging
+# disable console on window, location of includes, defines
 AM_CXXFLAGS+=-mwindows  -I$(CS_HOME)/include/phonon
 
 # 'KitchenSink-CS' target app name
 deploy_PROGRAMS = KitchenSink-CS
-    
+
 # copy the required CopperSpice and gcc files for deployment - windows only
 install-data-hook:	
 	mkdir -p $(deploydir)
@@ -54,7 +57,7 @@ KitchenSink_CS_SOURCES = \
     musicplayer.cpp \
     sliders.cpp \
     script.cpp \
-	stdpath.cpp \
+	 stdpath.cpp \
     style_edit.cpp \
     style_dw.cpp \
     svg_view.cpp  \
@@ -70,8 +73,8 @@ KitchenSink_CS_SOURCES = \
     videosurface.cpp \
     web_browser.cpp \
     xml.cpp
-    
-#              
+
+#
 noinst_HEADERS = \
    aboutcs.h \
    calendar.h \
@@ -104,7 +107,7 @@ noinst_HEADERS = \
    videosurface.h \
    web_browser.h \
    xml.h
-                
+
 # list of files that require compiling with moc
 MOCS = \
    aboutcs.h \
@@ -136,9 +139,9 @@ MOCS = \
    videosurface.h  \
    web_browser.h \
    xml.h
-    
-KitchenSink_CS_LDADD=$(patsubst %.h,moc_%.$(OBJEXT),$(MOCS))    
-           
+
+KitchenSink_CS_LDADD=$(patsubst %.h,moc_%.$(OBJEXT),$(MOCS))
+
 #
 FORMS = \
     forms/mdi.ui \
@@ -156,19 +159,43 @@ FORMS = \
     forms/script.ui \
 	 forms/tabdialog.ui \
     forms/tablewidget_view.ui \
-    forms/xml.ui    
-          
+    forms/xml.ui
+
 #
 TRANSLATIONS =  \
     resources/qt_en.ts   \
     resources/qt_de.ts   \
     resources/qt_fr.ts
-    
-#
-RESOURCES  =  kitchensink.qrc
 
-#    
-KitchenSink_CS_SOURCES += qrc_kitchensink.cpp   
-    
+#
+RESOURCES = kitchensink.qrc
+
 # use wilcard to obtain just the dependency list
 qrc_kitchensink.cpp: kitchensink.qrc   $(wildcard ../resources/*)
+
+# source distribution
+nodist_KitchenSink_CS_SOURCES = qrc_kitchensink.cpp
+
+distdir: $(DISTFILES)
+	cd .. ; \
+	test -d "$(distdir_custom)" || mkdir -p "$(distdir_custom)" ; \
+	for f in $(DIST_SOURCES)  ; do install -D $$f $(distdir_custom)/$$f ; done ;\
+	for f in $(HEADERS)       ; do install -D $$f $(distdir_custom)/$$f ; done ;\
+	for f in $(FORMS)         ; do install -D $$f $(distdir_custom)/$$f ; done ;\
+	mkdir -p $(distdir_custom)/bin           ; \
+	mkdir -p $(distdir_custom)/resources     ; \
+	cp kitchensink.qrc        $(distdir_custom)/     ; \
+	cp install_files/cs.conf  $(distdir_custom)/     ; \
+	cp bin/*.am               $(distdir_custom)/bin/ ; \
+	cp resources/*	           $(distdir_custom)/resources/
+	$(MAKE) $(AM_MAKEFLAGS) dist-hook
+
+dist-hook:
+	cd .. ; \
+	cp -r bin/$(distdir)/../*   $(distdir_custom) ; \
+	rm -r bin/$(distdir)/../   ; \
+	cd $(distdir_custom)       ; \
+	rm -f  ../KS_CS-$(VERSION).zip  ; \
+	zip -r ../KS_CS-$(VERSION).zip .
+
+
