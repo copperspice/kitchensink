@@ -30,3 +30,21 @@ AX_CXX_COMPILE_STDCXX_11([noext])
 # location of .am files that will create Makefiles
 AC_CONFIG_FILES( [Makefile bin/Makefile ] )
 AC_OUTPUT
+
+# display 32-bit or 64-bit
+m4_pushdef([AS_MESSAGE_FD],[/dev/null]) 
+AC_CHECK_SIZEOF(size_t)
+
+case "$ac_cv_sizeof_size_t" in
+4)
+	BITSIZE="a 32" ;;
+8)
+	BITSIZE="a 64" ;;
+*)
+	BITSIZE="an unknown" ;;
+esac
+m4_popdef([AS_MESSAGE_FD]) 
+
+echo
+echo "Application configured for "$BITSIZE"-bit system" 
+echo
