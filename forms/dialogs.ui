@@ -295,29 +295,30 @@
  </widget>
  <tabstops>
   <tabstop>integer_pushButton</tabstop>
-  <tabstop>double_pushButton</tabstop>
-  <tabstop>getItem_pushButton</tabstop>
-  <tabstop>getText_pushButton</tabstop>
-  <tabstop>dir_pushButton</tabstop>
-  <tabstop>openFile_pushButton</tabstop>
-  <tabstop>openFiles_pushButton</tabstop>
-  <tabstop>critical_pushButton</tabstop>
-  <tabstop>info_pushButton</tabstop>
-  <tabstop>quest_pushButton</tabstop>
-  <tabstop>warn_pushButton</tabstop>
-  <tabstop>error_pushButton</tabstop>
   <tabstop>integer_lineEdit</tabstop>
+  <tabstop>double_pushButton</tabstop>
   <tabstop>double_lineEdit</tabstop>
+  <tabstop>getItem_pushButton</tabstop>
   <tabstop>getItem_lineEdit</tabstop>
+  <tabstop>getText_pushButton</tabstop>
   <tabstop>getText_lineEdit</tabstop>
+  <tabstop>dir_pushButton</tabstop>
   <tabstop>dir_lineEdit</tabstop>
+  <tabstop>openFile_pushButton</tabstop>
   <tabstop>openFile_lineEdit</tabstop>
+  <tabstop>openFiles_pushButton</tabstop>
   <tabstop>openFiles_lineEdit</tabstop>
-  <tabstop>info_lineEdit</tabstop>
-  <tabstop>quest_lineEdit</tabstop>
-  <tabstop>warn_lineEdit</tabstop>
-  <tabstop>error_lineEdit</tabstop>
+  <tabstop>critical_pushButton</tabstop>
   <tabstop>critical_lineEdit</tabstop>
+  <tabstop>info_pushButton</tabstop>
+  <tabstop>info_lineEdit</tabstop>
+  <tabstop>quest_pushButton</tabstop>
+  <tabstop>quest_lineEdit</tabstop>
+  <tabstop>warn_pushButton</tabstop>
+  <tabstop>warn_lineEdit</tabstop>
+  <tabstop>error_pushButton</tabstop>
+  <tabstop>error_lineEdit</tabstop>
+  <tabstop>native_checkBox</tabstop>
  </tabstops>
  <resources/>
  <connections/>

@@ -55,9 +55,8 @@ class Style_DW : public QMainWindow
       Style_Edit *m_style;
 
    private slots:
-      void on_actionAbout_triggered();
-      void on_actionEditStyle_triggered();
-      void actionOk();
+      void actionAbout();
+      void actionEdit();
       void actionClose();
 };
 

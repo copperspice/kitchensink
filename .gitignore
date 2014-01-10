@@ -19,10 +19,10 @@ config.log
 /bin/.libs
 /bin/Makefile
 /deploy
-/install/dist
-/install/*.exe
-/install/*.log
-/install/*.zip
+/install_win/dist
+/install_win/*.exe
+/install_win/*.log
+/install_win/*.zip
 /runtime
-KitchenSink-Qt*.6pre1
+KitchenSink-*.6pre1
 

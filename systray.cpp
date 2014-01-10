@@ -128,7 +128,7 @@ void SysTray::createMessageGroupBox()
    bodyEdit = new QTextEdit;
    bodyEdit->setPlainText(tr("We have no idea how to provide support.\nClick the balloon for details."));
 
-   showMessageButton = new QPushButton(tr("Show Message"));
+   showMessageButton = new QPushButton(tr("Show Message"));  
    showMessageButton->setDefault(true);
 
    QGridLayout *messageLayout = new QGridLayout;
@@ -141,7 +141,7 @@ void SysTray::createMessageGroupBox()
    messageLayout->addWidget(titleEdit, 2, 1, 1, 4);
    messageLayout->addWidget(bodyLabel, 3, 0);
    messageLayout->addWidget(bodyEdit, 3, 1, 2, 4);
-   messageLayout->addWidget(showMessageButton, 5, 4);
+   messageLayout->addWidget(showMessageButton, 5, 0, 1, 5, Qt::AlignHCenter);
    messageLayout->setColumnStretch(3, 1);
    messageLayout->setRowStretch(4, 1);
    messageGroupBox->setLayout(messageLayout);

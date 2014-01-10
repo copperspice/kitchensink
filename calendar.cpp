@@ -42,16 +42,16 @@ Calendar::Calendar()
    : QWidget()
 {
    createCalendarGroupBox();
-   createGeneralOptionsGroupBox();
    createDatesGroupBox();
+   createGeneralOptionsGroupBox();  
    createTextFormatsGroupBox();
 
    setWindowTitle(tr("Calendar Widget"));
 
    QGridLayout *layout = new QGridLayout;
    layout->addWidget(calendarGroupBox, 0, 0);
-   layout->addWidget(generalOptionsGroupBox, 0, 1);
    layout->addWidget(datesGroupBox, 1, 0);
+   layout->addWidget(generalOptionsGroupBox, 0, 1);   
    layout->addWidget(textFormatsGroupBox, 1, 1);
    layout->setSizeConstraint(QLayout::SetFixedSize);
    setLayout(layout);
@@ -341,10 +341,10 @@ void Calendar::createDatesGroupBox()
    connect(maximumDateEdit, SIGNAL(dateChanged(QDate)), this,       SLOT(maximumDateChanged(QDate)));
 
    QGridLayout *dateBoxLayout = new QGridLayout;
-   dateBoxLayout->addWidget(currentDateLabel,   1, 0);
-   dateBoxLayout->addWidget(currentDateEdit,    1, 1);
    dateBoxLayout->addWidget(minimumDateLabel,   0, 0);
    dateBoxLayout->addWidget(minimumDateEdit,    0, 1);
+   dateBoxLayout->addWidget(currentDateLabel,   1, 0);
+   dateBoxLayout->addWidget(currentDateEdit,    1, 1);  
    dateBoxLayout->addWidget(maximumDateLabel,   2, 0);
    dateBoxLayout->addWidget(maximumDateEdit,    2, 1);
    dateBoxLayout->setRowStretch(3, 1);

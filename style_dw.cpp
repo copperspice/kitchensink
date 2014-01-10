@@ -62,7 +62,8 @@ Style_DW::Style_DW(Mdi *parent)
    QString qssName = Style_Edit::getQssName();
    Style_Edit::loadStyleSheet(qssName);
 
-   connect(ui->okPB,    SIGNAL(clicked()), this, SLOT(actionOk()));
+   connect(ui->aboutPB, SIGNAL(clicked()), this, SLOT(actionAbout()));
+   connect(ui->editPB,  SIGNAL(clicked()), this, SLOT(actionEdit()));
    connect(ui->closePB, SIGNAL(clicked()), this, SLOT(actionClose()));
 
    // force
@@ -74,30 +75,18 @@ Style_DW::~Style_DW()
    delete ui;
 }
 
-void Style_DW::on_actionAbout_triggered()
+void Style_DW::actionAbout()
 {
    QMessageBox::about(this, tr("About Style Sheets"),
           tr("The <b>Style Sheet</b> example shows how widgets can be styled "
-             "using Qt Style Sheets. Click <b>File|Edit Style Sheet</b> to pop up the "
+             "using Qt Style Sheets. Click <b>Edit/Select Style</b> to pop up the "
              "style editor and choose an existing style sheet or design your own."));
 }
 
-void Style_DW::on_actionEditStyle_triggered()
+void Style_DW::actionEdit()
 {   
    m_style = new Style_Edit(m_parent, this);
    m_parent->addMdiChild(m_style);
-}
-
-void Style_DW::actionOk()
-{
-   ksMsg(this, "Style Sheets", "Ok button pressed. Closing Style Sheets.");
-   this->actionClose();
-}
-
-void Style_DW::styleEditClose()
-{
-   // marks the style_edit window closed
-   m_style  = NULL;
 }
 
 void Style_DW::actionClose() {
@@ -108,4 +97,10 @@ void Style_DW::actionClose() {
    }
 
    this->parentWidget()->close();
+}
+
+void Style_DW::styleEditClose()
+{
+   // marks the style_edit window closed
+   m_style = NULL;
 }

@@ -50,7 +50,6 @@ Dialogs::Dialogs(QWidget *parent)
 
    ui->native_checkBox->setChecked(true);
 
-
    // signals
    connect(ui->integer_pushButton,    SIGNAL(clicked()), this, SLOT(setInteger()));
    connect(ui->double_pushButton,     SIGNAL(clicked()), this, SLOT(setDouble()));

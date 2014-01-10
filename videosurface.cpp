@@ -112,10 +112,12 @@ bool VideoSurface::present(const QVideoFrame &frame)
 {
    if (surfaceFormat().pixelFormat() != frame.pixelFormat()
        || surfaceFormat().frameSize() != frame.size()) {
+
       setError(IncorrectFormatError);
       stop();
 
       return false;
+
    } else {
       currentFrame = frame;
 

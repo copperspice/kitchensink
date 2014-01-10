@@ -64,7 +64,6 @@
 
 #include <QMdiSubWindow>
 
-
 Mdi::Mdi()
    : QMainWindow(), ui(new Ui::Mdi)
 {

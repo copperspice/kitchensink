@@ -107,6 +107,7 @@ void Sliders::createOptionsGroupBox()
 void Sliders::createButtons()
 {
    m_buttonBox = new QDialogButtonBox;
+   m_buttonBox->setCenterButtons(true);
    m_rotateWidgetsButton = m_buttonBox->addButton(tr("Rotate &Widgets"),QDialogButtonBox::ActionRole);
 
    connect(m_rotateWidgetsButton, SIGNAL(clicked()), this, SLOT(rotateWidgets()));

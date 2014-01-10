@@ -383,6 +383,18 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>align_comboBox</tabstop>
+  <tabstop>align_lineEdit</tabstop>
+  <tabstop>mask_comboBox</tabstop>
+  <tabstop>mask_lineEdit</tabstop>
+  <tabstop>password_comboBox</tabstop>
+  <tabstop>password_lineEdit</tabstop>
+  <tabstop>valid_comboBox</tabstop>
+  <tabstop>valid_lineEdit</tabstop>
+  <tabstop>readonly_comboBox</tabstop>
+  <tabstop>readonly_lineEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

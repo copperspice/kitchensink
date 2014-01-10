@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>QtStandardPaths</string>
+   <string>QStandardPaths</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -750,8 +750,19 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
-  <tabstop>fileRadioButton</tabstop>
+  <tabstop>locationComboBox</tabstop>
   <tabstop>belongLocations</tabstop>
+  <tabstop>writeLocation</tabstop>
+  <tabstop>locateOne</tabstop>
+  <tabstop>locateAll</tabstop>
+  <tabstop>executableName</tabstop>
+  <tabstop>findTB</tabstop>
+  <tabstop>findPath</tabstop>
+  <tabstop>fileName</tabstop>
+  <tabstop>locateTB</tabstop>
+  <tabstop>fileRadioButton</tabstop>
+  <tabstop>directoryRadioButton</tabstop>
+  <tabstop>tabWidget</tabstop>
  </tabstops>
  <resources/>
  <connections/>
