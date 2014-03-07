@@ -37,6 +37,7 @@
 #include "script.h"
 
 #include <QFileDialog>
+#include <QLabel>
 #include <QtScript>
 
 Script::Script()
@@ -70,15 +71,7 @@ void Script::displayScript()
       return;
    }
 
-   // display the script file
-   file.seek(0);
-   QByteArray temp = file.readAll();
-
-   QString fileData = QString(temp);
-   // ui->textEdit->setPlainText(fileData);
-
    file.close();
-
 
 
    // open again as a script
@@ -101,13 +94,13 @@ void Script::jsScript(QString contents)
 {
    QScriptEngine engine;
 
-   QLabel *label3 = new QLabel();
-   QScriptValue scriptLabel = engine.newQObject(label3);
-   engine.globalObject().setProperty("label3", scriptLabel);
+   QLabel *label_js = new QLabel();
+   QScriptValue scriptLabel = engine.newQObject(label_js);
+   engine.globalObject().setProperty("label_js", scriptLabel);
 
-   QPushButton *button1 = new QPushButton();
-   QScriptValue scriptButton = engine.newQObject(button1);
-   engine.globalObject().setProperty("button1", scriptButton);
+   QPushButton *button_js = new QPushButton();
+   QScriptValue scriptButton = engine.newQObject(button_js);
+   engine.globalObject().setProperty("button_js", scriptButton);
 
    //
    QScriptValue result = engine.evaluate(contents, m_fileName);
@@ -120,13 +113,14 @@ void Script::jsScript(QString contents)
 
    } else {
 
-      QLabel *label2 = new QLabel();
-      label2->setText(" Label Two:");
+      QLabel *label = new QLabel();
+      label->setText("QLabel Object, not from JavaScript file");
 
       QLayout *mainLayout = ui->displayGB->layout();
-      mainLayout->addWidget(label2);
-      mainLayout->addWidget(label3);
-      mainLayout->addWidget(button1);
+      mainLayout->addWidget(label);
+
+      mainLayout->addWidget(label_js);
+      mainLayout->addWidget(button_js);
    }
 }
 

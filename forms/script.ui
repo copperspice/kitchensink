@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>533</width>
+    <width>536</width>
     <height>262</height>
    </rect>
   </property>
@@ -105,7 +105,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="handleWidth">
-      <number>5</number>
+      <number>8</number>
      </property>
      <widget class="QGroupBox" name="displayGB">
       <property name="sizePolicy">
@@ -128,23 +128,7 @@
       <property name="title">
        <string>Display Script</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QLabel" name="label1">
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string> Label One:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <layout class="QVBoxLayout" name="verticalLayout"/>
      </widget>
      <widget class="QTextEdit" name="textEdit">
       <property name="sizePolicy">
