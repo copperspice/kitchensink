@@ -1,5 +1,3 @@
-kitchensink.qrc
-
 aboutcs.cpp
 main.cpp
 mdi.cpp
@@ -32,7 +30,32 @@ script.cpp
 stdpath.cpp
 html_viewer.cpp
 web_browser.cpp
-
+analogclock.cpp
+analogclock.h
+animated_tiles.cpp
+animated_tiles.h
+draglabel.cpp
+draglabel.h
+dragwidget.cpp
+dragwidget.h
+glwidget.cpp
+glwidget.h
+grabber.cpp
+grabber.h
+lighting.cpp
+lighting.h
+mandelbrot_thread.cpp
+mandelbrot_thread.h
+mandelbrot_widget.cpp
+mandelbrot_widget.h
+qmlapplicationviewer.cpp
+qmlapplicationviewer.h
+screenshot.cpp
+screenshot.h
+wiggle_boxes.cpp
+wiggle_boxes.h
+world_clock.cpp
+world_clock.h
 aboutcs.h
 mdi.h
 util.h
@@ -82,8 +105,9 @@ forms/tablewidget_view.ui
 forms/tabdialog.ui
 forms/xml.ui
 
+kitchensink.qrc
 resources/qt_en.ts
 resources/qt_de.ts
 resources/qt_fr.ts
-
+resources_qml/wiggle_boxes/side_rect.qml
 

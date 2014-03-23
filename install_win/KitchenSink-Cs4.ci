@@ -1,4 +1,4 @@
-﻿<project version = 9 civer = 5.18.0 winver = "2.6/5.1.2600" >
+<project version = 9 civer = 5.18.0 winver = "2.6/5.1.2600" >
    <autorun >0</>
    <autoclose >0</>
    <compname ></>
@@ -17,7 +17,7 @@
    <lang >english</>
    <addlang >french, german, italian, portuguese_br, spanish</>
    <selfextr >1</>
-   <instpath >C:\Program Files\KitchenSink-CS</>
+   <instpath >C:\Program Files\KitchenSink-Cs</>
    <voltype >nolimit</>
    <volsize ></>
    <volpattern >disk%i.pak</>
