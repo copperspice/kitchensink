@@ -43,7 +43,7 @@
 
 class VideoSurface : public QAbstractVideoSurface
 {
-   Q_OBJECT
+   CS_OBJECT(VideoSurface)
 
    public:
       VideoSurface(QWidget *widget, QObject *parent = 0);

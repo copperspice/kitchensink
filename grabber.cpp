@@ -29,9 +29,10 @@ Grabber::Grabber(QWidget *parent)
     pixmapLabelArea->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
     pixmapLabelArea->setMinimumSize(50, 50);
 
-    xSlider = createSlider(SIGNAL(xRotationChanged(int)), SLOT(setXRotation(int)));
-    ySlider = createSlider(SIGNAL(yRotationChanged(int)), SLOT(setYRotation(int)));
-    zSlider = createSlider(SIGNAL(zRotationChanged(int)), SLOT(setZRotation(int)));
+    // removed SIGNAL() to pass a string, removed SLOT() to pass a string
+    xSlider = createSlider("xRotationChanged(int)", "setXRotation(int)");
+    ySlider = createSlider("yRotationChanged(int)", "setYRotation(int)");
+    zSlider = createSlider("zRotationChanged(int)", "setZRotation(int)");
 
     createActions();
     createMenus();

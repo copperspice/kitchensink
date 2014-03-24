@@ -124,9 +124,7 @@ void Xml::processXml()
 
    //
    m_model->setHeaderData(0, Qt::Horizontal, QObject::tr("CopperSpice Diner"));
-   ui->treeView->expandAll();
-
-   // nice to adjust the widget according to the data (BROOM)
+   ui->treeView->expandAll();  
 }
 
 void Xml::parseElement(QStandardItem *rootItem, QDomElement element)

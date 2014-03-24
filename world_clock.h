@@ -7,7 +7,7 @@
 
 class World_Clock : public QmlApplicationViewer
 {
-   Q_OBJECT
+   CS_OBJECT(World_Clock)
 
    public:
      World_Clock(QWidget *parent = 0);

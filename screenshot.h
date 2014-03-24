@@ -57,7 +57,7 @@ QT_END_NAMESPACE
 
 class Screenshot : public QWidget
 {
-    Q_OBJECT
+    CS_OBJECT(Screenshot)
 
 public:
     Screenshot();
@@ -65,10 +65,13 @@ public:
 protected:
     void resizeEvent(QResizeEvent *event);
 
-private slots:
-    void newScreenshot();
-    void saveScreenshot();
-    void shootScreen();
+private :
+    CS_SLOT_1(Private, void newScreenshot())
+    CS_SLOT_2(newScreenshot) 
+    CS_SLOT_1(Private, void saveScreenshot())
+    CS_SLOT_2(saveScreenshot) 
+    CS_SLOT_1(Private, void shootScreen())
+    CS_SLOT_2(shootScreen) 
 
 private:
     void createOptionsGroupBox();

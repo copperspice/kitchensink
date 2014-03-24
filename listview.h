@@ -43,7 +43,7 @@
 
 class ListView : public QWidget
 {
-   Q_OBJECT
+   CS_OBJECT(ListView)
       
    public:
       explicit ListView(QWidget *parent = 0);
@@ -54,9 +54,11 @@ class ListView : public QWidget
       QStringList getData();
       QSortFilterProxyModel *m_proxyModel;
 
-   private slots:
-      void delRow();
-      void addRow();
+   private :
+      CS_SLOT_1(Private, void delRow())
+      CS_SLOT_2(delRow) 
+      CS_SLOT_1(Private, void addRow())
+      CS_SLOT_2(addRow) 
 
 };
 

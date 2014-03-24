@@ -15,17 +15,22 @@ class GLWidget;
 
 class Grabber : public QMainWindow
 {
-      Q_OBJECT
+      CS_OBJECT(Grabber)
 
    public:
       Grabber(QWidget *parent = 0);
 
-   private slots:
-      void renderIntoPixmap();
-      void grabFrameBuffer();
-      void clearPixmap();
-      void actionClose();
-      void about();
+   private :
+      CS_SLOT_1(Private, void renderIntoPixmap())
+      CS_SLOT_2(renderIntoPixmap) 
+      CS_SLOT_1(Private, void grabFrameBuffer())
+      CS_SLOT_2(grabFrameBuffer) 
+      CS_SLOT_1(Private, void clearPixmap())
+      CS_SLOT_2(clearPixmap) 
+      CS_SLOT_1(Private, void actionClose())
+      CS_SLOT_2(actionClose) 
+      CS_SLOT_1(Private, void about())
+      CS_SLOT_2(about) 
 
    private:
       void createActions();

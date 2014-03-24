@@ -10,22 +10,24 @@ gccpath=/c/MingW/bin
 gcclibs=libgcc_s_sjlj-1  libstdc++-6  libwinpthread-1
 
 # list of CopperSpice libraries your app uses
-cslibs=Core Gui Multimedia Network Phonon Script Sql Svg WebKit Xml
+cslibs=Core Gui Multimedia Network OpenGL Script Sql Svg WebKit Xml XmlPatterns
+
+# BROOM - missing Declarative Phonon
 
 # disable console on window, location of includes, defines
 AM_CXXFLAGS+=-mwindows  -I$(CS_HOME)/include/phonon
 
-# 'KitchenSink-CS' target app name
-deploy_PROGRAMS = KitchenSink-CS
+# 'KitchenSink-Cs4' target app name
+deploy_PROGRAMS = KitchenSink-Cs4
 
 # copy the required CopperSpice and gcc files for deployment - windows only
 install-data-hook:	
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend	
 
-	cp --preserve=timestamps  $(patsubst %,$(gccpath)/%.dll,$(gcclibs))  $(deploydir)
-	cp --preserve=timestamps  $(CS_HOME)/bin/lupdate*  $(deploydir)
-	cp --preserve=timestamps  $(patsubst %,$(CS_HOME)/bin/libCs%1-0.dll,$(cslibs))  $(deploydir)
+	rsync -W -a --size-only  $(patsubst %,$(gccpath)/%.dll,$(gcclibs))  $(deploydir)
+#	rsync -W -a --size-only  $(CS_HOME)/bin/lupdate*  $(deploydir)
+	rsync -W -a --size-only  $(patsubst %,$(CS_HOME)/bin/libCs%1-0.dll,$(cslibs))  $(deploydir)
 
     ifeq ($(findstring Phonon,$(cslibs)),Phonon)		
 		cp --preserve=timestamps  $(CS_HOME)/lib/phonon_ds9-0.dll  $(deploydir)/phonon_backend
@@ -37,11 +39,12 @@ install-data-hook:
 VPATH = ../
 
 # linking
-KitchenSink_CS_LDFLAGS=$(AM_LDFLAGS)   $(patsubst %,-lCs%1,$(cslibs))
+KitchenSink_Cs4_LDFLAGS=$(AM_LDFLAGS)   $(patsubst %,-lCs%1,$(cslibs)) -lopengl32
 
-# 'KitchenSink_CS' must match the app name ( dash had to be replaced )
-KitchenSink_CS_SOURCES = \
+# 'KitchenSink_Cs4' must match the app name ( dash had to be replaced )
+KitchenSink_Cs4_SOURCES = \
     main.cpp \
+    aboutcs.h \
     aboutcs.cpp \
     calendar.cpp \
     colorpicker.cpp \
@@ -54,10 +57,9 @@ KitchenSink_CS_SOURCES = \
     line_edit.cpp \
     listview.cpp \
     mdi.cpp \
-    musicplayer.cpp \
     sliders.cpp \
     script.cpp \
-	 stdpath.cpp \
+    stdpath.cpp \
     style_edit.cpp \
     style_dw.cpp \
     svg_view.cpp  \
@@ -68,15 +70,31 @@ KitchenSink_CS_SOURCES = \
     tabdialog.cpp \
     treeview.cpp \
     util.cpp \
-    videoplayer.cpp \
-    videowidget.cpp \
-    videosurface.cpp \
     web_browser.cpp \
-    xml.cpp
+    xml.cpp \
+    analogclock.cpp \
+    animated_tiles.cpp \
+    draglabel.cpp  \
+    dragwidget.cpp \
+    glwidget.cpp \
+    grabber.cpp  \
+    lighting.cpp \
+    mandelbrot_thread.cpp \
+    mandelbrot_widget.cpp \
+    screenshot.cpp
+
+
+# musicplayer.cpp \
+# videosurface.cpp \
+# videoplayer.cpp \
+# videowidget.cpp \
+# qmlapplicationviewer.cpp
+# wiggle_boxes.cpp
+# world_clock.cpp
+
 
 #
 noinst_HEADERS = \
-   aboutcs.h \
    calendar.h \
    colorpicker.h \
    dialogs.h \
@@ -88,7 +106,6 @@ noinst_HEADERS = \
    line_edit.h \
    listview.h \
    mdi.h \
-   musicplayer.h \
    script.h \
    stdpath.h \
    sliders.h \
@@ -102,45 +119,26 @@ noinst_HEADERS = \
    tablewidget_view.h \
    treeview.h \
    util.h \
-   videoplayer.h \
-   videowidget.h \
-   videosurface.h \
    web_browser.h \
-   xml.h
+   xml.h \
+   analogclock.h  \
+   animated_tiles.h  \
+   draglabel.h \
+   dragwidget.h  \
+   glwidget.h  \
+   grabber.h  \
+   lighting.h  \
+   mandelbrot_thread.h  \
+   mandelbrot_widget.h  \
+   screenshot.h
 
-# list of files that require compiling with moc
-MOCS = \
-   aboutcs.h \
-   calendar.h \
-   colorpicker.h \
-   dialogs.h \
-   draw.h \
-   draw_area.h \
-   fontpicker.h \
-   html_viewer.h \
-   international.h \
-   line_edit.h \
-   listview.h \
-   mdi.h \
-   musicplayer.h \
-   script.h \
-   stdpath.h \
-   sliders.h \
-   style_dw.h \
-   style_edit.h \
-   svg_view.h  \
-   svgtextobject.h \
-   systray.h \
-   tableview.h \
-   tablewidget_view.h \
-   tabdialog.h \
-   videoplayer.h \
-   videowidget.h \
-   videosurface.h  \
-   web_browser.h \
-   xml.h
-
-KitchenSink_CS_LDADD=$(patsubst %.h,moc_%.$(OBJEXT),$(MOCS))
+# musicplayer.h \
+# qmlapplicationviewer.h
+# videoplayer.h \
+# videowidget.h \
+# videosurface.h \
+# wiggle_boxes.h
+# world_clock.h
 
 #
 FORMS = \
@@ -174,7 +172,7 @@ RESOURCES = kitchensink.qrc
 qrc_kitchensink.cpp: kitchensink.qrc   $(wildcard ../resources/*)
 
 # source distribution
-nodist_KitchenSink_CS_SOURCES = qrc_kitchensink.cpp
+nodist_KitchenSink_Cs4_SOURCES = qrc_kitchensink.cpp
 
 distdir: $(DISTFILES)
 	cd .. ; \

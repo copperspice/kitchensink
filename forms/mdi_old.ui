@@ -95,26 +95,11 @@
     <addaction name="actionWebBrowser"/>
     <addaction name="actionHTML_Viewer"/>
    </widget>
-   <widget class="QMenu" name="menuGraphics">
-    <property name="title">
-     <string>Graphics</string>
-    </property>
-    <addaction name="actionAnalog_Clock"/>
-    <addaction name="actionAnimated_Tiles"/>
-    <addaction name="actionFridge_Magnets"/>
-    <addaction name="actionGrabber"/>
-    <addaction name="actionLighting"/>
-    <addaction name="actionMandelbrot"/>
-    <addaction name="actionScreen_Shot"/>
-    <addaction name="actionWiggle_Boxes"/>
-    <addaction name="actionWorld_Clock"/>
-   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuFoo"/>
    <addaction name="menuWindows"/>
    <addaction name="menuLayouts"/>
    <addaction name="menuWidgets"/>
-   <addaction name="menuGraphics"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -288,51 +273,6 @@
   <action name="actionStandardPath">
    <property name="text">
     <string>Standard Path</string>
-   </property>
-  </action>
-  <action name="actionAnalog_Clock">
-   <property name="text">
-    <string>Analog Clock</string>
-   </property>
-  </action>
-  <action name="actionLighting">
-   <property name="text">
-    <string>Lighting (QGraphicsScene)</string>
-   </property>
-  </action>
-  <action name="actionScreen_Shot">
-   <property name="text">
-    <string>Screen Shot</string>
-   </property>
-  </action>
-  <action name="actionFridge_Magnets">
-   <property name="text">
-    <string>Fridge Magnets</string>
-   </property>
-  </action>
-  <action name="actionAnimated_Tiles">
-   <property name="text">
-    <string>Animated Tiles (QGraphicsScene)</string>
-   </property>
-  </action>
-  <action name="actionGrabber">
-   <property name="text">
-    <string>Grabber (OpenGL)</string>
-   </property>
-  </action>
-  <action name="actionWorld_Clock">
-   <property name="text">
-    <string>World Clock (QtQuick / Qml)</string>
-   </property>
-  </action>
-  <action name="actionMandelbrot">
-   <property name="text">
-    <string>Mandelbrot (Threads)</string>
-   </property>
-  </action>
-  <action name="actionWiggle_Boxes">
-   <property name="text">
-    <string>Wiggle Boxes (QtQuick / Qml)</string>
    </property>
   </action>
  </widget>

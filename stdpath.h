@@ -44,7 +44,7 @@
 
 class StdPath : public QWidget
 {
-   Q_OBJECT
+   CS_OBJECT(StdPath)
 
    public:
        StdPath(QWidget *parent = 0);
@@ -53,12 +53,17 @@ class StdPath : public QWidget
    private:
        Ui::StdPath *m_ui;
 
-   public slots:       
-       void standardLocations(int);
-       void writeableLocation(int);
-       void find();
-       void locate();
-       void locateAll();
+   public :       
+       CS_SLOT_1(Public, void standardLocations(int un_named_arg1))
+       CS_SLOT_2(standardLocations) 
+       CS_SLOT_1(Public, void writeableLocation(int un_named_arg1))
+       CS_SLOT_2(writeableLocation) 
+       CS_SLOT_1(Public, void find())
+       CS_SLOT_2(find) 
+       CS_SLOT_1(Public, void locate())
+       CS_SLOT_2(locate) 
+       CS_SLOT_1(Public, void locateAll())
+       CS_SLOT_2(locateAll) 
 
 };
 

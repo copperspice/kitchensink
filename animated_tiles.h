@@ -54,7 +54,7 @@
 
 class AnimatedTiles: public QWidget
 {
-      Q_OBJECT
+   CS_OBJECT(AnimatedTiles)
 
    public:
       AnimatedTiles(QWidget *parent = 0);
@@ -68,8 +68,10 @@ class AnimatedTiles: public QWidget
 
 class Pixmap : public QObject, public QGraphicsPixmapItem
 {
-      Q_OBJECT
-      Q_PROPERTY(QPointF pos READ pos WRITE setPos)
+   CS_OBJECT_MULTIPLE(Pixmap, QObject)
+
+   CS_PROPERTY_READ(pos, pos)
+   CS_PROPERTY_WRITE(pos, ks_setPos)
 
    public:
       Pixmap(const QPixmap &pix)
@@ -77,11 +79,16 @@ class Pixmap : public QObject, public QGraphicsPixmapItem
       {
          setCacheMode(DeviceCoordinateCache);
       }
+
+      // wrapper for overloaded method
+      void ks_setPos(const QPointF &pos)
+         { setPos(pos); }
+
 };
 
 class Button : public QGraphicsWidget
 {
-      Q_OBJECT
+   CS_OBJECT(Button)
 
    public:
       Button(const QPixmap &pixmap, QGraphicsItem *parent = 0)
@@ -125,8 +132,9 @@ class Button : public QGraphicsWidget
          painter->drawPixmap(-_pix.width()/2, -_pix.height()/2, _pix);
       }
 
-   signals:
-      void pressed();
+   public:
+      CS_SIGNAL_1(Public, void pressed())
+      CS_SIGNAL_2(pressed) 
 
    protected:
       void mousePressEvent(QGraphicsSceneMouseEvent *)

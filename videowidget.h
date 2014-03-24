@@ -43,7 +43,7 @@
 
 class VideoWidget : public QWidget
 {
-      Q_OBJECT
+      CS_OBJECT(VideoWidget)
    public:
       VideoWidget(QWidget *parent = 0);
       ~VideoWidget();

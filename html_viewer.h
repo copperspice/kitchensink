@@ -43,7 +43,7 @@
 
 class Html_Viewer : public QMainWindow
 {
-   Q_OBJECT
+   CS_OBJECT(Html_Viewer)
 
    public:
       Html_Viewer();
@@ -56,15 +56,22 @@ class Html_Viewer : public QMainWindow
       void createActions();     
       void setStartupText();
 
-   private slots:
-      void about();
-      void open();
-      void openUrl();
-      void save();
-      void updateTextEdit();
+   private :
+      CS_SLOT_1(Private, void about())
+      CS_SLOT_2(about) 
+      CS_SLOT_1(Private, void open())
+      CS_SLOT_2(open) 
+      CS_SLOT_1(Private, void openUrl())
+      CS_SLOT_2(openUrl) 
+      CS_SLOT_1(Private, void save())
+      CS_SLOT_2(save) 
+      CS_SLOT_1(Private, void updateTextEdit())
+      CS_SLOT_2(updateTextEdit) 
 
-      void actionClose();
-      void actionPreview();
+      CS_SLOT_1(Private, void actionClose())
+      CS_SLOT_2(actionClose) 
+      CS_SLOT_1(Private, void actionPreview())
+      CS_SLOT_2(actionPreview) 
 };
 
 

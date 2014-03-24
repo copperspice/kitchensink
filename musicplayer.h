@@ -52,7 +52,7 @@
 
 class MusicPlayer : public QMainWindow
 {
-   Q_OBJECT
+   CS_OBJECT(MusicPlayer)
 
    public:
       MusicPlayer();
@@ -85,17 +85,26 @@ class MusicPlayer : public QMainWindow
       void setupActions();
       void setupUi();
 
-   private slots:
-      void on_actionOpen_triggered();
-      void actionAbout();
-      void actionClose();
+   private :
+      CS_SLOT_1(Private, void on_actionOpen_triggered())
+      CS_SLOT_2(on_actionOpen_triggered) 
+      CS_SLOT_1(Private, void actionAbout())
+      CS_SLOT_2(actionAbout) 
+      CS_SLOT_1(Private, void actionClose())
+      CS_SLOT_2(actionClose) 
 
-      void stateChanged(Phonon::State newState, Phonon::State oldState);
-      void tick(qint64 time);
-      void tableClicked(const QModelIndex &);
-      void sourceChanged(const Phonon::MediaSource &source);
-      void metaParserStateChanged(Phonon::State newState, Phonon::State oldState);
-      void aboutToFinish();
+      CS_SLOT_1(Private, void stateChanged(Phonon::State newState,Phonon::State oldState))
+      CS_SLOT_2(stateChanged) 
+      CS_SLOT_1(Private, void tick(qint64 time))
+      CS_SLOT_2(tick) 
+      CS_SLOT_1(Private, void tableClicked(const QModelIndex & un_named_arg1))
+      CS_SLOT_2(tableClicked) 
+      CS_SLOT_1(Private, void sourceChanged(const Phonon::MediaSource & source))
+      CS_SLOT_2(sourceChanged) 
+      CS_SLOT_1(Private, void metaParserStateChanged(Phonon::State newState,Phonon::State oldState))
+      CS_SLOT_2(metaParserStateChanged) 
+      CS_SLOT_1(Private, void aboutToFinish())
+      CS_SLOT_2(aboutToFinish) 
 };
 
 #endif

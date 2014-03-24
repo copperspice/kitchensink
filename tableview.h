@@ -41,7 +41,7 @@
 
 class TableView : public QWidget
 {
-   Q_OBJECT
+   CS_OBJECT(TableView)
 
    public:
       TableView();

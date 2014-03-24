@@ -42,7 +42,7 @@
 
 class Style_DW : public QMainWindow
 {
-   Q_OBJECT
+   CS_OBJECT(Style_DW)
 
    public:
       Style_DW(Mdi *parent);
@@ -54,10 +54,13 @@ class Style_DW : public QMainWindow
       Mdi *m_parent;
       Style_Edit *m_style;
 
-   private slots:
-      void actionAbout();
-      void actionEdit();
-      void actionClose();
+   private :
+      CS_SLOT_1(Private, void actionAbout())
+      CS_SLOT_2(actionAbout) 
+      CS_SLOT_1(Private, void actionEdit())
+      CS_SLOT_2(actionEdit) 
+      CS_SLOT_1(Private, void actionClose())
+      CS_SLOT_2(actionClose) 
 };
 
 #endif

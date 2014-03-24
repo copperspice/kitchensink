@@ -7,7 +7,7 @@
 
 class Wiggle_Boxes : public QmlApplicationViewer
 {
-   Q_OBJECT
+   CS_OBJECT(Wiggle_Boxes)
 
    public:
       Wiggle_Boxes(QWidget *parent = 0);

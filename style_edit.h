@@ -42,7 +42,7 @@
 
 class Style_Edit : public QDialog
 {
-   Q_OBJECT
+   CS_OBJECT(Style_Edit)
 
    public:
       Style_Edit(QWidget *parent, QWidget *dwFrom);
@@ -57,14 +57,19 @@ class Style_Edit : public QDialog
       static QString readStyleSheet(const QString &name);
       void closeEvent(QCloseEvent *event);
 
-   public slots:
-      void actionClose();
+   public :
+      CS_SLOT_1(Public, void actionClose())
+      CS_SLOT_2(actionClose) 
 
-   private slots:
-      void on_styleCombo_activated(const QString &styleName);
-      void on_styleSheetCombo_activated(const QString &styleSheetName);
-      void on_styleTextEdit_textChanged();
-      void on_applyPB_clicked();
+   private :
+      CS_SLOT_1(Private, void on_styleCombo_activated(const QString & styleName))
+      CS_SLOT_2(on_styleCombo_activated) 
+      CS_SLOT_1(Private, void on_styleSheetCombo_activated(const QString & styleSheetName))
+      CS_SLOT_2(on_styleSheetCombo_activated) 
+      CS_SLOT_1(Private, void on_styleTextEdit_textChanged())
+      CS_SLOT_2(on_styleTextEdit_textChanged) 
+      CS_SLOT_1(Private, void on_applyPB_clicked())
+      CS_SLOT_2(on_applyPB_clicked) 
 };
 
 #endif

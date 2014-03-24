@@ -61,7 +61,7 @@ DragWidget::DragWidget(QWidget *parent)
    int x = 5;
    int y = 5;
 
-   while (!inputStream.atEnd()) {
+   while (! inputStream.atEnd()) {
       QString word;
       inputStream >> word;
 
@@ -163,8 +163,10 @@ void DragWidget::dropEvent(QDropEvent *event)
       }
 
       event->acceptProposedAction();
+
    } else {
       event->ignore();
+
    }
 }
 

@@ -141,25 +141,25 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
       anim->setEasingCurve(QEasingCurve::InOutBack);
       group->addAnimation(anim);
    }
-   QAbstractTransition *trans = rootState->addTransition(ellipseButton, SIGNAL(pressed()), ellipseState);
+   QAbstractTransition *trans = rootState->addTransition(ellipseButton, "pressed()", ellipseState);
    trans->addAnimation(group);
 
-   trans = rootState->addTransition(figure8Button, SIGNAL(pressed()), figure8State);
+   trans = rootState->addTransition(figure8Button, "pressed()", figure8State);
    trans->addAnimation(group);
 
-   trans = rootState->addTransition(randomButton, SIGNAL(pressed()), randomState);
+   trans = rootState->addTransition(randomButton, "pressed()", randomState);
    trans->addAnimation(group);
 
-   trans = rootState->addTransition(tiledButton, SIGNAL(pressed()), tiledState);
+   trans = rootState->addTransition(tiledButton, "pressed()", tiledState);
    trans->addAnimation(group);
 
-   trans = rootState->addTransition(centeredButton, SIGNAL(pressed()), centeredState);
+   trans = rootState->addTransition(centeredButton, "pressed()", centeredState);
    trans->addAnimation(group);
 
    m_timer.start(125);
    m_timer.setSingleShot(true);
 
-   trans = rootState->addTransition(&m_timer, SIGNAL(timeout()), ellipseState);
+   trans = rootState->addTransition(&m_timer, "timeout()", ellipseState);
    trans->addAnimation(group);
 
    m_stateMachine.start();

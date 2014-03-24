@@ -53,7 +53,7 @@ Lighting::Lighting(QWidget *parent): QGraphicsView(parent), angle(0.0)
    setupScene();
 
    QTimer *timer = new QTimer(this);
-   connect(timer, SIGNAL(timeout()), SLOT(animate()));
+   connect(timer, SIGNAL(timeout()), this, SLOT(animate()));
    timer->setInterval(30);
    timer->start();
 

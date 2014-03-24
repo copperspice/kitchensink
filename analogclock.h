@@ -48,7 +48,7 @@
 
 class AnalogClock : public QWidget
 {
-    Q_OBJECT
+    CS_OBJECT(AnalogClock)
 
 public:
     AnalogClock(QWidget *parent = 0);

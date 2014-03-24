@@ -45,7 +45,7 @@
 
 class GLWidget : public QGLWidget
 {
-    Q_OBJECT
+    CS_OBJECT(GLWidget)
 
 public:
     GLWidget(QWidget *parent = 0);
@@ -55,15 +55,21 @@ public:
     int yRotation() const { return yRot; }
     int zRotation() const { return zRot; }
 
-public slots:
-    void setXRotation(int angle);
-    void setYRotation(int angle);
-    void setZRotation(int angle);
+public :
+    CS_SLOT_1(Public, void setXRotation(int angle))
+    CS_SLOT_2(setXRotation) 
+    CS_SLOT_1(Public, void setYRotation(int angle))
+    CS_SLOT_2(setYRotation) 
+    CS_SLOT_1(Public, void setZRotation(int angle))
+    CS_SLOT_2(setZRotation) 
 
-signals:
-    void xRotationChanged(int angle);
-    void yRotationChanged(int angle);
-    void zRotationChanged(int angle);
+public:
+    CS_SIGNAL_1(Public, void xRotationChanged(int angle))
+    CS_SIGNAL_2(xRotationChanged,angle) 
+    CS_SIGNAL_1(Public, void yRotationChanged(int angle))
+    CS_SIGNAL_2(yRotationChanged,angle) 
+    CS_SIGNAL_1(Public, void zRotationChanged(int angle))
+    CS_SIGNAL_2(zRotationChanged,angle) 
 
 protected:
     void initializeGL();
@@ -72,8 +78,9 @@ protected:
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
 
-private slots:
-    void advanceGears();
+private :
+    CS_SLOT_1(Private, void advanceGears())
+    CS_SLOT_2(advanceGears) 
 
 private:
     GLuint makeGear(const GLfloat *reflectance, GLdouble innerRadius,

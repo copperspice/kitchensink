@@ -50,7 +50,7 @@
 
 class Mandelbrot_Thread : public QThread
 {
-      Q_OBJECT
+      CS_OBJECT(Mandelbrot_Thread)
 
    public:
       Mandelbrot_Thread(QObject *parent = 0);
@@ -59,8 +59,9 @@ class Mandelbrot_Thread : public QThread
       void render(double centerX, double centerY, double scaleFactor,
                   QSize resultSize);
 
-   signals:
-      void renderedImage(const QImage &image, double scaleFactor);
+   public:
+      CS_SIGNAL_1(Public, void renderedImage(const QImage &image,double scaleFactor))
+      CS_SIGNAL_2(renderedImage,image,scaleFactor) 
 
    protected:
       void run();

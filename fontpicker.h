@@ -42,7 +42,7 @@
 
 class FontPicker : public QWidget
 {
-   Q_OBJECT
+   CS_OBJECT(FontPicker)
       
    public:
       explicit FontPicker(QWidget *parent = 0);
@@ -51,9 +51,11 @@ class FontPicker : public QWidget
    private:
       Ui::FontPicker *ui;
 
-   private slots:
-      void setFont();
-      void actionClose();
+   private :
+      CS_SLOT_1(Private, void setFont())
+      CS_SLOT_2(setFont) 
+      CS_SLOT_1(Private, void actionClose())
+      CS_SLOT_2(actionClose) 
 };
 
 #endif

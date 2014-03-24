@@ -43,7 +43,7 @@
 
 class DrawArea : public QWidget
 {
-    Q_OBJECT
+    CS_OBJECT(DrawArea)
 
 public:
     enum Shape { Line, Points, Polyline, Polygon, Rect, RoundedRect, Ellipse, Arc,
@@ -54,12 +54,17 @@ public:
     QSize minimumSizeHint() const;
     QSize sizeHint() const;
 
-public slots:
-    void setShape(Shape shape);
-    void setPen(const QPen &pen);
-    void setBrush(const QBrush &brush);
-    void setAntialiased(bool antialiased);
-    void setTransformed(bool transformed);
+public :
+    CS_SLOT_1(Public, void setShape(Shape shape))
+    CS_SLOT_2(setShape) 
+    CS_SLOT_1(Public, void setPen(const QPen & pen))
+    CS_SLOT_2(setPen) 
+    CS_SLOT_1(Public, void setBrush(const QBrush & brush))
+    CS_SLOT_2(setBrush) 
+    CS_SLOT_1(Public, void setAntialiased(bool antialiased))
+    CS_SLOT_2(setAntialiased) 
+    CS_SLOT_1(Public, void setTransformed(bool transformed))
+    CS_SLOT_2(setTransformed) 
 
 protected:
     void paintEvent(QPaintEvent *event);

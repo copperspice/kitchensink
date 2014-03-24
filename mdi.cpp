@@ -42,7 +42,7 @@
 #include "fontpicker.h"
 #include "html_viewer.h"
 #include "international.h"
-#include "musicplayer.h"
+// Broom   #include "musicplayer.h"
 #include "line_edit.h"
 #include "listview.h"
 #include "script.h"
@@ -55,9 +55,19 @@
 #include "tableview.h"
 #include "tablewidget_view.h"
 #include "treeview.h"
-#include "videoplayer.h"
+// Broom   #include "videoplayer.h"
 #include "web_browser.h"
 #include "xml.h"
+
+#include "analogclock.h"
+#include "animated_tiles.h"
+#include "dragwidget.h"
+#include "grabber.h"
+#include "lighting.h"
+#include "mandelbrot_widget.h"
+#include "screenshot.h"
+// Broom   #include "wiggle_boxes.h"
+// Broom   #include "world_clock.h"
 
 #include "mdi.h"
 #include "ui_mdi.h"
@@ -68,7 +78,7 @@ Mdi::Mdi()
    : QMainWindow(), ui(new Ui::Mdi)
 {
    ui->setupUi(this);
-   setWindowTitle(tr("Kitchen Sink-CS"));   
+   setWindowTitle(tr("Kitchen Sink-Cs4"));
    setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
    setUnifiedTitleAndToolBarOnMac(true);
@@ -185,7 +195,12 @@ void Mdi::on_actionXml_triggered()
 
 // audio & visual
 void Mdi::on_actionMusicPlayer_triggered()
-{
+{ 
+   ksMsg("Music Player - Phonon not available");
+
+// Broom
+
+/*
    MusicPlayer *oDw = new MusicPlayer();
 
    if ( oDw->loaded() ) {
@@ -193,12 +208,19 @@ void Mdi::on_actionMusicPlayer_triggered()
    } else {
       delete oDw;
    }
+*/
 }
 
 void Mdi::on_actionVideoWidget_triggered()
 {
+   ksMsg("Video - Phonon not available");
+
+// Broom
+
+/*
    VideoPlayer *oDw = new VideoPlayer();
    addMdiChild(oDw);
+*/
 }
 
 void Mdi::on_actionHTML_Viewer_triggered()
@@ -265,6 +287,73 @@ void Mdi::on_actionTabs_triggered()
    addMdiChild(oDw);
 }
 
+// graphics
+void Mdi::on_actionAnalog_Clock_triggered()
+{
+   AnalogClock *oDw = new AnalogClock();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionAnimated_Tiles_triggered()
+{
+   AnimatedTiles *oDw = new AnimatedTiles();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionFridge_Magnets_triggered()
+{
+   DragWidget *oDw = new DragWidget();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionGrabber_triggered()
+{
+   Grabber *oDw = new Grabber();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionLighting_triggered()
+{
+   Lighting *oDw = new Lighting();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionMandelbrot_triggered()
+{
+   Mandelbrot_Widget *oDw = new Mandelbrot_Widget();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionScreen_Shot_triggered()
+{
+   Screenshot *oDw = new Screenshot();
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionWiggle_Boxes_triggered()
+{   
+   ksMsg("Wiggle Boxes - CsDeclarative not available");
+
+// Broom
+
+/*
+   Wiggle_Boxes *oDw = new Wiggle_Boxes();
+   addMdiChild(oDw);
+*/
+}
+
+void Mdi::on_actionWorld_Clock_triggered()
+{
+   ksMsg("World Clock - CsDeclarative not available");
+
+// Broom
+
+/*
+   World_Clock *oDw = new World_Clock();
+   addMdiChild(oDw);
+*/
+}
+
 //  help
 void Mdi::on_actionAbout_CopperSpice_triggered()
 {
@@ -279,7 +368,7 @@ void Mdi::on_actionAbout_triggered()
                       "<tr><td style=padding-right:25><nobr>Developed by Ansel Sermersheim</nobr></td><td>ansel@copperspice.com</td></tr>"
                       "</table></font>"
                       "<br>"
-                      "<p><small>Copyright 2012-2013 BG Consulting, All rights reserved.<br>"
+                      "<p><small>Copyright 2012-2014 BG Consulting, All rights reserved.<br>"
                       "This program is provided AS IS with no warranty of any kind.<br></small></p>";
 
    //
@@ -287,8 +376,8 @@ void Mdi::on_actionAbout_triggered()
    msgB.setIcon(QMessageBox::NoIcon);
    msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
-   msgB.setWindowTitle(tr("About Kitchen Sink-CS"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 12.01.2013</h5></center></p>"));
+   msgB.setWindowTitle(tr("About Kitchen Sink-Cs4"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 04.01.2014</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

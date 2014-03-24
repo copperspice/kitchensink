@@ -49,7 +49,7 @@
 
 class Mandelbrot_Widget : public QWidget
 {
-      Q_OBJECT
+      CS_OBJECT(Mandelbrot_Widget)
 
    public:
       Mandelbrot_Widget(QWidget *parent = 0);
@@ -63,9 +63,11 @@ class Mandelbrot_Widget : public QWidget
       void mouseMoveEvent(QMouseEvent *event);
       void mouseReleaseEvent(QMouseEvent *event);
 
-   private slots:
-      void updatePixmap(const QImage &image, double scaleFactor);
-      void zoom(double zoomFactor);
+   private :
+      CS_SLOT_1(Private, void updatePixmap(const QImage &image,double scaleFactor))
+      CS_SLOT_2(updatePixmap) 
+      CS_SLOT_1(Private, void zoom(double zoomFactor))
+      CS_SLOT_2(zoom) 
 
    private:
       void scroll(int deltaX, int deltaY);

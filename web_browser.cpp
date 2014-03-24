@@ -74,11 +74,11 @@ WebBrowser::WebBrowser(Mdi *parent, QUrl url)
    QMenu *fileMenu = menuBar()->addMenu(tr("&File"));
 
    QAction* temp1 = new QAction(tr("Page Source"), this);
-   connect(temp1, SIGNAL(triggered()), SLOT(getSource()));
+   connect(temp1, SIGNAL(triggered()), this, SLOT(getSource()));
    fileMenu->addAction(temp1);
 
    QAction* temp2 = new QAction(tr("Close Browser"), this);
-   connect(temp2, SIGNAL(triggered()), SLOT(actionClose()));
+   connect(temp2, SIGNAL(triggered()), this, SLOT(actionClose()));
    fileMenu->addAction(temp2);
 
    // 2
@@ -119,16 +119,16 @@ WebBrowser::WebBrowser(Mdi *parent, QUrl url)
 
    // set up custom context menu
    m_view->setContextMenuPolicy(Qt::CustomContextMenu);
-   connect(m_view,    SIGNAL(customContextMenuRequested(const QPoint)), this,
-           SLOT(setCustomContextMenu(const QPoint)) );
+   connect(m_view,    SIGNAL(customContextMenuRequested(const QPoint &)), this,
+           SLOT(setCustomContextMenu(const QPoint &)) );
 
    // signals
    connect(m_urlEdit, SIGNAL(returnPressed()),        this, SLOT(changeLocation()));
    connect(m_view,    SIGNAL(loadProgress(int)),      this, SLOT(setProgress(int)));
    connect(m_view,    SIGNAL(loadFinished(bool)),     this, SLOT(setLocation()));
-   connect(m_view,    SIGNAL(titleChanged(QString)),  this, SLOT(setTitle()));
+   connect(m_view,    SIGNAL(titleChanged(const QString &)),  this, SLOT(setTitle()));
 
-   connect(m_view->page(), SIGNAL(linkHovered(const QString &, const QString &, const QString &)),
+   connect(m_view->page(), SIGNAL(linkHovered(const QString &, const QString &, const QString &)), this,
            SLOT(actionLinkHovered(const QString &, const QString &, const QString &)) );
 
    setCentralWidget(m_view);   
@@ -400,9 +400,4 @@ void WebBrowser::goYouTube()
 void WebBrowser::actionClose() {
    this->parentWidget()->close();
 }
-
-
-
-
-
 

@@ -45,7 +45,7 @@
 
 class Svg_View : public QWidget
 {
-   Q_OBJECT
+   CS_OBJECT(Svg_View)
 
    public:
       enum { SvgTextFormat = QTextFormat::UserObject + 1 };
@@ -53,9 +53,11 @@ class Svg_View : public QWidget
 
       Svg_View();
 
-   private slots:
-      void insertTextObject();
-      void actionClose();
+   private :
+      CS_SLOT_1(Private, void insertTextObject())
+      CS_SLOT_2(insertTextObject) 
+      CS_SLOT_1(Private, void actionClose())
+      CS_SLOT_2(actionClose) 
 
    private:
       void setupTextObject();

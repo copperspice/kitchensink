@@ -43,7 +43,7 @@
 
 class TableWidget_View : public QWidget
 {
-   Q_OBJECT
+   CS_OBJECT(TableWidget_View)
       
    public:
       explicit TableWidget_View(QWidget *parent = 0);
@@ -56,9 +56,11 @@ class TableWidget_View : public QWidget
       void setUpWidget();
       void setUpView();
 
-   private slots:
-      void tableClicked_W(int row, int col);
-      void tableClicked_V(const QModelIndex & index);
+   private :
+      CS_SLOT_1(Private, void tableClicked_W(int row,int col))
+      CS_SLOT_2(tableClicked_W) 
+      CS_SLOT_1(Private, void tableClicked_V(const QModelIndex & index))
+      CS_SLOT_2(tableClicked_V) 
 };
 
 #endif

@@ -3,7 +3,7 @@ AUTOMAKE_OPTIONS=subdir-objects
 # adjustment for windows slash vs backslash
 #    12/12/2013 - temp change
 #    CS_HOME:=$(shell cd $(CS_HOME); pwd)
-CS_HOME="z:/Cs3_lib"
+CS_HOME="/z/Cs4_lib"
 
 # location of includes, libs, defines for compiling
 AM_CXXFLAGS=$(AM_CFLAGS) -I$(CS_HOME)/include $(patsubst %,-I$(CS_HOME)/include/Qt%,$(cslibs))    
@@ -13,7 +13,6 @@ AM_LDFLAGS=-L$(CS_HOME)/lib
 
 # location of CopperSpice programs
 LRELEASE=$(CS_HOME)/bin/lrelease
-MOC=$(CS_HOME)/bin/moc
 RCC=$(CS_HOME)/bin/rcc
 UIC=$(CS_HOME)/bin/uic
 
@@ -35,10 +34,7 @@ EXTRA_DIST+=$(TRANSLATIONS)
 # rules
 %.qm: %.ts
 	$(LRELEASE) $< $@
-	
-moc_%.cpp: %.h
-	$(MOC) $< -o $@  $(patsubst %,-I$(CS_HOME)/include/Qt%,$(cslibs))  		
-    
+	    
 qrc_%.cpp: %.qrc
 	$(RCC) $< -o $@ -name $(notdir $(basename $<))
 
@@ -46,8 +42,7 @@ ui_%.h: forms/%.ui
 	$(UIC) $< -o $@
     
 # additional files to delete on 'make clean'
-clean-local:
-	-rm moc_*.cpp
+clean-local:	
 	-rm qrc_*.cpp
 	-rm ui_*.h
 	

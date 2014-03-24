@@ -51,7 +51,7 @@
 
 class SysTray : public QDialog
 {
-   Q_OBJECT
+   CS_OBJECT(SysTray)
 
    public:
       SysTray();
@@ -93,12 +93,17 @@ class SysTray : public QDialog
       QSystemTrayIcon *trayIcon;
       QMenu *trayIconMenu;
 
-   private slots:
-      void setIcon(int index);
-      void iconActivated(QSystemTrayIcon::ActivationReason reason);
-      void showMessage();
-      void messageClicked();
-      void actionQuit();
+   private :
+      CS_SLOT_1(Private, void setIcon(int index))
+      CS_SLOT_2(setIcon) 
+      CS_SLOT_1(Private, void iconActivated(QSystemTrayIcon::ActivationReason reason))
+      CS_SLOT_2(iconActivated) 
+      CS_SLOT_1(Private, void showMessage())
+      CS_SLOT_2(showMessage) 
+      CS_SLOT_1(Private, void messageClicked())
+      CS_SLOT_2(messageClicked) 
+      CS_SLOT_1(Private, void actionQuit())
+      CS_SLOT_2(actionQuit) 
 };
 
 

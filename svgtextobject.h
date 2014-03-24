@@ -45,8 +45,8 @@
 
 class SvgTextObject : public QObject, public QTextObjectInterface
 {
-   Q_OBJECT
-   Q_INTERFACES(QTextObjectInterface)
+   CS_OBJECT(SvgTextObject)
+   CS_INTERFACES(QTextObjectInterface)
 
    public:
       QSizeF intrinsicSize(QTextDocument *doc,

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>508</width>
-    <height>566</height>
+    <width>564</width>
+    <height>536</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -56,7 +56,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="integer_lineEdit"/>
+       <widget class="QLineEdit" name="integer_lineEdit">
+        <property name="minimumSize">
+         <size>
+          <width>275</width>
+          <height>0</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0">
        <widget class="QPushButton" name="double_pushButton">
@@ -227,7 +234,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="critical_lineEdit"/>
+       <widget class="QLineEdit" name="critical_lineEdit">
+        <property name="minimumSize">
+         <size>
+          <width>275</width>
+          <height>0</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="2" column="0">
        <widget class="QPushButton" name="quest_pushButton">

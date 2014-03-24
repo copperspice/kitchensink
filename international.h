@@ -43,7 +43,7 @@
 
 class International : public QWidget
 {
-   Q_OBJECT
+   CS_OBJECT(International)
 
    public:
       International();
@@ -58,11 +58,15 @@ class International : public QWidget
       void changeEvent(QEvent *event);
       void getListData();
 
-   private slots:
-      void actionClose();      
-      void actionEnglish();
-      void actionFrench();
-      void actionGerman();      
+   private :
+      CS_SLOT_1(Private, void actionClose())
+      CS_SLOT_2(actionClose)       
+      CS_SLOT_1(Private, void actionEnglish())
+      CS_SLOT_2(actionEnglish) 
+      CS_SLOT_1(Private, void actionFrench())
+      CS_SLOT_2(actionFrench) 
+      CS_SLOT_1(Private, void actionGerman())
+      CS_SLOT_2(actionGerman)       
 };
 
 #endif

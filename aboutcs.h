@@ -41,7 +41,7 @@
 
 class AboutCS : public QWidget
 {
-   Q_OBJECT
+   CS_OBJECT(AboutCS)
 
    public:
       AboutCS();
@@ -49,9 +49,11 @@ class AboutCS : public QWidget
    private:
       QWebView *m_viewer;
 
-   private slots:
-      void actionClose();
-      void actionHome();
+   private :
+      CS_SLOT_1(Private, void actionClose())
+      CS_SLOT_2(actionClose) 
+      CS_SLOT_1(Private, void actionHome())
+      CS_SLOT_2(actionHome) 
 };
 
 #endif

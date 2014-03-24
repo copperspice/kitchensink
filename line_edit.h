@@ -43,18 +43,23 @@
 
 class LineEdit : public QWidget
 {
-    Q_OBJECT
+    CS_OBJECT(LineEdit)
 
 public:
     LineEdit();
     ~LineEdit();
 
-public slots:
-    void alignChanged(int);
-    void maskChanged(int);
-    void passwordChanged(int);
-    void validChanged(int);
-    void readonlyChanged(int);
+public :
+    CS_SLOT_1(Public, void alignChanged(int un_named_arg1))
+    CS_SLOT_2(alignChanged) 
+    CS_SLOT_1(Public, void maskChanged(int un_named_arg1))
+    CS_SLOT_2(maskChanged) 
+    CS_SLOT_1(Public, void passwordChanged(int un_named_arg1))
+    CS_SLOT_2(passwordChanged) 
+    CS_SLOT_1(Public, void validChanged(int un_named_arg1))
+    CS_SLOT_2(validChanged) 
+    CS_SLOT_1(Public, void readonlyChanged(int un_named_arg1))
+    CS_SLOT_2(readonlyChanged) 
 
 private:
     Ui::LineEdit *ui;

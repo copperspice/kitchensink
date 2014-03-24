@@ -42,7 +42,7 @@
 
 class TabDialog : public QWidget
 {
-   Q_OBJECT
+   CS_OBJECT(TabDialog)
 
    public:
       TabDialog(QWidget *parent = 0);
@@ -51,9 +51,11 @@ class TabDialog : public QWidget
    private:
       Ui::TabDialog *ui;
 
-   private slots:
-      void actionRollYourOwn();
-      void actionClose();
+   private :
+      CS_SLOT_1(Private, void actionRollYourOwn())
+      CS_SLOT_2(actionRollYourOwn) 
+      CS_SLOT_1(Private, void actionClose())
+      CS_SLOT_2(actionClose) 
 };
 
 #endif

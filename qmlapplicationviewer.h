@@ -15,7 +15,7 @@
 
 class QmlApplicationViewer : public QDeclarativeView
 {
-    Q_OBJECT
+    CS_OBJECT(QmlApplicationViewer)
 
 public:
     enum ScreenOrientation {

@@ -1,33 +1,50 @@
 <RCC>
     <qresource prefix="/">
-        <file>resources/sampleMenu.xml</file>
-        <file>resources/pagefold.qss</file>
-        <file>resources/shiny.qss</file>
-        <file>resources/coffee.qss</file>
-        <file>resources/default.qss</file>
-        <file>resources/up_arrow_disabled.png</file>
+        <file>resources/bad.png</file>
         <file>resources/brick.png</file>
+        <file>resources/cake1.svg</file>
+        <file>resources/cake2.svg</file>
         <file>resources/checkbox_checked.png</file>
         <file>resources/checkbox_checked_hover.png</file>
         <file>resources/checkbox_checked_pressed.png</file>
         <file>resources/checkbox_unchecked.png</file>
         <file>resources/checkbox_unchecked_hover.png</file>
         <file>resources/checkbox_unchecked_pressed.png</file>
+        <file>resources/coffee.qss</file>
+        <file>resources/cup_cake.svg</file>
+        <file>resources/default.qss</file>
         <file>resources/down_arrow.png</file>
         <file>resources/down_arrow_disabled.png</file>
+        <file>resources/email_1.gif</file>
+        <file>resources/email_2.gif</file>
+        <file>resources/email_3.gif</file>
         <file>resources/frame.png</file>
+        <file>resources/heart.png</file>
+        <file>resources/ice_cream.svg</file>
+        <file>resources/ks_cs.ico</file>
         <file>resources/minus.png</file>
         <file>resources/pagefold.png</file>
+        <file>resources/pagefold.qss</file>
+        <file>resources/pineapple.svg</file>
         <file>resources/plus.png</file>
         <file>resources/pushbutton.png</file>
         <file>resources/pushbutton_hover.png</file>
         <file>resources/pushbutton_pressed.png</file>
+        <file>resources/qt_de.qm</file>
+        <file>resources/qt_de.ts</file>
+        <file>resources/qt_en.qm</file>
+        <file>resources/qt_en.ts</file>
+        <file>resources/qt_fr.qm</file>
+        <file>resources/qt_fr.ts</file>
         <file>resources/radiobutton_checked.png</file>
         <file>resources/radiobutton_checked_hover.png</file>
         <file>resources/radiobutton_checked_pressed.png</file>
         <file>resources/radiobutton_unchecked.png</file>
         <file>resources/radiobutton_unchecked_hover.png</file>
         <file>resources/radiobutton_unchecked_pressed.png</file>
+        <file>resources/sampleMenu.xml</file>
+        <file>resources/script.js</file>
+        <file>resources/shiny.qss</file>
         <file>resources/sizegrip.png</file>
         <file>resources/spindown.png</file>
         <file>resources/spindown_hover.png</file>
@@ -35,26 +52,17 @@
         <file>resources/spinup.png</file>
         <file>resources/spinup_hover.png</file>
         <file>resources/spinup_pressed.png</file>
-        <file>resources/up_arrow.png</file>
-        <file>resources/qt_fr.ts</file>
-        <file>resources/qt_de.qm</file>
-        <file>resources/qt_fr.qm</file>
-        <file>resources/qt_de.ts</file>
-        <file>resources/qt_en.ts</file>
-        <file>resources/qt_en.qm</file>
         <file>resources/trash.png</file>
-        <file>resources/bad.png</file>
-        <file>resources/heart.png</file>
+        <file>resources/up_arrow.png</file>
+        <file>resources/up_arrow_disabled.png</file>
         <file>resources/watermelon.svg</file>
-        <file>resources/cake1.svg</file>
-        <file>resources/cake2.svg</file>
-        <file>resources/cup_cake.svg</file>
-        <file>resources/pineapple.svg</file>
-        <file>resources/ice_cream.svg</file>
-        <file>resources/email_3.gif</file>
-        <file>resources/email_1.gif</file>
-        <file>resources/email_2.gif</file>
-        <file>resources/script.js</file>
-        <file>resources/ks_cs.ico</file>
+        <file>resources/words.txt</file>
+        <file>resources/animated_tiles/centered.png</file>
+        <file>resources/animated_tiles/ellipse.png</file>
+        <file>resources/animated_tiles/figure8.png</file>
+        <file>resources/animated_tiles/kinetic.png</file>
+        <file>resources/animated_tiles/random.png</file>
+        <file>resources/animated_tiles/tile.png</file>
+        <file>resources/animated_tiles/Time-For-Lunch-2.jpg</file>
     </qresource>
 </RCC>

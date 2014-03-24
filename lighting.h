@@ -49,13 +49,14 @@
 
 class Lighting: public QGraphicsView
 {
-    Q_OBJECT
+    CS_OBJECT(Lighting)
 
 public:
     Lighting(QWidget *parent = 0);
 
-private slots:
-    void animate();
+private :
+    CS_SLOT_1(Private, void animate())
+    CS_SLOT_2(animate) 
 
 private:
     void setupScene();
