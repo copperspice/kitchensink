@@ -55,7 +55,7 @@
 #include "tableview.h"
 #include "tablewidget_view.h"
 #include "treeview.h"
-// Broom   #include "videoplayer.h"
+#include "videoplayer.h"
 #include "web_browser.h"
 #include "xml.h"
 
@@ -213,14 +213,8 @@ void Mdi::on_actionMusicPlayer_triggered()
 
 void Mdi::on_actionVideoWidget_triggered()
 {
-   ksMsg("Video - Phonon not available");
-
-// Broom
-
-/*
    VideoPlayer *oDw = new VideoPlayer();
    addMdiChild(oDw);
-*/
 }
 
 void Mdi::on_actionHTML_Viewer_triggered()

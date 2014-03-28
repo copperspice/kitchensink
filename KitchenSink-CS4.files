@@ -30,6 +30,7 @@ script.cpp
 stdpath.cpp
 html_viewer.cpp
 web_browser.cpp
+
 analogclock.cpp
 analogclock.h
 animated_tiles.cpp
@@ -56,6 +57,7 @@ wiggle_boxes.cpp
 wiggle_boxes.h
 world_clock.cpp
 world_clock.h
+
 aboutcs.h
 mdi.h
 util.h

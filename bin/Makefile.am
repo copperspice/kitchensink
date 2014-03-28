@@ -21,19 +21,19 @@ AM_CXXFLAGS+=-mwindows  -I$(CS_HOME)/include/phonon
 deploy_PROGRAMS = KitchenSink-Cs4
 
 # copy the required CopperSpice and gcc files for deployment - windows only
-install-data-hook:	
+install-data-hook:
 	mkdir -p $(deploydir)
-	mkdir -p $(deploydir)/phonon_backend	
+	mkdir -p $(deploydir)/phonon_backend
 
-	rsync -W -a --size-only  $(patsubst %,$(gccpath)/%.dll,$(gcclibs))  $(deploydir)
-#	rsync -W -a --size-only  $(CS_HOME)/bin/lupdate*  $(deploydir)
-	rsync -W -a --size-only  $(patsubst %,$(CS_HOME)/bin/libCs%1-0.dll,$(cslibs))  $(deploydir)
+#	rsync -W -a --modify-window=2  $(CS_HOME)/bin/lupdate*  $(deploydir)
+	rsync -W -a --modify-window=2  $(patsubst %,$(gccpath)/%.dll,$(gcclibs))  $(deploydir)
+	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%1-0.dll,$(cslibs))  $(deploydir)
 
-    ifeq ($(findstring Phonon,$(cslibs)),Phonon)		
-		cp --preserve=timestamps  $(CS_HOME)/lib/phonon_ds9-0.dll  $(deploydir)/phonon_backend
-    else		
-		@echo "Phonon library was not found"		
-    endif
+   ifeq ($(findstring Phonon,$(cslibs)),Phonon)
+		rsync -W -a --modify-window=2  $(CS_HOME)/lib/phonon_ds9-0.dll  $(deploydir)/phonon_backend
+  else
+		@echo "Phonon library was not found"
+  endif
 
 # search path for source
 VPATH = ../
@@ -70,6 +70,9 @@ KitchenSink_Cs4_SOURCES = \
     tabdialog.cpp \
     treeview.cpp \
     util.cpp \
+    videosurface.cpp \
+    videoplayer.cpp \
+    videowidget.cpp \
     web_browser.cpp \
     xml.cpp \
     analogclock.cpp \
@@ -83,11 +86,7 @@ KitchenSink_Cs4_SOURCES = \
     mandelbrot_widget.cpp \
     screenshot.cpp
 
-
-# musicplayer.cpp \
-# videosurface.cpp \
-# videoplayer.cpp \
-# videowidget.cpp \
+# musicplayer.cpp
 # qmlapplicationviewer.cpp
 # wiggle_boxes.cpp
 # world_clock.cpp
@@ -119,6 +118,9 @@ noinst_HEADERS = \
    tablewidget_view.h \
    treeview.h \
    util.h \
+   videoplayer.h \
+   videowidget.h \
+   videosurface.h \
    web_browser.h \
    xml.h \
    analogclock.h  \
@@ -132,11 +134,8 @@ noinst_HEADERS = \
    mandelbrot_widget.h  \
    screenshot.h
 
-# musicplayer.h \
+# musicplayer.h
 # qmlapplicationviewer.h
-# videoplayer.h \
-# videowidget.h \
-# videosurface.h \
 # wiggle_boxes.h
 # world_clock.h
 
@@ -155,7 +154,7 @@ FORMS = \
     forms/style_dw.ui \
     forms/style_edit.ui \
     forms/script.ui \
-	 forms/tabdialog.ui \
+    forms/tabdialog.ui \
     forms/tablewidget_view.ui \
     forms/xml.ui
 
@@ -177,15 +176,15 @@ nodist_KitchenSink_Cs4_SOURCES = qrc_kitchensink.cpp
 distdir: $(DISTFILES)
 	cd .. ; \
 	test -d "$(distdir_custom)" || mkdir -p "$(distdir_custom)" ; \
-	for f in $(DIST_SOURCES)  ; do install -D $$f $(distdir_custom)/$$f ; done ;\
-	for f in $(HEADERS)       ; do install -D $$f $(distdir_custom)/$$f ; done ;\
-	for f in $(FORMS)         ; do install -D $$f $(distdir_custom)/$$f ; done ;\
+	for f in $(DIST_SOURCES)  ; do install -D $$f $(distdir_custom)/$$f ; done ; \
+	for f in $(HEADERS)       ; do install -D $$f $(distdir_custom)/$$f ; done ; \
+	for f in $(FORMS)         ; do install -D $$f $(distdir_custom)/$$f ; done ; \
 	mkdir -p $(distdir_custom)/bin           ; \
 	mkdir -p $(distdir_custom)/resources     ; \
 	cp kitchensink.qrc        $(distdir_custom)/     ; \
 	cp install_files/cs.conf  $(distdir_custom)/     ; \
 	cp bin/*.am               $(distdir_custom)/bin/ ; \
-	cp resources/*	           $(distdir_custom)/resources/
+	cp resources/*               $(distdir_custom)/resources/
 	$(MAKE) $(AM_MAKEFLAGS) dist-hook
 
 dist-hook:
@@ -195,5 +194,3 @@ dist-hook:
 	cd $(distdir_custom)       ; \
 	rm -f  ../KS_CS-$(VERSION).zip  ; \
 	zip -r ../KS_CS-$(VERSION).zip .
-
-
