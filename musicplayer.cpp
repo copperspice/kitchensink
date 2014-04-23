@@ -1,7 +1,7 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2013 Barbara Geller
-* Copyright (c) 2011-2012 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2012-2014 Barbara Geller
+* Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -44,17 +44,15 @@ MusicPlayer::MusicPlayer()
    // configure Phonon
    m_audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
 
-   // new method in CopperSpice
    if (! m_audioOutput->pluginLoaded())  {
-      // plugin did not load, proper practice is to throw an exception
-      // review KitchenSink-Cs2 for exception code
+      // new method in CopperSpice, plugin did not load
 
       ksMsg("Unable to load Audio plugin. Program may terminate.");
       m_loaded = false;
       return;
    }
 
-   m_mediaObject = new Phonon::MediaObject(this);
+   m_mediaObject = new Phonon::MediaObject(this); 
    m_mediaObject->setTickInterval(1000);
 
    // used when adding files to the music list
@@ -300,7 +298,7 @@ void MusicPlayer::metaParserStateChanged(Phonon::State newState, Phonon::State o
       {
          QString temp = m_metaParser->currentSource().fileName()
                 + "\n\nFile may be damaged, corrupted, or contain an image file"
-                + + "\n\n" + m_metaParser->errorString();
+                + "\n\n" + m_metaParser->errorString();
 
          QMessageBox::warning(this, tr("Error Opening File(s)"), temp);
 
@@ -317,7 +315,6 @@ void MusicPlayer::metaParserStateChanged(Phonon::State newState, Phonon::State o
       }
 
       case Phonon::StoppedState:
-
          break;
 
       case Phonon::PausedState:

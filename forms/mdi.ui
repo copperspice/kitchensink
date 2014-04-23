@@ -26,7 +26,7 @@
      <x>0</x>
      <y>0</y>
      <width>1298</width>
-     <height>24</height>
+     <height>28</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -53,6 +53,7 @@
      <string>Help</string>
     </property>
     <addaction name="actionAbout_CopperSpice"/>
+    <addaction name="actionAbout_KitchenSink"/>
     <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
@@ -84,6 +85,7 @@
     <addaction name="actionScript"/>
     <addaction name="separator"/>
     <addaction name="actionXml"/>
+    <addaction name="actionXmlPatterns"/>
    </widget>
    <widget class="QMenu" name="menuFoo">
     <property name="title">
@@ -244,7 +246,7 @@
     <string>XML</string>
    </property>
   </action>
-  <action name="actionXmlPatterns">
+  <action name="actionXml_Patterns">
    <property name="text">
     <string>XML Patterns</string>
    </property>
@@ -333,6 +335,16 @@
   <action name="actionWiggle_Boxes">
    <property name="text">
     <string>Wiggle Boxes (QtQuick / Qml)</string>
+   </property>
+  </action>
+  <action name="actionAbout_KitchenSink">
+   <property name="text">
+    <string>About KitchenSink</string>
+   </property>
+  </action>
+  <action name="actionXmlPatterns">
+   <property name="text">
+    <string>XML Patterns</string>
    </property>
   </action>
  </widget>

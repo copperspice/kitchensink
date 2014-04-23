@@ -1,42 +1,37 @@
-/****************************************************************************
-**
-** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
-** All rights reserved.
-** Contact: Nokia Corporation (qt-info@nokia.com)
-**
-** This file is part of the QtCore module of the Qt Toolkit.
-**
-** $QT_BEGIN_LICENSE:BSD$
-** You may use this file under the terms of the BSD license as follows:
-**
-** "Redistribution and use in source and binary forms, with or without
-** modification, are permitted provided that the following conditions are
-** met:
-**   * Redistributions of source code must retain the above copyright
-**     notice, this list of conditions and the following disclaimer.
-**   * Redistributions in binary form must reproduce the above copyright
-**     notice, this list of conditions and the following disclaimer in
-**     the documentation and/or other materials provided with the
-**     distribution.
-**   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
-**     the names of its contributors may be used to endorse or promote
-**     products derived from this software without specific prior written
-**     permission.
-**
-** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-** "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
-** $QT_END_LICENSE$
-**
-****************************************************************************/
+/**********************************************************************
+*
+* Copyright (c) 2012-2014 Barbara Geller
+* Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions are
+* met:
+*
+* * Redistributions of source code must retain the above copyright notice,
+*   this list of conditions and the following disclaimer.
+*
+* * Redistributions in binary form must reproduce the above copyright
+*   notice, this list of conditions and the following disclaimer in the
+*   documentation and/or other materials provided with the distribution.
+*
+* * Neither the name of the Nokia Corporation nor the names of its
+*   contributors may be used to endorse or promote products derived from
+*   this software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+* "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+* LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+* A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+* HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+* SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+* LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+* THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+* OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*
+***********************************************************************/
 
 #include "animated_tiles.h"
 
@@ -97,23 +92,20 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
 
       // Ellipse
       ellipseState->assignProperty(item, "pos",
-                                   QPointF(cos((i / 63.0) * 6.28) * 250,
-                                           sin((i / 63.0) * 6.28) * 250));
+               QPointF(cos((i / 63.0) * 6.28) * 250, sin((i / 63.0) * 6.28) * 250));
 
       // Figure 8
       figure8State->assignProperty(item, "pos",
-                                   QPointF(sin((i / 63.0) * 6.28) * 250,
-                                           sin(((i * 2)/63.0) * 6.28) * 250));
+               QPointF(sin((i / 63.0) * 6.28) * 250, sin(((i * 2)/63.0) * 6.28) * 250));
 
       // Random
       randomState->assignProperty(item, "pos",
-                                  QPointF(-250 + qrand() % 500,
-                                          -250 + qrand() % 500));
+               QPointF(-250 + qrand() % 500, -250 + qrand() % 500));
 
       // Tiled
       tiledState->assignProperty(item, "pos",
-                                 QPointF(((i % 8) - 4) * kineticPix.width() + kineticPix.width() / 2,
-                                         ((i / 8) - 4) * kineticPix.height() + kineticPix.height() / 2));
+               QPointF(((i % 8) - 4) * kineticPix.width() + kineticPix.width() / 2,
+               ((i / 8) - 4) * kineticPix.height() + kineticPix.height() / 2));
 
       // Centered
       centeredState->assignProperty(item, "pos", QPointF());
@@ -141,25 +133,26 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
       anim->setEasingCurve(QEasingCurve::InOutBack);
       group->addAnimation(anim);
    }
-   QAbstractTransition *trans = rootState->addTransition(ellipseButton, "pressed()", ellipseState);
+
+   QAbstractTransition *trans = rootState->addTransition(ellipseButton, &Button::pressed, ellipseState);
    trans->addAnimation(group);
 
-   trans = rootState->addTransition(figure8Button, "pressed()", figure8State);
+   trans = rootState->addTransition(figure8Button, &Button::pressed, figure8State);
    trans->addAnimation(group);
 
-   trans = rootState->addTransition(randomButton, "pressed()", randomState);
+   trans = rootState->addTransition(randomButton, &Button::pressed, randomState);
    trans->addAnimation(group);
 
-   trans = rootState->addTransition(tiledButton, "pressed()", tiledState);
+   trans = rootState->addTransition(tiledButton, &Button::pressed, tiledState);
    trans->addAnimation(group);
 
-   trans = rootState->addTransition(centeredButton, "pressed()", centeredState);
+   trans = rootState->addTransition(centeredButton, &Button::pressed, centeredState);
    trans->addAnimation(group);
 
    m_timer.start(125);
    m_timer.setSingleShot(true);
 
-   trans = rootState->addTransition(&m_timer, "timeout()", ellipseState);
+   trans = rootState->addTransition(&m_timer, &QTimer::timeout, ellipseState);
    trans->addAnimation(group);
 
    m_stateMachine.start();

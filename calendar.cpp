@@ -1,7 +1,7 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2013 Barbara Geller
-* Copyright (c) 2011-2012 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2012-2014 Barbara Geller
+* Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -335,10 +335,10 @@ void Calendar::createDatesGroupBox()
    maximumDateLabel = new QLabel(tr("Ma&ximum Date:"));
    maximumDateLabel->setBuddy(maximumDateEdit);
 
-   connect(currentDateEdit, SIGNAL(dateChanged(QDate)), m_calendar, SLOT(setSelectedDate(QDate)));
-   connect(m_calendar,      SIGNAL(selectionChanged()), this,       SLOT(selectedDateChanged()));
-   connect(minimumDateEdit, SIGNAL(dateChanged(QDate)), this,       SLOT(minimumDateChanged(QDate)));
-   connect(maximumDateEdit, SIGNAL(dateChanged(QDate)), this,       SLOT(maximumDateChanged(QDate)));
+   connect(currentDateEdit, SIGNAL(dateChanged(const QDate &)), m_calendar, SLOT(setSelectedDate(const QDate &)));
+   connect(m_calendar,      SIGNAL(selectionChanged()), this, SLOT(selectedDateChanged()));
+   connect(minimumDateEdit, SIGNAL(dateChanged(const QDate &)), this,       SLOT(minimumDateChanged(const QDate &)));
+   connect(maximumDateEdit, SIGNAL(dateChanged(const QDate &)), this,       SLOT(maximumDateChanged(const QDate &)));
 
    QGridLayout *dateBoxLayout = new QGridLayout;
    dateBoxLayout->addWidget(minimumDateLabel,   0, 0);
@@ -388,7 +388,7 @@ void Calendar::createTextFormatsGroupBox()
    //
    connect(weekdayColorCombo,    SIGNAL(currentIndexChanged(int)), this, SLOT(weekdayFormatChanged()));
    connect(weekendColorCombo,    SIGNAL(currentIndexChanged(int)), this, SLOT(weekendFormatChanged()));
-   connect(headerTextFormatCombo,SIGNAL(currentIndexChanged(QString)), this, SLOT(reformatHeaders()));
+   connect(headerTextFormatCombo,SIGNAL(currentIndexChanged(const QString &)), this, SLOT(reformatHeaders()));
    connect(firstFridayCheckBox,  SIGNAL(toggled(bool)), this, SLOT(reformatCalendarPage()));
    connect(mayFirstCheckBox,     SIGNAL(toggled(bool)), this, SLOT(reformatCalendarPage()));
 

@@ -1,7 +1,7 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2013 Barbara Geller
-* Copyright (c) 2011-2012 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2012-2014 Barbara Geller
+* Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -44,7 +44,7 @@ class AboutCS : public QWidget
    CS_OBJECT(AboutCS)
 
    public:
-      AboutCS();
+      AboutCS(QString route);
 
    private:
       QWebView *m_viewer;
@@ -52,6 +52,7 @@ class AboutCS : public QWidget
    private :
       CS_SLOT_1(Private, void actionClose())
       CS_SLOT_2(actionClose) 
+
       CS_SLOT_1(Private, void actionHome())
       CS_SLOT_2(actionHome) 
 };

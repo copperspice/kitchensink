@@ -1,7 +1,7 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2013 Barbara Geller
-* Copyright (c) 2011-2012 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2012-2014 Barbara Geller
+* Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -50,7 +50,7 @@ WebBrowser::WebBrowser(Mdi *parent, QUrl url)
    m_view = new QWebView(this);
 
    if (url.isEmpty()) {
-      url = QUrl("http://www.copperspice.com/");
+      url = QUrl("http://www.copperspice.com");
    }
    m_view->load(url);
 
@@ -123,10 +123,10 @@ WebBrowser::WebBrowser(Mdi *parent, QUrl url)
            SLOT(setCustomContextMenu(const QPoint &)) );
 
    // signals
-   connect(m_urlEdit, SIGNAL(returnPressed()),        this, SLOT(changeLocation()));
-   connect(m_view,    SIGNAL(loadProgress(int)),      this, SLOT(setProgress(int)));
-   connect(m_view,    SIGNAL(loadFinished(bool)),     this, SLOT(setLocation()));
-   connect(m_view,    SIGNAL(titleChanged(const QString &)),  this, SLOT(setTitle()));
+   connect(m_urlEdit, SIGNAL(returnPressed()),     this, SLOT(changeLocation()));
+   connect(m_view,    SIGNAL(loadProgress(int)),   this, SLOT(setProgress(int)));
+   connect(m_view,    SIGNAL(loadFinished(bool)),  this, SLOT(setLocation()));
+   connect(m_view,    SIGNAL(titleChanged(const QString &)), this, SLOT(setTitle()));
 
    connect(m_view->page(), SIGNAL(linkHovered(const QString &, const QString &, const QString &)), this,
            SLOT(actionLinkHovered(const QString &, const QString &, const QString &)) );
@@ -137,15 +137,13 @@ WebBrowser::WebBrowser(Mdi *parent, QUrl url)
 void WebBrowser::changeLocation()
 {
    QString urlString = m_urlEdit->text();
-
    QUrl url = QUrl(urlString);
 
-   // test for scheme
    QString temp = url.scheme();
    if ( temp.isEmpty() ) {
       urlString = "http://" + urlString;
 
-      // regenerate
+      // try again
       url = QUrl(urlString);
    }
 
@@ -182,6 +180,7 @@ void WebBrowser::getSource()
 {
    QNetworkAccessManager* accessManager = m_view->page()->networkAccessManager();
    QNetworkRequest request(m_view->url());
+
    QNetworkReply* reply = accessManager->get(request);
    connect(reply, SIGNAL(finished()), this, SLOT(displaySource()));
 }
@@ -350,7 +349,7 @@ void WebBrowser::goNasa()
 
 void WebBrowser::goCS()
 {
-   QUrl url = QUrl("http://www.copperspice.com/");
+   QUrl url = QUrl("http://www.copperspice.com");
    m_view->load(url);
    m_view->setFocus();
 }

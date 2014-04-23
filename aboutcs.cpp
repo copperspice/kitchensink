@@ -1,7 +1,7 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2013 Barbara Geller
-* Copyright (c) 2011-2012 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2012-2014 Barbara Geller
+* Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -41,10 +41,20 @@
 #include <QVBoxLayout>
 #include <QSize>
 
-AboutCS::AboutCS()
+AboutCS::AboutCS(QString route)
    : QWidget()
 {
-   setWindowTitle("About CopperSpice");
+   QString url;
+
+   if (route == "cs")  {
+      url = "http://www.copperspice.com";
+      setWindowTitle("About CopperSpice");
+
+   } else   {
+      url = "http://www.copperspice.com/kitchensink.html";
+      setWindowTitle("About KitchenSink");
+
+   }
 
    QPushButton *homePB  = new QPushButton;
    homePB->setText("Home");
@@ -53,9 +63,7 @@ AboutCS::AboutCS()
    closePB->setText("Close");
 
    //
-   m_viewer = new QWebView;
-
-   QString url = "http://www.copperspice.com/kitchensink.html";
+   m_viewer = new QWebView;  
    m_viewer->setUrl(url);
 
    //

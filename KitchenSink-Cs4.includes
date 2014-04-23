@@ -1,13 +1,16 @@
 z:\cs4_lib\include\QtCore
+z:\cs4_lib\include\QtDeclarative
 z:\cs4_lib\include\QtGui
 z:\cs4_lib\include\QtMultimedia
 z:\cs4_lib\include\QtNetwork
+z:\cs4_lib\include\QtOpenGL
 z:\cs4_lib\include\QtPhonon
 z:\cs4_lib\include\QtScript
 z:\cs4_lib\include\QtSvg
 z:\cs4_lib\include\QtSql
 z:\cs4_lib\include\QtWebkit
 z:\cs4_lib\include\QtXml
+z:\cs4_lib\include\QtXmlPatterns
 z:\cs4_lib\include\phonon
 
 z:\apps\KitchenSink-Cs4\bin

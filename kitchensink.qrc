@@ -64,5 +64,11 @@
         <file>resources/animated_tiles/random.png</file>
         <file>resources/animated_tiles/tile.png</file>
         <file>resources/animated_tiles/Time-For-Lunch-2.jpg</file>
+        <file>resources/xml_patterns/allRecipes.xq</file>
+        <file>resources/xml_patterns/cookbook.xml</file>
+        <file>resources/xml_patterns/liquidIngredientsInSoup.xq</file>
+        <file>resources/xml_patterns/mushroomSoup.xq</file>
+        <file>resources/xml_patterns/preparationLessThan30.xq</file>
+        <file>resources/xml_patterns/preparationTimes.xq</file>
     </qresource>
 </RCC>

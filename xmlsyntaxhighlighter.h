@@ -33,56 +33,34 @@
 *
 ***********************************************************************/
 
-#include "util.h"
-#include "colorpicker.h"
-#include "ui_colorpicker.h"
+#ifndef XMLSYNTAXHIGHLIGHTER_H
+#define XMLSYNTAXHIGHLIGHTER_H
 
-#include <QColorDialog>
+#include <QSyntaxHighlighter>
 
-ColorPicker::ColorPicker(QWidget *parent)
-   : QWidget(parent), ui(new Ui::ColorPicker)
+class XmlSyntaxHighlighter : public QSyntaxHighlighter
 {
-   ui->setupUi(this);
-   setWindowTitle("Color Selector");
+    public:
+        XmlSyntaxHighlighter(QTextDocument *parent = 0);
 
-   ui->colorEdit->setText("A wacky fox and sizeable pig jumped halfway over a blue moon.");
-   ui->native_checkBox->setChecked(true);
+    protected:
+        virtual void highlightBlock(const QString &text);
 
-   //
-   QPalette temp = ui->colorEdit->palette();
-   QString colorname = temp.color(QPalette::Base).name();
-   ui->label->setText("Sample Text Background in " + colorname.toUpper() );
+    private:
+        struct HighlightingRule
+        {
+            QRegExp pattern;
+            QTextCharFormat format;
+        };
+        QVector<HighlightingRule> highlightingRules;
 
-   connect(ui->selectColor_PB, SIGNAL(clicked()), this, SLOT(setColor()));
-   connect(ui->closePB,        SIGNAL(clicked()), this, SLOT(actionClose()));
-}
+        QRegExp commentStartExpression;
+        QRegExp commentEndExpression;
 
-ColorPicker::~ColorPicker()
-{
-   delete ui;
-}
+        QTextCharFormat tagFormat;
+        QTextCharFormat attributeFormat;
+        QTextCharFormat attributeContentFormat;
+        QTextCharFormat commentFormat;
+};
 
-void ColorPicker::setColor()
-{
-    QColor color;
-
-    if (ui->native_checkBox->isChecked())  {
-        color = QColorDialog::getColor(Qt::green, this);
-
-    } else  {
-        color = QColorDialog::getColor(Qt::green, this, "Select Color", QColorDialog::DontUseNativeDialog);
-
-    }
-
-    if (color.isValid()) {
-         ui->label->setText("Sample Text Background in " + color.name().toUpper() );
-
-         QPalette temp = ui->colorEdit->palette();
-         temp.setColor( QPalette::Base, color);
-         ui->colorEdit->setPalette(temp);
-    }
-}
-
-void ColorPicker::actionClose() {
-   this->parentWidget()->close();
-}
+#endif

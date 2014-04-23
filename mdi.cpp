@@ -1,7 +1,7 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2013 Barbara Geller
-* Copyright (c) 2011-2012 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2012-2014 Barbara Geller
+* Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -42,7 +42,7 @@
 #include "fontpicker.h"
 #include "html_viewer.h"
 #include "international.h"
-// Broom   #include "musicplayer.h"
+#include "musicplayer.h"
 #include "line_edit.h"
 #include "listview.h"
 #include "script.h"
@@ -58,6 +58,7 @@
 #include "videoplayer.h"
 #include "web_browser.h"
 #include "xml.h"
+#include "xmlpatterns.h"
 
 #include "analogclock.h"
 #include "animated_tiles.h"
@@ -193,14 +194,15 @@ void Mdi::on_actionXml_triggered()
    addMdiChild(oDw);
 }
 
+void Mdi::on_actionXmlPatterns_triggered()
+{
+    XmlPatterns *oDw = new XmlPatterns();
+   addMdiChild(oDw);
+}
+
 // audio & visual
 void Mdi::on_actionMusicPlayer_triggered()
 { 
-   ksMsg("Music Player - Phonon not available");
-
-// Broom
-
-/*
    MusicPlayer *oDw = new MusicPlayer();
 
    if ( oDw->loaded() ) {
@@ -208,7 +210,6 @@ void Mdi::on_actionMusicPlayer_triggered()
    } else {
       delete oDw;
    }
-*/
 }
 
 void Mdi::on_actionVideoWidget_triggered()
@@ -326,7 +327,7 @@ void Mdi::on_actionScreen_Shot_triggered()
 
 void Mdi::on_actionWiggle_Boxes_triggered()
 {   
-   ksMsg("Wiggle Boxes - CsDeclarative not available");
+   ksMsg("Wiggle Boxes - CsDeclarative is not available");
 
 // Broom
 
@@ -338,7 +339,7 @@ void Mdi::on_actionWiggle_Boxes_triggered()
 
 void Mdi::on_actionWorld_Clock_triggered()
 {
-   ksMsg("World Clock - CsDeclarative not available");
+   ksMsg("World Clock - CsDeclarative is not available");
 
 // Broom
 
@@ -351,7 +352,13 @@ void Mdi::on_actionWorld_Clock_triggered()
 //  help
 void Mdi::on_actionAbout_CopperSpice_triggered()
 {
-   AboutCS *oDw = new AboutCS();
+   AboutCS *oDw = new AboutCS("cs");
+   addMdiChild(oDw);
+}
+
+void Mdi::on_actionAbout_KitchenSink_triggered()
+{
+   AboutCS *oDw = new AboutCS("ks");
    addMdiChild(oDw);
 }
 
@@ -371,7 +378,7 @@ void Mdi::on_actionAbout_triggered()
    msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
    msgB.setWindowTitle(tr("About Kitchen Sink-Cs4"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 04.01.2014</h5></center></p>"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 05.01.2014</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

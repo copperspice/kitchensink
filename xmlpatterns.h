@@ -33,56 +33,31 @@
 *
 ***********************************************************************/
 
-#include "util.h"
-#include "colorpicker.h"
-#include "ui_colorpicker.h"
+#ifndef XMLPATTERNS_H
+#define XMLPATTERNS_H
 
-#include <QColorDialog>
+#include "ui_xmlpatterns.h"
 
-ColorPicker::ColorPicker(QWidget *parent)
-   : QWidget(parent), ui(new Ui::ColorPicker)
+#include <QWidget>
+#include <QString>
+#include <QtXmlPatterns>
+
+class XmlPatterns : public QWidget
 {
-   ui->setupUi(this);
-   setWindowTitle("Color Selector");
+   CS_OBJECT(XmlPatterns)
 
-   ui->colorEdit->setText("A wacky fox and sizeable pig jumped halfway over a blue moon.");
-   ui->native_checkBox->setChecked(true);
+   public:
+      XmlPatterns();
+      ~XmlPatterns();
 
-   //
-   QPalette temp = ui->colorEdit->palette();
-   QString colorname = temp.color(QPalette::Base).name();
-   ui->label->setText("Sample Text Background in " + colorname.toUpper() );
+      CS_SLOT_1(Public, void displayQuery(int index))
+      CS_SLOT_2(displayQuery)
 
-   connect(ui->selectColor_PB, SIGNAL(clicked()), this, SLOT(setColor()));
-   connect(ui->closePB,        SIGNAL(clicked()), this, SLOT(actionClose()));
-}
+   private:
+      Ui::XmlPatterns *ui;      
 
-ColorPicker::~ColorPicker()
-{
-   delete ui;
-}
+      void evaluate(const QString &str);
+      void loadInputFile();
+};
 
-void ColorPicker::setColor()
-{
-    QColor color;
-
-    if (ui->native_checkBox->isChecked())  {
-        color = QColorDialog::getColor(Qt::green, this);
-
-    } else  {
-        color = QColorDialog::getColor(Qt::green, this, "Select Color", QColorDialog::DontUseNativeDialog);
-
-    }
-
-    if (color.isValid()) {
-         ui->label->setText("Sample Text Background in " + color.name().toUpper() );
-
-         QPalette temp = ui->colorEdit->palette();
-         temp.setColor( QPalette::Base, color);
-         ui->colorEdit->setPalette(temp);
-    }
-}
-
-void ColorPicker::actionClose() {
-   this->parentWidget()->close();
-}
+#endif

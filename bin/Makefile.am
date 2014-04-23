@@ -10,9 +10,9 @@ gccpath=/c/MingW/bin
 gcclibs=libgcc_s_sjlj-1  libstdc++-6  libwinpthread-1
 
 # list of CopperSpice libraries your app uses
-cslibs=Core Gui Multimedia Network OpenGL Script Sql Svg WebKit Xml XmlPatterns
+cslibs=Core Gui Multimedia Network OpenGL Phonon Script Sql Svg WebKit Xml XmlPatterns
 
-# BROOM - missing Declarative Phonon
+# BROOM - missing    Declarative
 
 # disable console on window, location of includes, defines
 AM_CXXFLAGS+=-mwindows  -I$(CS_HOME)/include/phonon
@@ -57,6 +57,7 @@ KitchenSink_Cs4_SOURCES = \
     line_edit.cpp \
     listview.cpp \
     mdi.cpp \
+    musicplayer.cpp  \
     sliders.cpp \
     script.cpp \
     stdpath.cpp \
@@ -75,6 +76,8 @@ KitchenSink_Cs4_SOURCES = \
     videowidget.cpp \
     web_browser.cpp \
     xml.cpp \
+    xmlpatterns.cpp \
+    xmlsyntaxhighlighter.cpp \
     analogclock.cpp \
     animated_tiles.cpp \
     draglabel.cpp  \
@@ -86,7 +89,6 @@ KitchenSink_Cs4_SOURCES = \
     mandelbrot_widget.cpp \
     screenshot.cpp
 
-# musicplayer.cpp
 # qmlapplicationviewer.cpp
 # wiggle_boxes.cpp
 # world_clock.cpp
@@ -105,6 +107,7 @@ noinst_HEADERS = \
    line_edit.h \
    listview.h \
    mdi.h \
+   musicplayer.h \
    script.h \
    stdpath.h \
    sliders.h \
@@ -123,6 +126,8 @@ noinst_HEADERS = \
    videosurface.h \
    web_browser.h \
    xml.h \
+   xmlpatterns.h \
+   xmlsyntaxhighlighter.h \
    analogclock.h  \
    animated_tiles.h  \
    draglabel.h \
@@ -134,7 +139,6 @@ noinst_HEADERS = \
    mandelbrot_widget.h  \
    screenshot.h
 
-# musicplayer.h
 # qmlapplicationviewer.h
 # wiggle_boxes.h
 # world_clock.h
@@ -156,7 +160,8 @@ FORMS = \
     forms/script.ui \
     forms/tabdialog.ui \
     forms/tablewidget_view.ui \
-    forms/xml.ui
+    forms/xml.ui  \
+    forms/xmlpatterns.ui
 
 #
 TRANSLATIONS =  \
@@ -184,7 +189,7 @@ distdir: $(DISTFILES)
 	cp kitchensink.qrc        $(distdir_custom)/     ; \
 	cp install_files/cs.conf  $(distdir_custom)/     ; \
 	cp bin/*.am               $(distdir_custom)/bin/ ; \
-	cp resources/*               $(distdir_custom)/resources/
+	cp resources/*            $(distdir_custom)/resources/
 	$(MAKE) $(AM_MAKEFLAGS) dist-hook
 
 dist-hook:

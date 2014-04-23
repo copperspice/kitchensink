@@ -1,7 +1,7 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2013 Barbara Geller
-* Copyright (c) 2011-2012 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2012-2014 Barbara Geller
+* Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -53,86 +53,126 @@ class Mdi : public QMainWindow
       Ui::Mdi *ui;
       void changeEvent(QEvent *event);
 
-   private :
       CS_SLOT_1(Private, void on_actionClose_Window_triggered())
       CS_SLOT_2(on_actionClose_Window_triggered) 
+
       CS_SLOT_1(Private, void on_actionCloseAll_Windows_triggered())
       CS_SLOT_2(on_actionCloseAll_Windows_triggered) 
+
       CS_SLOT_1(Private, void on_actionExit_Program_triggered())
       CS_SLOT_2(on_actionExit_Program_triggered) 
 
       CS_SLOT_1(Private, void on_actionColorPicker_triggered())
       CS_SLOT_2(on_actionColorPicker_triggered) 
+
       CS_SLOT_1(Private, void on_actionFonts_triggered())
       CS_SLOT_2(on_actionFonts_triggered) 
+
       CS_SLOT_1(Private, void on_actionDraw_triggered())
       CS_SLOT_2(on_actionDraw_triggered) 
+
       CS_SLOT_1(Private, void on_actionInternational_triggered())
       CS_SLOT_2(on_actionInternational_triggered)         
+
       CS_SLOT_1(Private, void on_actionSystemTray_triggered())
       CS_SLOT_2(on_actionSystemTray_triggered) 
+
       CS_SLOT_1(Private, void on_actionSvgView_triggered())
       CS_SLOT_2(on_actionSvgView_triggered) 
 
+      //
       CS_SLOT_1(Private, void on_actionStandardDialog_triggered())
       CS_SLOT_2(on_actionStandardDialog_triggered) 
+
       CS_SLOT_1(Private, void on_actionStandardPath_triggered())
       CS_SLOT_2(on_actionStandardPath_triggered) 
+
       CS_SLOT_1(Private, void on_actionStyleSheetDialog_triggered())
       CS_SLOT_2(on_actionStyleSheetDialog_triggered)           
+
       CS_SLOT_1(Private, void on_actionScript_triggered())
       CS_SLOT_2(on_actionScript_triggered) 
+
       CS_SLOT_1(Private, void on_actionXml_triggered())
       CS_SLOT_2(on_actionXml_triggered) 
 
+      CS_SLOT_1(Private, void on_actionXmlPatterns_triggered())
+      CS_SLOT_2(on_actionXmlPatterns_triggered)
+
+      //
       CS_SLOT_1(Private, void on_actionMusicPlayer_triggered())
       CS_SLOT_2(on_actionMusicPlayer_triggered) 
+
       CS_SLOT_1(Private, void on_actionVideoWidget_triggered())
       CS_SLOT_2(on_actionVideoWidget_triggered) 
+
       CS_SLOT_1(Private, void on_actionHTML_Viewer_triggered())
       CS_SLOT_2(on_actionHTML_Viewer_triggered) 
+
       CS_SLOT_1(Private, void on_actionWebBrowser_triggered())
       CS_SLOT_2(on_actionWebBrowser_triggered) 
 
+      //
       CS_SLOT_1(Private, void on_actionTableView_triggered())
       CS_SLOT_2(on_actionTableView_triggered) 
+
       CS_SLOT_1(Private, void on_actionTreeView_triggered())
       CS_SLOT_2(on_actionTreeView_triggered) 
+
       CS_SLOT_1(Private, void on_actionListView_triggered())
       CS_SLOT_2(on_actionListView_triggered) 
+
       CS_SLOT_1(Private, void on_actionTableWidget_View_triggered())
       CS_SLOT_2(on_actionTableWidget_View_triggered) 
 
+      //
       CS_SLOT_1(Private, void on_actionCalendar_triggered())
       CS_SLOT_2(on_actionCalendar_triggered) 
+
       CS_SLOT_1(Private, void on_actionLineEdit_triggered())
       CS_SLOT_2(on_actionLineEdit_triggered)       
+
       CS_SLOT_1(Private, void on_actionSliders_triggered())
       CS_SLOT_2(on_actionSliders_triggered) 
+
       CS_SLOT_1(Private, void on_actionTabs_triggered())
       CS_SLOT_2(on_actionTabs_triggered) 
 
+      //
       CS_SLOT_1(Private, void on_actionAnalog_Clock_triggered())
       CS_SLOT_2(on_actionAnalog_Clock_triggered) 
+
       CS_SLOT_1(Private, void on_actionAnimated_Tiles_triggered())
       CS_SLOT_2(on_actionAnimated_Tiles_triggered) 
+
       CS_SLOT_1(Private, void on_actionFridge_Magnets_triggered())
       CS_SLOT_2(on_actionFridge_Magnets_triggered) 
+
       CS_SLOT_1(Private, void on_actionGrabber_triggered())
       CS_SLOT_2(on_actionGrabber_triggered) 
+
       CS_SLOT_1(Private, void on_actionLighting_triggered())
       CS_SLOT_2(on_actionLighting_triggered) 
-      CS_SLOT_1(Private, void on_actionMandelbrot_triggered())
-      CS_SLOT_2(on_actionMandelbrot_triggered) 
+
+      CS_SLOT_1(Private, void on_actionMandelbrot_triggered())      
+      CS_SLOT_2(on_actionMandelbrot_triggered)
+
       CS_SLOT_1(Private, void on_actionScreen_Shot_triggered())
       CS_SLOT_2(on_actionScreen_Shot_triggered) 
+
       CS_SLOT_1(Private, void on_actionWiggle_Boxes_triggered())
       CS_SLOT_2(on_actionWiggle_Boxes_triggered) 
+
       CS_SLOT_1(Private, void on_actionWorld_Clock_triggered())
       CS_SLOT_2(on_actionWorld_Clock_triggered) 
 
+      //
       CS_SLOT_1(Private, void on_actionAbout_CopperSpice_triggered())
       CS_SLOT_2(on_actionAbout_CopperSpice_triggered) 
+
+      CS_SLOT_1(Private, void on_actionAbout_KitchenSink_triggered())
+      CS_SLOT_2(on_actionAbout_KitchenSink_triggered)
+
       CS_SLOT_1(Private, void on_actionAbout_triggered())
       CS_SLOT_2(on_actionAbout_triggered)      
 };
