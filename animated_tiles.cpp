@@ -39,6 +39,8 @@
 #include <QParallelAnimationGroup>
 #include <QSignalTransition>
 
+#include <math.h>
+
 static const QString qmPath = ":/resources/animated_tiles";
 
 AnimatedTiles::AnimatedTiles(QWidget *parent)

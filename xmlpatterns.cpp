@@ -41,6 +41,7 @@
 #include <QDir>
 #include <QFile>
 #include <QStringList>
+#include <QSize>
 
 static const QString qmPath = ":/resources/xml_patterns";
 

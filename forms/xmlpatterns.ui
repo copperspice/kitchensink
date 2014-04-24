@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>350</width>
-    <height>748</height>
+    <width>668</width>
+    <height>512</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -17,11 +17,17 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Recipes XQuery Example</string>
+   <string/>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_4">
-   <item>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
     <widget class="QGroupBox" name="inputGroupBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -36,9 +42,15 @@
      <property name="title">
       <string>Input Document</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_1">
+     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QTextEdit" name="inputTextEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="minimumSize">
          <size>
           <width>300</width>
@@ -53,8 +65,14 @@
      </layout>
     </widget>
    </item>
-   <item>
-    <widget class="QGroupBox" name="queryGroupBox">
+   <item row="0" column="1">
+    <widget class="QGroupBox" name="outputGroupBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -67,21 +85,17 @@
       </font>
      </property>
      <property name="title">
-      <string>Select Query:</string>
+      <string>Output Document</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QComboBox" name="defaultQueries">
+       <widget class="QTextEdit" name="outputTextEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QTextEdit" name="queryTextEdit">
         <property name="minimumSize">
          <size>
           <width>300</width>
@@ -99,8 +113,14 @@
      </layout>
     </widget>
    </item>
-   <item>
-    <widget class="QGroupBox" name="outputGroupBox">
+   <item row="1" column="0" colspan="2">
+    <widget class="QGroupBox" name="queryGroupBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -113,11 +133,27 @@
       </font>
      </property>
      <property name="title">
-      <string>Output Document</string>
+      <string>Select Query</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QTextEdit" name="outputTextEdit">
+       <widget class="QComboBox" name="defaultQueries">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="queryTextEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="minimumSize">
          <size>
           <width>300</width>
