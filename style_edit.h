@@ -50,15 +50,15 @@ class Style_Edit : public QDialog
       static QString getQssName();
       static QString loadStyleSheet(const QString &sheetName);
 
+      CS_SLOT_1(Public, void actionClose())
+      CS_SLOT_2(actionClose)
+
    private:
       Ui::Style_Edit *ui;
       QWidget *m_dwFrom;
       static QString qssName;
       static QString readStyleSheet(const QString &name);
-      void closeEvent(QCloseEvent *event);
-
-      CS_SLOT_1(Private, void actionClose())
-      CS_SLOT_2(actionClose) 
+      void closeEvent(QCloseEvent *event);   
    
       CS_SLOT_1(Private, void on_styleCombo_activated(const QString & styleName))
       CS_SLOT_2(on_styleCombo_activated) 
