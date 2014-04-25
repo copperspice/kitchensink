@@ -55,21 +55,25 @@ class Html_Viewer : public QMainWindow
 
       void createActions();     
       void setStartupText();
-
-   private :
+   
       CS_SLOT_1(Private, void about())
       CS_SLOT_2(about) 
+
       CS_SLOT_1(Private, void open())
       CS_SLOT_2(open) 
+
       CS_SLOT_1(Private, void openUrl())
       CS_SLOT_2(openUrl) 
+
       CS_SLOT_1(Private, void save())
       CS_SLOT_2(save) 
+
       CS_SLOT_1(Private, void updateTextEdit())
       CS_SLOT_2(updateTextEdit) 
 
       CS_SLOT_1(Private, void actionClose())
       CS_SLOT_2(actionClose) 
+
       CS_SLOT_1(Private, void actionPreview())
       CS_SLOT_2(actionPreview) 
 };

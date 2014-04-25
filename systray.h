@@ -92,16 +92,19 @@ class SysTray : public QDialog
 
       QSystemTrayIcon *trayIcon;
       QMenu *trayIconMenu;
-
-   private :
+ 
       CS_SLOT_1(Private, void setIcon(int index))
       CS_SLOT_2(setIcon) 
+
       CS_SLOT_1(Private, void iconActivated(QSystemTrayIcon::ActivationReason reason))
       CS_SLOT_2(iconActivated) 
+
       CS_SLOT_1(Private, void showMessage())
       CS_SLOT_2(showMessage) 
+
       CS_SLOT_1(Private, void messageClicked())
       CS_SLOT_2(messageClicked) 
+
       CS_SLOT_1(Private, void actionQuit())
       CS_SLOT_2(actionQuit) 
 };

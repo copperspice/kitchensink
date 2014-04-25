@@ -59,38 +59,39 @@ class Screenshot : public QWidget
 {
     CS_OBJECT(Screenshot)
 
-public:
-    Screenshot();
+   public:
+       Screenshot();
+   
+   protected:
+       void resizeEvent(QResizeEvent *event);
+   
+   private :
+       CS_SLOT_1(Private, void newScreenshot())
+       CS_SLOT_2(newScreenshot) 
 
-protected:
-    void resizeEvent(QResizeEvent *event);
+       CS_SLOT_1(Private, void saveScreenshot())
+       CS_SLOT_2(saveScreenshot) 
 
-private :
-    CS_SLOT_1(Private, void newScreenshot())
-    CS_SLOT_2(newScreenshot) 
-    CS_SLOT_1(Private, void saveScreenshot())
-    CS_SLOT_2(saveScreenshot) 
-    CS_SLOT_1(Private, void shootScreen())
-    CS_SLOT_2(shootScreen) 
-
-private:
-    void createOptionsGroupBox();
-    void createButtonsLayout();
-    QPushButton *createButton(const QString &text, QWidget *receiver, const char *member);
-    void updateScreenshotLabel();
-
-    QPixmap originalPixmap;
-
-    QLabel *screenshotLabel;
-    QGroupBox *optionsGroupBox;
-    QSpinBox *delaySpinBox;
-    QLabel *delaySpinBoxLabel;   
-    QPushButton *newScreenshotButton;
-    QPushButton *saveScreenshotButton;
-
-    QVBoxLayout *mainLayout;
-    QGridLayout *optionsGroupBoxLayout;
-    QHBoxLayout *buttonsLayout;
+       CS_SLOT_1(Private, void shootScreen())
+       CS_SLOT_2(shootScreen) 
+      
+       void createOptionsGroupBox();
+       void createButtonsLayout();
+       QPushButton *createButton(const QString &text, QWidget *receiver, const char *member);
+       void updateScreenshotLabel();
+   
+       QPixmap originalPixmap;
+   
+       QLabel *screenshotLabel;
+       QGroupBox *optionsGroupBox;
+       QSpinBox *delaySpinBox;
+       QLabel *delaySpinBoxLabel;   
+       QPushButton *newScreenshotButton;
+       QPushButton *saveScreenshotButton;
+   
+       QVBoxLayout *mainLayout;
+       QGridLayout *optionsGroupBoxLayout;
+       QHBoxLayout *buttonsLayout;
 };
 
 

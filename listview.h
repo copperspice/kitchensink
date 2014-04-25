@@ -53,10 +53,10 @@ class ListView : public QWidget
       Ui::ListView *ui;
       QStringList getData();
       QSortFilterProxyModel *m_proxyModel;
-
-   private :
+ 
       CS_SLOT_1(Private, void delRow())
       CS_SLOT_2(delRow) 
+
       CS_SLOT_1(Private, void addRow())
       CS_SLOT_2(addRow) 
 

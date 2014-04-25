@@ -54,12 +54,13 @@ class Draw : public QWidget
    private :
       CS_SLOT_1(Private, void shapeChanged())
       CS_SLOT_2(shapeChanged) 
+
       CS_SLOT_1(Private, void penChanged())
       CS_SLOT_2(penChanged) 
+   
       CS_SLOT_1(Private, void brushChanged())
       CS_SLOT_2(brushChanged) 
-
-   private:
+   
       DrawArea *m_renderArea;
       QLabel *shapeLabel;
       QLabel *penWidthLabel;

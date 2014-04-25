@@ -57,14 +57,16 @@ class International : public QWidget
       void retranslateUi();
       void changeEvent(QEvent *event);
       void getListData();
-
-   private :
+   
       CS_SLOT_1(Private, void actionClose())
       CS_SLOT_2(actionClose)       
+
       CS_SLOT_1(Private, void actionEnglish())
       CS_SLOT_2(actionEnglish) 
+
       CS_SLOT_1(Private, void actionFrench())
       CS_SLOT_2(actionFrench) 
+
       CS_SLOT_1(Private, void actionGerman())
       CS_SLOT_2(actionGerman)       
 };

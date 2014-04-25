@@ -36,20 +36,21 @@
 #ifndef ANALOGCLOCK_H
 #define ANALOGCLOCK_H
 
-#include <QWidget>
 #include <QPainter>
 #include <QTime>
 #include <QTimer>
+#include <QWidget>
 
 class AnalogClock : public QWidget
 {
     CS_OBJECT(AnalogClock)
 
-public:
-    AnalogClock(QWidget *parent = 0);
+   public:
+       AnalogClock(QWidget *parent = 0);
+   
+   protected:
+       void paintEvent(QPaintEvent *event);
 
-protected:
-    void paintEvent(QPaintEvent *event);
 };
 
 #endif

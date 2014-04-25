@@ -33,9 +33,10 @@
 *
 ***********************************************************************/
 
-
 #include "line_edit.h"
 #include "ui_line_edit.h"
+
+#include <QDoubleValidator>
 
 LineEdit::LineEdit()
    : QWidget(), ui(new Ui::LineEdit)
@@ -132,6 +133,7 @@ void LineEdit::validChanged(int index)
       case 0:
          ui->valid_lineEdit->setValidator(0);
          break;
+
       case 1:
 
          ui->valid_lineEdit->setText("2012-01-01");
@@ -146,9 +148,11 @@ void LineEdit::validChanged(int index)
          ui->valid_lineEdit->setInputMask("0000-00-00");
 
          break;
+
       case 2:
          ui->valid_lineEdit->setValidator(new QIntValidator(ui->valid_lineEdit));
          break;
+
       case 3:
          QDoubleValidator *validator = new QDoubleValidator(-9999.00, 9999.00, 2, ui->valid_lineEdit);
          validator->setNotation(QDoubleValidator::StandardNotation);
@@ -164,6 +168,7 @@ void LineEdit::readonlyChanged(int index)
       case 0:
          ui->readonly_lineEdit->setReadOnly(true);
          break;
+
       case 1:
          ui->readonly_lineEdit->setReadOnly(false);
          break;

@@ -33,7 +33,6 @@
 *
 ***********************************************************************/
 
-
 #ifndef LINEEDIT_H
 #define LINEEDIT_H
 
@@ -46,29 +45,33 @@ class LineEdit : public QWidget
 {
     CS_OBJECT(LineEdit)
 
-public:
-    LineEdit();
-    ~LineEdit();
-
-public :
-    CS_SLOT_1(Public, void alignChanged(int un_named_arg1))
-    CS_SLOT_2(alignChanged) 
-    CS_SLOT_1(Public, void maskChanged(int un_named_arg1))
-    CS_SLOT_2(maskChanged) 
-    CS_SLOT_1(Public, void passwordChanged(int un_named_arg1))
-    CS_SLOT_2(passwordChanged) 
-    CS_SLOT_1(Public, void validChanged(int un_named_arg1))
-    CS_SLOT_2(validChanged) 
-    CS_SLOT_1(Public, void readonlyChanged(int un_named_arg1))
-    CS_SLOT_2(readonlyChanged) 
-
-private:
-    Ui::LineEdit *ui;
-    QLineEdit *align_LineEdit;
-    QLineEdit *mask_LineEdit;
-    QLineEdit *password_LineEdit;
-    QLineEdit *valid_LineEdit;
-    QLineEdit *readonly_LineEdit;
+   public:
+       LineEdit();
+       ~LineEdit();
+   
+   private:
+       Ui::LineEdit *ui;
+   
+       //QLineEdit *align_LineEdit;
+       //QLineEdit *mask_LineEdit;
+       //QLineEdit *password_LineEdit;
+       //QLineEdit *valid_LineEdit;
+       //QLineEdit *readonly_LineEdit;
+   
+       CS_SLOT_1(Private, void alignChanged(int data))
+       CS_SLOT_2(alignChanged) 
+   
+       CS_SLOT_1(Private, void maskChanged(int data))
+       CS_SLOT_2(maskChanged) 
+   
+       CS_SLOT_1(Private, void passwordChanged(int data))
+       CS_SLOT_2(passwordChanged) 
+   
+       CS_SLOT_1(Private, void validChanged(int data))
+       CS_SLOT_2(validChanged) 
+   
+       CS_SLOT_1(Private, void readonlyChanged(int data))
+       CS_SLOT_2(readonlyChanged)    
 };
 
 

@@ -38,9 +38,10 @@
 
 #include "ui_xmlpatterns.h"
 
-#include <QWidget>
 #include <QString>
 #include <QtXmlPatterns>
+
+#include <QWidget>
 
 class XmlPatterns : public QWidget
 {
@@ -49,15 +50,16 @@ class XmlPatterns : public QWidget
    public:
       XmlPatterns();
       ~XmlPatterns();
-
-      CS_SLOT_1(Public, void displayQuery(int index))
-      CS_SLOT_2(displayQuery)
-
+    
    private:
       Ui::XmlPatterns *ui;      
 
       void evaluate(const QString &str);
       void loadInputFile();
+
+      CS_SLOT_1(Private, void displayQuery(int index))
+      CS_SLOT_2(displayQuery)
+
 };
 
 #endif

@@ -39,10 +39,10 @@
 #include "ui_xml.h"
 #include "mdi.h"
 
-#include <QWidget>
 #include <QDomDocument>
 #include <QStandardItemModel>
 #include <QStandardItem>
+#include <QWidget>
 
 class Xml : public QWidget
 {

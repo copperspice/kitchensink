@@ -53,12 +53,13 @@ class Style_DW : public QMainWindow
       Ui::Style_DW *ui;
       Mdi *m_parent;
       Style_Edit *m_style;
-
-   private :
+  
       CS_SLOT_1(Private, void actionAbout())
       CS_SLOT_2(actionAbout) 
+
       CS_SLOT_1(Private, void actionEdit())
       CS_SLOT_2(actionEdit) 
+
       CS_SLOT_1(Private, void actionClose())
       CS_SLOT_2(actionClose) 
 };

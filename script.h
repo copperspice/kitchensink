@@ -55,12 +55,13 @@ class Script : public QWidget
       QString m_fileName;    
       void displayScript();
       void jsScript(QString contents);
-
-   private :
+  
       CS_SLOT_1(Private, void actionOpenScript())
       CS_SLOT_2(actionOpenScript) 
+
       CS_SLOT_1(Private, void actionRunScript())
       CS_SLOT_2(actionRunScript) 
+
       CS_SLOT_1(Private, void actionClose())
       CS_SLOT_2(actionClose) 
 

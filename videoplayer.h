@@ -38,12 +38,12 @@
 
 #include <QtGui/QMovie>
 #include <QtGui/QWidget>
-
 #include <QAbstractVideoSurface>
 
 class VideoPlayer : public QWidget
 {
       CS_OBJECT(VideoPlayer)
+
    public:
       VideoPlayer(QWidget *parent = 0);
       ~VideoPlayer();
@@ -51,12 +51,13 @@ class VideoPlayer : public QWidget
    private :
       CS_SLOT_1(Private, void stateChanged(QMovie::MovieState state))
       CS_SLOT_2(stateChanged) 
+
       CS_SLOT_1(Private, void frameChanged(int frame))
       CS_SLOT_2(frameChanged) 
+
       CS_SLOT_1(Private, void actionClose())
       CS_SLOT_2(actionClose) 
-
-   private:
+  
       bool presentImage(const QImage &image);
 
       QMovie m_movie;

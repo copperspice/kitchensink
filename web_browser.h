@@ -49,13 +49,6 @@ class WebBrowser : public QMainWindow
    public:
       WebBrowser(Mdi *parent, QUrl url = QUrl() );
 
-   private:
-      QWebView  *m_view;
-      QLineEdit *m_urlEdit;
-
-      Mdi *m_parent;
-      int  m_progress;      
-
    protected :
       CS_SLOT_1(Protected, void changeLocation())
       CS_SLOT_2(changeLocation) 
@@ -109,6 +102,14 @@ class WebBrowser : public QMainWindow
       CS_SLOT_2(displaySource)       
       CS_SLOT_1(Protected, void actionClose())
       CS_SLOT_2(actionClose) 
+
+
+   private:
+      QWebView  *m_view;
+      QLineEdit *m_urlEdit;
+
+      Mdi *m_parent;
+      int  m_progress;      
 };
 
 #endif

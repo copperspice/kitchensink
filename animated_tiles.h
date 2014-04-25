@@ -126,13 +126,14 @@ class Button : public QGraphicsWidget
          grad.setColorAt(down ? 0 : 1, Qt::lightGray);
          painter->setPen(Qt::NoPen);
          painter->setBrush(grad);
+
          if (down)
             painter->translate(2, 2);
+
          painter->drawEllipse(r.adjusted(5, 5, -5, -5));
          painter->drawPixmap(-_pix.width()/2, -_pix.height()/2, _pix);
       }
-
-   public:
+  
       CS_SIGNAL_1(Public, void pressed())
       CS_SIGNAL_2(pressed) 
 

@@ -56,10 +56,10 @@ class Sliders : public QWidget
    private :
       CS_SLOT_1(Private, void buttonsOrientationChanged(int index))
       CS_SLOT_2(buttonsOrientationChanged) 
+
       CS_SLOT_1(Private, void rotateWidgets())
       CS_SLOT_2(rotateWidgets) 
-
-   private:
+   
       void createRotableGroupBox();
       void createOptionsGroupBox();
       void createButtons();

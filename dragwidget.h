@@ -36,9 +36,9 @@
 #ifndef DRAGWIDGET_H
 #define DRAGWIDGET_H
 
-#include <QWidget>
 #include <QDragEnterEvent>
 #include <QDropEvent>
+#include <QWidget>
 
 class DragWidget : public QWidget
 {

@@ -21,6 +21,8 @@ tablewidget_view.cpp
 tabdialog.cpp
 international.cpp
 xml.cpp
+xmlpatterns.cpp
+xmlsyntaxhighlighter.cpp
 svg_view.cpp
 svgtextobject.cpp
 videowidget.cpp
@@ -89,6 +91,8 @@ script.h
 html_viewer.h
 web_browser.h
 xml.h
+xmlpatterns.h
+xmlsyntaxhighlighter.h
 
 forms/colorpicker.ui
 forms/dialogs.ui
@@ -106,6 +110,7 @@ forms/script.ui
 forms/tablewidget_view.ui
 forms/tabdialog.ui
 forms/xml.ui
+forms/xmlpatterns.ui
 
 kitchensink.qrc
 resources/qt_en.ts
@@ -113,3 +118,4 @@ resources/qt_de.ts
 resources/qt_fr.ts
 resources_qml/wiggle_boxes/side_rect.qml
 
+forms/form.ui

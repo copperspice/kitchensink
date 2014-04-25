@@ -36,8 +36,8 @@
 #ifndef ABOUTCS_H
 #define ABOUTCS_H
 
-#include <QWidget>
 #include <QtWebKit>
+#include <QWidget>
 
 class AboutCS : public QWidget
 {
@@ -48,8 +48,7 @@ class AboutCS : public QWidget
 
    private:
       QWebView *m_viewer;
-
-   private :
+  
       CS_SLOT_1(Private, void actionClose())
       CS_SLOT_2(actionClose) 
 

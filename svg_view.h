@@ -59,11 +59,9 @@ class Svg_View : public QWidget
       CS_SLOT_1(Private, void actionClose())
       CS_SLOT_2(actionClose) 
 
-   private:
       void setupTextObject();
       void setupGui();
-
-   private:
+ 
       QTextEdit   *m_textEdit;
       QLabel      *m_fileNameLabel;
       QComboBox   *m_fileNameCombo;

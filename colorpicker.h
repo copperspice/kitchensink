@@ -50,10 +50,10 @@ class ColorPicker : public QWidget
       
    private:
       Ui::ColorPicker *ui;
-
-   private :
+  
       CS_SLOT_1(Private, void setColor())
       CS_SLOT_2(setColor) 
+
       CS_SLOT_1(Private, void actionClose())
       CS_SLOT_2(actionClose) 
 };

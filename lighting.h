@@ -46,24 +46,22 @@ class Lighting: public QGraphicsView
 {
     CS_OBJECT(Lighting)
 
-public:
-    Lighting(QWidget *parent = 0);
+   public:
+       Lighting(QWidget *parent = 0);
+            
+   protected:
+       void resizeEvent(QResizeEvent *event);
+   
+   private:
+       qreal angle;
+       QGraphicsScene m_scene;
+       QGraphicsItem *m_lightSource;
+       QList<QGraphicsItem*> m_items;
 
-private :
-    CS_SLOT_1(Private, void animate())
-    CS_SLOT_2(animate) 
-
-private:
-    void setupScene();
-
-protected:
-    void resizeEvent(QResizeEvent *event);
-
-private:
-    qreal angle;
-    QGraphicsScene m_scene;
-    QGraphicsItem *m_lightSource;
-    QList<QGraphicsItem*> m_items;
+       void setupScene();
+   
+       CS_SLOT_1(Private, void animate())
+       CS_SLOT_2(animate)             
 };
 
 #endif

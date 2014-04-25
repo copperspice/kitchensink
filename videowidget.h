@@ -44,6 +44,7 @@
 class VideoWidget : public QWidget
 {
       CS_OBJECT(VideoWidget)
+
    public:
       VideoWidget(QWidget *parent = 0);
       ~VideoWidget();
