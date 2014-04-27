@@ -45,7 +45,7 @@
 #include "musicplayer.h"
 #include "line_edit.h"
 #include "listview.h"
-#include "script.h"
+// #include "script.h" (QScript)
 #include "stdpath.h"
 #include "sliders.h"
 #include "style_dw.h"
@@ -67,8 +67,8 @@
 #include "lighting.h"
 #include "mandelbrot_widget.h"
 #include "screenshot.h"
-// Broom   #include "wiggle_boxes.h"
-// Broom   #include "world_clock.h"
+// #include "wiggle_boxes.h" (Qml)
+// #include "world_clock.h" (Qml)
 
 #include "mdi.h"
 #include "ui_mdi.h"
@@ -184,8 +184,12 @@ void Mdi::on_actionStyleSheetDialog_triggered()
 
 void Mdi::on_actionScript_triggered()
 {
+   ksMsg("JS Scripts - CsScript is not available");
+
+/*
    Script *oDw = new Script();
    addMdiChild(oDw);
+*/
 }
 
 void Mdi::on_actionXml_triggered()
@@ -329,8 +333,6 @@ void Mdi::on_actionWiggle_Boxes_triggered()
 {   
    ksMsg("Wiggle Boxes - CsDeclarative is not available");
 
-// Broom
-
 /*
    Wiggle_Boxes *oDw = new Wiggle_Boxes();
    addMdiChild(oDw);
@@ -340,8 +342,6 @@ void Mdi::on_actionWiggle_Boxes_triggered()
 void Mdi::on_actionWorld_Clock_triggered()
 {
    ksMsg("World Clock - CsDeclarative is not available");
-
-// Broom
 
 /*
    World_Clock *oDw = new World_Clock();

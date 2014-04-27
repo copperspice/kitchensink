@@ -31,9 +31,9 @@ install-data-hook:
 
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)
 		rsync -W -a --modify-window=2  $(CS_HOME)/lib/phonon_ds9-0.dll  $(deploydir)/phonon_backend
-  else
+   else
 		@echo "Phonon library was not found"
-  endif
+   endif
 
 # search path for source
 VPATH = ../

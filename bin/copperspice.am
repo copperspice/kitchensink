@@ -3,7 +3,7 @@ AUTOMAKE_OPTIONS=subdir-objects
 # adjustment for windows slash vs backslash
 #    12/12/2013 - temp change
 #    CS_HOME:=$(shell cd $(CS_HOME); pwd)
-CS_HOME="/z/Cs4_lib"
+CS_HOME="/z/cs4_lib"
 
 # location of includes, libs, defines for compiling
 AM_CXXFLAGS=$(AM_CFLAGS) -I$(CS_HOME)/include $(patsubst %,-I$(CS_HOME)/include/Qt%,$(cslibs))    
