@@ -48,6 +48,7 @@ class Lighting: public QGraphicsView
 
    public:
        Lighting(QWidget *parent = 0);
+       QSize sizeHint() const;
             
    protected:
        void resizeEvent(QResizeEvent *event);

@@ -47,7 +47,7 @@ class FontPicker : public QWidget
    public:
       explicit FontPicker(QWidget *parent = 0);
       ~FontPicker();
-      
+
    private:
       Ui::FontPicker *ui;
 

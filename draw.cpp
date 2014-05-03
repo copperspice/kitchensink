@@ -45,7 +45,6 @@ Draw::Draw()
 {
     setWindowTitle(tr("Basic Drawing"));
 
-    //
     m_renderArea = new DrawArea;
 
     shapeComboBox = new QComboBox;

@@ -54,7 +54,6 @@ class TreeView : public QWidget
             int catParent;
       };
 
-
       QList<struCat> getData();      
       static bool sortMe(const TreeView::struCat &s1, const TreeView::struCat &s2);
 

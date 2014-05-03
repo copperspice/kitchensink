@@ -33,7 +33,6 @@
 *
 ***********************************************************************/
 
-
 #include "util.h"
 #include "tableview.h"
 
@@ -56,12 +55,13 @@ TableView::TableView()
    }
 
    setWindowTitle(tr("Table View Model"));
+   setMinimumSize(300, 350);
 
    //
    QSqlTableModel *model = new QSqlTableModel(0, m_db);
 
    QStringList tempX = m_db.tables();
-   model->setTable( tempX.at(0) );
+   model->setTable(tempX.at(0));
 
    QSqlError error = model->lastError();
 
@@ -87,17 +87,13 @@ TableView::TableView()
 
    QHBoxLayout *mainLayout = new QHBoxLayout;
    mainLayout->addWidget(view);
-   setLayout(mainLayout);
-
-   // adjust the size
-   QSize size = this->size();
-   this->setMinimumHeight( size.height() );
+   setLayout(mainLayout);  
 }
 
 TableView::~TableView()
 {
-   // does not work as the model is still open *BROOM
-   m_db.close();
+   // need to close the model before the db can be closed
+   // m_db.close();
 }
 
 bool TableView::createConnection()

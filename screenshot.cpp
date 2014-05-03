@@ -40,7 +40,6 @@
 Screenshot::Screenshot()
 {
    setWindowTitle(tr("Screen Shot"));
-   resize(300, 200);
 
    screenshotLabel = new QLabel;
    screenshotLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -65,8 +64,14 @@ void Screenshot::resizeEvent(QResizeEvent * /* event */)
     QSize scaledSize = originalPixmap.size();
     scaledSize.scale(screenshotLabel->size(), Qt::KeepAspectRatio);
 
-    if (!screenshotLabel->pixmap() || scaledSize != screenshotLabel->pixmap()->size())
+    if (!screenshotLabel->pixmap() || scaledSize != screenshotLabel->pixmap()->size())  {
         updateScreenshotLabel();
+    }
+}
+
+QSize Screenshot::sizeHint() const
+{
+   return QSize(500,400);
 }
 
 void Screenshot::newScreenshot()
@@ -80,22 +85,21 @@ void Screenshot::saveScreenshot()
     QString format = "png";
     QString initialPath = QDir::currentPath() + tr("/untitled.") + format;
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save As"),
-                               initialPath,
-                               tr("%1 Files (*.%2);;All Files (*)")
-                               .arg(format.toUpper())
-                               .arg(format));
-    if (!fileName.isEmpty())
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save As"), initialPath,
+                  tr("%1 Files (*.%2);;All Files (*)").arg(format.toUpper()).arg(format));
+
+    if (! fileName.isEmpty()) {
         originalPixmap.save(fileName, format.toAscii());
+    }
 }
 
 void Screenshot::shootScreen()
 {
-    if (delaySpinBox->value() != 0)
+    if (delaySpinBox->value() != 0) {
         qApp->beep();
+    }
 
-    originalPixmap = QPixmap(); // clear image for low memory situations
-                                // on embedded devices.
+    originalPixmap = QPixmap();
 
     originalPixmap = QPixmap::grabWindow(QApplication::desktop()->winId());
     updateScreenshotLabel();
@@ -122,17 +126,17 @@ void Screenshot::createOptionsGroupBox()
 
 void Screenshot::createButtonsLayout()
 {
-    newScreenshotButton = createButton(tr("New Screenshot"), this, SLOT(newScreenshot()));
+    newScreenshotButton  = createButton(tr("New Screenshot"),  this, SLOT(newScreenshot()));
     saveScreenshotButton = createButton(tr("Save Screenshot"), this, SLOT(saveScreenshot()));
 
     buttonsLayout = new QHBoxLayout;
     buttonsLayout->addStretch();
     buttonsLayout->addWidget(newScreenshotButton);
     buttonsLayout->addWidget(saveScreenshotButton);    
+    buttonsLayout->addStretch();
 }
 
-QPushButton *Screenshot::createButton(const QString &text, QWidget *receiver,
-                                      const char *member)
+QPushButton *Screenshot::createButton(const QString &text, QWidget *receiver, const char *member)
 {
     QPushButton *button = new QPushButton(text);
     button->connect(button, SIGNAL(clicked()), receiver, member);
@@ -142,7 +146,5 @@ QPushButton *Screenshot::createButton(const QString &text, QWidget *receiver,
 void Screenshot::updateScreenshotLabel()
 {
     screenshotLabel->setPixmap(originalPixmap.scaled(screenshotLabel->size(),
-                                                     Qt::KeepAspectRatio,
-                                                     Qt::SmoothTransformation));
+            Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }
-//! [10]

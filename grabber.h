@@ -51,6 +51,7 @@ class Grabber : public QMainWindow
 
    public:
       Grabber(QWidget *parent = 0);
+      QSize sizeHint() const;
 
    private :
       CS_SLOT_1(Private, void renderIntoPixmap())

@@ -60,9 +60,6 @@ Mandelbrot_Widget::Mandelbrot_Widget(QWidget *parent)
    connect(&thread, SIGNAL(renderedImage(const QImage &,double)),this, SLOT(updatePixmap(const QImage &,double)));
 
    setCursor(Qt::CrossCursor);
-
-   setMinimumSize(400, 300);
-   // resize(550, 400);
 }
 
 void Mandelbrot_Widget::paintEvent(QPaintEvent * /* event */)
@@ -140,13 +137,6 @@ void Mandelbrot_Widget::keyPressEvent(QKeyEvent *event)
    }
 }
 
-void Mandelbrot_Widget::wheelEvent(QWheelEvent *event)
-{
-   int numDegrees = event->delta() / 8;
-   double numSteps = numDegrees / 15.0f;
-   zoom(pow(ZoomInFactor, numSteps));
-}
-
 void Mandelbrot_Widget::mousePressEvent(QMouseEvent *event)
 {
    if (event->button() == Qt::LeftButton)
@@ -174,6 +164,19 @@ void Mandelbrot_Widget::mouseReleaseEvent(QMouseEvent *event)
    }
 }
 
+void Mandelbrot_Widget::scroll(int deltaX, int deltaY)
+{
+   centerX += deltaX * curScale;
+   centerY += deltaY * curScale;
+   update();
+   thread.render(centerX, centerY, curScale, size());
+}
+
+QSize Mandelbrot_Widget::sizeHint() const
+{
+   return QSize(400,300);
+}
+
 void Mandelbrot_Widget::updatePixmap(const QImage &image, double scaleFactor)
 {
    if (!lastDragPos.isNull())
@@ -186,17 +189,16 @@ void Mandelbrot_Widget::updatePixmap(const QImage &image, double scaleFactor)
    update();
 }
 
+void Mandelbrot_Widget::wheelEvent(QWheelEvent *event)
+{
+   int numDegrees = event->delta() / 8;
+   double numSteps = numDegrees / 15.0f;
+   zoom(pow(ZoomInFactor, numSteps));
+}
+
 void Mandelbrot_Widget::zoom(double zoomFactor)
 {
    curScale *= zoomFactor;
-   update();
-   thread.render(centerX, centerY, curScale, size());
-}
-
-void Mandelbrot_Widget::scroll(int deltaX, int deltaY)
-{
-   centerX += deltaX * curScale;
-   centerY += deltaY * curScale;
    update();
    thread.render(centerX, centerY, curScale, size());
 }

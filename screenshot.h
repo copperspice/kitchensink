@@ -52,10 +52,11 @@ QT_END_NAMESPACE
 
 class Screenshot : public QWidget
 {
-    CS_OBJECT(Screenshot)
+   CS_OBJECT(Screenshot)
 
    public:
        Screenshot();
+       QSize sizeHint() const;
    
    protected:
        void resizeEvent(QResizeEvent *event);
@@ -88,6 +89,5 @@ class Screenshot : public QWidget
        QGridLayout *optionsGroupBoxLayout;
        QHBoxLayout *buttonsLayout;
 };
-
 
 #endif

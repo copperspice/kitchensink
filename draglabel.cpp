@@ -72,7 +72,6 @@ DragLabel::DragLabel(const QString &text, QWidget *parent)
     m_labelText = text;
 }
 
-
 QString DragLabel::labelText() const
 {
    return m_labelText;

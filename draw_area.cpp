@@ -54,7 +54,7 @@ QSize DrawArea::minimumSizeHint() const
 
 QSize DrawArea::sizeHint() const
 {
-    return QSize(400, 200);
+   return QSize(400, 200);
 }
 
 void DrawArea::setShape(Shape shape)

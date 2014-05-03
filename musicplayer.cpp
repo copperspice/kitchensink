@@ -63,7 +63,9 @@ MusicPlayer::MusicPlayer()
 
    // ui
    ui->setupUi(this);
+
    setWindowTitle(tr("Music Player"));
+   setMinimumSize(500,300);
 
    setupActions();
    setupUi();
@@ -94,11 +96,7 @@ MusicPlayer::MusicPlayer()
 
    connect(ui->musicTable,  SIGNAL(clicked(const QModelIndex &)), this, SLOT(tableClicked(const QModelIndex &)) );
    connect(ui->actionAbout, SIGNAL(triggered()), SLOT(actionAbout()));
-   connect(ui->actionClose, SIGNAL(triggered()), SLOT(actionClose()));
-
-   // adjust the size
-   QSize size = this->size();
-   this->setMinimumSize( size.width()+200, size.height() );
+   connect(ui->actionClose, SIGNAL(triggered()), SLOT(actionClose())); 
 }
 
 MusicPlayer::~MusicPlayer()
@@ -133,14 +131,11 @@ void MusicPlayer::setupUi()
    bar->addAction(m_pauseAction);
    bar->addAction(m_stopAction);
 
-   //
    m_seekSlider = new Phonon::SeekSlider(this);
 
-   //
    m_volumeSlider = new Phonon::VolumeSlider(this);
    m_volumeSlider->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
 
-   //
    QPalette palette;
    palette.setBrush(QPalette::Light, Qt::darkYellow);
    palette.setBrush(QPalette::Dark,  Qt::black);

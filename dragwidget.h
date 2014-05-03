@@ -44,6 +44,7 @@ class DragWidget : public QWidget
 {
    public:
       DragWidget(QWidget *parent = 0);
+      QSize sizeHint() const;
 
    protected:
       void dragEnterEvent(QDragEnterEvent *event);

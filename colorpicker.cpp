@@ -38,6 +38,7 @@
 #include "ui_colorpicker.h"
 
 #include <QColorDialog>
+#include <QPalette>
 
 ColorPicker::ColorPicker(QWidget *parent)
    : QWidget(parent), ui(new Ui::ColorPicker)
@@ -78,7 +79,7 @@ void ColorPicker::setColor()
          ui->label->setText("Sample Text Background in " + color.name().toUpper() );
 
          QPalette temp = ui->colorEdit->palette();
-         temp.setColor( QPalette::Base, color);
+         temp.setColor(QPalette::Base, color);
          ui->colorEdit->setPalette(temp);
     }
 }

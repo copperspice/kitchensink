@@ -43,7 +43,6 @@
 Lighting::Lighting(QWidget *parent): QGraphicsView(parent), angle(0.0)
 {   
    setWindowTitle("Lighting and Shadows");
-   resize(640, 480);
 
    setScene(&m_scene);
    setupScene();
@@ -55,6 +54,39 @@ Lighting::Lighting(QWidget *parent): QGraphicsView(parent), angle(0.0)
 
    setRenderHint(QPainter::Antialiasing, true);
    setFrameStyle(QFrame::NoFrame);
+}
+
+void Lighting::animate()
+{
+    angle += (M_PI / 30);
+    qreal xs = 200 * sin(angle) - 40 + 25;
+    qreal ys = 200 * cos(angle) - 40 + 25;
+    m_lightSource->setPos(xs, ys);
+
+    for (int i = 0; i < m_items.size(); ++i) {
+        QGraphicsItem *item = m_items.at(i);
+        Q_ASSERT(item);
+
+        QGraphicsDropShadowEffect *effect = static_cast<QGraphicsDropShadowEffect *>(item->graphicsEffect());
+        Q_ASSERT(effect);
+
+        QPointF delta(item->x() - xs, item->y() - ys);
+        effect->setOffset(delta.toPoint() / 30);
+
+        qreal dx = delta.x();
+        qreal dy = delta.y();
+        qreal dd = sqrt(dx * dx + dy * dy);
+        QColor color = effect->color();
+        color.setAlphaF(qBound(0.4, 1 - dd / 200.0, 0.7));
+        effect->setColor(color);
+    }
+
+    m_scene.update();
+}
+
+QSize Lighting::sizeHint() const
+{
+   return QSize(600,500);
 }
 
 void Lighting::setupScene()
@@ -103,34 +135,6 @@ void Lighting::setupScene()
         }
 
 
-}
-
-void Lighting::animate()
-{
-    angle += (M_PI / 30);
-    qreal xs = 200 * sin(angle) - 40 + 25;
-    qreal ys = 200 * cos(angle) - 40 + 25;
-    m_lightSource->setPos(xs, ys);
-
-    for (int i = 0; i < m_items.size(); ++i) {
-        QGraphicsItem *item = m_items.at(i);
-        Q_ASSERT(item);
-
-        QGraphicsDropShadowEffect *effect = static_cast<QGraphicsDropShadowEffect *>(item->graphicsEffect());
-        Q_ASSERT(effect);
-
-        QPointF delta(item->x() - xs, item->y() - ys);
-        effect->setOffset(delta.toPoint() / 30);
-
-        qreal dx = delta.x();
-        qreal dy = delta.y();
-        qreal dd = sqrt(dx * dx + dy * dy);
-        QColor color = effect->color();
-        color.setAlphaF(qBound(0.4, 1 - dd / 200.0, 0.7));
-        effect->setColor(color);
-    }
-
-    m_scene.update();
 }
 
 void Lighting::resizeEvent(QResizeEvent */*event*/)

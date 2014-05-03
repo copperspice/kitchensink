@@ -43,6 +43,7 @@
 FontPicker::FontPicker(QWidget *parent) :
    QWidget(parent), ui(new Ui::FontPicker)
 {
+
    ui->setupUi(this);
    setWindowTitle("Font Selector");
 

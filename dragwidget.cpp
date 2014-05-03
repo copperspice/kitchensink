@@ -43,8 +43,10 @@ static const QString qmPath = ":/resources";
 DragWidget::DragWidget(QWidget *parent)
    : QWidget(parent)
 {
-   setWindowTitle(tr("Fridge Magnets"));
+   setWindowTitle(tr("Fridge Magnets"));  
+   setAcceptDrops(true);
 
+   //
    QString fileName;
    fileName = qmPath + "/words.txt";
 
@@ -74,18 +76,7 @@ DragWidget::DragWidget(QWidget *parent)
       }
    }
 
-   QPalette newPalette = palette();
-   newPalette.setColor(QPalette::Window, Qt::white);
-   setPalette(newPalette);
-
-   setAcceptDrops(true);
-
-   //
-   setMinimumSize(400, 400);
-   QSize size = QSize(600, 700);
-   resize(size);
 }
-
 
 void DragWidget::dragEnterEvent(QDragEnterEvent *event)
 {
@@ -93,12 +84,14 @@ void DragWidget::dragEnterEvent(QDragEnterEvent *event)
       if (children().contains(event->source())) {
          event->setDropAction(Qt::MoveAction);
          event->accept();
+
       } else {
          event->acceptProposedAction();
       }
 
    } else if (event->mimeData()->hasText()) {
       event->acceptProposedAction();
+
    } else {
       event->ignore();
    }
@@ -113,8 +106,10 @@ void DragWidget::dragMoveEvent(QDragMoveEvent *event)
       } else {
          event->acceptProposedAction();
       }
+
    } else if (event->mimeData()->hasText()) {
       event->acceptProposedAction();
+
    } else {
       event->ignore();
    }
@@ -140,8 +135,10 @@ void DragWidget::dropEvent(QDropEvent *event)
       if (event->source() == this) {
          event->setDropAction(Qt::MoveAction);
          event->accept();
+
       } else {
          event->acceptProposedAction();
+
       }
 
    } else if (event->mimeData()->hasText()) {
@@ -195,6 +192,11 @@ void DragWidget::mousePressEvent(QMouseEvent *event)
 
    } else {
       child->show();
-   }
 
+   }
+}
+
+QSize DragWidget::sizeHint() const
+{
+   return QSize(400,400);
 }

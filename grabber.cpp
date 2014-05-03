@@ -81,10 +81,23 @@ Grabber::Grabber(QWidget *parent)
 
     xSlider->setValue(15 * 16);
     ySlider->setValue(345 * 16);
-    zSlider->setValue(0 * 16);
+    zSlider->setValue(0 * 16);    
+}
 
-    setMinimumSize(400, 300);
-    resize(500, 400);
+void Grabber::actionClose() {
+   this->parentWidget()->close();
+}
+
+void Grabber::about()
+{
+    QMessageBox::about(this, tr("About Grabber"),
+            tr("The <b>Grabber</b> example demonstrates two approaches for "
+               "rendering OpenGL into a Qt pixmap."));
+}
+
+void Grabber::clearPixmap()
+{
+    setPixmap(QPixmap());
 }
 
 void Grabber::createActions()
@@ -141,26 +154,10 @@ QSlider *Grabber::createSlider(const char *changedSignal,const char *setterSlot)
     return slider;
 }
 
-void Grabber::actionClose() {
-   this->parentWidget()->close();
-}
-
-void Grabber::about()
+void Grabber::grabFrameBuffer()
 {
-    QMessageBox::about(this, tr("About Grabber"),
-            tr("The <b>Grabber</b> example demonstrates two approaches for "
-               "rendering OpenGL into a Qt pixmap."));
-}
-
-void Grabber::setPixmap(const QPixmap &pixmap)
-{
-    pixmapLabel->setPixmap(pixmap);
-    QSize size = pixmap.size();
-
-    if (size - QSize(1, 0) == pixmapLabelArea->maximumViewportSize())
-        size -= QSize(1, 0);
-
-    pixmapLabel->resize(size);
+    QImage image = glWidget->grabFrameBuffer();
+    setPixmap(QPixmap::fromImage(image));
 }
 
 QSize Grabber::getSize()
@@ -195,13 +192,20 @@ void Grabber::renderIntoPixmap()
     }
 }
 
-void Grabber::grabFrameBuffer()
+void Grabber::setPixmap(const QPixmap &pixmap)
 {
-    QImage image = glWidget->grabFrameBuffer();
-    setPixmap(QPixmap::fromImage(image));
+    pixmapLabel->setPixmap(pixmap);
+    QSize size = pixmap.size();
+
+    if (size - QSize(1, 0) == pixmapLabelArea->maximumViewportSize())
+        size -= QSize(1, 0);
+
+    pixmapLabel->resize(size);
 }
 
-void Grabber::clearPixmap()
+QSize Grabber::sizeHint() const
 {
-    setPixmap(QPixmap());
+   return QSize(500,400);
 }
+
+

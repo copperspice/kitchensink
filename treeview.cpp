@@ -43,8 +43,8 @@
 #include <QGridLayout>
 #include <QListIterator>
 
-TreeView::TreeView() :
-   QWidget()
+TreeView::TreeView()
+   : QWidget()
 {
    if (! this->createConnection() ) {
       QString msg = "** Create Database Error";
@@ -52,11 +52,9 @@ TreeView::TreeView() :
    }
 
    setWindowTitle(tr("Tree View Model"));
+   setMinimumSize(200, 350);
 
-   //
    QTreeView *treeView = new QTreeView();
-
-   //
    QStandardItemModel *model = new QStandardItemModel();
 
    // get sql data
@@ -100,10 +98,6 @@ TreeView::TreeView() :
    QGridLayout *mainLayout = new QGridLayout;
    mainLayout->addWidget(treeView);
    setLayout(mainLayout);
-
-   // adjust
-   QSize size = this->size();
-   this->setMinimumHeight( size.height() );
 }
 
 bool TreeView::createConnection()
@@ -112,12 +106,9 @@ bool TreeView::createConnection()
    m_db.setDatabaseName(":memory:");
 
    if (! m_db.open()) {
-      QMessageBox::critical(0, tr("Cannot open database"),
-           tr("Unable to establish a database connection.\n"
-              "This example needs SQLite support. Please read "
-              "the Qt SQL driver documentation for information on "
-              "how to build it.\n\n"
-              "Click Cancel to exit."), QMessageBox::Cancel);
+      QMessageBox::critical(0, tr("Unable to Open Database"),
+           tr("Unable to establish a connection to the database.\n"
+              "This example requires SQLite.\n\n"), QMessageBox::Cancel);
       return false;
    }
 
@@ -162,7 +153,7 @@ QList<TreeView::struCat> TreeView::getData()
 }
 
 bool TreeView::sortMe(const TreeView::struCat &s1, const TreeView::struCat &s2)
- {
+{
    bool retVal;
 
    if ( s1.catParent == 0 && s2.catParent == 0)  {
@@ -190,6 +181,6 @@ bool TreeView::sortMe(const TreeView::struCat &s1, const TreeView::struCat &s2)
 
    return retVal;
 
- }
+}
 
 

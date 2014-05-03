@@ -45,6 +45,7 @@ class AboutCS : public QWidget
 
    public:
       AboutCS(QString route);
+      QSize sizeHint() const;
 
    private:
       QWebView *m_viewer;

@@ -44,10 +44,11 @@
 
 class Mandelbrot_Widget : public QWidget
 {
-      CS_OBJECT(Mandelbrot_Widget)
+   CS_OBJECT(Mandelbrot_Widget)
 
    public:
       Mandelbrot_Widget(QWidget *parent = 0);
+      QSize sizeHint() const;
 
    protected:
       void paintEvent(QPaintEvent *event);
