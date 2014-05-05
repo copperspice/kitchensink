@@ -62,7 +62,7 @@
 
 #include "analogclock.h"
 #include "animated_tiles.h"
-#include "dragwidget.h"
+#include "fridgemag.h"
 #include "grabber.h"
 #include "lighting.h"
 #include "mandelbrot_widget.h"
@@ -301,7 +301,7 @@ void Mdi::on_actionAnimated_Tiles_triggered()
 
 void Mdi::on_actionFridge_Magnets_triggered()
 {
-   DragWidget *oDw = new DragWidget();
+   FridgeMagnet *oDw = new FridgeMagnet();
    addMdiChild(oDw);
 }
 
@@ -378,7 +378,7 @@ void Mdi::on_actionAbout_triggered()
    msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
    msgB.setWindowTitle(tr("About Kitchen Sink-Cs4"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 05.01.2014</h5></center></p>"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 05.05.2014</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

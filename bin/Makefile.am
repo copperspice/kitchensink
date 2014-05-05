@@ -1,29 +1,94 @@
 include copperspice.am
 
-# dist windows
+# dist (windows)
 distdir_custom=install_win/dist
 
-# path to gcc
+# path to gcc (windows)
 gccpath=/c/MingW/bin
 
-# list of gcc libraries your app uses
+# list of gcc libraries (windows)
 gcclibs=libgcc_s_sjlj-1  libstdc++-6  libwinpthread-1
 
-# list of CopperSpice libraries your app uses
+# list of CopperSpice libraries
 cslibs=Core Gui Multimedia Network OpenGL Phonon Script Sql Svg WebKit Xml XmlPatterns
+# Declarative  (on hold)
 
-# BROOM - missing    Declarative
+# location of includes, defines
+AM_CXXFLAGS+=-I$(CS_HOME)/include/phonon
 
-# disable console on window, location of includes, defines
-AM_CXXFLAGS+=-mwindows  -I$(CS_HOME)/include/phonon
+if OSTYPE_WIN
+   # disable console on window
+   AM_CXXFLAGS+=-mwindows
+endif
 
-# 'KitchenSink-Cs4' target app name
-deploy_PROGRAMS = KitchenSink-Cs4
+# target app name
+bin_PROGRAMS = KitchenSink
 
-# copy the required CopperSpice and gcc files for deployment - windows only
-install-data-hook:
+# copy required CopperSpice and gcc files for deployment
+.PHONY: deploy
+
+if OSTYPE_LINUX
+deploy: $(bin_PROGRAMS)
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend
+
+endif
+
+if OSTYPE_DARWIN
+deployapp=$(deploydir)/$(bin_PROGRAMS).app/Contents
+
+deploy: $(bin_PROGRAMS)
+	mkdir -p $(deployapp)/Frameworks
+	mkdir -p $(deployapp)/MacOS
+	mkdir -p $(deployapp)/Resources
+
+   $(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deployapp)/MacOS	
+
+	rm -f $(deployapp)/Info.plist
+	sed -e "s,@ICON@,,g"
+	    -e "s,@TYPEINFO@,????,g" \
+	    -e "s,@EXECUTABLE@,$(bin_PROGRAMS),g" \
+	$(CS_HOME)/mac/Info.plist.app > $(deployapp)/Info.plist
+	
+	rm -f $(deployapp)/PkgInfo
+	echo "APPL????" > $(deployapp)/PkgInfo
+	
+	touch $(deployapp)/Resources/empty.lproj
+	cp -r $(CS_HOME)/mac/qt_menu.nib $(deployapp)/Resources
+	
+	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%1.0.dylib,$(cslibs)) $(deployapp)/Frameworks
+
+# phonon	
+	mkdir -p $(deployapp)/MacOS/phonon_backend
+   ifeq ($(findstring Phonon,$(cslibs)),Phonon)	
+		rsync -W -a $(CS_HOME)/lib/phonon_qt7.0.so  $(deployapp)/MacOS/phonon_backend
+   else		
+		@echo "Phonon Backend library was not found"
+   endif
+	
+	for libname in $(patsubst %,libCs%1.0.dylib,$(cslibs)) ; do \
+	\
+	install_name_tool -change $(CS_HOME)/lib/$$libname \
+	@executable_path/../Frameworks/$$libname $(deployapp)/MacOS/$(bin_PROGRAMS); \
+	\
+	for templib in $(patsubst %,libCs%1.0.dylib,$(cslibs)) ; do \
+	install_name_tool -change $(CS_HOME)/lib/$$templib \
+	@executable_path/../Frameworks/$$templib $(deployapp)/Frameworks/$$libname \
+	; done \
+	\
+	; done
+	
+	hdiutil create -ov -srcfolder $(deploydir) -format UDBZ -volname $(bin_PROGRAMS) ../$(bin_PROGRAMS).dmg
+	hdiutil internet-enable -yes ../$(bin_PROGRAMS).dmg
+
+endif
+
+if OSTYPE_WIN
+deploy: $(bin_PROGRAMS)
+	mkdir -p $(deploydir)
+	mkdir -p $(deploydir)/phonon_backend
+
+	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
 
 	rsync -W -a --modify-window=2  $(patsubst %,$(gccpath)/%.dll,$(gcclibs))  $(deploydir)
 	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%1-0.dll,$(cslibs))  $(deploydir)
@@ -33,68 +98,77 @@ install-data-hook:
    else
 		@echo "Phonon library was not found"
    endif
+endif
 
 # search path for source
 VPATH = ../
 
 # linking
-KitchenSink_Cs4_LDFLAGS=$(AM_LDFLAGS)   $(patsubst %,-lCs%1,$(cslibs)) -lopengl32
+KitchenSink_LDFLAGS=$(AM_LDFLAGS) $(patsubst %,-lCs%1,$(cslibs))
 
-# 'KitchenSink_Cs4' must match the app name ( dash had to be replaced )
-KitchenSink_Cs4_SOURCES = \
-    main.cpp \
-    aboutcs.h \
-    aboutcs.cpp \
-    calendar.cpp \
-    colorpicker.cpp \
-    dialogs.cpp \
-    draw.cpp \
-    draw_area.cpp \
-    fontpicker.cpp \
-    html_viewer.cpp \
-    international.cpp \
-    line_edit.cpp \
-    listview.cpp \
-    mdi.cpp \
-    musicplayer.cpp  \
-    sliders.cpp \
-    script.cpp \
-    stdpath.cpp \
-    style_edit.cpp \
-    style_dw.cpp \
-    svg_view.cpp  \
-    svgtextobject.cpp \
-    systray.cpp \
-    tableview.cpp \
-    tablewidget_view.cpp \
-    tabdialog.cpp \
-    treeview.cpp \
-    util.cpp \
-    videosurface.cpp \
-    videoplayer.cpp \
-    videowidget.cpp \
-    web_browser.cpp \
-    xml.cpp \
-    xmlpatterns.cpp \
-    xmlsyntaxhighlighter.cpp \
-    analogclock.cpp \
-    animated_tiles.cpp \
-    draglabel.cpp  \
-    dragwidget.cpp \
-    glwidget.cpp \
-    grabber.cpp  \
-    lighting.cpp \
-    mandelbrot_thread.cpp \
-    mandelbrot_widget.cpp \
-    screenshot.cpp
+if OSTYPE_LINUX
+   KitchenSink_LDFLAGS+=-lGL
+endif
+
+if OSTYPE_DARWIN
+endif
+
+if OSTYPE_WIN
+   KitchenSink_LDFLAGS+=-lopengl32
+endif
+
+KitchenSink_SOURCES = \
+   aboutcs.cpp \
+   analogclock.cpp \
+   animated_tiles.cpp \
+   calendar.cpp \
+   colorpicker.cpp \
+   dialogs.cpp \
+   draglabel.cpp  \
+   draw.cpp \
+   draw_area.cpp \
+   fridgemag.cpp \
+   fontpicker.cpp \
+   glwidget.cpp \
+   grabber.cpp  \
+   html_viewer.cpp \
+   international.cpp \
+   lighting.cpp \
+   line_edit.cpp \
+   listview.cpp \
+   main.cpp \
+   mandelbrot_thread.cpp \
+   mandelbrot_widget.cpp \
+   mdi.cpp \
+   musicplayer.cpp  \
+   screenshot.cpp \
+   sliders.cpp \
+   script.cpp \
+   stdpath.cpp \
+   style_edit.cpp \
+   style_dw.cpp \
+   svg_view.cpp  \
+   svgtextobject.cpp \
+   systray.cpp \
+   tableview.cpp \
+   tablewidget_view.cpp \
+   tabdialog.cpp \
+   treeview.cpp \
+   util.cpp \
+   videosurface.cpp \
+   videoplayer.cpp \
+   videowidget.cpp \
+   web_browser.cpp \
+   xml.cpp \
+   xmlpatterns.cpp \
+   xmlsyntaxhighlighter.cpp
 
 # qmlapplicationviewer.cpp
 # wiggle_boxes.cpp
 # world_clock.cpp
 
-
-#
 noinst_HEADERS = \
+   aboutcs.h \
    calendar.h \
    colorpicker.h \
    dialogs.h \
@@ -124,25 +198,24 @@ noinst_HEADERS = \
    videowidget.h \
    videosurface.h \
    web_browser.h \
-   xml.h \
-   xmlpatterns.h \
-   xmlsyntaxhighlighter.h \
    analogclock.h  \
    animated_tiles.h  \
    draglabel.h \
-   dragwidget.h  \
+   fridgemag.h  \
    glwidget.h  \
    grabber.h  \
    lighting.h  \
    mandelbrot_thread.h  \
    mandelbrot_widget.h  \
-   screenshot.h
+   screenshot.h \
+   xml.h \
+   xmlpatterns.h \
+   xmlsyntaxhighlighter.h
 
 # qmlapplicationviewer.h
 # wiggle_boxes.h
 # world_clock.h
 
-#
 FORMS = \
     forms/mdi.ui \
     forms/colorpicker.ui \
@@ -162,39 +235,37 @@ FORMS = \
     forms/xml.ui  \
     forms/xmlpatterns.ui
 
-#
 TRANSLATIONS =  \
-    resources/qt_en.ts   \
-    resources/qt_de.ts   \
+    resources/qt_en.ts \
+    resources/qt_de.ts \
     resources/qt_fr.ts
 
-#
 RESOURCES = kitchensink.qrc
 
 # use wilcard to obtain just the dependency list
 qrc_kitchensink.cpp: kitchensink.qrc   $(wildcard ../resources/*)
 
 # source distribution
-nodist_KitchenSink_Cs4_SOURCES = qrc_kitchensink.cpp
+nodist_KitchenSink_SOURCES=qrc_kitchensink.cpp
 
 distdir: $(DISTFILES)
 	cd .. ; \
-	test -d "$(distdir_custom)" || mkdir -p "$(distdir_custom)" ; \
-	for f in $(DIST_SOURCES)  ; do install -D $$f $(distdir_custom)/$$f ; done ; \
-	for f in $(HEADERS)       ; do install -D $$f $(distdir_custom)/$$f ; done ; \
-	for f in $(FORMS)         ; do install -D $$f $(distdir_custom)/$$f ; done ; \
-	mkdir -p $(distdir_custom)/bin           ; \
-	mkdir -p $(distdir_custom)/resources     ; \
-	cp kitchensink.qrc        $(distdir_custom)/     ; \
-	cp install_files/cs.conf  $(distdir_custom)/     ; \
-	cp bin/*.am               $(distdir_custom)/bin/ ; \
+	test -d "$(distdir_custom)" || mkdir -p "$(distdir_custom)" ;  \
+	for f in $(DIST_SOURCES)  ; do install -D $$f $(distdir_custom)/$$f ; done ;  \
+	for f in $(HEADERS)       ; do install -D $$f $(distdir_custom)/$$f ; done ;  \
+	for f in $(FORMS)         ; do install -D $$f $(distdir_custom)/$$f ; done ;  \
+	mkdir -p $(distdir_custom)/bin           ;          \
+	mkdir -p $(distdir_custom)/resources     ;          \
+	cp kitchensink.qrc        $(distdir_custom)/     ;  \
+	cp install_files/cs.conf  $(distdir_custom)/     ;  \
+	cp bin/*.am               $(distdir_custom)/bin/ ;  \
 	cp resources/*            $(distdir_custom)/resources/
 	$(MAKE) $(AM_MAKEFLAGS) dist-hook
 
 dist-hook:
 	cd .. ; \
-	cp -r bin/$(distdir)/../*   $(distdir_custom) ; \
-	rm -r bin/$(distdir)/../   ; \
-	cd $(distdir_custom)       ; \
+	cp -r bin/$(distdir)/../*   $(distdir_custom) ;  \
+	rm -r bin/$(distdir)/../   ;      \
+	cd $(distdir_custom)       ;      \
 	rm -f  ../KS_CS-$(VERSION).zip  ; \
 	zip -r ../KS_CS-$(VERSION).zip .

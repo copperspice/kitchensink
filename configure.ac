@@ -1,5 +1,5 @@
 # project name, version, email
-AC_INIT( [KitchenSink-Cs4], 1.0, [barbara@copperspice.com] )
+AC_INIT( [KitchenSink], 1.0, [barbara@copperspice.com] )
 
 # location of temp autotools files
 # note: space can not exist between ] and  )
@@ -26,6 +26,19 @@ AC_PROG_CXX
 # set flags for c+11
 AC_LANG([C++])
 AX_CXX_COMPILE_STDCXX_11([noext])
+
+case "$target" in
+*-*-mingw*)
+	OSTYPE=WIN ;;
+*-*-linux-*)
+	OSTYPE=LINUX ;;
+*-*-darwin*)
+	OSTYPE=DARWIN ;;
+esac
+
+AM_CONDITIONAL(OSTYPE_WIN, test "$OSTYPE" == WIN)
+AM_CONDITIONAL(OSTYPE_LINUX, test "$OSTYPE" == LINUX)
+AM_CONDITIONAL(OSTYPE_DARWIN, test "$OSTYPE" == DARWIN)
 
 # location of .am files that will create Makefiles
 AC_CONFIG_FILES( [Makefile bin/Makefile ] )

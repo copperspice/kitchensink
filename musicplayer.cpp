@@ -39,7 +39,7 @@
 #include <QtGui>
 
 MusicPlayer::MusicPlayer()
-   : QMainWindow(), ui(new Ui::MusicPlayer)
+   : QWidget(), ui(new Ui::MusicPlayer)
 {
    // configure Phonon
    m_audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
@@ -63,9 +63,7 @@ MusicPlayer::MusicPlayer()
 
    // ui
    ui->setupUi(this);
-
-   setWindowTitle(tr("Music Player"));
-   setMinimumSize(500,300);
+   setWindowTitle(tr("Music Player"));    
 
    setupActions();
    setupUi();
@@ -88,15 +86,15 @@ MusicPlayer::MusicPlayer()
            this, SLOT(metaParserStateChanged(Phonon::State,Phonon::State)));
 
    // signals
-   connect(m_openFilePB,    SIGNAL(clicked()), this, SLOT(on_actionOpen_triggered()) );
+   connect(ui->openFile_PB, SIGNAL(clicked()), this, SLOT(openFile()) );
+   connect(ui->close_PB,    SIGNAL(clicked()), this, SLOT(close())    );
+   connect(ui->aboutCs_PB,  SIGNAL(clicked()), this, SLOT(aboutCs())  );
+
+   connect(ui->musicTable,  SIGNAL(clicked(const QModelIndex &)), this, SLOT(tableClicked(const QModelIndex &)) );
 
    connect(m_playAction,    SIGNAL(triggered()), m_mediaObject, SLOT(play()));
    connect(m_pauseAction,   SIGNAL(triggered()), m_mediaObject, SLOT(pause()) );
    connect(m_stopAction,    SIGNAL(triggered()), m_mediaObject, SLOT(stop()));
-
-   connect(ui->musicTable,  SIGNAL(clicked(const QModelIndex &)), this, SLOT(tableClicked(const QModelIndex &)) );
-   connect(ui->actionAbout, SIGNAL(triggered()), SLOT(actionAbout()));
-   connect(ui->actionClose, SIGNAL(triggered()), SLOT(actionClose())); 
 }
 
 MusicPlayer::~MusicPlayer()
@@ -104,97 +102,28 @@ MusicPlayer::~MusicPlayer()
    delete ui;
 }
 
+void MusicPlayer::aboutCs()
+{
+   QApplication::aboutCs();
+}
+
+void MusicPlayer::close() {
+   this->parentWidget()->close();
+}
+
+void MusicPlayer::closeEvent(QCloseEvent *event)
+{
+   m_mediaObject->stop();
+   m_mediaObject->clearQueue();
+   event->accept();
+}
+
 bool MusicPlayer::loaded()
 {
    return m_loaded;
 }
 
-void MusicPlayer::setupActions()
-{
-   m_playAction = new QAction(style()->standardIcon(QStyle::SP_MediaPlay), tr("Play"), this);
-   m_playAction->setShortcut(tr("Ctrl+P"));
-   m_playAction->setDisabled(true);
-
-   m_pauseAction = new QAction(style()->standardIcon(QStyle::SP_MediaPause), tr("Pause"), this);
-   m_pauseAction->setShortcut(tr("Ctrl+A"));
-   m_pauseAction->setDisabled(true);
-
-   m_stopAction = new QAction(style()->standardIcon(QStyle::SP_MediaStop), tr("Stop"), this);
-   m_stopAction->setShortcut(tr("Ctrl+S"));
-   m_stopAction->setDisabled(true);
-}
-
-void MusicPlayer::setupUi()
-{
-   QToolBar *bar = new QToolBar;
-   bar->addAction(m_playAction);
-   bar->addAction(m_pauseAction);
-   bar->addAction(m_stopAction);
-
-   m_seekSlider = new Phonon::SeekSlider(this);
-
-   m_volumeSlider = new Phonon::VolumeSlider(this);
-   m_volumeSlider->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
-
-   QPalette palette;
-   palette.setBrush(QPalette::Light, Qt::darkYellow);
-   palette.setBrush(QPalette::Dark,  Qt::black);
-   ui->timerLCD->setPalette(palette);
-
-   ui->timerLCD->setSegmentStyle(QLCDNumber::Filled);
-   ui->timerLCD->setFrameStyle(QFrame::Panel);
-   ui->timerLCD->setLineWidth(1);
-   ui->timerLCD->display("00:00");
-
-   //
-   m_model = new QStandardItemModel;
-   m_model->setColumnCount(3);
-   m_model->setHeaderData(0, Qt::Horizontal, tr("Title"));
-   m_model->setHeaderData(1, Qt::Horizontal, tr("Artist"));
-   m_model->setHeaderData(2, Qt::Horizontal, tr("Album"));
-
-   ui->musicTable->setModel(m_model);
-   ui->musicTable->setSelectionMode(QAbstractItemView::SingleSelection);
-   ui->musicTable->setSelectionBehavior(QAbstractItemView::SelectRows);
-   ui->musicTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-   ui->musicTable->setColumnWidth(0, 175);
-   ui->musicTable->setColumnWidth(1, 175);
-   ui->musicTable->horizontalHeader()->setStretchLastSection(true);
-
-   // OS X has no menu bar
-   m_openFilePB = new QPushButton;
-   m_openFilePB->setText("Open File");
-
-   QHBoxLayout *buttonLayout = new QHBoxLayout;
-   buttonLayout->addStretch();
-   buttonLayout->addWidget(m_openFilePB);
-   buttonLayout->addStretch();
-
-   //
-   QHBoxLayout *seekerLayout = new QHBoxLayout;
-   seekerLayout->addWidget(m_seekSlider);
-   seekerLayout->addWidget(ui->timerLCD);
-
-   QHBoxLayout *playbackLayout = new QHBoxLayout;
-   playbackLayout->addWidget(bar);
-   playbackLayout->addStretch();
-   playbackLayout->addWidget(m_volumeSlider);
-
-   QVBoxLayout *mainLayout = new QVBoxLayout;
-   mainLayout->addWidget(ui->musicTable);
-   mainLayout->addLayout(seekerLayout);
-   mainLayout->addLayout(playbackLayout);
-   mainLayout->addSpacing(6);
-   mainLayout->addLayout(buttonLayout);
-   mainLayout->addSpacing(4);
-
-   QWidget *widget = new QWidget;
-   widget->setLayout(mainLayout);
-   setCentralWidget(widget);
-}
-
-void MusicPlayer::on_actionOpen_triggered()
+void MusicPlayer::openFile()
 {
    if (m_dir.isEmpty()) {
       m_dir = QDesktopServices::storageLocation(QDesktopServices::MusicLocation);
@@ -223,10 +152,78 @@ void MusicPlayer::on_actionOpen_triggered()
    }
 }
 
+void MusicPlayer::setupActions()
+{
+   m_playAction = new QAction(style()->standardIcon(QStyle::SP_MediaPlay), tr("Play"), this);
+   m_playAction->setShortcut(tr("Ctrl+P"));
+   m_playAction->setDisabled(true);
+
+   m_pauseAction = new QAction(style()->standardIcon(QStyle::SP_MediaPause), tr("Pause"), this);
+   m_pauseAction->setShortcut(tr("Ctrl+A"));
+   m_pauseAction->setDisabled(true);
+
+   m_stopAction = new QAction(style()->standardIcon(QStyle::SP_MediaStop), tr("Stop"), this);
+   m_stopAction->setShortcut(tr("Ctrl+S"));
+   m_stopAction->setDisabled(true);
+}
+
+void MusicPlayer::setupUi()
+{  
+   QToolBar *bar = new QToolBar;
+   bar->addAction(m_playAction);
+   bar->addAction(m_pauseAction);
+   bar->addAction(m_stopAction);
+
+   m_seekSlider = new Phonon::SeekSlider(this);
+
+   m_volumeSlider = new Phonon::VolumeSlider(this);
+   m_volumeSlider->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
+
+   m_timerLCD = new QLCDNumber;
+   m_timerLCD->setSegmentStyle(QLCDNumber::Filled);
+   m_timerLCD->setFrameStyle(QFrame::Panel);
+   m_timerLCD->setLineWidth(1);
+   m_timerLCD->display("00:00");
+
+   QPalette palette;
+   palette.setBrush(QPalette::Light, Qt::darkYellow);
+   palette.setBrush(QPalette::Dark,  Qt::black);
+   m_timerLCD->setPalette(palette);
+
+   QHBoxLayout *seekerLayout = new QHBoxLayout;
+   seekerLayout->addWidget(m_seekSlider);
+   seekerLayout->addWidget(m_timerLCD);
+
+   QHBoxLayout *playbackLayout = new QHBoxLayout;
+   playbackLayout->addWidget(bar);
+   playbackLayout->addStretch();
+   playbackLayout->addWidget(m_volumeSlider);
+
+   QVBoxLayout *layout = ui->verticalLayout;
+   layout->addLayout(seekerLayout);
+   layout->addLayout(playbackLayout);
+
+   // table
+   m_model = new QStandardItemModel;
+   m_model->setColumnCount(3);
+   m_model->setHeaderData(0, Qt::Horizontal, tr("Title"));
+   m_model->setHeaderData(1, Qt::Horizontal, tr("Artist"));
+   m_model->setHeaderData(2, Qt::Horizontal, tr("Album"));
+
+   ui->musicTable->setModel(m_model);
+   ui->musicTable->setSelectionMode(QAbstractItemView::SingleSelection);
+   ui->musicTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+   ui->musicTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+   ui->musicTable->setColumnWidth(0, 175);
+   ui->musicTable->setColumnWidth(1, 175);
+   ui->musicTable->horizontalHeader()->setStretchLastSection(true); 
+}
+
 void MusicPlayer::tick(qint64 time)
 {
    QTime displayTime(0, (time / 60000) % 60, (time / 1000) % 60);
-   ui->timerLCD->display(displayTime.toString("mm:ss"));
+   m_timerLCD->display(displayTime.toString("mm:ss"));
 }
 
 void MusicPlayer::aboutToFinish()
@@ -241,7 +238,7 @@ void MusicPlayer::aboutToFinish()
 void MusicPlayer::sourceChanged(const Phonon::MediaSource &source)
 {
    ui->musicTable->selectRow(m_sources.indexOf(source));
-   ui->timerLCD->display("00:00");
+   m_timerLCD->display("00:00");
 }
 
 void MusicPlayer::stateChanged(Phonon::State newState, Phonon::State oldState)
@@ -268,7 +265,7 @@ void MusicPlayer::stateChanged(Phonon::State newState, Phonon::State oldState)
          m_stopAction->setEnabled(false);
          m_playAction->setEnabled(true);
          m_pauseAction->setEnabled(false);
-         ui->timerLCD->display("00:00");
+         m_timerLCD->display("00:00");
          break;
 
       case Phonon::PausedState:
@@ -380,21 +377,5 @@ void MusicPlayer::tableClicked(const QModelIndex &index)
    } else {
       m_mediaObject->stop();
    }
-}
-
-void MusicPlayer::actionAbout()
-{
-   ksMsg(this, tr("About Music Player"),tr("This example shows how to use Phonon Multimedia Framework."));
-}
-
-void MusicPlayer::closeEvent(QCloseEvent *event)
-{
-   m_mediaObject->stop();
-   m_mediaObject->clearQueue();
-   event->accept();
-}
-
-void MusicPlayer::actionClose() {
-   this->parentWidget()->close();
 }
 

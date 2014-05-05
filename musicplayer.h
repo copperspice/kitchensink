@@ -38,9 +38,10 @@
 
 #include "ui_musicplayer.h"
 
-#include <QMainWindow>
+#include <QWidget>
 #include <QAction>
 #include <QList>
+#include <QLCDNumber>
 #include <QPushButton>
 #include <QStandardItemModel>
 
@@ -50,7 +51,7 @@
 #include <phonon/volumeslider.h>
 #include <phonon/backendcapabilities.h>
 
-class MusicPlayer : public QMainWindow
+class MusicPlayer : public QWidget
 {
    CS_OBJECT(MusicPlayer)
 
@@ -71,9 +72,8 @@ class MusicPlayer : public QMainWindow
       Phonon::MediaObject *m_metaParser;
 
       Phonon::SeekSlider   *m_seekSlider;
-      Phonon::VolumeSlider *m_volumeSlider;
-
-      QPushButton *m_openFilePB;
+      Phonon::VolumeSlider *m_volumeSlider;      
+      QLCDNumber *m_timerLCD;
 
       QList<Phonon::MediaSource> m_sources;
 
@@ -85,14 +85,14 @@ class MusicPlayer : public QMainWindow
       void setupActions();
       void setupUi();
   
-      CS_SLOT_1(Private, void on_actionOpen_triggered())
-      CS_SLOT_2(on_actionOpen_triggered) 
+      CS_SLOT_1(Private, void openFile())
+      CS_SLOT_2(openFile)
   
-      CS_SLOT_1(Private, void actionAbout())
-      CS_SLOT_2(actionAbout) 
+      CS_SLOT_1(Private, void aboutCs())
+      CS_SLOT_2(aboutCs)
   
-      CS_SLOT_1(Private, void actionClose())
-      CS_SLOT_2(actionClose) 
+      CS_SLOT_1(Private, void close())
+      CS_SLOT_2(close)
 
       CS_SLOT_1(Private, void stateChanged(Phonon::State newState,Phonon::State oldState))
       CS_SLOT_2(stateChanged) 

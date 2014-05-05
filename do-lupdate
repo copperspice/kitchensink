@@ -1,6 +1,5 @@
 
-#    CS_HOME:=$(shell cd $(CS_HOME); pwd)
-CS_HOME="/z/cs4_lib"
+CS_HOME:=$(shell cd $(CS_HOME); pwd)
 
 # leave obsolete
 $CS_HOME/bin/lupdate  *.cpp  *.h  bin/*.h  -ts resources/*.ts

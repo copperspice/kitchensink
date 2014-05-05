@@ -33,17 +33,17 @@
 *
 ***********************************************************************/
 
-#ifndef DRAGWIDGET_H
-#define DRAGWIDGET_H
+#ifndef FRIDGEMAG_H
+#define FRIDGEMAG_H
 
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QWidget>
 
-class DragWidget : public QWidget
+class FridgeMagnet : public QWidget
 {
    public:
-      DragWidget(QWidget *parent = 0);
+      FridgeMagnet(QWidget *parent = 0);
       QSize sizeHint() const;
 
    protected:

@@ -34,13 +34,13 @@
 ***********************************************************************/
 
 #include "draglabel.h"
-#include "dragwidget.h"
+#include "fridgemag.h"
 
 #include <QtGui>
 
 static const QString qmPath = ":/resources";
 
-DragWidget::DragWidget(QWidget *parent)
+FridgeMagnet::FridgeMagnet(QWidget *parent)
    : QWidget(parent)
 {
    setWindowTitle(tr("Fridge Magnets"));  
@@ -78,7 +78,7 @@ DragWidget::DragWidget(QWidget *parent)
 
 }
 
-void DragWidget::dragEnterEvent(QDragEnterEvent *event)
+void FridgeMagnet::dragEnterEvent(QDragEnterEvent *event)
 {
    if (event->mimeData()->hasFormat("application/x-fridgemagnet")) {
       if (children().contains(event->source())) {
@@ -97,7 +97,7 @@ void DragWidget::dragEnterEvent(QDragEnterEvent *event)
    }
 }
 
-void DragWidget::dragMoveEvent(QDragMoveEvent *event)
+void FridgeMagnet::dragMoveEvent(QDragMoveEvent *event)
 {
    if (event->mimeData()->hasFormat("application/x-fridgemagnet")) {
       if (children().contains(event->source())) {
@@ -115,7 +115,7 @@ void DragWidget::dragMoveEvent(QDragMoveEvent *event)
    }
 }
 
-void DragWidget::dropEvent(QDropEvent *event)
+void FridgeMagnet::dropEvent(QDropEvent *event)
 {
    if (event->mimeData()->hasFormat("application/x-fridgemagnet")) {
       const QMimeData *mime = event->mimeData();
@@ -162,7 +162,7 @@ void DragWidget::dropEvent(QDropEvent *event)
    }
 }
 
-void DragWidget::mousePressEvent(QMouseEvent *event)
+void FridgeMagnet::mousePressEvent(QMouseEvent *event)
 {
    DragLabel *child = dynamic_cast<DragLabel*>(childAt(event->pos()));
 
@@ -196,7 +196,7 @@ void DragWidget::mousePressEvent(QMouseEvent *event)
    }
 }
 
-QSize DragWidget::sizeHint() const
+QSize FridgeMagnet::sizeHint() const
 {
    return QSize(400,400);
 }

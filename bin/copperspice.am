@@ -1,9 +1,7 @@
 AUTOMAKE_OPTIONS=subdir-objects
 
-# adjustment for windows slash vs backslash
-#    12/12/2013 - temp change
-#    CS_HOME:=$(shell cd $(CS_HOME); pwd)
-CS_HOME="/z/cs4_lib"
+# location where CopperSpice libraries are installed
+CS_HOME:=$(shell cd $(CS_HOME); pwd)
 
 # location of includes, libs, defines for compiling
 AM_CXXFLAGS=$(AM_CFLAGS) -I$(CS_HOME)/include $(patsubst %,-I$(CS_HOME)/include/Qt%,$(cslibs))    
@@ -16,7 +14,7 @@ LRELEASE=$(CS_HOME)/bin/lrelease
 RCC=$(CS_HOME)/bin/rcc
 UIC=$(CS_HOME)/bin/uic
 
-# 'deploy' is the folder where the install will be located
+# 'deploy' is the folder for "make deploy"
 deploydir=$(abs_top_builddir)/deploy
 
 # compiling .ui files
@@ -41,7 +39,7 @@ qrc_%.cpp: %.qrc
 ui_%.h: forms/%.ui
 	$(UIC) $< -o $@
     
-# additional files to delete on 'make clean'
+# additional files to delete on "make clean"
 clean-local:	
 	-rm qrc_*.cpp
 	-rm ui_*.h

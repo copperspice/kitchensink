@@ -40,6 +40,8 @@ void ksMsg(const QString &msg)
    QMessageBox msgB;
 
    msgB.setWindowTitle("Debug Information");
+   msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
+
    msgB.setText(msg);
    msgB.exec();
 }
@@ -48,10 +50,11 @@ void ksMsg(QString msg, int value)
 {
    msg = msg + "   " + QString::number(value);
 
-   //
    QMessageBox msgB;
 
    msgB.setWindowTitle("Debug Information");
+   msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
+
    msgB.setText(msg);
    msgB.exec();
 }
@@ -65,6 +68,8 @@ void ksMsg(QWidget *parent, const QString &title, const QString &msg)
    }
 
    msgB.setWindowTitle(title);
+   msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
+
    msgB.setText(msg);
    msgB.exec();
 }
