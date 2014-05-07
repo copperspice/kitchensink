@@ -19,6 +19,9 @@ AM_CXXFLAGS+=-I$(CS_HOME)/include/phonon
 if OSTYPE_WIN
    # disable console on window
    AM_CXXFLAGS+=-mwindows
+
+   # 'instal' is the folder for "make install"
+   installdir=$(abs_top_builddir)/install
 endif
 
 # target app name
@@ -31,7 +34,12 @@ if OSTYPE_LINUX
 deploy: $(bin_PROGRAMS)
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend
+	mkdir -p $(deploydir)/resources
 
+	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
+
+	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%1-0.so*,$(cslibs)) $(deploydir)
+	rsync -W -a $(top_srcdir)/resources/{ks_cs.ico, script.js, sampleMenu.xml} $(deploydir)/resources
 endif
 
 if OSTYPE_DARWIN
@@ -42,10 +50,10 @@ deploy: $(bin_PROGRAMS)
 	mkdir -p $(deployapp)/MacOS
 	mkdir -p $(deployapp)/Resources
 
-   $(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deployapp)/MacOS	
+	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deployapp)/MacOS
 
 	rm -f $(deployapp)/Info.plist
-	sed -e "s,@ICON@,,g"
+	sed -e "s,@ICON@,,g" \
 	    -e "s,@TYPEINFO@,????,g" \
 	    -e "s,@EXECUTABLE@,$(bin_PROGRAMS),g" \
 	$(CS_HOME)/mac/Info.plist.app > $(deployapp)/Info.plist
