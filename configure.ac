@@ -1,5 +1,5 @@
 # project name, version, email
-AC_INIT( [KitchenSink], 1.0, [barbara@copperspice.com])
+AC_INIT([KitchenSink], 1.0, [barbara@copperspice.com])
 
 # location of temp autotools files
 # note: space can not exist between ] and  )
@@ -29,11 +29,12 @@ AX_CXX_COMPILE_STDCXX_11([noext])
 
 case "$target" in
 *-*-mingw*)
-	OSTYPE=WIN ;;
+   prefix=`pwd`/install  
+   OSTYPE=WIN ;;
 *-*-linux-*)
-	OSTYPE=LINUX ;;
+   OSTYPE=LINUX ;;
 *-*-darwin*)
-	OSTYPE=DARWIN ;;
+   OSTYPE=DARWIN ;;
 esac
 
 AM_CONDITIONAL(OSTYPE_WIN, test "$OSTYPE" == WIN)

@@ -253,9 +253,20 @@ RESOURCES = kitchensink.qrc
 # use wilcard to obtain just the dependency list
 qrc_kitchensink.cpp: kitchensink.qrc   $(wildcard ../resources/*)
 
-# source distribution
+# required to compile qrc
 nodist_KitchenSink_SOURCES=qrc_kitchensink.cpp
 
+# install
+if OSTYPE_LINUX
+endif
+
+if OSTYPE_DARWIN
+endif
+
+if OSTYPE_WIN
+endif
+
+# distribution
 distdir: $(DISTFILES)
 	cd .. ; \
 	test -d "$(distdir_custom)" || mkdir -p "$(distdir_custom)" ;  \

@@ -18,4 +18,5 @@ KitchenSink-Cs4.creator*
 /bin/Makefile
 /bin/*.exe
 /deploy/
+/source_extra/
 /source_win/
