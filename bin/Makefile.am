@@ -13,14 +13,14 @@ gcclibs=libgcc_s_sjlj-1  libstdc++-6  libwinpthread-1
 cslibs=Core Gui Multimedia Network OpenGL Phonon Script Sql Svg WebKit Xml XmlPatterns
 # Declarative  (on hold)
 
-# location of includes, defines
-AM_CXXFLAGS+=-I$(CS_HOME)/include/phonon
+# location of includes
+AM_CXXFLAGS+=-I.. -I$(CS_HOME)/include/phonon
 
 if OSTYPE_WIN
    # disable console on window
    AM_CXXFLAGS+=-mwindows
 
-   # 'instal' is the folder for "make install"
+   # location for 'make install'
    installdir=$(abs_top_builddir)/install
 endif
 
@@ -38,8 +38,15 @@ deploy: $(bin_PROGRAMS)
 
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
 
-	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%1-0.so*,$(cslibs)) $(deploydir)
-	rsync -W -a $(top_srcdir)/resources/{ks_cs.ico, script.js, sampleMenu.xml} $(deploydir)/resources
+	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%1.so*,$(cslibs)) $(deploydir)
+
+   ifeq ($(findstring Phonon,$(cslibs)),Phonon)
+		rsync -W -a $(CS_HOME)/lib/phonon_gstreamer.so $(deploydir)/phonon_backend
+   else
+		@echo "Phonon library was not found"
+   endif
+
+	rsync -W -a $(top_srcdir)/resources/{ks_cs.ico,script.js,sampleMenu.xml} $(deploydir)/resources
 endif
 
 if OSTYPE_DARWIN
@@ -264,6 +271,19 @@ if OSTYPE_DARWIN
 endif
 
 if OSTYPE_WIN
+
+install-exec-hook:
+	rsync -W -a --modify-window=2  $(patsubst %,$(gccpath)/%.dll,$(gcclibs))  $(bindir)
+	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%1-0.dll,$(cslibs))  $(bindir)
+
+	mkdir -p $(bindir)/phonon_backend
+
+   ifeq ($(findstring Phonon,$(cslibs)),Phonon)
+		rsync -W -a --modify-window=2  $(CS_HOME)/lib/phonon_ds9-0.dll  $(bindir)/phonon_backend
+   else
+		@echo "Phonon library was not found"
+   endif
+
 endif
 
 # distribution
