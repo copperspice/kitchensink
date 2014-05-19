@@ -132,7 +132,7 @@ void Dialogs::setExistingDirectory()
    QString directory = QFileDialog::getExistingDirectory(this,
          tr("getExistingDirectory()"),ui->dir_lineEdit->text(),options);
 
-   if (!directory.isEmpty()) {
+   if (! directory.isEmpty()) {
       ui->dir_lineEdit->setText(directory);
    }
 }
@@ -150,7 +150,7 @@ void Dialogs::setOpenFileName()
          tr("getOpenFileName()"), ui->openFile_lineEdit->text(),
          tr("All Files (*);;Text Files (*.txt)"), &selectedFilter, options);
 
-   if (!fileName.isEmpty()) {
+   if (! fileName.isEmpty()) {
       ui->openFile_lineEdit->setText(fileName);
    }
 }

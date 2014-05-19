@@ -1,7 +1,7 @@
 include copperspice.am
 
-# dist (windows)
-distdir_custom=install_win/dist
+# dist
+distdir_custom=source_dist/dist
 
 # path to gcc (windows)
 gccpath=/c/MingW/bin
@@ -286,25 +286,33 @@ install-exec-hook:
 
 endif
 
-# distribution
+# distribution for 'make dist'
 distdir: $(DISTFILES)
 	cd .. ; \
-	test -d "$(distdir_custom)" || mkdir -p "$(distdir_custom)" ;  \
-	for f in $(DIST_SOURCES)  ; do install -D $$f $(distdir_custom)/$$f ; done ;  \
-	for f in $(HEADERS)       ; do install -D $$f $(distdir_custom)/$$f ; done ;  \
-	for f in $(FORMS)         ; do install -D $$f $(distdir_custom)/$$f ; done ;  \
-	mkdir -p $(distdir_custom)/bin           ;          \
-	mkdir -p $(distdir_custom)/resources     ;          \
-	cp kitchensink.qrc        $(distdir_custom)/     ;  \
-	cp install_files/cs.conf  $(distdir_custom)/     ;  \
-	cp bin/*.am               $(distdir_custom)/bin/ ;  \
-	cp resources/*            $(distdir_custom)/resources/
+	test -d "$(distdir_custom)" || mkdir -p "$(distdir_custom)" ; \
+	mkdir -p $(distdir_custom)/bin                              ; \
+	mkdir -p $(distdir_custom)/resources                        ; \
+	mkdir -p $(distdir_custom)/resources_qml                    ; \
+\
+	for f in $(DIST_SOURCES)  ; do install -D $$f $(distdir_custom)/$$f ; done ; \
+	for f in $(HEADERS)       ; do install -D $$f $(distdir_custom)/$$f ; done ; \
+	for f in $(FORMS)         ; do install -D $$f $(distdir_custom)/$$f ; done ; \
+\
+	cp kitchensink.qrc        $(distdir_custom)/                ; \
+	cp bin/*.am               $(distdir_custom)/bin/            ; \
+	cp -r resources/*         $(distdir_custom)/resources/      ; \
+	cp -r resources_qml/*     $(distdir_custom)/resources_qml/
+
 	$(MAKE) $(AM_MAKEFLAGS) dist-hook
 
+# distdir is a temp folder
 dist-hook:
 	cd .. ; \
-	cp -r bin/$(distdir)/../*   $(distdir_custom) ;  \
-	rm -r bin/$(distdir)/../   ;      \
-	cd $(distdir_custom)       ;      \
-	rm -f  ../KS_CS-$(VERSION).zip  ; \
-	zip -r ../KS_CS-$(VERSION).zip .
+\
+	cp -r bin/$(distdir)/../*   $(distdir_custom)  ; \
+	cd $(distdir_custom)                           ; \
+\
+	rm -f    ../KitchenSink-$(VERSION).zip                  ; \
+	zip -r   ../KitchenSink-$(VERSION).zip .                ; \
+	rm  -f   ../KitchenSink-$(VERSION).tar.bz2              ; \
+	tar -cjf ../KitchenSink-$(VERSION).tar.bz2 .
