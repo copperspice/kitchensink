@@ -1,7 +1,7 @@
 include copperspice.am
 
 # dist
-distdir_custom=source_dist/dist
+distdir_custom=source_dist/dist/KitchenSink-$(VERSION)
 
 # path to gcc (windows)
 gccpath=/c/MingW/bin
@@ -31,7 +31,7 @@ bin_PROGRAMS = KitchenSink
 .PHONY: deploy
 
 if OSTYPE_LINUX
-deploy: $(bin_PROGRAMS)
+deploy : all
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend
 	mkdir -p $(deploydir)/resources
@@ -52,7 +52,7 @@ endif
 if OSTYPE_DARWIN
 deployapp=$(deploydir)/$(bin_PROGRAMS).app/Contents
 
-deploy: $(bin_PROGRAMS)
+deploy : all
 	mkdir -p $(deployapp)/Frameworks
 	mkdir -p $(deployapp)/MacOS
 	mkdir -p $(deployapp)/Resources
@@ -99,11 +99,13 @@ deploy: $(bin_PROGRAMS)
 endif
 
 if OSTYPE_WIN
-deploy: $(bin_PROGRAMS)
+deploy : all
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend
 
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
+
+	rsync -W -a --modify-window=2  $(top_srcdir)/resources/ks_cs.ico $(deploydir)
 
 	rsync -W -a --modify-window=2  $(patsubst %,$(gccpath)/%.dll,$(gcclibs))  $(deploydir)
 	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%1-0.dll,$(cslibs))  $(deploydir)
@@ -271,8 +273,9 @@ if OSTYPE_DARWIN
 endif
 
 if OSTYPE_WIN
-
 install-exec-hook:
+	rsync -W -a --modify-window=2  $(top_srcdir)/resources/ks_cs.ico $(bindir)
+
 	rsync -W -a --modify-window=2  $(patsubst %,$(gccpath)/%.dll,$(gcclibs))  $(bindir)
 	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%1-0.dll,$(cslibs))  $(bindir)
 
@@ -300,6 +303,7 @@ distdir: $(DISTFILES)
 \
 	cp kitchensink.qrc        $(distdir_custom)/                ; \
 	cp bin/*.am               $(distdir_custom)/bin/            ; \
+	cp bin/Makefile.in        $(distdir_custom)/bin/            ; \
 	cp -r resources/*         $(distdir_custom)/resources/      ; \
 	cp -r resources_qml/*     $(distdir_custom)/resources_qml/
 
@@ -310,7 +314,7 @@ dist-hook:
 	cd .. ; \
 \
 	cp -r bin/$(distdir)/../*   $(distdir_custom)  ; \
-	cd $(distdir_custom)                           ; \
+	cd $(distdir_custom)/..                        ; \
 \
 	rm -f    ../KitchenSink-$(VERSION).zip                  ; \
 	zip -r   ../KitchenSink-$(VERSION).zip .                ; \

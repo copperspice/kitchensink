@@ -517,14 +517,6 @@
     </message>
 </context>
 <context>
-    <name>DragWidget</name>
-    <message>
-        <location filename="../dragwidget.cpp" line="46"/>
-        <source>Fridge Magnets</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Draw</name>
     <message>
         <location filename="../draw.cpp" line="46"/>
@@ -532,255 +524,255 @@
         <translation>Dessin de base</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="52"/>
+        <location filename="../draw.cpp" line="51"/>
         <source>Polygon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="53"/>
+        <location filename="../draw.cpp" line="52"/>
         <source>Rectangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="54"/>
+        <location filename="../draw.cpp" line="53"/>
         <source>Rounded Rectangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="55"/>
+        <location filename="../draw.cpp" line="54"/>
         <source>Ellipse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="56"/>
+        <location filename="../draw.cpp" line="55"/>
         <source>Pie</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="57"/>
+        <location filename="../draw.cpp" line="56"/>
         <source>Chord</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="58"/>
+        <location filename="../draw.cpp" line="57"/>
         <source>Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="59"/>
+        <location filename="../draw.cpp" line="58"/>
         <source>Line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="60"/>
+        <location filename="../draw.cpp" line="59"/>
         <source>Polyline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="61"/>
+        <location filename="../draw.cpp" line="60"/>
         <source>Arc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="62"/>
+        <location filename="../draw.cpp" line="61"/>
         <source>Points</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="63"/>
+        <location filename="../draw.cpp" line="62"/>
         <source>Text</source>
         <translation>Texte</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="65"/>
+        <location filename="../draw.cpp" line="64"/>
         <source>&amp;Shape:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="70"/>
+        <location filename="../draw.cpp" line="69"/>
         <source>0 (cosmetic pen)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="72"/>
+        <location filename="../draw.cpp" line="71"/>
         <source>Pen &amp;Width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="76"/>
-        <location filename="../draw.cpp" line="107"/>
+        <location filename="../draw.cpp" line="75"/>
+        <location filename="../draw.cpp" line="106"/>
         <source>Solid</source>
         <translation>Trait continu</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="77"/>
+        <location filename="../draw.cpp" line="76"/>
         <source>Dash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="78"/>
+        <location filename="../draw.cpp" line="77"/>
         <source>Dot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="79"/>
+        <location filename="../draw.cpp" line="78"/>
         <source>Dash Dot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="80"/>
+        <location filename="../draw.cpp" line="79"/>
         <source>Dash Dot Dot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="81"/>
-        <location filename="../draw.cpp" line="121"/>
+        <location filename="../draw.cpp" line="80"/>
+        <location filename="../draw.cpp" line="120"/>
         <source>None</source>
         <translation>Aucun</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="83"/>
+        <location filename="../draw.cpp" line="82"/>
         <source>&amp;Pen Style:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="87"/>
+        <location filename="../draw.cpp" line="86"/>
         <source>Flat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="88"/>
+        <location filename="../draw.cpp" line="87"/>
         <source>Square</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="89"/>
-        <location filename="../draw.cpp" line="97"/>
+        <location filename="../draw.cpp" line="88"/>
+        <location filename="../draw.cpp" line="96"/>
         <source>Round</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="91"/>
+        <location filename="../draw.cpp" line="90"/>
         <source>Pen &amp;Cap:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="95"/>
+        <location filename="../draw.cpp" line="94"/>
         <source>Miter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="96"/>
+        <location filename="../draw.cpp" line="95"/>
         <source>Bevel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="99"/>
+        <location filename="../draw.cpp" line="98"/>
         <source>Pen &amp;Join:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="103"/>
+        <location filename="../draw.cpp" line="102"/>
         <source>Linear Gradient</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="104"/>
+        <location filename="../draw.cpp" line="103"/>
         <source>Radial Gradient</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="105"/>
+        <location filename="../draw.cpp" line="104"/>
         <source>Conical Gradient</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="106"/>
+        <location filename="../draw.cpp" line="105"/>
         <source>Texture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="108"/>
+        <location filename="../draw.cpp" line="107"/>
         <source>Horizontal</source>
         <translation>Horizontal</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="109"/>
+        <location filename="../draw.cpp" line="108"/>
         <source>Vertical</source>
         <translation>Vertical</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="110"/>
+        <location filename="../draw.cpp" line="109"/>
         <source>Cross</source>
         <translation>Croix</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="111"/>
+        <location filename="../draw.cpp" line="110"/>
         <source>Backward Diagonal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="112"/>
+        <location filename="../draw.cpp" line="111"/>
         <source>Forward Diagonal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="113"/>
+        <location filename="../draw.cpp" line="112"/>
         <source>Diagonal Cross</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="114"/>
+        <location filename="../draw.cpp" line="113"/>
         <source>Dense 1</source>
         <translation>Dense 1</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="115"/>
+        <location filename="../draw.cpp" line="114"/>
         <source>Dense 2</source>
         <translation>Dense 2</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="116"/>
+        <location filename="../draw.cpp" line="115"/>
         <source>Dense 3</source>
         <translation>Dense 3</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="117"/>
+        <location filename="../draw.cpp" line="116"/>
         <source>Dense 4</source>
         <translation>Dense 4</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="118"/>
+        <location filename="../draw.cpp" line="117"/>
         <source>Dense 5</source>
         <translation>Dense 5</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="119"/>
+        <location filename="../draw.cpp" line="118"/>
         <source>Dense 6</source>
         <translation>Dense 6</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="120"/>
+        <location filename="../draw.cpp" line="119"/>
         <source>Dense 7</source>
         <translation>Dense 7</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="123"/>
+        <location filename="../draw.cpp" line="122"/>
         <source>&amp;Brush:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="126"/>
+        <location filename="../draw.cpp" line="125"/>
         <source>Options:</source>
         <translation>Options:</translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="127"/>
+        <location filename="../draw.cpp" line="126"/>
         <source>&amp;Antialiasing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../draw.cpp" line="128"/>
+        <location filename="../draw.cpp" line="127"/>
         <source>&amp;Transformations</source>
         <translation type="unfinished"></translation>
     </message>
@@ -812,89 +804,97 @@
     </message>
 </context>
 <context>
+    <name>FridgeMagnet</name>
+    <message>
+        <location filename="../fridgemag.cpp" line="46"/>
+        <source>Fridge Magnets</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Grabber</name>
     <message>
-        <location filename="../grabber.cpp" line="92"/>
+        <location filename="../grabber.cpp" line="105"/>
         <source>&amp;Render into Pixmap...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="93"/>
+        <location filename="../grabber.cpp" line="106"/>
         <source>Ctrl+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="97"/>
+        <location filename="../grabber.cpp" line="110"/>
         <source>&amp;Grab Frame Buffer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="98"/>
+        <location filename="../grabber.cpp" line="111"/>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="102"/>
+        <location filename="../grabber.cpp" line="115"/>
         <source>&amp;Clear Pixmap</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="103"/>
+        <location filename="../grabber.cpp" line="116"/>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="106"/>
+        <location filename="../grabber.cpp" line="119"/>
         <source>Close</source>
         <translation type="unfinished">Fermer</translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="110"/>
+        <location filename="../grabber.cpp" line="123"/>
         <source>&amp;About</source>
         <translation type="unfinished">&amp;À propos</translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="113"/>
+        <location filename="../grabber.cpp" line="126"/>
         <source>About &amp;CopperSpice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="119"/>
+        <location filename="../grabber.cpp" line="132"/>
         <source>&amp;File</source>
         <translation type="unfinished">&amp;Fichier</translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="126"/>
+        <location filename="../grabber.cpp" line="139"/>
         <source>&amp;Help</source>
         <translation type="unfinished">&amp;Aide</translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="150"/>
+        <location filename="../grabber.cpp" line="93"/>
         <source>About Grabber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="151"/>
+        <location filename="../grabber.cpp" line="94"/>
         <source>The &lt;b&gt;Grabber&lt;/b&gt; example demonstrates two approaches for rendering OpenGL into a Qt pixmap.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="169"/>
+        <location filename="../grabber.cpp" line="166"/>
         <source>Grabber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="170"/>
+        <location filename="../grabber.cpp" line="167"/>
         <source>Enter pixmap size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="172"/>
+        <location filename="../grabber.cpp" line="169"/>
         <source>%1 x %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grabber.cpp" line="178"/>
+        <location filename="../grabber.cpp" line="175"/>
         <source>([0-9]+) *x *([0-9]+)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1404,12 +1404,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mandelbrot_widget.cpp" line="75"/>
+        <location filename="../mandelbrot_widget.cpp" line="72"/>
         <source>Rendering initial image, please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mandelbrot_widget.cpp" line="99"/>
+        <location filename="../mandelbrot_widget.cpp" line="96"/>
         <source>Use mouse wheel or the &apos;+&apos; and &apos;-&apos; keys to zoom. Press and hold left mouse button to scroll.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1684,41 +1684,54 @@
     </message>
     <message>
         <location filename="../mdi.cpp" line="381"/>
-        <source>&lt;p style=margin-right:25&gt;&lt;center&gt;&lt;h5&gt;Version: 1.0&lt;br&gt;Build # 05.01.2014&lt;/h5&gt;&lt;/center&gt;&lt;/p&gt;</source>
+        <source>&lt;p style=margin-right:25&gt;&lt;center&gt;&lt;h5&gt;Version: 1.0&lt;br&gt;Build # 05.05.2014&lt;/h5&gt;&lt;/center&gt;&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MusicPlayer</name>
     <message>
-        <location filename="../bin/ui_musicplayer.h" line="90"/>
+        <location filename="../bin/ui_musicplayer.h" line="117"/>
         <source>MainWindow</source>
         <translation>Fenêtre Principale</translation>
     </message>
     <message>
-        <location filename="../bin/ui_musicplayer.h" line="94"/>
         <source>File</source>
-        <translation>Fichier</translation>
+        <translation type="obsolete">Fichier</translation>
     </message>
     <message>
-        <location filename="../bin/ui_musicplayer.h" line="95"/>
         <source>Help</source>
-        <translation>Aide</translation>
+        <translation type="obsolete">Aide</translation>
     </message>
     <message>
-        <location filename="../bin/ui_musicplayer.h" line="91"/>
+        <location filename="../bin/ui_musicplayer.h" line="118"/>
         <source>About</source>
         <translation>À propos</translation>
     </message>
     <message>
-        <location filename="../bin/ui_musicplayer.h" line="92"/>
+        <location filename="../bin/ui_musicplayer.h" line="119"/>
         <source>Open...</source>
         <translation>Ouvrir...</translation>
     </message>
     <message>
-        <location filename="../bin/ui_musicplayer.h" line="93"/>
+        <location filename="../bin/ui_musicplayer.h" line="120"/>
         <source>Close Music Player</source>
         <translation>Un lecteur de musique Fermer</translation>
+    </message>
+    <message>
+        <location filename="../bin/ui_musicplayer.h" line="121"/>
+        <source>Open File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../bin/ui_musicplayer.h" line="122"/>
+        <source>Close</source>
+        <translation type="unfinished">Fermer</translation>
+    </message>
+    <message>
+        <location filename="../bin/ui_musicplayer.h" line="123"/>
+        <source>About CS</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../musicplayer.cpp" line="66"/>
@@ -1726,77 +1739,71 @@
         <translation>Lecteur de musique</translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="116"/>
+        <location filename="../musicplayer.cpp" line="157"/>
         <source>Play</source>
         <translation>Exécuter</translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="117"/>
+        <location filename="../musicplayer.cpp" line="158"/>
         <source>Ctrl+P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="120"/>
+        <location filename="../musicplayer.cpp" line="161"/>
         <source>Pause</source>
         <translation>Pause</translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="121"/>
+        <location filename="../musicplayer.cpp" line="162"/>
         <source>Ctrl+A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="124"/>
+        <location filename="../musicplayer.cpp" line="165"/>
         <source>Stop</source>
         <translation>Arrêter</translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="125"/>
+        <location filename="../musicplayer.cpp" line="166"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="157"/>
+        <location filename="../musicplayer.cpp" line="209"/>
         <source>Title</source>
         <translation>Titre</translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="158"/>
+        <location filename="../musicplayer.cpp" line="210"/>
         <source>Artist</source>
         <translation>Artiste</translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="159"/>
+        <location filename="../musicplayer.cpp" line="211"/>
         <source>Album</source>
         <translation>Album</translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="208"/>
+        <location filename="../musicplayer.cpp" line="132"/>
         <source>Select Music Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="392"/>
         <source>About Music Player</source>
-        <translation>Un lecteur de musique propos</translation>
+        <translation type="obsolete">Un lecteur de musique propos</translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="392"/>
-        <source>This example shows how to use Phonon Multimedia Framework.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../musicplayer.cpp" line="258"/>
+        <location filename="../musicplayer.cpp" line="250"/>
         <source>Fatal Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="261"/>
+        <location filename="../musicplayer.cpp" line="253"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../musicplayer.cpp" line="303"/>
+        <location filename="../musicplayer.cpp" line="295"/>
         <source>Error Opening File(s)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1819,7 +1826,7 @@
         <translation>Nom de famille</translation>
     </message>
     <message>
-        <location filename="../treeview.cpp" line="93"/>
+        <location filename="../treeview.cpp" line="91"/>
         <source>Food Categories</source>
         <translation>Les catégories d&apos;aliments</translation>
     </message>
@@ -1837,42 +1844,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshot.cpp" line="81"/>
+        <location filename="../screenshot.cpp" line="86"/>
         <source>/untitled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshot.cpp" line="83"/>
+        <location filename="../screenshot.cpp" line="88"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshot.cpp" line="85"/>
+        <location filename="../screenshot.cpp" line="89"/>
         <source>%1 Files (*.%2);;All Files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshot.cpp" line="108"/>
+        <location filename="../screenshot.cpp" line="112"/>
         <source>Options</source>
         <translation type="unfinished">Options</translation>
     </message>
     <message>
-        <location filename="../screenshot.cpp" line="111"/>
+        <location filename="../screenshot.cpp" line="115"/>
         <source> s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshot.cpp" line="114"/>
+        <location filename="../screenshot.cpp" line="118"/>
         <source>Screenshot Delay:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshot.cpp" line="125"/>
+        <location filename="../screenshot.cpp" line="129"/>
         <source>New Screenshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshot.cpp" line="126"/>
+        <location filename="../screenshot.cpp" line="130"/>
         <source>Save Screenshot</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2755,17 +2762,17 @@ Maybe you can ask another user.</source>
 <context>
     <name>TableView</name>
     <message>
-        <location filename="../tableview.cpp" line="58"/>
+        <location filename="../tableview.cpp" line="57"/>
         <source>Table View Model</source>
         <translation>Modèle Table View</translation>
     </message>
     <message>
-        <location filename="../tableview.cpp" line="109"/>
+        <location filename="../tableview.cpp" line="105"/>
         <source>Unable to Open Database</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tableview.cpp" line="110"/>
+        <location filename="../tableview.cpp" line="106"/>
         <source>Unable to establish a connection to the database.
 This example requires SQLite.
 
@@ -2843,16 +2850,16 @@ This example requires SQLite.
         <translation>Modèle Tree View</translation>
     </message>
     <message>
-        <location filename="../treeview.cpp" line="115"/>
-        <source>Cannot open database</source>
+        <location filename="../treeview.cpp" line="109"/>
+        <source>Unable to Open Database</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../treeview.cpp" line="116"/>
-        <source>Unable to establish a database connection.
-This example needs SQLite support. Please read the Qt SQL driver documentation for information on how to build it.
+        <location filename="../treeview.cpp" line="110"/>
+        <source>Unable to establish a connection to the database.
+This example requires SQLite.
 
-Click Cancel to exit.</source>
+</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
