@@ -60,17 +60,20 @@ deploy : all
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deployapp)/MacOS
 
 	rm -f $(deployapp)/Info.plist
-	sed -e "s,@ICON@,,g" \
+	sed -e "s,@ICON@,ks_cs.icns,g" \
 	    -e "s,@TYPEINFO@,????,g" \
 	    -e "s,@EXECUTABLE@,$(bin_PROGRAMS),g" \
+	    -e "s,com.yourcompany.,com.copperspice.,g" \
 	$(CS_HOME)/mac/Info.plist.app > $(deployapp)/Info.plist
-	
+
 	rm -f $(deployapp)/PkgInfo
 	echo "APPL????" > $(deployapp)/PkgInfo
-	
+
 	touch $(deployapp)/Resources/empty.lproj
 	cp -r $(CS_HOME)/mac/qt_menu.nib $(deployapp)/Resources
-	
+
+	cp $(top_srcdir)/resources/ks_cs.icns $(deployapp)/Resources
+
 	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%1.0.dylib,$(cslibs)) $(deployapp)/Frameworks
 
 # phonon	
