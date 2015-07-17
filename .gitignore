@@ -9,7 +9,9 @@ Makefile.in
 aclocal.m4
 configure
 config.log
-KitchenSink-Cs4.creator*
+KitchenSink-Cs5.creator*
+kitchensink*.tar.gz
+do-config-ks5
 /bin/.deps
 /bin/.libs
 /bin/*.o
@@ -21,4 +23,3 @@ KitchenSink-Cs4.creator*
 /install/
 /source_binaries/
 /source_dist/
-kitchensink*.tar.gz

@@ -55,6 +55,7 @@ class AboutCS : public QWidget
 
       CS_SLOT_1(Private, void actionHome())
       CS_SLOT_2(actionHome) 
+
 };
 
 #endif
