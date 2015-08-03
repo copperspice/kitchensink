@@ -10,6 +10,9 @@ aclocal.m4
 configure
 config.log
 KitchenSink-Cs5.creator*
+KitchenSink-Cs5.config
+KitchenSink-Cs5.files
+KitchenSink-Cs5.includes
 kitchensink*.tar.gz
 do-config-ks5
 /bin/.deps

@@ -49,7 +49,7 @@ Style_DW::Style_DW(Mdi *parent)
    ui->setupUi(this);
    setWindowTitle("Style Sheets");
 
-   ui->nameLabel->setProperty("class", "mandatory QLabel");
+   ui->nameLabel->setProperty("class", QString("mandatory QLabel"));
 
    // add data
    ui->nameCB->addItem(tr("Amy Pond"));

@@ -1,6 +1,6 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2014 Barbara Geller
+* Copyright (c) 2012-2015 Barbara Geller
 * Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
@@ -79,7 +79,7 @@ Mdi::Mdi()
    : QMainWindow(), ui(new Ui::Mdi)
 {
    ui->setupUi(this);
-   setWindowTitle(tr("Kitchen Sink-Cs4"));
+   setWindowTitle(tr("Kitchen Sink-Cs5"));
    setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
    setUnifiedTitleAndToolBarOnMac(true);
@@ -369,7 +369,7 @@ void Mdi::on_actionAbout_triggered()
                       "<tr><td style=padding-right:25><nobr>Developed by Ansel Sermersheim</nobr></td><td>ansel@copperspice.com</td></tr>"
                       "</table></font>"
                       "<br>"
-                      "<p><small>Copyright 2012-2014 BG Consulting, All rights reserved.<br>"
+                      "<p><small>Copyright 2012-2015 BG Consulting, All rights reserved.<br>"
                       "This program is provided AS IS with no warranty of any kind.<br></small></p>";
 
    //
@@ -377,8 +377,8 @@ void Mdi::on_actionAbout_triggered()
    msgB.setIcon(QMessageBox::NoIcon);
    msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
-   msgB.setWindowTitle(tr("About Kitchen Sink-Cs4"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.0<br>Build # 07.15.2014</h5></center></p>"));
+   msgB.setWindowTitle(tr("About Kitchen Sink-Cs5"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.1<br>Build # 08.1.2015</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);
