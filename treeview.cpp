@@ -102,7 +102,10 @@ TreeView::TreeView()
 
 bool TreeView::createConnection()
 {
-   m_db = QSqlDatabase::addDatabase("QSQLITE", "tree");
+   static int counter = 100;
+   QString treeName = "tree" + QString::number(counter++);
+
+   m_db = QSqlDatabase::addDatabase("QSQLITE", treeName);
    m_db.setDatabaseName(":memory:");
 
    if (! m_db.open()) {

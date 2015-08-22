@@ -151,8 +151,14 @@ void TableWidget_View::setUpWidget()
    connect(ui->tableWidget, SIGNAL(cellPressed(int,int)),this, SLOT(tableClicked_W(int,int)));
 
    // complies but will fail at run time since the SLOT is not defined
-   connect(ui->tableWidget, SIGNAL(itemChanged(QTableWidgetItem * )),
-           this, SLOT( actionItemChanged(QTableWidgetItem *)));
+   // connect(ui->tableWidget, SIGNAL(itemChanged(QTableWidgetItem * )),
+   //        this, SLOT( actionItemChanged(QTableWidgetItem *)));
+
+   // This is the error you would see at run time
+   // QObject::connect() QTableWidget::itemChanged(QTableWidgetItem * )
+   // Unable to connect to receiver in TableWidget_View (../tablewidget_view.cpp:154)
+   // Signal Index: 9 Slot Index: -1
+
 }
 
 void TableWidget_View::setUpView()

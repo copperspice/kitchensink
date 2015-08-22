@@ -58,7 +58,7 @@ TableView::TableView()
    setMinimumSize(300, 350);
 
    //
-   QSqlTableModel *model = new QSqlTableModel(0, m_db);
+   QSqlTableModel *model = new QSqlTableModel(this, m_db);
 
    QStringList tempX = m_db.tables();
    model->setTable(tempX.at(0));
@@ -97,8 +97,11 @@ TableView::~TableView()
 }
 
 bool TableView::createConnection()
-{
-   m_db = QSqlDatabase::addDatabase("QSQLITE","table");
+{   
+   static int counter = 100;
+   QString tableName = "table" + QString::number(counter++);
+
+   m_db = QSqlDatabase::addDatabase("QSQLITE", tableName);
    m_db.setDatabaseName(":memory:");
 
    if (! m_db.open()) {

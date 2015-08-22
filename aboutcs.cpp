@@ -1,6 +1,6 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2014 Barbara Geller
+* Copyright (c) 2012-2015 Barbara Geller
 * Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
@@ -51,7 +51,7 @@ AboutCS::AboutCS(QString route)
       setWindowTitle("About CopperSpice");
 
    } else   {
-      url = "http://www.copperspice.com/kitchensink.html";
+      url = "http://www.copperspice.com/documentation-kitchensink.html";
       setWindowTitle("About KitchenSink");
 
    }
@@ -83,8 +83,8 @@ AboutCS::AboutCS(QString route)
    mainLayout->setContentsMargins(0, 0, 0, 15);
 
    // signals
-   connect(homePB,   SIGNAL(clicked()), this, SLOT(actionHome()) );
-   connect(closePB,  SIGNAL(clicked()), this, SLOT(actionClose()) );  
+   connect(homePB,  SIGNAL(clicked()), this, SLOT(actionHome()) );
+   connect(closePB, SIGNAL(clicked()), this, SLOT(actionClose()) );
 }
 
 void AboutCS::actionHome() {
@@ -98,5 +98,5 @@ void AboutCS::actionClose() {
 
 QSize AboutCS::sizeHint() const
 {
-   return QSize(725,600);
+   return QSize(800, 600);
 }

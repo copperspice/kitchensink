@@ -1,6 +1,6 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2014 Barbara Geller
+* Copyright (c) 2012-2015 Barbara Geller
 * Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
