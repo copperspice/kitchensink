@@ -80,7 +80,7 @@ deploy : all
 	mkdir -p $(deployapp)/MacOS/phonon_backend
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)	
 		rsync -W -a $(CS_HOME)/lib/phonon_qt7.0.so  $(deployapp)/MacOS/phonon_backend
-   else		
+   else
 		@echo "Phonon Backend library was not found"
    endif
 	
@@ -88,6 +88,9 @@ deploy : all
 	\
 	install_name_tool -change $(CS_HOME)/lib/$$libname \
 	@executable_path/../Frameworks/$$libname $(deployapp)/MacOS/$(bin_PROGRAMS); \
+	\
+	install_name_tool -change $(CS_HOME)/lib/$$libname \
+	@executable_path/../Frameworks/$$libname $(deployapp)/MacOS/phonon_backend/phonon_qt7.0.so; \
 	\
 	for templib in $(patsubst %,libCs%1.0.dylib,$(cslibs)) ; do \
 	install_name_tool -change $(CS_HOME)/lib/$$templib \

@@ -33,8 +33,8 @@
 *
 ***********************************************************************/
 
-#ifndef INTERNATIOANL_H
-#define INTERNATIONAl_H
+#ifndef INTERNATIONAL_H
+#define INTERNATIONAL_H
 
 #include "ui_international.h"
 
