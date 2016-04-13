@@ -14,7 +14,7 @@ cslibs=Core Gui Multimedia Network OpenGL Phonon Script Sql Svg WebKit Xml XmlPa
 # Declarative  (on hold)
 
 # location of includes
-AM_CXXFLAGS+=-I.. -I$(CS_HOME)/include/phonon
+AM_CXXFLAGS+=-I../src -I$(CS_HOME)/include/phonon
 
 if OSTYPE_WIN
    # disable console on window
@@ -141,99 +141,99 @@ if OSTYPE_WIN
 endif
 
 KitchenSink_SOURCES = \
-   aboutcs.cpp \
-   analogclock.cpp \
-   animated_tiles.cpp \
-   calendar.cpp \
-   colorpicker.cpp \
-   dialogs.cpp \
-   draglabel.cpp  \
-   draw.cpp \
-   draw_area.cpp \
-   fridgemag.cpp \
-   fontpicker.cpp \
-   glwidget.cpp \
-   grabber.cpp  \
-   html_viewer.cpp \
-   international.cpp \
-   lighting.cpp \
-   line_edit.cpp \
-   listview.cpp \
-   main.cpp \
-   mandelbrot_thread.cpp \
-   mandelbrot_widget.cpp \
-   mdi.cpp \
-   musicplayer.cpp  \
-   screenshot.cpp \
-   sliders.cpp \
-   script.cpp \
-   stdpath.cpp \
-   style_edit.cpp \
-   style_dw.cpp \
-   svg_view.cpp  \
-   svgtextobject.cpp \
-   systray.cpp \
-   tableview.cpp \
-   tablewidget_view.cpp \
-   tabdialog.cpp \
-   treeview.cpp \
-   util.cpp \
-   videosurface.cpp \
-   videoplayer.cpp \
-   videowidget.cpp \
-   web_browser.cpp \
-   xml.cpp \
-   xmlpatterns.cpp \
-   xmlsyntaxhighlighter.cpp
+   src/aboutcs.cpp \
+   src/analogclock.cpp \
+   src/animated_tiles.cpp \
+   src/calendar.cpp \
+   src/colorpicker.cpp \
+   src/dialogs.cpp \
+   src/draglabel.cpp  \
+   src/draw.cpp \
+   src/draw_area.cpp \
+   src/fridgemag.cpp \
+   src/fontpicker.cpp \
+   src/glwidget.cpp \
+   src/grabber.cpp  \
+   src/html_viewer.cpp \
+   src/international.cpp \
+   src/lighting.cpp \
+   src/line_edit.cpp \
+   src/listview.cpp \
+   src/main.cpp \
+   src/mandelbrot_thread.cpp \
+   src/mandelbrot_widget.cpp \
+   src/mdi.cpp \
+   src/musicplayer.cpp  \
+   src/screenshot.cpp \
+   src/sliders.cpp \
+   src/script.cpp \
+   src/stdpath.cpp \
+   src/style_edit.cpp \
+   src/style_dw.cpp \
+   src/svg_view.cpp  \
+   src/svgtextobject.cpp \
+   src/systray.cpp \
+   src/tableview.cpp \
+   src/tablewidget_view.cpp \
+   src/tabdialog.cpp \
+   src/treeview.cpp \
+   src/util.cpp \
+   src/videosurface.cpp \
+   src/videoplayer.cpp \
+   src/videowidget.cpp \
+   src/web_browser.cpp \
+   src/xml.cpp \
+   src/xmlpatterns.cpp \
+   src/xmlsyntaxhighlighter.cpp
 
 # qmlapplicationviewer.cpp
 # wiggle_boxes.cpp
 # world_clock.cpp
 
 noinst_HEADERS = \
-   aboutcs.h \
-   calendar.h \
-   colorpicker.h \
-   dialogs.h \
-   draw.h \
-   draw_area.h \
-   fontpicker.h \
-   html_viewer.h  \
-   international.h \
-   line_edit.h \
-   listview.h \
-   mdi.h \
-   musicplayer.h \
-   script.h \
-   stdpath.h \
-   sliders.h \
-   style_dw.h  \
-   style_edit.h  \
-   svg_view.h  \
-   svgtextobject.h \
-   systray.h \
-   tabdialog.h \
-   tableview.h \
-   tablewidget_view.h \
-   treeview.h \
-   util.h \
-   videoplayer.h \
-   videowidget.h \
-   videosurface.h \
-   web_browser.h \
-   analogclock.h  \
-   animated_tiles.h  \
-   draglabel.h \
-   fridgemag.h  \
-   glwidget.h  \
-   grabber.h  \
-   lighting.h  \
-   mandelbrot_thread.h  \
-   mandelbrot_widget.h  \
-   screenshot.h \
-   xml.h \
-   xmlpatterns.h \
-   xmlsyntaxhighlighter.h
+   src/aboutcs.h \
+   src/calendar.h \
+   src/colorpicker.h \
+   src/dialogs.h \
+   src/draw.h \
+   src/draw_area.h \
+   src/fontpicker.h \
+   src/html_viewer.h  \
+   src/international.h \
+   src/line_edit.h \
+   src/listview.h \
+   src/mdi.h \
+   src/musicplayer.h \
+   src/script.h \
+   src/stdpath.h \
+   src/sliders.h \
+   src/style_dw.h  \
+   src/style_edit.h  \
+   src/svg_view.h  \
+   src/svgtextobject.h \
+   src/systray.h \
+   src/tabdialog.h \
+   src/tableview.h \
+   src/tablewidget_view.h \
+   src/treeview.h \
+   src/util.h \
+   src/videoplayer.h \
+   src/videowidget.h \
+   src/videosurface.h \
+   src/web_browser.h \
+   src/analogclock.h  \
+   src/animated_tiles.h  \
+   src/draglabel.h \
+   src/fridgemag.h  \
+   src/glwidget.h  \
+   src/grabber.h  \
+   src/lighting.h  \
+   src/mandelbrot_thread.h  \
+   src/mandelbrot_widget.h  \
+   src/screenshot.h \
+   src/xml.h \
+   src/xmlpatterns.h \
+   src/xmlsyntaxhighlighter.h
 
 # qmlapplicationviewer.h
 # wiggle_boxes.h

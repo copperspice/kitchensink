@@ -1,5 +1,5 @@
 # project name, version, email
-AC_INIT([KitchenSink], 1.2, [barbara@copperspice.com])
+AC_INIT([KitchenSink], 1.2.1, [barbara@copperspice.com])
 
 # location of temp autotools files
 # note: space can not exist between ] and  )
@@ -11,7 +11,7 @@ AC_CANONICAL_HOST
 AC_CANONICAL_TARGET
 
 # name of one source file
-AC_CONFIG_SRCDIR([main.cpp])
+AC_CONFIG_SRCDIR([src/main.cpp])
 
 # not a gnu project
 AM_INIT_AUTOMAKE( [foreign] )

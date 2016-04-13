@@ -1684,7 +1684,7 @@
     </message>
     <message>
         <location filename="../mdi.cpp" line="381"/>
-        <source>&lt;p style=margin-right:25&gt;&lt;center&gt;&lt;h5&gt;Version: 1.0&lt;br&gt;Build # 05.05.2014&lt;/h5&gt;&lt;/center&gt;&lt;/p&gt;</source>
+        <source>&lt;p style=margin-right:25&gt;&lt;center&gt;&lt;h5&gt;Version: 1.0&lt;br&gt;Build # 04.24.2016&lt;/h5&gt;&lt;/center&gt;&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

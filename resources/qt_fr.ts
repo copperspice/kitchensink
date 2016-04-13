@@ -1018,7 +1018,7 @@
     <message>
         <location filename="../html_viewer.cpp" line="159"/>
         <source>URL:</source>
-        <translation>URL :</translation>
+        <translation>URL :</translation>
     </message>
 </context>
 <context>
@@ -1085,7 +1085,7 @@
     <message>
         <location filename="../bin/ui_international.h" line="258"/>
         <source>&amp;Name:</source>
-        <translation type="unfinished">&amp;Nom : </translation>
+        <translation type="unfinished">&amp;Nom : </translation>
     </message>
     <message>
         <location filename="../bin/ui_international.h" line="259"/>
@@ -1684,7 +1684,7 @@
     </message>
     <message>
         <location filename="../mdi.cpp" line="381"/>
-        <source>&lt;p style=margin-right:25&gt;&lt;center&gt;&lt;h5&gt;Version: 1.0&lt;br&gt;Build # 05.05.2014&lt;/h5&gt;&lt;/center&gt;&lt;/p&gt;</source>
+        <source>&lt;p style=margin-right:25&gt;&lt;center&gt;&lt;h5&gt;Version: 1.0&lt;br&gt;Build # 04.24.2016&lt;/h5&gt;&lt;/center&gt;&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2095,7 +2095,7 @@
     <message>
         <location filename="../bin/ui_style_dw.h" line="312"/>
         <source>&amp;Name:</source>
-        <translation>&amp;Nom : </translation>
+        <translation>&amp;Nom : </translation>
     </message>
     <message>
         <location filename="../bin/ui_style_dw.h" line="299"/>
