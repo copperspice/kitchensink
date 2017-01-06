@@ -11,7 +11,7 @@ gcclibs=libgcc_s_*-1  libstdc++-6  libwinpthread-1
 
 # list of CopperSpice libraries
 cslibs=Core Gui Multimedia Network OpenGL Phonon Script Sql Svg WebKit Xml XmlPatterns
-# Declarative  (on hold)
+csver=1.3
 
 # location of includes
 AM_CXXFLAGS+=-I../src -I$(CS_HOME)/include/phonon
@@ -38,7 +38,7 @@ deploy : all
 
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
 
-	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%1.so*,$(cslibs)) $(deploydir)
+	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).so*,$(cslibs)) $(deploydir)
 
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)
 		rsync -W -a $(CS_HOME)/lib/phonon_gstreamer.so $(deploydir)/phonon_backend
@@ -74,17 +74,17 @@ deploy : all
 
 	cp $(top_srcdir)/resources/ks_cs.icns $(deployapp)/Resources
 
-	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%1.0.dylib,$(cslibs)) $(deployapp)/Frameworks
+	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).dylib,$(cslibs)) $(deployapp)/Frameworks
 
 # phonon	
 	mkdir -p $(deployapp)/MacOS/phonon_backend
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)	
-		rsync -W -a $(CS_HOME)/lib/phonon_qt7.0.so  $(deployapp)/MacOS/phonon_backend
+		rsync -W -a $(CS_HOME)/lib/phonon_qt7.so  $(deployapp)/MacOS/phonon_backend
    else
 		@echo "Phonon Backend library was not found"
    endif
 	
-	for libname in $(patsubst %,libCs%1.0.dylib,$(cslibs)) ; do \
+	for libname in $(patsubst %,libCs%$(csver).dylib,$(cslibs)) ; do \
 	\
 	install_name_tool -change $(CS_HOME)/lib/$$libname \
 	@executable_path/../Frameworks/$$libname $(deployapp)/MacOS/$(bin_PROGRAMS); \
@@ -92,7 +92,7 @@ deploy : all
 	install_name_tool -change $(CS_HOME)/lib/$$libname \
 	@executable_path/../Frameworks/$$libname $(deployapp)/MacOS/phonon_backend/phonon_qt7.0.so; \
 	\
-	for templib in $(patsubst %,libCs%1.0.dylib,$(cslibs)) ; do \
+	for templib in $(patsubst %,libCs%$(csver).dylib,$(cslibs)) ; do \
 	install_name_tool -change $(CS_HOME)/lib/$$templib \
 	@executable_path/../Frameworks/$$templib $(deployapp)/Frameworks/$$libname \
 	; done \
@@ -114,10 +114,10 @@ deploy : all
 	rsync -W -a --modify-window=2  $(top_srcdir)/resources/ks_cs.ico $(deploydir)
 
 	rsync -W -a --modify-window=2  $(patsubst %,$(gccpath)%.dll,$(gcclibs))  $(deploydir)
-	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%1-0.dll,$(cslibs))  $(deploydir)
+	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%$(csver).dll,$(cslibs))  $(deploydir)
 
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)
-		rsync -W -a --modify-window=2  $(CS_HOME)/lib/phonon_ds9-0.dll  $(deploydir)/phonon_backend
+		rsync -W -a --modify-window=2  $(CS_HOME)/lib/phonon_ds9.dll  $(deploydir)/phonon_backend
    else
 		@echo "Phonon library was not found"
    endif
@@ -127,7 +127,7 @@ endif
 VPATH = ../
 
 # linking
-KitchenSink_LDFLAGS=$(AM_LDFLAGS) $(patsubst %,-lCs%1,$(cslibs))
+KitchenSink_LDFLAGS=$(AM_LDFLAGS) $(patsubst %,-lCs%$(csver),$(cslibs))
 
 if OSTYPE_LINUX
    KitchenSink_LDFLAGS+=-lGL
@@ -283,12 +283,12 @@ install-exec-hook:
 	rsync -W -a --modify-window=2  $(top_srcdir)/resources/ks_cs.ico $(bindir)
 
 	rsync -W -a --modify-window=2  $(patsubst %,$(gccpath)%.dll,$(gcclibs))  $(bindir)
-	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%1-0.dll,$(cslibs))  $(bindir)
+	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%$(csver).dll,$(cslibs))  $(bindir)
 
 	mkdir -p $(bindir)/phonon_backend
 
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)
-		rsync -W -a --modify-window=2  $(CS_HOME)/lib/phonon_ds9-0.dll  $(bindir)/phonon_backend
+		rsync -W -a --modify-window=2  $(CS_HOME)/lib/phonon_ds9.dll  $(bindir)/phonon_backend
    else
 		@echo "Phonon library was not found"
    endif

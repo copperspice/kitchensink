@@ -41,9 +41,6 @@ AM_CONDITIONAL(OSTYPE_WIN, test "$OSTYPE" == WIN)
 AM_CONDITIONAL(OSTYPE_LINUX, test "$OSTYPE" == LINUX)
 AM_CONDITIONAL(OSTYPE_DARWIN, test "$OSTYPE" == DARWIN)
 
-# location of .am files that will create Makefiles
-AC_CONFIG_FILES( [Makefile bin/Makefile ] )
-AC_OUTPUT
 
 # display 32-bit or 64-bit
 m4_pushdef([AS_MESSAGE_FD],[/dev/null]) 
@@ -62,3 +59,7 @@ m4_popdef([AS_MESSAGE_FD])
 echo
 echo "Application configured for "$BITSIZE"-bit system" 
 echo
+
+# location of .am files that will create Makefiles
+AC_CONFIG_FILES( [Makefile bin/Makefile ] )
+AC_OUTPUT
