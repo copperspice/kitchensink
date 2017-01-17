@@ -1,6 +1,6 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2016 Barbara Geller
+* Copyright (c) 2012-2017 Barbara Geller
 * Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
@@ -76,24 +76,70 @@
 #include <QMdiSubWindow>
 
 Mdi::Mdi()
-   : QMainWindow(), ui(new Ui::Mdi)
+   : QMainWindow(), m_ui(new Ui::Mdi)
 {
-   ui->setupUi(this);
+   m_ui->setupUi(this);
    setWindowTitle(tr("Kitchen Sink-Cs5"));
    setWindowIcon(QIcon("://resources/ks_cs.ico"));
+
+   connect(m_ui->actionClose_Window,      &QAction::triggered, this,  &Mdi::actionClose_Window);
+   connect(m_ui->actionCloseAll_Windows,  &QAction::triggered, this,  &Mdi::actionCloseAll_Windows);
+   connect(m_ui->actionExit_Program,      &QAction::triggered, this,  &Mdi::actionExit_Program);
+
+   connect(m_ui->actionColorPicker,       &QAction::triggered, this,  &Mdi::actionColorPicker);
+   connect(m_ui->actionFonts,             &QAction::triggered, this,  &Mdi::actionFonts);
+   connect(m_ui->actionDraw,              &QAction::triggered, this,  &Mdi::actionDraw);
+   connect(m_ui->actionInternational,     &QAction::triggered, this,  &Mdi::actionInternational);
+   connect(m_ui->actionSystemTray,        &QAction::triggered, this,  &Mdi::actionSystemTray);
+   connect(m_ui->actionSvgView,           &QAction::triggered, this,  &Mdi::actionSvgView);
+   connect(m_ui->actionStandardDialog,    &QAction::triggered, this,  &Mdi::actionStandardDialog);
+   connect(m_ui->actionStandardPath,      &QAction::triggered, this,  &Mdi::actionStandardPath);
+   connect(m_ui->actionStyleSheetDialog,  &QAction::triggered, this,  &Mdi::actionStyleSheetDialog);
+   connect(m_ui->actionScript,            &QAction::triggered, this,  &Mdi::actionScript);
+   connect(m_ui->actionXml,               &QAction::triggered, this,  &Mdi::actionXml);
+   connect(m_ui->actionXmlPatterns,       &QAction::triggered, this,  &Mdi::actionXmlPatterns);
+
+   connect(m_ui->actionMusicPlayer,       &QAction::triggered, this,  &Mdi::actionMusicPlayer);
+   connect(m_ui->actionVideoWidget,       &QAction::triggered, this,  &Mdi::actionVideoWidget);
+   connect(m_ui->actionHTML_Viewer,       &QAction::triggered, this,  &Mdi::actionHTML_Viewer);
+   connect(m_ui->actionWebBrowser,        &QAction::triggered, this,  &Mdi::actionWebBrowser);
+
+   connect(m_ui->actionTableView,         &QAction::triggered, this,  &Mdi::actionTableView);
+   connect(m_ui->actionTreeView,          &QAction::triggered, this,  &Mdi::actionTreeView);
+   connect(m_ui->actionListView,          &QAction::triggered, this,  &Mdi::actionListView);
+   connect(m_ui->actionTableWidget_View,  &QAction::triggered, this,  &Mdi::actionTableWidget_View);
+
+   connect(m_ui->actionCalendar,          &QAction::triggered, this,  &Mdi::actionCalendar);
+   connect(m_ui->actionLineEdit,          &QAction::triggered, this,  &Mdi::actionLineEdit);
+   connect(m_ui->actionSliders,           &QAction::triggered, this,  &Mdi::actionSliders);
+   connect(m_ui->actionTabs,              &QAction::triggered, this,  &Mdi::actionTabs);
+
+   connect(m_ui->actionAnalog_Clock,      &QAction::triggered, this,  &Mdi::actionAnalog_Clock);
+   connect(m_ui->actionAnimated_Tiles,    &QAction::triggered, this,  &Mdi::actionAnimated_Tiles);
+   connect(m_ui->actionFridge_Magnets,    &QAction::triggered, this,  &Mdi::actionFridge_Magnets);
+   connect(m_ui->actionGrabber,           &QAction::triggered, this,  &Mdi::actionGrabber);
+   connect(m_ui->actionLighting,          &QAction::triggered, this,  &Mdi::actionLighting);
+   connect(m_ui->actionMandelbrot,        &QAction::triggered, this,  &Mdi::actionMandelbrot);
+   connect(m_ui->actionScreen_Shot,       &QAction::triggered, this,  &Mdi::actionScreen_Shot);
+   connect(m_ui->actionWiggle_Boxes,      &QAction::triggered, this,  &Mdi::actionWiggle_Boxes);
+   connect(m_ui->actionWorld_Clock,       &QAction::triggered, this,  &Mdi::actionWorld_Clock);
+
+   connect(m_ui->actionAbout_CopperSpice, &QAction::triggered, this,  &Mdi::actionAbout_CopperSpice);
+   connect(m_ui->actionAbout_KitchenSink, &QAction::triggered, this,  &Mdi::actionAbout_KitchenSink);
+   connect(m_ui->actionAbout,             &QAction::triggered, this,  &Mdi::actionAbout);
 
    setUnifiedTitleAndToolBarOnMac(true);
 }
 
 Mdi::~Mdi()
 {
-   delete ui;
+   delete m_ui;
 }
 
 void Mdi::changeEvent(QEvent *event)
 {
    if (event->type() == QEvent::LanguageChange) {
-      ui->retranslateUi(this);
+      m_ui->retranslateUi(this);
    }
 
    // calls parent, will change the title bar
@@ -102,87 +148,87 @@ void Mdi::changeEvent(QEvent *event)
 
 void Mdi::addMdiChild(QWidget *oDw)
 {
-   QMdiSubWindow *subWindow = ui->mdiArea->addSubWindow(oDw);
+   QMdiSubWindow *subWindow = m_ui->mdiArea->addSubWindow(oDw);
    subWindow->show();
 }
 
 // file
-void Mdi::on_actionClose_Window_triggered()
+void Mdi::actionClose_Window()
 {
-   QMdiSubWindow *temp = ui->mdiArea->currentSubWindow();
+   QMdiSubWindow *temp = m_ui->mdiArea->currentSubWindow();
 
    if (temp) {
       temp->close();
    }
 }
 
-void Mdi::on_actionCloseAll_Windows_triggered()
+void Mdi::actionCloseAll_Windows()
 {
-   ui->mdiArea->closeAllSubWindows();
+   m_ui->mdiArea->closeAllSubWindows();
 }
 
-void Mdi::on_actionExit_Program_triggered()
+void Mdi::actionExit_Program()
 {
    close();
 }
 
 
 // samples
-void Mdi::on_actionColorPicker_triggered()
+void Mdi::actionColorPicker()
 {
    ColorPicker *oDw = new ColorPicker();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionFonts_triggered()
+void Mdi::actionFonts()
 {
    FontPicker *oDw = new FontPicker();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionDraw_triggered()
+void Mdi::actionDraw()
 {
    Draw *oDw = new Draw();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionInternational_triggered()
+void Mdi::actionInternational()
 {
    International *oDw = new International();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionSystemTray_triggered()
+void Mdi::actionSystemTray()
 {
    SysTray *oDw = new SysTray();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionSvgView_triggered()
+void Mdi::actionSvgView()
 {
    Svg_View *oDw = new Svg_View();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionStandardDialog_triggered()
+void Mdi::actionStandardDialog()
 {
    Dialogs *oDw = new Dialogs();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionStandardPath_triggered()
+void Mdi::actionStandardPath()
 {
    StdPath *oDw = new StdPath();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionStyleSheetDialog_triggered()
+void Mdi::actionStyleSheetDialog()
 {
    Style_DW *oDw = new Style_DW(this);
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionScript_triggered()
+void Mdi::actionScript()
 {
    ksMsg("JS Scripts - CsScript is not available");
 
@@ -192,20 +238,20 @@ void Mdi::on_actionScript_triggered()
 */
 }
 
-void Mdi::on_actionXml_triggered()
+void Mdi::actionXml()
 {
    Xml *oDw = new Xml();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionXmlPatterns_triggered()
+void Mdi::actionXmlPatterns()
 {
     XmlPatterns *oDw = new XmlPatterns();
    addMdiChild(oDw);
 }
 
 // audio & visual
-void Mdi::on_actionMusicPlayer_triggered()
+void Mdi::actionMusicPlayer()
 { 
    MusicPlayer *oDw = new MusicPlayer();
 
@@ -216,19 +262,19 @@ void Mdi::on_actionMusicPlayer_triggered()
    }
 }
 
-void Mdi::on_actionVideoWidget_triggered()
+void Mdi::actionVideoWidget()
 {
    VideoPlayer *oDw = new VideoPlayer();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionHTML_Viewer_triggered()
+void Mdi::actionHTML_Viewer()
 {
    Html_Viewer *oDw = new Html_Viewer();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionWebBrowser_triggered()
+void Mdi::actionWebBrowser()
 {   
    WebBrowser *oDw = new WebBrowser(this);
    addMdiChild(oDw);
@@ -236,25 +282,25 @@ void Mdi::on_actionWebBrowser_triggered()
 
 
 // views
-void Mdi::on_actionTableView_triggered()
+void Mdi::actionTableView()
 {
    TableView *oDw = new TableView();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionTreeView_triggered()
+void Mdi::actionTreeView()
 {
    TreeView *oDw = new TreeView();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionListView_triggered()
+void Mdi::actionListView()
 {
    ListView *oDw = new ListView();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionTableWidget_View_triggered()
+void Mdi::actionTableWidget_View()
 {
    TableWidget_View *oDw = new TableWidget_View();
    addMdiChild(oDw);
@@ -262,74 +308,74 @@ void Mdi::on_actionTableWidget_View_triggered()
 
 
 // widgets
-void Mdi::on_actionCalendar_triggered()
+void Mdi::actionCalendar()
 {
    Calendar *oDw = new Calendar();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionLineEdit_triggered()
+void Mdi::actionLineEdit()
 {
    LineEdit *oDw = new LineEdit();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionSliders_triggered()
+void Mdi::actionSliders()
 {
    Sliders *oDw = new Sliders();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionTabs_triggered()
+void Mdi::actionTabs()
 {
    TabDialog *oDw = new TabDialog();
    addMdiChild(oDw);
 }
 
 // graphics
-void Mdi::on_actionAnalog_Clock_triggered()
+void Mdi::actionAnalog_Clock()
 {
    AnalogClock *oDw = new AnalogClock();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionAnimated_Tiles_triggered()
+void Mdi::actionAnimated_Tiles()
 {
    AnimatedTiles *oDw = new AnimatedTiles();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionFridge_Magnets_triggered()
+void Mdi::actionFridge_Magnets()
 {
    FridgeMagnet *oDw = new FridgeMagnet();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionGrabber_triggered()
+void Mdi::actionGrabber()
 {
    Grabber *oDw = new Grabber();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionLighting_triggered()
+void Mdi::actionLighting()
 {
    Lighting *oDw = new Lighting();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionMandelbrot_triggered()
+void Mdi::actionMandelbrot()
 {
    Mandelbrot_Widget *oDw = new Mandelbrot_Widget();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionScreen_Shot_triggered()
+void Mdi::actionScreen_Shot()
 {
    Screenshot *oDw = new Screenshot();
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionWiggle_Boxes_triggered()
+void Mdi::actionWiggle_Boxes()
 {   
    ksMsg("Wiggle Boxes - CsDeclarative is not available");
 
@@ -339,7 +385,7 @@ void Mdi::on_actionWiggle_Boxes_triggered()
 */
 }
 
-void Mdi::on_actionWorld_Clock_triggered()
+void Mdi::actionWorld_Clock()
 {
    ksMsg("World Clock - CsDeclarative is not available");
 
@@ -350,26 +396,26 @@ void Mdi::on_actionWorld_Clock_triggered()
 }
 
 //  help
-void Mdi::on_actionAbout_CopperSpice_triggered()
+void Mdi::actionAbout_CopperSpice()
 {
    AboutCS *oDw = new AboutCS("cs");
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionAbout_KitchenSink_triggered()
+void Mdi::actionAbout_KitchenSink()
 {
    AboutCS *oDw = new AboutCS("ks");
    addMdiChild(oDw);
 }
 
-void Mdi::on_actionAbout_triggered()
+void Mdi::actionAbout()
 {
    QString textBody = "<font color='#000080'><table style=margin-right:25>"
                       "<tr><td><nobr>Developed by Barbara Geller</nobr></td><td>barbara@copperspice.com</td></tr>"
                       "<tr><td style=padding-right:25><nobr>Developed by Ansel Sermersheim</nobr></td><td>ansel@copperspice.com</td></tr>"
                       "</table></font>"
                       "<br>"
-                      "<p><small>Copyright 2012-2016 BG Consulting, All rights reserved.<br>"
+                      "<p><small>Copyright 2012-2017 BG Consulting, All rights reserved.<br>"
                       "This program is provided AS IS with no warranty of any kind.<br></small></p>";
 
    //
@@ -378,7 +424,7 @@ void Mdi::on_actionAbout_triggered()
    msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
    msgB.setWindowTitle(tr("About Kitchen Sink-Cs5"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.2.1<br>Build # 04.27.2016</h5></center></p>"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.2.1<br>Build # 01.31.2017</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

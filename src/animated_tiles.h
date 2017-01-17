@@ -1,6 +1,6 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2016 Barbara Geller
+* Copyright (c) 2012-2017 Barbara Geller
 * Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
@@ -53,13 +53,12 @@ class AnimatedTiles: public QWidget
    CS_OBJECT(AnimatedTiles)
 
    public:
-      AnimatedTiles(QWidget *parent = 0);
+      AnimatedTiles(QWidget *parent = nullptr);
 
    private:
       QGraphicsScene m_scene;
       QStateMachine m_stateMachine;
       QTimer m_timer;
-
 };
 
 class Pixmap : public QObject, public QGraphicsPixmapItem

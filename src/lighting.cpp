@@ -1,6 +1,6 @@
 /**********************************************************************
 *
-* Copyright (c) 2012-2016 Barbara Geller
+* Copyright (c) 2012-2017 Barbara Geller
 * Copyright (c) 2006-2012 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
@@ -34,11 +34,8 @@
 ***********************************************************************/
 
 #include "lighting.h"
-#include <math.h>
 
-#ifndef M_PI
-#define M_PI 3.14159265358979323846
-#endif
+#include <qmath.h>
 
 Lighting::Lighting(QWidget *parent): QGraphicsView(parent), angle(0.0)
 {   
@@ -115,26 +112,29 @@ void Lighting::setupScene()
     m_lightSource = m_scene.addPixmap(pixmap);
     m_lightSource->setZValue(2);
 
-    for (int i = -2; i < 3; ++i)
+    for (int i = -2; i < 3; ++i) {
         for (int j = -2; j < 3; ++j) {
             QAbstractGraphicsShapeItem *item;
-            if ((i + j) & 1)
+
+            if ((i + j) & 1) {
                 item = new QGraphicsEllipseItem(0, 0, 50, 50);
-            else
+            } else {
                 item = new QGraphicsRectItem(0, 0, 50, 50);
+            }
 
             item->setPen(QPen(Qt::black, 1));
             item->setBrush(QBrush(Qt::white));
+
             QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect;
             effect->setBlurRadius(8);
+
             item->setGraphicsEffect(effect);
             item->setZValue(1);
             item->setPos(i * 80, j * 80);
             m_scene.addItem(item);
             m_items << item;
         }
-
-
+   }
 }
 
 void Lighting::resizeEvent(QResizeEvent */*event*/)
