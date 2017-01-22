@@ -62,7 +62,7 @@ FridgeMagnet::FridgeMagnet(QWidget *parent)
       QString word;
       inputStream >> word;
 
-      if (!word.isEmpty()) {
+      if (! word.isEmpty()) {
          DragLabel *wordLabel = new DragLabel(word, this);
          wordLabel->move(x, y);
          wordLabel->show();
