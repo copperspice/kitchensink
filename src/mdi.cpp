@@ -424,7 +424,7 @@ void Mdi::actionAbout()
    msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
    msgB.setWindowTitle(tr("About Kitchen Sink-Cs5"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.2.1<br>Build # 01.31.2017</h5></center></p>"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.2.2<br>Build # 01.25.2017</h5></center></p>"));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

@@ -11,7 +11,7 @@ gcclibs=libgcc_s_*-1  libstdc++-6  libwinpthread-1
 
 # list of CopperSpice libraries
 cslibs=Core Gui Multimedia Network OpenGL Phonon Script Sql Svg WebKit Xml XmlPatterns
-csver=1.3
+csver=1.4
 
 # location of includes
 AM_CXXFLAGS+=-I../src -I$(CS_HOME)/include/phonon
