@@ -90,7 +90,7 @@ class Button : public QGraphicsWidget
    CS_OBJECT(Button)
 
    public:
-      Button(const QPixmap &pixmap, QGraphicsItem *parent = 0)
+      Button(const QPixmap &pixmap, QGraphicsItem *parent = nullptr)
          : QGraphicsWidget(parent), _pix(pixmap)
       {
          setAcceptHoverEvents(true);
@@ -120,14 +120,16 @@ class Button : public QGraphicsWidget
          painter->setPen(Qt::darkGray);
          painter->setBrush(grad);
          painter->drawEllipse(r);
+
          QLinearGradient grad2(r.topLeft(), r.bottomRight());
          grad.setColorAt(down ? 1 : 0, Qt::darkGray);
          grad.setColorAt(down ? 0 : 1, Qt::lightGray);
          painter->setPen(Qt::NoPen);
          painter->setBrush(grad);
 
-         if (down)
+         if (down) {
             painter->translate(2, 2);
+         }
 
          painter->drawEllipse(r.adjusted(5, 5, -5, -5));
          painter->drawPixmap(-_pix.width()/2, -_pix.height()/2, _pix);

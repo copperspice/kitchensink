@@ -35,6 +35,7 @@
 
 #include "animated_tiles.h"
 
+#include <QGridLayout>
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
 #include <QSignalTransition>
@@ -44,18 +45,18 @@
 static const QString qmPath = ":/resources/animated_tiles";
 
 AnimatedTiles::AnimatedTiles(QWidget *parent)
-   : QWidget(parent), m_scene(-350, -350, 700, 700, this)
+   : QWidget(parent), m_scene(-300, -325, 800, 650, this)
 {
    setWindowTitle("Animated Tiles");
-   setMinimumSize(700, 700);
+   setMinimumSize(800, 650);
 
-   QPixmap kineticPix(qmPath + "/kinetic.png");
-   QPixmap bgPix(qmPath + "/Time-For-Lunch-2.jpg");
+   QPixmap spicePix(qmPath + "/spice.png");
+   QPixmap bgPix(qmPath + "/background.jpg");
 
    QList<Pixmap *> items;
    for (int i = 0; i < 64; ++i) {
-      Pixmap *item = new Pixmap(kineticPix);
-      item->setOffset(-kineticPix.width()/2, -kineticPix.height()/2);
+      Pixmap *item = new Pixmap(spicePix);
+      item->setOffset(-spicePix.width()/2, -spicePix.height()/2);
       item->setZValue(i);
       items << item;
       m_scene.addItem(item);
@@ -69,11 +70,11 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
    Button *tiledButton    = new Button(QPixmap(qmPath + "/tile.png"), buttonParent);
    Button *centeredButton = new Button(QPixmap(qmPath + "/centered.png"), buttonParent);
 
-   ellipseButton->setPos(-100, -100);
-   figure8Button->setPos(100, -100);
-   randomButton->setPos(0, 0);
-   tiledButton->setPos(-100, 100);
-   centeredButton->setPos(100, 100);
+   ellipseButton->setPos(300, -605);
+   figure8Button->setPos(300, -445);
+   randomButton->setPos(300, -285);
+   tiledButton->setPos(300, -125);
+   centeredButton->setPos(300, 35);
 
    m_scene.addItem(buttonParent);
    buttonParent->scale(0.75, 0.75);
@@ -88,38 +89,46 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
    QState *tiledState    = new QState(rootState);
    QState *centeredState = new QState(rootState);
 
-   // Values
+   // values
+   int scale = 200;
+
    for (int i = 0; i < items.count(); ++i) {
       Pixmap *item = items.at(i);
 
       // Ellipse
       ellipseState->assignProperty(item, "pos",
-               QPointF(cos((i / 63.0) * 6.28) * 250, sin((i / 63.0) * 6.28) * 250));
+               QPointF(cos((i / 63.0) * 6.28) * scale, sin((i / 63.0) * 6.28) * scale));
 
       // Figure 8
       figure8State->assignProperty(item, "pos",
-               QPointF(sin((i / 63.0) * 6.28) * 250, sin(((i * 2)/63.0) * 6.28) * 250));
+               QPointF(sin((i / 63.0) * 6.28) * scale, sin(((i * 2)/63.0) * 6.28) * scale));
 
       // Random
       randomState->assignProperty(item, "pos",
-               QPointF(-250 + qrand() % 500, -250 + qrand() % 500));
+               QPointF(-scale + qrand() % (scale * 2), -scale + qrand() % (scale * 2)));
 
       // Tiled
       tiledState->assignProperty(item, "pos",
-               QPointF(((i % 8) - 4) * kineticPix.width() + kineticPix.width() / 2,
-               ((i / 8) - 4) * kineticPix.height() + kineticPix.height() / 2));
+               QPointF(((i % 8) - 4) * spicePix.width() + spicePix.width() / 2,
+               ((i / 8) - 4) * spicePix.height() + spicePix.height() / 2));
 
       // Centered
       centeredState->assignProperty(item, "pos", QPointF());
    }
 
-   // Ui
+   // ui
    View *view = new View(&m_scene, this);
    view->setWindowTitle(QT_TRANSLATE_NOOP(QGraphicsView, "Animated Tiles"));
    view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
    view->setBackgroundBrush(bgPix);
    view->setCacheMode(QGraphicsView::CacheBackground);
    view->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+
+   // layout
+   QGridLayout *m_mainLayout = new QGridLayout;
+   m_mainLayout->addWidget(view, 0, 0);
+   m_mainLayout->setContentsMargins(0,0,0,0);
+   setLayout(m_mainLayout);
 
    view->show();
 

@@ -4,6 +4,10 @@
         <file>resources/brick.png</file>
         <file>resources/cake1.svg</file>
         <file>resources/cake2.svg</file>
+        <file>resources/cup_cake.svg</file>
+        <file>resources/ice_cream.svg</file>
+        <file>resources/pineapple.svg</file>
+        <file>resources/watermelon.svg</file>
         <file>resources/checkbox_checked.png</file>
         <file>resources/checkbox_checked_hover.png</file>
         <file>resources/checkbox_checked_pressed.png</file>
@@ -11,8 +15,9 @@
         <file>resources/checkbox_unchecked_hover.png</file>
         <file>resources/checkbox_unchecked_pressed.png</file>
         <file>resources/coffee.qss</file>
-        <file>resources/cup_cake.svg</file>
         <file>resources/default.qss</file>
+        <file>resources/pagefold.qss</file>
+        <file>resources/shiny.qss</file>
         <file>resources/down_arrow.png</file>
         <file>resources/down_arrow_disabled.png</file>
         <file>resources/email_1.gif</file>
@@ -20,13 +25,10 @@
         <file>resources/email_3.gif</file>
         <file>resources/frame.png</file>
         <file>resources/heart.png</file>
-        <file>resources/ice_cream.svg</file>
         <file>resources/ks_cs.ico</file>
         <file>resources/ks_cs.png</file>
         <file>resources/minus.png</file>
         <file>resources/pagefold.png</file>
-        <file>resources/pagefold.qss</file>
-        <file>resources/pineapple.svg</file>
         <file>resources/plus.png</file>
         <file>resources/pushbutton.png</file>
         <file>resources/pushbutton_hover.png</file>
@@ -45,7 +47,6 @@
         <file>resources/radiobutton_unchecked_pressed.png</file>
         <file>resources/sampleMenu.xml</file>
         <file>resources/script.js</file>
-        <file>resources/shiny.qss</file>
         <file>resources/sizegrip.png</file>
         <file>resources/spindown.png</file>
         <file>resources/spindown_hover.png</file>
@@ -56,15 +57,14 @@
         <file>resources/trash.png</file>
         <file>resources/up_arrow.png</file>
         <file>resources/up_arrow_disabled.png</file>
-        <file>resources/watermelon.svg</file>
         <file>resources/words.txt</file>
+        <file>resources/animated_tiles/background.jpg</file>
+        <file>resources/animated_tiles/spice.png</file>
         <file>resources/animated_tiles/centered.png</file>
         <file>resources/animated_tiles/ellipse.png</file>
         <file>resources/animated_tiles/figure8.png</file>
-        <file>resources/animated_tiles/kinetic.png</file>
         <file>resources/animated_tiles/random.png</file>
         <file>resources/animated_tiles/tile.png</file>
-        <file>resources/animated_tiles/Time-For-Lunch-2.jpg</file>
         <file>resources/xml_patterns/allRecipes.xq</file>
         <file>resources/xml_patterns/cookbook.xml</file>
         <file>resources/xml_patterns/liquidIngredientsInSoup.xq</file>
