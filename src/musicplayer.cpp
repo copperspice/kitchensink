@@ -52,7 +52,7 @@ MusicPlayer::MusicPlayer()
       return;
    }
 
-   m_mediaObject = new Phonon::MediaObject(this); 
+   m_mediaObject = new Phonon::MediaObject(this);
    m_mediaObject->setTickInterval(1000);
 
    // used when adding files to the music list
@@ -168,7 +168,7 @@ void MusicPlayer::setupActions()
 }
 
 void MusicPlayer::setupUi()
-{  
+{
    QToolBar *bar = new QToolBar;
    bar->addAction(m_playAction);
    bar->addAction(m_pauseAction);
@@ -217,7 +217,7 @@ void MusicPlayer::setupUi()
 
    ui->musicTable->setColumnWidth(0, 175);
    ui->musicTable->setColumnWidth(1, 175);
-   ui->musicTable->horizontalHeader()->setStretchLastSection(true); 
+   ui->musicTable->horizontalHeader()->setStretchLastSection(true);
 }
 
 void MusicPlayer::tick(qint64 time)
@@ -321,7 +321,7 @@ void MusicPlayer::metaParserStateChanged(Phonon::State newState, Phonon::State o
    }
 
    // take map data and display on the table
-   QMap<QString, QString> metaData = m_metaParser->metaData();
+   QMultiMap<QString, QString> metaData = m_metaParser->metaData();
 
    QString title = metaData.value("TITLE");
    if ( title.isEmpty() ) {

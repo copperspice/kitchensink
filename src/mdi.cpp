@@ -71,6 +71,7 @@
 // #include "world_clock.h" (Qml)
 
 #include "mdi.h"
+#include "ks_build_info.h"
 #include "ui_mdi.h"
 
 #include <QMdiSubWindow>
@@ -79,7 +80,7 @@ Mdi::Mdi()
    : QMainWindow(), m_ui(new Ui::Mdi)
 {
    m_ui->setupUi(this);
-   setWindowTitle(tr("Kitchen Sink-Cs5"));
+   setWindowTitle(tr("Kitchen Sink"));
    setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
    connect(m_ui->actionClose_Window,      &QAction::triggered, this,  &Mdi::actionClose_Window);
@@ -252,7 +253,7 @@ void Mdi::actionXmlPatterns()
 
 // audio & visual
 void Mdi::actionMusicPlayer()
-{ 
+{
    MusicPlayer *oDw = new MusicPlayer();
 
    if ( oDw->loaded() ) {
@@ -275,7 +276,7 @@ void Mdi::actionHTML_Viewer()
 }
 
 void Mdi::actionWebBrowser()
-{   
+{
    WebBrowser *oDw = new WebBrowser(this);
    addMdiChild(oDw);
 }
@@ -376,7 +377,7 @@ void Mdi::actionScreen_Shot()
 }
 
 void Mdi::actionWiggle_Boxes()
-{   
+{
    ksMsg("Wiggle Boxes - CsDeclarative is not available");
 
 /*
@@ -423,8 +424,8 @@ void Mdi::actionAbout()
    msgB.setIcon(QMessageBox::NoIcon);
    msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
-   msgB.setWindowTitle(tr("About Kitchen Sink-Cs5"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: 1.2.2<br>Build # 01.25.2017</h5></center></p>"));
+   msgB.setWindowTitle(tr("About Kitchen Sink"));
+   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: %1<br>Build # %2</h5></center></p>").arg(versionString).arg(buildDate));
    msgB.setInformativeText(textBody);
 
    msgB.setStandardButtons(QMessageBox::Ok);

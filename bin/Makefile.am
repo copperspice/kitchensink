@@ -200,6 +200,7 @@ noinst_HEADERS = \
    src/fontpicker.h \
    src/html_viewer.h  \
    src/international.h \
+   src/ks_build_info.h \
    src/line_edit.h \
    src/listview.h \
    src/mdi.h \
