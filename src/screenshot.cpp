@@ -89,7 +89,7 @@ void Screenshot::saveScreenshot()
                   tr("%1 Files (*.%2);;All Files (*)").arg(format.toUpper()).arg(format));
 
     if (! fileName.isEmpty()) {
-        originalPixmap.save(fileName, format.toAscii());
+        originalPixmap.save(fileName, format.toLatin1().constData());
     }
 }
 
@@ -104,7 +104,7 @@ void Screenshot::shootScreen()
     originalPixmap = QPixmap::grabWindow(QApplication::desktop()->winId());
     updateScreenshotLabel();
 
-    newScreenshotButton->setDisabled(false);   
+    newScreenshotButton->setDisabled(false);
 }
 
 void Screenshot::createOptionsGroupBox()
@@ -132,7 +132,7 @@ void Screenshot::createButtonsLayout()
     buttonsLayout = new QHBoxLayout;
     buttonsLayout->addStretch();
     buttonsLayout->addWidget(newScreenshotButton);
-    buttonsLayout->addWidget(saveScreenshotButton);    
+    buttonsLayout->addWidget(saveScreenshotButton);
     buttonsLayout->addStretch();
 }
 
