@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Mdi</class>
- <widget class="QMainWindow" name="Mdi">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -26,7 +26,7 @@
      <x>0</x>
      <y>0</y>
      <width>1298</width>
-     <height>28</height>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -111,9 +111,17 @@
     <addaction name="actionWiggle_Boxes"/>
     <addaction name="actionWorld_Clock"/>
    </widget>
+   <widget class="QMenu" name="menuNetwork">
+    <property name="title">
+     <string>Network</string>
+    </property>
+    <addaction name="actionChat"/>
+    <addaction name="actionSsl"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuFoo"/>
    <addaction name="menuWindows"/>
+   <addaction name="menuNetwork"/>
    <addaction name="menuLayouts"/>
    <addaction name="menuWidgets"/>
    <addaction name="menuGraphics"/>
@@ -348,6 +356,16 @@
   <action name="actionXmlPatterns">
    <property name="text">
     <string>XML Patterns</string>
+   </property>
+  </action>
+  <action name="actionChat">
+   <property name="text">
+    <string>Chat</string>
+   </property>
+  </action>
+  <action name="actionSsl">
+   <property name="text">
+    <string>Secure Socket</string>
    </property>
   </action>
  </widget>
