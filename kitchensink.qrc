@@ -65,6 +65,7 @@
         <file>resources/animated_tiles/figure8.png</file>
         <file>resources/animated_tiles/random.png</file>
         <file>resources/animated_tiles/tile.png</file>
+        <file>resources/network/encrypted.png</file>
         <file>resources/xml_patterns/allRecipes.xq</file>
         <file>resources/xml_patterns/cookbook.xml</file>
         <file>resources/xml_patterns/liquidIngredientsInSoup.xq</file>
