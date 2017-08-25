@@ -14,7 +14,8 @@ cslibs=Core Gui Multimedia Network OpenGL Phonon Script Sql Svg WebKit Xml XmlPa
 csver=1.4
 
 # location of includes
-AM_CXXFLAGS+=-I../src -I$(CS_HOME)/include/phonon
+AM_CXXFLAGS+=-I../src -I../src/audio -I../src/graphics -I../src/network -I../src/views \
+             -I../src/widgets -I$(CS_HOME)/include/phonon
 
 if OSTYPE_WIN
    # disable console on window
@@ -140,32 +141,62 @@ if OSTYPE_WIN
    KitchenSink_LDFLAGS+=-lopengl32
 endif
 
+KitchenSink_Audio_C = \
+   src/audio/html_viewer.cpp \
+   src/audio/musicplayer.cpp  \
+   src/audio/videosurface.cpp \
+   src/audio/videoplayer.cpp \
+   src/audio/videowidget.cpp \
+   src/audio/web_browser.cpp
+
+KitchenSink_Network_C = \
+   src/network/chat_dialog.cpp \
+   src/network/client.cpp  \
+   src/network/connection.cpp \
+   src/network/peermanager.cpp  \
+   src/network/server.cpp  \
+   src/network/ssl_cert.cpp  \
+   src/network/ssl_client.cpp
+
+KitchenSink_Views_C = \
+   src/views/listview.cpp \
+   src/views/tableview.cpp \
+   src/views/tablewidget_view.cpp \
+   src/views/treeview.cpp
+
+KitchenSink_Widgets_C = \
+   src/widgets/calendar.cpp \
+   src/widgets/line_edit.cpp \
+   src/widgets/sliders.cpp \
+   src/widgets/tabdialog.cpp
+
+KitchenSink_Graphics_C = \
+   src/graphics/analogclock.cpp \
+   src/graphics/animated_tiles.cpp \
+   src/graphics/draglabel.cpp  \
+   src/graphics/fridgemag.cpp \
+   src/graphics/glwidget.cpp \
+   src/graphics/grabber.cpp  \
+   src/graphics/lighting.cpp \
+   src/graphics/mandelbrot_thread.cpp \
+   src/graphics/mandelbrot_widget.cpp \
+   src/graphics/screenshot.cpp
+
+# qmlapplicationviewer.cpp
+# wiggle_boxes.cpp
+# world_clock.cpp
+
+
 KitchenSink_SOURCES = \
    src/aboutcs.cpp \
-   src/analogclock.cpp \
-   src/animated_tiles.cpp \
-   src/calendar.cpp \
    src/colorpicker.cpp \
    src/dialogs.cpp \
-   src/draglabel.cpp  \
    src/draw.cpp \
    src/draw_area.cpp \
-   src/fridgemag.cpp \
    src/fontpicker.cpp \
-   src/glwidget.cpp \
-   src/grabber.cpp  \
-   src/html_viewer.cpp \
    src/international.cpp \
-   src/lighting.cpp \
-   src/line_edit.cpp \
-   src/listview.cpp \
    src/main.cpp \
-   src/mandelbrot_thread.cpp \
-   src/mandelbrot_widget.cpp \
-   src/mdi.cpp \
-   src/musicplayer.cpp  \
-   src/screenshot.cpp \
-   src/sliders.cpp \
+   src/mainwindow.cpp \
    src/script.cpp \
    src/stdpath.cpp \
    src/style_edit.cpp \
@@ -173,83 +204,105 @@ KitchenSink_SOURCES = \
    src/svg_view.cpp  \
    src/svgtextobject.cpp \
    src/systray.cpp \
-   src/tableview.cpp \
-   src/tablewidget_view.cpp \
-   src/tabdialog.cpp \
-   src/treeview.cpp \
    src/util.cpp \
-   src/videosurface.cpp \
-   src/videoplayer.cpp \
-   src/videowidget.cpp \
-   src/web_browser.cpp \
    src/xml.cpp \
    src/xmlpatterns.cpp \
-   src/xmlsyntaxhighlighter.cpp
+   src/xmlsyntaxhighlighter.cpp \
+   \
+   ${KitchenSink_Audio_C}     \
+   ${KitchenSink_Network_C}   \
+   ${KitchenSink_Views_C}     \
+   ${KitchenSink_Widgets_C}   \
+   ${KitchenSink_Graphics_C}
 
-# qmlapplicationviewer.cpp
-# wiggle_boxes.cpp
-# world_clock.cpp
+KitchenSink_Audio_H = \
+   src/audio/html_viewer.h  \
+   src/audio/musicplayer.h \
+   src/audio/videoplayer.h \
+   src/audio/videowidget.h \
+   src/audio/videosurface.h \
+   src/audio/web_browser.h
 
-noinst_HEADERS = \
-   src/aboutcs.h \
-   src/calendar.h \
-   src/colorpicker.h \
-   src/dialogs.h \
-   src/draw.h \
-   src/draw_area.h \
-   src/fontpicker.h \
-   src/html_viewer.h  \
-   src/international.h \
-   src/ks_build_info.h \
-   src/line_edit.h \
-   src/listview.h \
-   src/mdi.h \
-   src/musicplayer.h \
-   src/script.h \
-   src/stdpath.h \
-   src/sliders.h \
-   src/style_dw.h  \
-   src/style_edit.h  \
-   src/svg_view.h  \
-   src/svgtextobject.h \
-   src/systray.h \
-   src/tabdialog.h \
-   src/tableview.h \
-   src/tablewidget_view.h \
-   src/treeview.h \
-   src/util.h \
-   src/videoplayer.h \
-   src/videowidget.h \
-   src/videosurface.h \
-   src/web_browser.h \
-   src/analogclock.h  \
-   src/animated_tiles.h  \
-   src/draglabel.h \
-   src/fridgemag.h  \
-   src/glwidget.h  \
-   src/grabber.h  \
-   src/lighting.h  \
-   src/mandelbrot_thread.h  \
-   src/mandelbrot_widget.h  \
-   src/screenshot.h \
-   src/xml.h \
-   src/xmlpatterns.h \
-   src/xmlsyntaxhighlighter.h
+KitchenSink_Network_H = \
+   src/network/chat_dialog.h \
+   src/network/client.h  \
+   src/network/connection.h \
+   src/network/peermanager.h  \
+   src/network/server.h  \
+   src/network/ssl_cert.h \
+   src/network/ssl_client.h
+
+KitchenSink_Views_H = \
+   src/views/listview.h \
+   src/views/tableview.h \
+   src/views/tablewidget_view.h \
+   src/views/treeview.h
+
+KitchenSink_Widgets_H = \
+   src/widgets/calendar.h \
+   src/widgets/line_edit.h \
+   src/widgets/sliders.h \
+   src/widgets/tabdialog.h
+
+KitchenSink_Graphics_H = \
+   src/graphics/analogclock.h  \
+   src/graphics/animated_tiles.h  \
+   src/graphics/draglabel.h \
+   src/graphics/fridgemag.h  \
+   src/graphics/glwidget.h  \
+   src/graphics/grabber.h  \
+   src/graphics/lighting.h  \
+   src/graphics/mandelbrot_thread.h  \
+   src/graphics/mandelbrot_widget.h  \
+   src/graphics/screenshot.h
 
 # qmlapplicationviewer.h
 # wiggle_boxes.h
 # world_clock.h
 
+
+noinst_HEADERS = \
+   src/aboutcs.h \
+   src/colorpicker.h \
+   src/dialogs.h \
+   src/draw.h \
+   src/draw_area.h \
+   src/fontpicker.h \
+   src/international.h \
+   src/ks_build_info.h \
+   src/mainwindow.h \
+   src/script.h \
+   src/stdpath.h \
+   src/style_dw.h  \
+   src/style_edit.h  \
+   src/svg_view.h  \
+   src/svgtextobject.h \
+   src/systray.h \
+   src/util.h \
+   src/xml.h \
+   src/xmlpatterns.h \
+   src/xmlsyntaxhighlighter.h \
+   \
+   ${KitchenSink_Audio_H}    \
+   ${KitchenSink_Network_H}  \
+   ${KitchenSink_Views_H}    \
+   ${KitchenSink_Widgets_H}  \
+   ${KitchenSink_Graphics_H}
+
 FORMS = \
-    forms/mdi.ui \
+    forms/mainwindow.ui  \
+    forms/chat_dialog.ui  \
     forms/colorpicker.ui \
-    forms/fontpicker.ui \
+    forms/fontpicker.ui  \
     forms/dialogs.ui \
     forms/html_viewer.ui \
     forms/international.ui \
     forms/line_edit.ui \
     forms/listview.ui \
     forms/musicplayer.ui \
+    forms/ssl_cert.ui \
+    forms/ssl_client.ui \
+    forms/ssl_error.ui \
     forms/stdpath.ui \
     forms/style_dw.ui \
     forms/style_edit.ui \
