@@ -25,15 +25,6 @@ FontPicker::FontPicker(QWidget *parent) :
    QString fontname = ui->fontEdit->font().family();
    ui->label->setText("Sample Text Displayed in " + fontname);
 
-
-qDebug("A");
-
-   // broom
-   // QVariant foo = QVariant::fromValue(parent);
-
-
-qDebug("B");
-
    // missing two letters
    ui->fontEdit->setText("A wacky fox and sizeable pig jumped halfway over a blue moon.");
 
