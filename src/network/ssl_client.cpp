@@ -62,6 +62,8 @@ void Ssl_Client::updateEnabledState()
 
 void Ssl_Client::secureConnect()
 {
+    ui->cipherLabel->setText(tr("Loading, please wait..."));
+
     if (! socket) {
         socket = new QSslSocket(this);
 
@@ -78,8 +80,9 @@ void Ssl_Client::secureConnect()
 
 void Ssl_Client::socketStateChanged(QAbstractSocket::SocketState state)
 {
-    if (executingDialog)
+    if (executingDialog) {
         return;
+    }
 
     updateEnabledState();
 
@@ -132,7 +135,7 @@ void Ssl_Client::socketEncrypted()
 
         ui->hostNameEdit->setLayout(layout);
 
-        connect(padLock, SIGNAL(clicked()), this, SLOT(displayCertificateInfo()));
+        connect(padLock, &QToolButton::clicked, this, &Ssl_Client::displayCertificateInfo);
 
     } else {
         padLock->show();
@@ -155,17 +158,20 @@ void Ssl_Client::sendData()
 
 void Ssl_Client::socketError(QAbstractSocket::SocketError)
 {
+    ui->cipherLabel->setText(tr("<none>"));
     QMessageBox::critical(this, tr("Connection error"), socket->errorString());
 }
 
 void Ssl_Client::sslErrors(const QList<QSslError> &errors)
 {
+    ui->cipherLabel->setText(tr("<none>"));
+
     QDialog errorDialog(this);
 
     Ui::Ssl_Error ui_error;
     ui_error.setupUi(&errorDialog);
 
-    connect(ui_error.certificateChainButton, SIGNAL(clicked()), this, SLOT(displayCertificateInfo()));
+    connect(ui_error.certificateChainButton, &QPushButton::clicked, this, &Ssl_Client::displayCertificateInfo);
 
     for (const QSslError &error : errors) {
         ui_error.sslErrorList->addItem(error.errorString());

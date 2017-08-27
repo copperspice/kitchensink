@@ -176,7 +176,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Connect to host</string>
+        <string>Connect</string>
        </property>
        <property name="default">
         <bool>true</bool>
@@ -279,38 +279,5 @@ p, li { white-space: pre-wrap; }
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>hostNameEdit</sender>
-   <signal>returnPressed()</signal>
-   <receiver>connectButton</receiver>
-   <slot>animateClick()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>126</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>142</x>
-     <y>78</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sessionInput</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sendButton</receiver>
-   <slot>animateClick()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>142</x>
-     <y>241</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>297</x>
-     <y>234</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
