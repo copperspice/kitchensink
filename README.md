@@ -9,7 +9,7 @@ is intentionally simplistic and not optimized.
 
 ### System Requirements
 
-To build KitchenSink you will need the CopperSpice libraries, a C++11 compiler, and a C++ standard library.
+To build KitchenSink you will need a current copy of the CopperSpice libraries, a C++14 compiler, and a C++14 standard library.
 
 Uses Autotools for building binary files.
 
@@ -31,6 +31,7 @@ in your deployment of KitchenSink.
 
 * **Ansel Sermersheim**
 * **Barbara Geller**
+* **Zbigniew Skowron**
 
 
 ### License
