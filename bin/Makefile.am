@@ -128,7 +128,7 @@ endif
 VPATH = ../
 
 # linking
-KitchenSink_LDFLAGS=$(AM_LDFLAGS) $(patsubst %,-lCs%$(csver),$(cslibs))
+KitchenSink_LDFLAGS=$(AM_LDFLAGS) $(patsubst %,-lCs%$(csver),$(cslibs)) ${SSL_LIBS}
 
 if OSTYPE_LINUX
    KitchenSink_LDFLAGS+=-lGL

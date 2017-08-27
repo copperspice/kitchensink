@@ -24,6 +24,8 @@ AC_PROG_CC_C99
 AC_PROG_CC_C_O
 AC_PROG_CXX
 
+PKG_CHECK_MODULES(SSL, openssl, SSL="yes", true)
+
 # set flags for c++14
 AC_LANG([C++])
 AX_CXX_COMPILE_STDCXX(14,[noext])
