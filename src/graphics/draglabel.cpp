@@ -13,6 +13,7 @@
 #include "draglabel.h"
 
 #include <QFont>
+#include <QLinearGradient>
 #include <QPainter>
 
 DragLabel::DragLabel(const QString &text, QWidget *parent)

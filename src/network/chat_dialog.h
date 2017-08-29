@@ -16,6 +16,12 @@
 #include "ui_chat_dialog.h"
 #include "client.h"
 
+#include <QDialog>
+
+class QString;
+class QTextTableFormat;
+class QWidget;
+
 class Chat_Dialog : public QDialog
 {
     CS_OBJECT(Chat_Dialog)
@@ -37,7 +43,6 @@ class Chat_Dialog : public QDialog
    Client client;
    QString myNickName;
    QTextTableFormat tableFormat;
-
 };
 
 #endif

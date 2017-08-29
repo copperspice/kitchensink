@@ -14,7 +14,10 @@
 #include "connection.h"
 #include "peermanager.h"
 
-#include <QtNetwork>
+#include <QHostAddress>
+#include <QNetworkInterface>
+#include <QProcess>
+#include <QStringList>
 
 static const qint32 BroadcastInterval = 2000;
 static const unsigned broadcastPort   = 45000;
@@ -131,9 +134,11 @@ void PeerManager::updateAddresses()
 {
     broadcastAddresses.clear();
     ipAddresses.clear();
-    foreach (QNetworkInterface interface, QNetworkInterface::allInterfaces()) {
-        foreach (QNetworkAddressEntry entry, interface.addressEntries()) {
+
+    for (QNetworkInterface interface : QNetworkInterface::allInterfaces()) {
+        for (QNetworkAddressEntry entry : interface.addressEntries()) {
             QHostAddress broadcastAddress = entry.broadcast();
+
             if (broadcastAddress != QHostAddress::Null && entry.ip() != QHostAddress::LocalHost) {
                 broadcastAddresses << broadcastAddress;
                 ipAddresses << entry.ip();

@@ -14,10 +14,11 @@
 #define SCRIPT_H
 
 #include "ui_script.h"
-#include "mainwindow.h"
 
-#include <QStandardItemModel>
 #include <QWidget>
+
+class QStandardItemModel;
+class QString;
 
 class Script : public QWidget
 {
@@ -41,7 +42,6 @@ class Script : public QWidget
       QString m_fileName;
       void displayScript();
       void jsScript(QString contents);
-
 };
 
 #endif

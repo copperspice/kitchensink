@@ -10,15 +10,15 @@
 *
 ***********************************************************************/
 
-
 #ifndef WEB_BROWSER_H
 #define WEB_BROWSER_H
 
 #include "mainwindow.h"
 
-#include <QtGui>
-#include <QLineEdit>
+#include <QMainWindow>
 #include <QWebView>
+
+class QLineEdit;
 
 class WebBrowser : public QMainWindow
 {

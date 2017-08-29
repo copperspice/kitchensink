@@ -10,12 +10,24 @@
 *
 ***********************************************************************/
 
-#include "util.h"
 #include "svg_view.h"
 #include "svgtextobject.h"
+#include "util.h"
 
-#include <QtGui>
-#include <QtSvg>
+#include <QByteArray>
+#include <QComboBox>
+#include <QHBoxLayout>
+#include <QFile>
+#include <QImage>
+#include <QLabel>
+#include <QPainter>
+#include <QPushButton>
+#include <QString>
+#include <QSvgRenderer>
+#include <QTextCharFormat>
+#include <QTextCursor>
+#include <QTextEdit>
+#include <QVBoxLayout>
 
 Svg_View::Svg_View()
 {

@@ -10,9 +10,8 @@
 *
 ***********************************************************************/
 
-
-#include "util.h"
 #include "videosurface.h"
+#include "util.h"
 
 #include <QtMultimedia>
 

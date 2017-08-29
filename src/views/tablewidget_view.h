@@ -16,8 +16,10 @@
 
 #include "ui_tablewidget_view.h"
 
-#include <QWidget>
 #include <QStandardItemModel>
+#include <QWidget>
+
+class QModelIndex;
 
 class TableWidget_View : public QWidget
 {

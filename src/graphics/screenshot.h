@@ -25,7 +25,6 @@ class QPushButton;
 class QSpinBox;
 class QVBoxLayout;
 
-
 class Screenshot : public QWidget
 {
    CS_OBJECT(Screenshot)

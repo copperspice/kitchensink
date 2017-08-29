@@ -10,11 +10,12 @@
 *
 ***********************************************************************/
 
-#include "util.h"
 #include "style_edit.h"
 #include "style_dw.h"
+#include "util.h"
 
-#include <QtGui>
+#include <QString>
+#include <QStyleFactory>
 
 const static QString qsPath = ":/resources/";
 QString Style_Edit::qssName = "Shiny";

@@ -12,6 +12,10 @@
 
 #include "mandelbrot_thread.h"
 
+#include <QImage>
+
+#include <math.h>
+
 Mandelbrot_Thread::Mandelbrot_Thread(QObject *parent)
     : QThread(parent)
 {
@@ -33,8 +37,7 @@ Mandelbrot_Thread::~Mandelbrot_Thread()
     wait();
 }
 
-void Mandelbrot_Thread::render(double centerX, double centerY, double scaleFactor,
-                          QSize resultSize)
+void Mandelbrot_Thread::render(double centerX, double centerY, double scaleFactor, QSize resultSize)
 {
     QMutexLocker locker(&mutex);
 

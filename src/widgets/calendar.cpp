@@ -13,7 +13,7 @@
 #include "calendar.h"
 #include "util.h"
 
-#include <QtGui>
+#include <QTextCharFormat>
 
 Calendar::Calendar()
    : QWidget()

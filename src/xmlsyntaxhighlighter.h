@@ -15,6 +15,13 @@
 
 #include <QSyntaxHighlighter>
 
+class QRegExp;
+class QString;
+class QTextCharFormat;
+
+template <typename T>
+class QVector;
+
 class XmlSyntaxHighlighter : public QSyntaxHighlighter
 {
     public:

@@ -13,7 +13,11 @@
 #include "draglabel.h"
 #include "fridgemag.h"
 
-#include <QtGui>
+#include <QByteArray>
+#include <QDrag>
+#include <QPoint>
+#include <QTextStream>
+#include <QString>
 
 static const QString qmPath = ":/resources";
 

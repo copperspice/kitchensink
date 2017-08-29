@@ -15,6 +15,7 @@
 
 #include <QFileDialog>
 #include <QLabel>
+#include <QStandardItemModel>
 #include <QtScript>
 
 Script::Script()
@@ -49,7 +50,6 @@ void Script::displayScript()
    }
 
    file.close();
-
 
    // open again as a script
    QFile scriptFile(m_fileName);

@@ -18,11 +18,11 @@
 #include "ui_ssl_error.h"
 
 #include <QLineEdit>
-#include <QScrollBar>
-#include <QStyle>
-#include <QToolButton>
 #include <QMessageBox>
+#include <QStyle>
 #include <QSslCipher>
+#include <QScrollBar>
+#include <QToolButton>
 
 Ssl_Client::Ssl_Client(QWidget *parent)
     : QWidget(parent), ui(new Ui::Ssl_Client), socket(0), padLock(0), executingDialog(false)

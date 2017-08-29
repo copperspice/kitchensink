@@ -15,6 +15,7 @@
 #include "ssl_cert.h"
 
 #include <QComboBox>
+#include <QStringList>
 
 Ssl_Cert::Ssl_Cert(QWidget *parent)
     : QDialog(parent), ui(new Ui::Ssl_Cert)

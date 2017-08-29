@@ -16,7 +16,6 @@
 #include "ui_line_edit.h"
 
 #include <QWidget>
-#include <QLineEdit>
 
 class LineEdit : public QWidget
 {

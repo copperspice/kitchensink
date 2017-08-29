@@ -13,12 +13,12 @@
 #include "dialogs.h"
 
 #include <QDir>
+#include <QErrorMessage>
 #include <QFileDialog>
 #include <QInputDialog>
 #include <QMessageBox>
 #include <QString>
 #include <QStringList>
-#include <QWidget>
 
 #define MESSAGE  Dialogs::tr("<p>Message boxes have a caption, text, " \
    "and any number of buttons, each with standard or custom text." \

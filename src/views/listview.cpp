@@ -10,15 +10,14 @@
 *
 ***********************************************************************/
 
-#include "util.h"
 #include "listview.h"
-#include "ui_listview.h"
 
-#include <QSortFilterProxyModel>
-#include <QStringListModel>
-#include <QListView>
 #include <QAbstractItemModel>
+#include <QListView>
 #include <QModelIndex>
+#include <QSortFilterProxyModel>
+#include <QStringList>
+#include <QStringListModel>
 
 ListView::ListView(QWidget *parent)
    : QWidget(parent), ui(new Ui::ListView)

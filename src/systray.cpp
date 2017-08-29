@@ -12,7 +12,10 @@
 
 #include "systray.h"
 
-#include <QtGui>
+#include <QCloseEvent>
+#include <QHBoxLayout>
+#include <QMessageBox>
+#include <QVBoxLayout>
 
 const static QString sysPath = ":/resources/";
 

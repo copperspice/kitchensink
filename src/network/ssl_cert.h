@@ -18,7 +18,9 @@
 #include "ui_ssl_cert.h"
 
 #include <QDialog>
+#include <QList>
 #include <QSslCertificate>
+#include <QWidget>
 
 class Ssl_Cert : public QDialog
 {

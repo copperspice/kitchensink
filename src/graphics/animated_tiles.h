@@ -14,13 +14,10 @@
 #define ANIMATED_TILES_H
 
 #include <QGraphicsScene>
-#include <QGraphicsItem>
 #include <QStyleOptionGraphicsItem>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsView>
 #include <QGraphicsWidget>
-
-#include <QState>
 #include <QStateMachine>
 #include <QTimer>
 #include <QWidget>

@@ -12,7 +12,16 @@
 
 #include "sliders.h"
 
-#include <QtGui>
+#include <QComboBox>
+#include <QDial>
+#include <QDialogButtonBox>
+#include <QLabel>
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QProgressBar>
+#include <QPushButton>
+#include <QSlider>
+#include <QSpinBox>
 
 Sliders::Sliders()
    : QWidget()

@@ -12,8 +12,11 @@
 
 #include "mandelbrot_widget.h"
 
-#include <QPainter>
 #include <QKeyEvent>
+#include <QPainter>
+#include <QRectF>
+
+#include <math.h>
 
 const double DefaultCenterX = -0.637011f;
 const double DefaultCenterY = -0.0395159f;
@@ -156,8 +159,9 @@ QSize Mandelbrot_Widget::sizeHint() const
 
 void Mandelbrot_Widget::updatePixmap(const QImage &image, double scaleFactor)
 {
-   if (!lastDragPos.isNull())
+   if (! lastDragPos.isNull()) {
       return;
+   }
 
    pixmap = QPixmap::fromImage(image);
    pixmapOffset = QPoint();

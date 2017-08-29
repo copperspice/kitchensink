@@ -13,6 +13,9 @@
 #include "stdpath.h"
 #include "util.h"
 
+#include <QList>
+#include <QStringList>
+
 StdPath::StdPath(QWidget *parent)
    : QWidget(parent), m_ui(new Ui::StdPath)
 {

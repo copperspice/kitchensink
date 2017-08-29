@@ -15,7 +15,7 @@
 #include <QGridLayout>
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
-#include <QSignalTransition>
+#include <QState>
 
 #include <math.h>
 
@@ -145,5 +145,4 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
 
    m_stateMachine.start();
 }
-
 

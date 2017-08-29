@@ -18,6 +18,8 @@
 #include <QMainWindow>
 #include <QMenu>
 
+class QUrl;
+
 class Html_Viewer : public QMainWindow
 {
    CS_OBJECT(Html_Viewer)
@@ -54,6 +56,5 @@ class Html_Viewer : public QMainWindow
       Ui::Html_Form *ui;
       QUrl m_baseUrl;
 };
-
 
 #endif

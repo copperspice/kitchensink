@@ -17,7 +17,8 @@
 #include "ui_listview.h"
 
 #include <QWidget>
-#include <QSortFilterProxyModel>
+
+class QSortFilterProxyModel;
 
 class ListView : public QWidget
 {

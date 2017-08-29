@@ -15,6 +15,8 @@
 
 #include <QGLWidget>
 
+class QPoint;
+
 class GLWidget : public QGLWidget
 {
     CS_OBJECT(GLWidget)

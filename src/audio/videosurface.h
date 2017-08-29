@@ -10,14 +10,16 @@
 *
 ***********************************************************************/
 
-
 #ifndef VIDEOSURFACE_H
 #define VIDEOSURFACE_H
 
-#include <QtCore/QRect>
-#include <QtGui/QImage>
-#include <QtMultimedia/QAbstractVideoSurface>
-#include <QtMultimedia/QVideoFrame>
+#include <QAbstractVideoSurface>
+#include <QWidget>
+
+class QImage;
+class QRect;
+class QSize;
+class QVideoFrame;
 
 class VideoSurface : public QAbstractVideoSurface
 {

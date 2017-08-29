@@ -16,11 +16,12 @@
 
 #include "server.h"
 
-#include <QAbstractSocket>
 #include <QHostAddress>
 #include <QMultiHash>
 
+class QAbstractSocket;
 class PeerManager;
+class QString;
 
 class Client : public QObject
 {

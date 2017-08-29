@@ -12,6 +12,12 @@
 
 #include "lighting.h"
 
+#include <QGraphicsEffect>
+#include <QGraphicsDropShadowEffect>
+#include <QGraphicsItem>
+#include <QRadialGradient>
+#include <QTimer>
+
 #include <qmath.h>
 
 Lighting::Lighting(QWidget *parent): QGraphicsView(parent), angle(0.0)

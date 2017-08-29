@@ -10,11 +10,13 @@
 *
 ***********************************************************************/
 
-#include <QtNetwork>
-
 #include "client.h"
 #include "connection.h"
 #include "peermanager.h"
+
+#include <QAbstractSocket>
+#include <QList>
+#include <QString>
 
 Client::Client()
 {
@@ -50,7 +52,7 @@ bool Client::hasConnection(const QHostAddress &senderIp, int senderPort) const
         return peers.contains(senderIp);
     }
 
-    if (!peers.contains(senderIp)) {
+    if (! peers.contains(senderIp)) {
         return false;
     }
 

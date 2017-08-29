@@ -14,8 +14,10 @@
 #define VIDEOPLAYER_H
 
 #include <QAbstractVideoSurface>
-#include <QMovie>
+// #include <QMovie>
 #include <QWidget>
+
+class QMovie;
 
 class VideoPlayer : public QWidget
 {

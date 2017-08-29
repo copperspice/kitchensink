@@ -13,8 +13,10 @@
 #include "svgtextobject.h"
 #include "svg_view.h"
 
-#include <QtGui>
-#include <QtSvg>
+#include <QImage>
+#include <QSizeF>
+#include <QPainter>
+#include <QStyleFactory>
 
 QSizeF SvgTextObject::intrinsicSize(QTextDocument * /*doc*/, int /*posInDocument*/, const QTextFormat &format)
 {

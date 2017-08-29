@@ -14,8 +14,11 @@
 #define STYLE_DW_H
 
 #include "ui_style_dw.h"
-#include "mainwindow.h"
 #include "style_edit.h"
+
+#include <QMainWindow>
+
+class MainWindow;
 
 class Style_DW : public QMainWindow
 {

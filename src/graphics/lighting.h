@@ -13,11 +13,10 @@
 #ifndef LIGHTING_H
 #define LIGHTING_H
 
-#include <QGraphicsEffect>
 #include <QGraphicsScene>
-#include <QGraphicsItem>
 #include <QGraphicsView>
-#include <QTimer>
+
+class QResizeEvent;
 
 class Lighting: public QGraphicsView
 {

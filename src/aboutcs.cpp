@@ -17,6 +17,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QSize>
+#include <QWebView>
 
 AboutCS::AboutCS(QString route)
    : QWidget()

@@ -15,7 +15,6 @@
 
 #include "ui_stdpath.h"
 
-#include <QString>
 #include <QStandardPaths>
 #include <QWidget>
 

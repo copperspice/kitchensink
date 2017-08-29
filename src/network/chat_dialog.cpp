@@ -13,9 +13,10 @@
 #include "chat_dialog.h"
 
 #include <QMessageBox>
-#include <QScrollBar>
 #include <QTimer>
 #include <QTextTable>
+#include <QScrollBar>
+#include <QString>
 #include <QWidget>
 
 Chat_Dialog::Chat_Dialog(QWidget *parent)

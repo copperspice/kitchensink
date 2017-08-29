@@ -13,12 +13,13 @@
 #ifndef SVG_VIEW_H
 #define SVG_VIEW_H
 
-#include <QComboBox>
-#include <QLabel>
 #include <QTextFormat>
-#include <QTextEdit>
-#include <QPushButton>
 #include <QWidget>
+
+class QComboBox;
+class QLabel;
+class QPushButton;
+class QTextEdit;
 
 class Svg_View : public QWidget
 {

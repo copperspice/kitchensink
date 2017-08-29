@@ -10,9 +10,9 @@
 *
 ***********************************************************************/
 
-#include "util.h"
 #include "videoplayer.h"
 #include "videowidget.h"
+#include "util.h"
 
 #include <QGroupBox>
 #include <QtMultimedia>

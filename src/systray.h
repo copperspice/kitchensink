@@ -84,8 +84,6 @@ class SysTray : public QDialog
 
       QSystemTrayIcon *trayIcon;
       QMenu *trayIconMenu;
-
 };
-
 
 #endif

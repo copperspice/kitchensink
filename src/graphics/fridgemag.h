@@ -17,6 +17,8 @@
 #include <QDropEvent>
 #include <QWidget>
 
+class QSize;
+
 class FridgeMagnet : public QWidget
 {
    public:

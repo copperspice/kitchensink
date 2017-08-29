@@ -11,6 +11,8 @@
 ***********************************************************************/
 
 #include <ks_build_info.h>
+#include <mainwindow.h>
+#include <util.h>
 
 #include <aboutcs.h>
 #include <colorpicker.h>
@@ -18,15 +20,12 @@
 #include <draw.h>
 #include <fontpicker.h>
 #include <international.h>
-#include <mainwindow.h>
 #include <stdpath.h>
 #include <style_dw.h>
 #include <systray.h>
 #include <svg_view.h>
 #include <xml.h>
-#include <xmlpatterns.h>
-#include <util.h>
-
+#include <xmlpatterns.h> 
 #include <html_viewer.h>
 #include <musicplayer.h>
 #include <videoplayer.h>

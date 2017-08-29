@@ -13,7 +13,8 @@
 #include "glwidget.h"
 #include "grabber.h"
 
-#include <QtGui>
+#include <QGridLayout>
+#include <QImage>
 #include <QtOpenGL>
 
 Grabber::Grabber(QWidget *parent)
@@ -81,13 +82,11 @@ void Grabber::createActions()
 {
     renderIntoPixmapAct = new QAction(tr("&Render into Pixmap..."), this);
     renderIntoPixmapAct->setShortcut(tr("Ctrl+R"));
-    connect(renderIntoPixmapAct, SIGNAL(triggered()),
-            this, SLOT(renderIntoPixmap()));
+    connect(renderIntoPixmapAct, SIGNAL(triggered()), this, SLOT(renderIntoPixmap()));
 
     grabFrameBufferAct = new QAction(tr("&Grab Frame Buffer"), this);
     grabFrameBufferAct->setShortcut(tr("Ctrl+G"));
-    connect(grabFrameBufferAct, SIGNAL(triggered()),
-            this, SLOT(grabFrameBuffer()));
+    connect(grabFrameBufferAct, SIGNAL(triggered()), this, SLOT(grabFrameBuffer()));
 
     clearPixmapAct = new QAction(tr("&Clear Pixmap"), this);
     clearPixmapAct->setShortcut(tr("Ctrl+L"));
@@ -126,8 +125,10 @@ QSlider *Grabber::createSlider(const char *changedSignal,const char *setterSlot)
     slider->setPageStep(15 * 16);
     slider->setTickInterval(15 * 16);
     slider->setTickPosition(QSlider::TicksRight);
+
     connect(slider, SIGNAL(valueChanged(int)), glWidget, setterSlot);
     connect(glWidget, changedSignal, slider, SLOT(setValue(int)));
+
     return slider;
 }
 
@@ -140,21 +141,20 @@ void Grabber::grabFrameBuffer()
 QSize Grabber::getSize()
 {
     bool ok;
-    QString text = QInputDialog::getText(this, tr("Grabber"),
-                                         tr("Enter pixmap size:"),
-                                         QLineEdit::Normal,
-                                         tr("%1 x %2").arg(glWidget->width())
-                                                      .arg(glWidget->height()),
-                                         &ok);
-    if (!ok)
+    QString text = QInputDialog::getText(this, tr("Grabber"), tr("Enter pixmap size:"),
+                  QLineEdit::Normal, tr("%1 x %2").arg(glWidget->width()) .arg(glWidget->height()), &ok);
+    if (! ok) {
         return QSize();
+    }
 
     QRegExp regExp(tr("([0-9]+) *x *([0-9]+)"));
     if (regExp.exactMatch(text)) {
         int width = regExp.cap(1).toInt();
         int height = regExp.cap(2).toInt();
-        if (width > 0 && width < 2048 && height > 0 && height < 2048)
+
+        if (width > 0 && width < 2048 && height > 0 && height < 2048) {
             return QSize(width, height);
+        }
     }
 
     return glWidget->size();
@@ -174,8 +174,9 @@ void Grabber::setPixmap(const QPixmap &pixmap)
     pixmapLabel->setPixmap(pixmap);
     QSize size = pixmap.size();
 
-    if (size - QSize(1, 0) == pixmapLabelArea->maximumViewportSize())
+    if (size - QSize(1, 0) == pixmapLabelArea->maximumViewportSize()) {
         size -= QSize(1, 0);
+    }
 
     pixmapLabel->resize(size);
 }

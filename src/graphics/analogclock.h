@@ -13,10 +13,9 @@
 #ifndef ANALOGCLOCK_H
 #define ANALOGCLOCK_H
 
-#include <QPainter>
-#include <QTime>
-#include <QTimer>
 #include <QWidget>
+
+class QPaintEvent;
 
 class AnalogClock : public QWidget
 {
@@ -27,7 +26,6 @@ class AnalogClock : public QWidget
 
    protected:
       void paintEvent(QPaintEvent *event);
-
 };
 
 #endif

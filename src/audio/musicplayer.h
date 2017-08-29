@@ -10,24 +10,24 @@
 *
 ***********************************************************************/
 
-
 #ifndef MUSICPLAYER_H
 #define MUSICPLAYER_H
 
 #include "ui_musicplayer.h"
 
-#include <QWidget>
-#include <QAction>
 #include <QList>
 #include <QLCDNumber>
-#include <QPushButton>
 #include <QStandardItemModel>
+#include <QWidget>
 
 #include <phonon/audiooutput.h>
 #include <phonon/seekslider.h>
 #include <phonon/mediaobject.h>
 #include <phonon/volumeslider.h>
 #include <phonon/backendcapabilities.h>
+
+class QAction;
+class QString;
 
 class MusicPlayer : public QWidget
 {

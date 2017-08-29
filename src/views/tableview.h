@@ -10,12 +10,11 @@
 *
 ***********************************************************************/
 
-
 #ifndef TABLEVIEW_H
 #define TABLEVIEW_H
 
+#include <QSqlDatabase>
 #include <QWidget>
-#include <QSqlQuery>
 
 class TableView : public QWidget
 {
@@ -28,7 +27,6 @@ class TableView : public QWidget
 
    private:
       bool createConnection();
-
 };
 
 #endif

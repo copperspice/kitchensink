@@ -10,13 +10,12 @@
 *
 ***********************************************************************/
 
-
-#include "util.h"
 #include "tablewidget_view.h"
-#include "ui_tablewidget_view.h"
+#include "util.h"
 
+#include <QSize>
+#include <QStringList>
 #include <QTableWidget>
-
 
 TableWidget_View::TableWidget_View(QWidget *parent)
    : QWidget(parent), ui(new Ui::TableWidget_View)

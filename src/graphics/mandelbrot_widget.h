@@ -15,9 +15,9 @@
 
 #include "mandelbrot_thread.h"
 
-#include <QWidget>
 #include <QPixmap>
 #include <QPoint>
+#include <QWidget>
 
 class Mandelbrot_Widget : public QWidget
 {

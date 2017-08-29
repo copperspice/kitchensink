@@ -13,15 +13,16 @@
 #ifndef SLIDERS_H
 #define SLIDERS_H
 
-#include <QComboBox>
-#include <QMainWindow>
-#include <QDialog>
 #include <QQueue>
-#include <QLabel>
-#include <QDialogButtonBox>
-#include <QGridLayout>
-#include <QGroupBox>
-#include <QPushButton>
+#include <QWidget>
+
+class QComboBox;
+class QDialogButtonBox;
+class QGridLayout;
+class QGroupBox;
+class QLabel;
+class QPushButton;
+
 
 class Sliders : public QWidget
 {

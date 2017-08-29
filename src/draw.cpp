@@ -13,7 +13,7 @@
 #include "draw_area.h"
 #include "draw.h"
 
-#include <QtGui>
+#include <QGridLayout>
 
 const int IdRole = Qt::UserRole;
 

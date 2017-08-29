@@ -13,15 +13,15 @@
 #ifndef CALENDAR_H
 #define CALENDAR_H
 
-#include <QLabel>
-#include <QWidget>
 #include <QCalendarWidget>
 #include <QCheckBox>
 #include <QComboBox>
 #include <QDate>
 #include <QDateEdit>
+#include <QLabel>
 #include <QGridLayout>
 #include <QGroupBox>
+#include <QWidget>
 
 class Calendar : public QWidget
 {

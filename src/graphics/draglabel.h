@@ -13,11 +13,9 @@
 #ifndef DRAGLABEL_H
 #define DRAGLABEL_H
 
-#include <QDragEnterEvent>
-#include <QDragMoveEvent>
-#include <QFrame>
 #include <QLabel>
 #include <QString>
+#include <QWidget>
 
 class DragLabel : public QLabel
 {
@@ -28,6 +26,5 @@ class DragLabel : public QLabel
    private:
       QString m_labelText;
 };
-
 
 #endif

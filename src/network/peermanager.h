@@ -26,7 +26,7 @@ class PeerManager : public QObject
 {
     CS_OBJECT(PeerManager)
 
-public:
+ public:
     PeerManager(Client *client);
 
     void setServerPort(int port);
@@ -37,7 +37,7 @@ public:
     CS_SIGNAL_1(Public, void newConnection(Connection *connection))
     CS_SIGNAL_2(newConnection, connection)
 
-private:
+ private:
     void updateAddresses();
     void sendBroadcastDatagram();
     void readBroadcastDatagram();
@@ -49,7 +49,6 @@ private:
     QTimer broadcastTimer;
     QByteArray username;
     int serverPort;
-
 };
 
 #endif

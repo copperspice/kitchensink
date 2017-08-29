@@ -10,9 +10,10 @@
 *
 ***********************************************************************/
 
-#include "util.h"
 #include "tabdialog.h"
-#include "ui_tabdialog.h"
+
+#include <QButtonGroup>
+#include <QGridLayout>
 
 TabDialog::TabDialog(QWidget *parent)
    : QWidget(parent), ui(new Ui::TabDialog)
@@ -29,8 +30,7 @@ TabDialog::TabDialog(QWidget *parent)
    ui->tabWidget->setTabText(1, tr("Sandwich Selection"));
    ui->tabWidget->setTabText(2, tr("Sides && Desserts"));
 
-   // forces the six rb on tab2 to be exclusive
-   // workariybd for possible Qt 4.8.2 bug
+   // forces the six rb on tab2 to be exclusive  
    QButtonGroup *temp = new QButtonGroup;
    temp->addButton(ui->coriander_RB);
    temp->addButton(ui->juniper_RB);

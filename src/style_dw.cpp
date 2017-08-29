@@ -10,6 +10,7 @@
 *
 ***********************************************************************/
 
+#include "mainwindow.h"
 #include "style_dw.h"
 #include "style_edit.h"
 #include "util.h"

@@ -10,14 +10,13 @@
 *
 ***********************************************************************/
 
-
 #ifndef VIDEOWIDGET_H
 #define VIDEOWIDGET_H
 
 #include "videosurface.h"
 
-#include <QWidget>
 #include <QAbstractVideoSurface>
+#include <QWidget>
 
 class VideoWidget : public QWidget
 {
@@ -38,6 +37,5 @@ class VideoWidget : public QWidget
    private:
       VideoSurface *surface;
 };
-
 
 #endif

@@ -12,6 +12,12 @@
 
 #include "analogclock.h"
 
+#include <QColor>
+#include <QPainter>
+#include <QPoint>
+#include <QTime>
+#include <QTimer>
+
 AnalogClock::AnalogClock(QWidget *parent)
    : QWidget(parent)
 {
@@ -31,6 +37,7 @@ void AnalogClock::paintEvent(QPaintEvent *)
         QPoint(-7, 8),
         QPoint(0, -40)
     };
+
     static const QPoint minuteHand[3] = {
         QPoint(7, 8),
         QPoint(-7, 8),

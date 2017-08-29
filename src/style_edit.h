@@ -17,6 +17,9 @@
 
 #include <QDialog>
 
+class QString;
+class QWidget;
+
 class Style_Edit : public QDialog
 {
    CS_OBJECT(Style_Edit)

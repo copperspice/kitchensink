@@ -10,12 +10,16 @@
 *
 ***********************************************************************/
 
-
 #ifndef TREEVIEW_H
 #define TREEVIEW_H
 
+#include <QSqlDatabase>
 #include <QWidget>
-#include <QSqlQuery>
+
+template <typename T>
+class QList;
+
+class QString;
 
 class TreeView : public QWidget
 {
@@ -27,14 +31,13 @@ class TreeView : public QWidget
       QSqlDatabase m_db;
 
       struct struCat {
-            int catKey;
-            QString catName;
-            int catParent;
+         int catKey;
+         QString catName;
+         int catParent;
       };
 
       QList<struCat> getData();
       static bool sortMe(const TreeView::struCat &s1, const TreeView::struCat &s2);
 };
-
 
 #endif

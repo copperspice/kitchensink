@@ -13,12 +13,8 @@
 #ifndef SVGTEXTOBJECT_H
 #define SVGTEXTOBJECT_H
 
-#include <QPainter>
-#include <QRectF>
-#include <QSizeF>
-#include <QTextObjectInterface>
-#include <QTextDocument>
 #include <QTextFormat>
+#include <QTextObjectInterface>
 
 class SvgTextObject : public QObject, public QTextObjectInterface
 {

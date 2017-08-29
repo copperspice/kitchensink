@@ -13,7 +13,12 @@
 #include "util.h"
 #include "web_browser.h"
 
-#include <QtGui>
+#include <QAction>
+#include <QFont>
+#include <QFileDialog>
+#include <QLineEdit>
+#include <QTextEdit>
+#include <QToolBar>
 #include <QtWebKit>
 
 WebBrowser::WebBrowser(MainWindow *parent, QUrl url)

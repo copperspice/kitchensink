@@ -11,7 +11,11 @@
 ***********************************************************************/
 
 #include <draw_area.h>
-#include <QtGui>
+
+#include <QPainter>
+#include <QPoint>
+#include <QRect>
+#include <QSize>
 
 DrawArea::DrawArea(QWidget *parent)
     : QWidget(parent)

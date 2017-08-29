@@ -15,10 +15,10 @@
 
 #include "ui_dialogs.h"
 
-#include <QCheckBox>
-#include <QLabel>
-#include <QErrorMessage>
 #include <QWidget>
+
+class QErrorMessage;
+class QString;
 
 class Dialogs : public QWidget
 {

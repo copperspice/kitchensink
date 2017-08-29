@@ -12,7 +12,21 @@
 
 #include "screenshot.h"
 
-#include <QtGui>
+#include <QCheckBox>
+#include <QDir>
+#include <QFileDialog>
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QLabel>
+#include <QPushButton>
+#include <QSize>
+#include <QString>
+#include <QSpinBox>
+#include <QTimer>
+#include <QVBoxLayout>
+
+#include <QApplication>
+#include <QDesktopWidget>
 
 Screenshot::Screenshot()
 {
@@ -41,7 +55,7 @@ void Screenshot::resizeEvent(QResizeEvent * /* event */)
     QSize scaledSize = originalPixmap.size();
     scaledSize.scale(screenshotLabel->size(), Qt::KeepAspectRatio);
 
-    if (!screenshotLabel->pixmap() || scaledSize != screenshotLabel->pixmap()->size())  {
+    if (! screenshotLabel->pixmap() || scaledSize != screenshotLabel->pixmap()->size())  {
         updateScreenshotLabel();
     }
 }

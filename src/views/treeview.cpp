@@ -10,16 +10,14 @@
 *
 ***********************************************************************/
 
-
-#include "util.h"
 #include "treeview.h"
+#include "util.h"
 
+#include <QGridLayout>
+#include <QStandardItemModel>
 #include <QSqlTableModel>
 #include <QSqlQuery>
 #include <QTreeView>
-#include <QStandardItemModel>
-#include <QGridLayout>
-#include <QListIterator>
 
 TreeView::TreeView()
    : QWidget()

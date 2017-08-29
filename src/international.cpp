@@ -13,7 +13,8 @@
 #include "util.h"
 #include "international.h"
 
-#include <QtGui>
+#include <QStringListModel>
+#include <QTranslator>
 
 static const QString qmPath = ":/resources";
 QTranslator *International::m_translator = new QTranslator;

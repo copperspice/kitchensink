@@ -10,19 +10,16 @@
 *
 ***********************************************************************/
 
-
-#include "util.h"
 #include "tableview.h"
+#include "util.h"
 
-#include <QSqlTableModel>
-#include <QSqlQuery>
-
-#include <QTableView>
 #include <QHeaderView>
-#include <QMessageBox>
 #include <QHBoxLayout>
-
+#include <QMessageBox>
+#include <QSqlQuery>
+#include <QSqlTableModel>
 #include <QSqlError>
+#include <QTableView>
 
 TableView::TableView()
    : QWidget()

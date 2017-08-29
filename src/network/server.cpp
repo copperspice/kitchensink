@@ -10,8 +10,6 @@
 *
 ***********************************************************************/
 
-#include <QtNetwork>
-
 #include "connection.h"
 #include "server.h"
 

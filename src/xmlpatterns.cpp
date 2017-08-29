@@ -15,10 +15,14 @@
 #include "util.h"
 
 #include <QByteArray>
+#include <QBuffer>
 #include <QDir>
 #include <QFile>
 #include <QStringList>
 #include <QSize>
+#include <QTextStream>
+#include <QXmlFormatter>
+#include <QXmlQuery>
 
 static const QString qmPath = ":/resources/xml_patterns";
 
@@ -102,4 +106,3 @@ void XmlPatterns::evaluate(const QString &str)
     buffer.close();
     this->findChild<QTextEdit*>("outputTextEdit")->setPlainText(QString::fromUtf8(outArray.constData()));
 }
-
