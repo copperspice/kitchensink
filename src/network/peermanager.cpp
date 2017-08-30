@@ -106,6 +106,7 @@ void PeerManager::readBroadcastDatagram()
     while (broadcastSocket.hasPendingDatagrams()) {
         QHostAddress senderIp;
         quint16 senderPort;
+
         QByteArray datagram;
         datagram.resize(broadcastSocket.pendingDatagramSize());
 
@@ -119,8 +120,9 @@ void PeerManager::readBroadcastDatagram()
         }
 
         int senderServerPort = list.at(1).toInt();
-        if (isLocalHostAddress(senderIp) && senderServerPort == serverPort)
+        if (isLocalHostAddress(senderIp) && senderServerPort == serverPort) {
             continue;
+        }
 
         if (! client->hasConnection(senderIp)) {
             Connection *connection = new Connection(this);

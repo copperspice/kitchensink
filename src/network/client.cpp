@@ -42,8 +42,8 @@ void Client::sendMessage(const QString &message)
 
 QString Client::nickName() const
 {
-    return QString(peerManager->userName()) + '@' + QHostInfo::localHostName()
-           + ':' + QString::number(server.serverPort());
+   return QString(peerManager->userName()) + '@' + QHostInfo::localHostName()
+           + "  Port: " + QString::number(server.serverPort());
 }
 
 bool Client::hasConnection(const QHostAddress &senderIp, int senderPort) const
@@ -58,8 +58,9 @@ bool Client::hasConnection(const QHostAddress &senderIp, int senderPort) const
 
     QList<Connection *> connections = peers.values(senderIp);
     for (Connection *connection : connections) {
-        if (connection->peerPort() == senderPort)
+        if (connection->peerPort() == senderPort) {
             return true;
+        }
     }
 
     return false;
@@ -94,8 +95,9 @@ void Client::readyForUse()
 
 void Client::disconnected()
 {
-    if (Connection *connection = qobject_cast<Connection *>(sender()))
-        removeConnection(connection);
+   if (Connection *connection = qobject_cast<Connection *>(sender())) {
+      removeConnection(connection);
+   }
 }
 
 void Client::connectionError(QAbstractSocket::SocketError /* socketError */)

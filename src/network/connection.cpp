@@ -12,6 +12,8 @@
 
 #include "connection.h"
 
+#include <QHostInfo>
+
 static const int TransferTimeout = 30 * 1000;
 static const int PongTimeout     = 60 * 1000;
 static const int PingInterval    = 5 * 1000;
@@ -38,12 +40,12 @@ Connection::Connection(QObject *parent)
 
 QString Connection::name() const
 {
-    return username;
+   return username;
 }
 
 void Connection::setGreetingMessage(const QString &message)
 {
-    greetingMessage = message;
+   greetingMessage = message;
 }
 
 bool Connection::sendMessage(const QString &message)
@@ -70,8 +72,10 @@ void Connection::timerEvent(QTimerEvent *timerEvent)
 void Connection::processReadyRead()
 {
     if (state == WaitingForGreeting) {
-        if (!readProtocolHeader())
+        if (! readProtocolHeader()) {
             return;
+        }
+
         if (currentDataType != Greeting) {
             abort();
             return;
@@ -90,7 +94,17 @@ void Connection::processReadyRead()
             return;
         }
 
-        username = QString(buffer) + '@' + peerAddress().toString() + ':' + QString::number(peerPort());
+        QString peerName = peerAddress().toString();
+
+        // try to look up the name of the peer
+        QHostInfo peerInfo = QHostInfo::fromName(peerName);
+
+        if (! peerInfo.hostName().isEmpty()) {
+           peerName = peerInfo.hostName();
+        }
+
+        username = QString(buffer) + '@' + peerName + "  Port: " + QString::number(peerPort());
+
         currentDataType = Undefined;
         numBytesForCurrentDataType = 0;
         buffer.clear();
@@ -100,8 +114,9 @@ void Connection::processReadyRead()
             return;
         }
 
-        if (!isGreetingMessageSent)
+        if (!isGreetingMessageSent) {
             sendGreetingMessage();
+        }
 
         pingTimer.start();
         pongTime.start();
