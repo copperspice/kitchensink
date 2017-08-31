@@ -50,6 +50,25 @@ deploy : all
 	rsync -W -a $(top_srcdir)/resources/{ks_cs.ico,script.js,sampleMenu.xml} $(deploydir)/resources
 endif
 
+if OSTYPE_BSD
+deploy : all
+	mkdir -p $(deploydir)
+	mkdir -p $(deploydir)/phonon_backend
+	mkdir -p $(deploydir)/resources
+
+	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
+
+	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).so*,$(cslibs)) $(deploydir)
+
+   ifeq ($(findstring Phonon,$(cslibs)),Phonon)
+		rsync -W -a $(CS_HOME)/lib/phonon_gstreamer.so $(deploydir)/phonon_backend
+   else
+		@echo "Phonon library was not found"
+   endif
+
+	rsync -W -a $(top_srcdir)/resources/{ks_cs.ico,script.js,sampleMenu.xml} $(deploydir)/resources
+endif
+
 if OSTYPE_DARWIN
 deployapp=$(deploydir)/$(bin_PROGRAMS).app/Contents
 
