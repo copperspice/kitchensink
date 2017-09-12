@@ -1,5 +1,5 @@
 # project name, version, email
-AC_INIT([KitchenSink], 1.2.3, [info@copperspice.com])
+AC_INIT([KitchenSink], 1.3.0, [info@copperspice.com])
 export BUILD_DATE=`date +%m/%d/%Y`
 
 # location of temp autotools files
@@ -50,7 +50,7 @@ AC_LANG_POP([C++])
 
 AM_CONDITIONAL(HAVE_PHONON, test "$HAVE_PHONON" == yes)
 
-PKG_CHECK_MODULES(SSL, openssl, SSL="yes", true)
+PKG_CHECK_MODULES(SSL, openssl >= 1.0.0, SSL="yes", true)
 
 AM_CONDITIONAL(OSTYPE_WIN, test "$OSTYPE" == WIN)
 AM_CONDITIONAL(OSTYPE_LINUX, test "$OSTYPE" == LINUX)
