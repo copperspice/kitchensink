@@ -10,6 +10,8 @@
 *
 ***********************************************************************/
 
+#ifndef QT_NO_PHONON
+
 #include "musicplayer.h"
 #include "util.h"
 
@@ -356,3 +358,4 @@ void MusicPlayer::tableClicked(const QModelIndex &index)
    }
 }
 
+#endif

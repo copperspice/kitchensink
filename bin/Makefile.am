@@ -10,8 +10,12 @@ gccpath=$(dir $(shell which $(word 1,$(CC))))
 gcclibs=libgcc_s_*-1  libstdc++-6  libwinpthread-1
 
 # list of CopperSpice libraries
-cslibs=Core Gui Multimedia Network OpenGL Phonon Script Sql Svg WebKit Xml XmlPatterns
+cslibs=Core Gui Multimedia Network OpenGL Script Sql Svg WebKit Xml XmlPatterns
 csver=1.4
+
+if HAVE_PHONON
+   cslibs += Phonon
+endif
 
 # location of includes
 AM_CXXFLAGS+=-I../src -I../src/audio -I../src/graphics -I../src/network -I../src/views \

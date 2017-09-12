@@ -16,7 +16,7 @@ void ksMsg(const QString &msg)
 {
    QMessageBox msgB;
 
-   msgB.setWindowTitle("Debug Information");
+   msgB.setWindowTitle("General Information");
    msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
    msgB.setText(msg);
@@ -29,7 +29,7 @@ void ksMsg(QString msg, int value)
 
    QMessageBox msgB;
 
-   msgB.setWindowTitle("Debug Information");
+   msgB.setWindowTitle("General Information");
    msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
 
    msgB.setText(msg);

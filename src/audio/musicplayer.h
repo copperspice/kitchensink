@@ -13,6 +13,8 @@
 #ifndef MUSICPLAYER_H
 #define MUSICPLAYER_H
 
+#ifndef QT_NO_PHONON
+
 #include "ui_musicplayer.h"
 
 #include <QList>
@@ -90,5 +92,7 @@ class MusicPlayer : public QWidget
       QAction *m_pauseAction;
       QAction *m_stopAction;
 };
+
+#endif
 
 #endif

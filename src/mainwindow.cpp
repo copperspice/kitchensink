@@ -25,9 +25,13 @@
 #include <systray.h>
 #include <svg_view.h>
 #include <xml.h>
-#include <xmlpatterns.h> 
+#include <xmlpatterns.h>
 #include <html_viewer.h>
+
+#ifndef QT_NO_PHONON
 #include <musicplayer.h>
+#endif
+
 #include <videoplayer.h>
 #include <web_browser.h>
 
@@ -232,13 +236,15 @@ void MainWindow::actionXml()
 
 void MainWindow::actionXmlPatterns()
 {
-    XmlPatterns *oDw = new XmlPatterns();
+   XmlPatterns *oDw = new XmlPatterns();
    addMdiChild(oDw);
 }
 
 // audio & visual
 void MainWindow::actionMusicPlayer()
 {
+
+#ifndef QT_NO_PHONON
    MusicPlayer *oDw = new MusicPlayer();
 
    if ( oDw->loaded() ) {
@@ -246,6 +252,10 @@ void MainWindow::actionMusicPlayer()
    } else {
       delete oDw;
    }
+#else
+   ksMsg("CsPhonon library was not built with KitchenSink, unable to run MusicPlayer.");
+#endif
+
 }
 
 void MainWindow::actionVideoWidget()

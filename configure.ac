@@ -24,8 +24,6 @@ AC_PROG_CC_C99
 AC_PROG_CC_C_O
 AC_PROG_CXX
 
-PKG_CHECK_MODULES(SSL, openssl, SSL="yes", true)
-
 # set flags for c++14
 AC_LANG([C++])
 AX_CXX_COMPILE_STDCXX(14,[noext])
@@ -44,6 +42,15 @@ case "$target" in
 *-*-darwin*)
    OSTYPE=DARWIN ;;
 esac
+
+AC_LANG_PUSH([C++])
+export CPPFLAGS="$CPPFLAGS -I$CS_HOME/include/QtCore -I$CS_HOME/include"
+AC_CHECK_HEADER([phonon/phononnamespace.h], [HAVE_PHONON=yes], AC_DEFINE([QT_NO_PHONON]) )
+AC_LANG_POP([C++])
+
+AM_CONDITIONAL(HAVE_PHONON, test "$HAVE_PHONON" == yes)
+
+PKG_CHECK_MODULES(SSL, openssl, SSL="yes", true)
 
 AM_CONDITIONAL(OSTYPE_WIN, test "$OSTYPE" == WIN)
 AM_CONDITIONAL(OSTYPE_LINUX, test "$OSTYPE" == LINUX)
