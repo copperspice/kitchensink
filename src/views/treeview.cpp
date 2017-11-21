@@ -19,6 +19,8 @@
 #include <QSqlQuery>
 #include <QTreeView>
 
+#include <algorithm>
+
 TreeView::TreeView()
    : QWidget()
 {
@@ -38,7 +40,7 @@ TreeView::TreeView()
    itemList = getData();
 
    // sort the qlist data
-   qSort(itemList.begin(), itemList.end(), sortMe);
+   std::sort(itemList.begin(), itemList.end(), sortMe);
 
    // put qlist data in the tree
    QList<struCat>::iterator nK;
