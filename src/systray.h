@@ -32,7 +32,6 @@ class SysTray : public QDialog
 
    public:
       SysTray();
-
       void setVisible(bool visible);
 
    protected:
@@ -44,17 +43,10 @@ class SysTray : public QDialog
       void createActions();
       void createTrayIcon();
 
-      CS_SLOT_1(Private, void setIcon(int index))
-      CS_SLOT_2(setIcon)
-
-      CS_SLOT_1(Private, void iconActivated(QSystemTrayIcon::ActivationReason reason))
-      CS_SLOT_2(iconActivated)
-
-      CS_SLOT_1(Private, void showMessage())
-      CS_SLOT_2(showMessage)
-
-      CS_SLOT_1(Private, void messageClicked())
-      CS_SLOT_2(messageClicked)
+      void iconActivated(QSystemTrayIcon::ActivationReason reason);
+      void messageClicked();
+      void showMessage();
+      void setIcon(int index);
 
       CS_SLOT_1(Private, void actionQuit())
       CS_SLOT_2(actionQuit)

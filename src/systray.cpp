@@ -32,12 +32,15 @@ SysTray::SysTray()
 
    iconLabel->setMinimumWidth(durationLabel->sizeHint().width());
 
-   connect(showMessageButton, SIGNAL(clicked()), this, SLOT(showMessage()));
-   connect(showIconCheckBox,  SIGNAL(toggled(bool)), trayIcon, SLOT(setVisible(bool)));
-   connect(iconComboBox,      SIGNAL(currentIndexChanged(int)),this, SLOT(setIcon(int)));
-   connect(trayIcon,          SIGNAL(messageClicked()), this, SLOT(messageClicked()));
-   connect(trayIcon,          SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
-           this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
+   connect(showMessageButton, &QAbstractButton::clicked,         this,     &SysTray::showMessage);
+   connect(showIconCheckBox,  &QAbstractButton::toggled,         trayIcon, &QSystemTrayIcon::setVisible);
+
+   // static_cast is required since this signal is overloaded
+   connect(iconComboBox,      static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+                  this, &SysTray::setIcon);
+
+   connect(trayIcon,          &QSystemTrayIcon::messageClicked,  this,     &SysTray::messageClicked);
+   connect(trayIcon,          &QSystemTrayIcon::activated,       this,     &SysTray::iconActivated);
 
    QVBoxLayout *mainLayout = new QVBoxLayout;
    mainLayout->addWidget(iconGroupBox);
@@ -52,7 +55,7 @@ void SysTray::createIconGroupBox()
 {
    iconGroupBox = new QGroupBox(tr("Tray Icon"));
 
-   iconLabel = new QLabel("Icon:");
+   iconLabel    = new QLabel("Icon:");
 
    iconComboBox = new QComboBox;
    iconComboBox->addItem(QIcon(sysPath + "bad.png"),   tr("Bad"));
@@ -143,16 +146,16 @@ void SysTray::createTrayIcon()
 void SysTray::createActions()
 {
    minimizeAction = new QAction(tr("Mi&nimize"), this);
-   connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
+   connect(minimizeAction, SIGNAL(triggered()),  this, SLOT(hide()));
 
    maximizeAction = new QAction(tr("Ma&ximize"), this);
-   connect(maximizeAction, SIGNAL(triggered()), this, SLOT(showMaximized()));
+   connect(maximizeAction, SIGNAL(triggered()),  this, SLOT(showMaximized()));
 
-   restoreAction = new QAction(tr("&Restore"), this);
-   connect(restoreAction,  SIGNAL(triggered()), this, SLOT(showNormal()));
+   restoreAction = new QAction(tr("&Restore"),   this);
+   connect(restoreAction,  SIGNAL(triggered()),  this, SLOT(showNormal()));
 
    quitAction = new QAction(tr("&Quit"), this);
-   connect(quitAction,     SIGNAL(triggered()), this, SLOT(actionQuit()));
+   connect(quitAction,     SIGNAL(triggered()),  this, SLOT(actionQuit()));
 }
 
 //
