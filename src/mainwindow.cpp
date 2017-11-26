@@ -440,7 +440,7 @@ void MainWindow::actionAbout()
    msgB.setMinimumWidth(2000);
 
    msgB.setWindowTitle(tr("About KitchenSink"));
-   msgB.setText(tr("<p style=margin-right:25><center><h5>Version: %1<br>Build # %2</h5></center></p>").
+   msgB.setText(QString("<p style=margin-right:25><center><h5>Version: %1<br>Build # %2</h5></center></p>").
                   arg(versionString).arg(buildDate));
 
    msgB.setInformativeText(textBody);

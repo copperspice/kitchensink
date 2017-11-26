@@ -28,7 +28,8 @@ class Server : public QTcpServer
    CS_SIGNAL_2(newConnection, connection)
 
  protected:
-    void incomingConnection(qintptr socketDescriptor) override;
+   void incomingConnection(qintptr socketDescriptor) override;
+
 };
 
 #endif

@@ -107,7 +107,7 @@
      <item>
       <widget class="QPushButton" name="aboutCs_PB">
        <property name="text">
-        <string>About CS</string>
+        <string>About CoperSpice</string>
        </property>
       </widget>
      </item>

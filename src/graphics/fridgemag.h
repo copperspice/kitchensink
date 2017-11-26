@@ -21,6 +21,8 @@ class QSize;
 
 class FridgeMagnet : public QWidget
 {
+   CS_OBJECT(FridgeMagnet)
+
    public:
       FridgeMagnet(QWidget *parent = nullptr);
       QSize sizeHint() const;

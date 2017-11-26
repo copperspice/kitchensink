@@ -23,6 +23,8 @@ class QString;
 
 class TreeView : public QWidget
 {
+   CS_OBJECT(TreeView)
+
    public:
       TreeView();
 

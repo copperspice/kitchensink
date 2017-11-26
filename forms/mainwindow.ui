@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Kitchen Sink - CS</string>
+   <string>KitchenSink</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -130,7 +130,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionExit_Program">
    <property name="text">
-    <string>Exit Kitchen Sink</string>
+    <string>Exit KitchenSink</string>
    </property>
   </action>
   <action name="actionAbout">
