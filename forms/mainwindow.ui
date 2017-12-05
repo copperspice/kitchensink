@@ -281,6 +281,9 @@
    <property name="iconText">
     <string>JS Script</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="actionClose_Window">
    <property name="text">
@@ -337,6 +340,9 @@
    <property name="text">
     <string>World Clock (Qml) *</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="actionMandelbrot">
    <property name="text">
@@ -346,6 +352,9 @@
   <action name="actionWiggle_Boxes">
    <property name="text">
     <string>Wiggle Boxes (Qml) *</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
    </property>
   </action>
   <action name="actionAbout_KitchenSink">

@@ -67,7 +67,7 @@ MainWindow::MainWindow()
 {
    m_ui->setupUi(this);
    setWindowTitle(tr("KitchenSink"));
-   setWindowIcon(QIcon("://resources/ks_cs.ico"));
+   setWindowIcon(QIcon("://resources/ks.ico"));
 
    connect(m_ui->actionClose_Window,      &QAction::triggered, this,  &MainWindow::actionClose_Window);
    connect(m_ui->actionCloseAll_Windows,  &QAction::triggered, this,  &MainWindow::actionCloseAll_Windows);
@@ -436,7 +436,7 @@ void MainWindow::actionAbout()
 
    QMessageBox msgB;
    msgB.setIcon(QMessageBox::NoIcon);
-   msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
+   msgB.setWindowIcon(QIcon("://resources/ks.ico"));
    msgB.setMinimumWidth(2000);
 
    msgB.setWindowTitle(tr("About KitchenSink"));

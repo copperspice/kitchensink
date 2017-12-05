@@ -17,7 +17,7 @@ void ksMsg(const QString &msg)
    QMessageBox msgB;
 
    msgB.setWindowTitle("General Information");
-   msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
+   msgB.setWindowIcon(QIcon("://resources/ks.ico"));
 
    msgB.setText(msg);
    msgB.exec();
@@ -30,7 +30,7 @@ void ksMsg(QString msg, int value)
    QMessageBox msgB;
 
    msgB.setWindowTitle("General Information");
-   msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
+   msgB.setWindowIcon(QIcon("://resources/ks.ico"));
 
    msgB.setText(msg);
    msgB.exec();
@@ -45,7 +45,7 @@ void ksMsg(QWidget *parent, const QString &title, const QString &msg)
    }
 
    msgB.setWindowTitle(title);
-   msgB.setWindowIcon(QIcon("://resources/ks_cs.ico"));
+   msgB.setWindowIcon(QIcon("://resources/ks.ico"));
 
    msgB.setText(msg);
    msgB.exec();

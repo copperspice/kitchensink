@@ -51,7 +51,7 @@ deploy : all
 		@echo "Phonon library was not found"
    endif
 
-	rsync -W -a $(top_srcdir)/resources/{ks_cs.ico,script.js,sampleMenu.xml} $(deploydir)/resources
+	rsync -W -a $(top_srcdir)/resources/{ks.ico,script.js,sampleMenu.xml} $(deploydir)/resources
 endif
 
 if OSTYPE_BSD
@@ -70,7 +70,7 @@ deploy : all
 		@echo "Phonon library was not found"
    endif
 
-	rsync -W -a $(top_srcdir)/resources/{ks_cs.ico,script.js,sampleMenu.xml} $(deploydir)/resources
+	rsync -W -a $(top_srcdir)/resources/{ks.ico,script.js,sampleMenu.xml} $(deploydir)/resources
 endif
 
 if OSTYPE_DARWIN
@@ -84,7 +84,7 @@ deploy : all
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deployapp)/MacOS
 
 	rm -f $(deployapp)/Info.plist
-	sed -e "s,@ICON@,ks_cs.icns,g" \
+	sed -e "s,@ICON@,ks.icns,g" \
 	    -e "s,@TYPEINFO@,????,g" \
 	    -e "s,@EXECUTABLE@,$(bin_PROGRAMS),g" \
 	    -e "s,com.yourcompany.,com.copperspice.,g" \
@@ -96,7 +96,8 @@ deploy : all
 	touch $(deployapp)/Resources/empty.lproj
 	cp -r $(CS_HOME)/mac/qt_menu.nib $(deployapp)/Resources
 
-	cp $(top_srcdir)/resources/ks_cs.icns $(deployapp)/Resources
+	cp $(top_srcdir)/resources/ks.icns $(deployapp)/Resources
+	rsync -W -a $(top_srcdir)/resources/{ks.ico,script.js,sampleMenu.xml} $(deployapp)/Resources
 
 	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).dylib,$(cslibs)) $(deployapp)/Frameworks
 
@@ -132,10 +133,9 @@ if OSTYPE_WIN
 deploy : all
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend
+	mkdir -p $(deploydir)/resources
 
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
-
-	rsync -W -a --modify-window=2  $(top_srcdir)/resources/ks_cs.ico $(deploydir)
 
 	rsync -W -a --modify-window=2  $(patsubst %,$(gccpath)%.dll,$(gcclibs))  $(deploydir)
 	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%$(csver).dll,$(cslibs))  $(deploydir)
@@ -145,6 +145,8 @@ deploy : all
    else
 		@echo "Phonon library was not found"
    endif
+
+	rsync -W -a $(top_srcdir)/resources/{ks.ico,script.js,sampleMenu.xml} $(deploydir)/resources
 endif
 
 # search path for source
@@ -357,7 +359,7 @@ endif
 
 if OSTYPE_WIN
 install-exec-hook:
-	rsync -W -a --modify-window=2  $(top_srcdir)/resources/ks_cs.ico $(bindir)
+	rsync -W -a --modify-window=2  $(top_srcdir)/resources/ks.ico $(bindir)
 
 	rsync -W -a --modify-window=2  $(patsubst %,$(gccpath)%.dll,$(gcclibs))  $(bindir)
 	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%$(csver).dll,$(cslibs))  $(bindir)
