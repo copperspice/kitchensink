@@ -28,6 +28,7 @@ do-config
 /bin/qrc*.cpp
 /bin/Makefile
 /bin/*.exe
+/build/
 /deploy/
 /src/ks_build_info.h
 
