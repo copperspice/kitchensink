@@ -11,13 +11,20 @@ is intentionally simplistic and not optimized.
 
 To build KitchenSink you will need a current copy of the CopperSpice libraries, a C++14 compiler, and a C++14 standard library.
 
-Uses CMake or Autotools for building binary files.
+Uses CMake or Autotools to build the executable.
 
 
 ### Building
 
-If you are using a version of CopperSpice which has OpenSSL enabled you need the necessary OpenSSL library files in your deployment of
-KitchenSink.
+###### Build Files
+
+If you are building KitchenSink with CMake you will need binaries of CopperSpice which were also built with CMake.
+
+
+###### OpenSSL
+
+If you are using a version of CopperSpice which has OpenSSL enabled you need the necessary OpenSSL library files in your
+deployment of KitchenSink.
 
 If CopperSpice was not built with OpenSSL you will need to configure KitchenSink as shown.
 
@@ -35,11 +42,21 @@ AutoTools
 ./configure CXXFLAGS="-O2 -DQT_NO_OPENSSL"
 ```
 
+### Documentation
+
+Information about KitchenSink can be found using the following links. The "Build System" video on our YouTube channel
+provides details about building KitchenSink.
+
+www.copperspice.com/documentation-kitchensink.html
+
+https://www.youtube.com/watch?v=GI2coXFs5RM
+
 
 
 ### Presentations
 
-YouTube channel videos about CopperSpice, DoxyPress, C++, and the other topics related to our work.
+Our YouTube channel videos are about modern C++, build systems, CopperSpice, DoxyPress, and other topics related to our
+open source work.
 
 https://www.youtube.com/copperspice
 
