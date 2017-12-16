@@ -11,12 +11,8 @@ find_package(CopperSpice REQUIRED)
 
 # file locations for installing
 if(WIN32)
-#   set(CMAKE_INSTALL_BINDIR     bin)
-#   set(CMAKE_INSTALL_INCLUDEDIR include)
-
    set(CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION .)
    include(${CopperSpice_DIR}/InstallMinGW.cmake)
-
 else()
    include(GNUInstallDirs)
 

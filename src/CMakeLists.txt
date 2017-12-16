@@ -17,16 +17,6 @@ if (HAVE_WINDOWS_H)
    add_definitions(-DHAVE_WINDOWS_H)
 endif()
 
-
-# location of includes
-include_directories(
-   ${CMAKE_CURRENT_SOURCE_DIR}/audio
-   ${CMAKE_CURRENT_SOURCE_DIR}/graphics
-   ${CMAKE_CURRENT_SOURCE_DIR}/network
-   ${CMAKE_CURRENT_SOURCE_DIR}/views
-   ${CMAKE_CURRENT_SOURCE_DIR}/widgets
-)
-
 set(KITCHENSINK_INCLUDES
    ${CMAKE_CURRENT_SOURCE_DIR}/aboutcs.h
    ${CMAKE_CURRENT_SOURCE_DIR}/colorpicker.h
@@ -143,8 +133,15 @@ COPPERSPICE_RESOURCES(
 
 add_executable(KitchenSink ${KITCHENSINK_SOURCES} )
 
-target_include_directories(KitchenSink PRIVATE
+# location of includes
+target_include_directories(KitchenSink
+   PRIVATE
    ${CMAKE_SOURCE_DIR}/src
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio
+   ${CMAKE_CURRENT_SOURCE_DIR}/graphics
+   ${CMAKE_CURRENT_SOURCE_DIR}/network
+   ${CMAKE_CURRENT_SOURCE_DIR}/views
+   ${CMAKE_CURRENT_SOURCE_DIR}/widgets
 )
 
 target_link_libraries(KitchenSink
