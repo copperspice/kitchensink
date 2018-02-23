@@ -22,14 +22,14 @@
 AboutCS::AboutCS(QString route)
    : QWidget()
 {
-   QString url;
+   QUrl url;
 
    if (route == "cs")  {
-      url = "http://www.copperspice.com";
+      url = QUrl("http://www.copperspice.com");
       setWindowTitle("About CopperSpice");
 
    } else   {
-      url = "http://www.copperspice.com/documentation-kitchensink.html";
+      url = QUrl("http://www.copperspice.com/documentation-kitchensink.html");
       setWindowTitle("About KitchenSink");
 
    }
@@ -66,7 +66,7 @@ AboutCS::AboutCS(QString route)
 }
 
 void AboutCS::actionHome() {
-   QString url = "http://www.copperspice.com/kitchensink.html";
+   QUrl url("http://www.copperspice.com/kitchensink.html");
    m_viewer->setUrl(url);
 }
 

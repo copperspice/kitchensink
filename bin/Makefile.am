@@ -220,6 +220,7 @@ KitchenSink_SOURCES = \
    src/draw_area.cpp \
    src/fontpicker.cpp \
    src/international.cpp \
+   src/include_test.cpp \
    src/main.cpp \
    src/mainwindow.cpp \
    src/script.cpp \

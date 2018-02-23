@@ -48,6 +48,7 @@ set(KITCHENSINK_SOURCES
    ${CMAKE_CURRENT_SOURCE_DIR}/draw_area.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/fontpicker.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/international.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/include_test.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/mainwindow.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/script.cpp

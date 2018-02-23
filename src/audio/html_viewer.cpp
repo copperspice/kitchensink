@@ -132,11 +132,10 @@ void Html_Viewer::open()
 void Html_Viewer::openUrl()
 {
    bool ok;
-   QString url = QInputDialog::getText(this, tr("Enter a URL"),
-            tr("URL:"), QLineEdit::Normal, "http://", &ok);
+   QString url(QInputDialog::getText(this, tr("Enter a URL"), tr("URL:"), QLineEdit::Normal, "http://", &ok));
 
-   if (ok && !url.isEmpty()) {
-      ui->webView->setUrl(url);
+   if (ok && ! url.isEmpty()) {
+      ui->webView->setUrl( QUrl(url) );
    }
 }
 
