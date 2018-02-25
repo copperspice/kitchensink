@@ -28,8 +28,8 @@ FontPicker::FontPicker(QWidget *parent) :
    // missing two letters
    ui->fontEdit->setText("A wacky fox and sizeable pig jumped halfway over a blue moon.");
 
-   connect(ui->selectFont_PB, SIGNAL(clicked()), this, SLOT(setFont()));
-   connect(ui->closePB,       SIGNAL(clicked()), this, SLOT(actionClose()));
+   connect(ui->selectFont_PB, &QPushButton::clicked, this, &FontPicker::setFont);
+   connect(ui->closePB,       &QPushButton::clicked, this, &FontPicker::actionClose);
 }
 
 FontPicker::~FontPicker()

@@ -26,11 +26,9 @@ class AboutCS : public QWidget
       QSize sizeHint() const;
 
    private:
-      CS_SLOT_1(Private, void actionClose())
-      CS_SLOT_2(actionClose)
-
-      CS_SLOT_1(Private, void actionHome())
-      CS_SLOT_2(actionHome)
+      // slot declarations
+      void actionClose();
+      void actionHome();
 
       QWebView *m_viewer;
 };

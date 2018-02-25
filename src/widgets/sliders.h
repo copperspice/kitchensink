@@ -36,12 +36,6 @@ class Sliders : public QWidget
       void createOptionsGroupBox();
       void createButtons();
 
-      CS_SLOT_1(Private, void buttonsOrientationChanged(int index))
-      CS_SLOT_2(buttonsOrientationChanged)
-
-      CS_SLOT_1(Private, void rotateWidgets())
-      CS_SLOT_2(rotateWidgets)
-
       QGroupBox *m_rotableGroupBox;
       QQueue<QWidget *> m_rotableWidgets;
 
@@ -55,6 +49,10 @@ class Sliders : public QWidget
       QGridLayout *m_mainLayout;
       QGridLayout *m_rotableLayout;
       QGridLayout *m_optionsLayout;
+
+      // slot declarations
+      void buttonsOrientationChanged(int index);
+      void rotateWidgets();
 };
 
 #endif

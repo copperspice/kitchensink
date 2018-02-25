@@ -16,9 +16,9 @@
 
 #include "ui_listview.h"
 
+#include <QStringList>
+#include <QSortFilterProxyModel>
 #include <QWidget>
-
-class QSortFilterProxyModel;
 
 class ListView : public QWidget
 {
@@ -29,16 +29,13 @@ class ListView : public QWidget
       ~ListView();
 
    private:
-      QStringList getData();
-
-      CS_SLOT_1(Private, void delRow())
-      CS_SLOT_2(delRow)
-
-      CS_SLOT_1(Private, void addRow())
-      CS_SLOT_2(addRow)
-
       Ui::ListView *ui;
       QSortFilterProxyModel *m_proxyModel;
+      QStringList getData();
+
+      // slot declarations
+      void delRow();
+      void addRow();
 };
 
 #endif

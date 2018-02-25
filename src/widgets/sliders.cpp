@@ -80,14 +80,15 @@ void Sliders::createOptionsGroupBox()
    m_buttonsOrientationComboBox->addItem(tr("Horizontal"), Qt::Horizontal);
    m_buttonsOrientationComboBox->addItem(tr("Vertical"),   Qt::Vertical);
 
-   connect(m_buttonsOrientationComboBox, SIGNAL(currentIndexChanged(int)),
-           this, SLOT(buttonsOrientationChanged(int)));
-
    m_optionsLayout = new QGridLayout;
    m_optionsLayout->addWidget(m_buttonsOrientationLabel, 0, 0);
    m_optionsLayout->addWidget(m_buttonsOrientationComboBox, 0, 1);
    m_optionsLayout->setColumnStretch(2, 1);
    m_optionsGroupBox->setLayout(m_optionsLayout);
+
+   // static_cast is required since this signal is overloaded
+   connect(m_buttonsOrientationComboBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+                  this, &Sliders::buttonsOrientationChanged);
 }
 
 void Sliders::createButtons()
@@ -96,7 +97,7 @@ void Sliders::createButtons()
    m_buttonBox->setCenterButtons(true);
    m_rotateWidgetsButton = m_buttonBox->addButton(tr("Rotate &Widgets"),QDialogButtonBox::ActionRole);
 
-   connect(m_rotateWidgetsButton, SIGNAL(clicked()), this, SLOT(rotateWidgets()));
+   connect(m_rotateWidgetsButton, &QPushButton::clicked, this, &Sliders::rotateWidgets);
 }
 
 void Sliders::buttonsOrientationChanged(int index)

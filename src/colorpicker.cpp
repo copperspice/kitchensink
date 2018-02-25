@@ -30,8 +30,8 @@ ColorPicker::ColorPicker(QWidget *parent)
    QString colorname = temp.color(QPalette::Base).name();
    ui->label->setText("Sample Text Background in " + colorname.toUpper() );
 
-   connect(ui->selectColor_PB, SIGNAL(clicked()), this, SLOT(setColor()));
-   connect(ui->closePB,        SIGNAL(clicked()), this, SLOT(actionClose()));
+   connect(ui->selectColor_PB, &QPushButton::clicked, this, &ColorPicker::setColor);
+   connect(ui->closePB,        &QPushButton::clicked, this, &ColorPicker::actionClose);
 }
 
 ColorPicker::~ColorPicker()

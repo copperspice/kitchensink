@@ -26,13 +26,11 @@ class FontPicker : public QWidget
       ~FontPicker();
 
    private:
-      CS_SLOT_1(Private, void setFont())
-      CS_SLOT_2(setFont)
-
-      CS_SLOT_1(Private, void actionClose())
-      CS_SLOT_2(actionClose)
-
       Ui::FontPicker *ui;
+
+      // slot declarations
+      void setFont();
+      void actionClose();
 };
 
 #endif

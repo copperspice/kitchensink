@@ -15,8 +15,6 @@
 #include <QAbstractItemModel>
 #include <QListView>
 #include <QModelIndex>
-#include <QSortFilterProxyModel>
-#include <QStringList>
 #include <QStringListModel>
 
 ListView::ListView(QWidget *parent)
@@ -25,7 +23,6 @@ ListView::ListView(QWidget *parent)
    ui->setupUi(this);
    setWindowTitle("List View Model");
 
-   //
    QStringListModel *model = new QStringListModel(this);
    model->setStringList( getData() );
 
@@ -44,8 +41,8 @@ ListView::ListView(QWidget *parent)
    QSize size = this->size();
    this->setMinimumHeight( size.height() );
 
-   connect( ui->insert_PB,  SIGNAL(clicked()), this, SLOT(addRow()) );
-   connect( ui->delete_PB,  SIGNAL(clicked()), this, SLOT(delRow()) );
+   connect(ui->insert_PB,  &QAbstractButton::clicked, this, &ListView::addRow);
+   connect(ui->delete_PB,  &QAbstractButton::clicked, this, &ListView::delRow);
 }
 
 ListView::~ListView()

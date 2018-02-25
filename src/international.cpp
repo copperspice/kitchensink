@@ -38,12 +38,12 @@ International::International()
 
    this->getListData();
 
-   // signals
-   connect(ui->englishRB,  SIGNAL(clicked()), this, SLOT(actionEnglish()));
-   connect(ui->frenchRB,   SIGNAL(clicked()), this, SLOT(actionFrench()));
-   connect(ui->germanRB,   SIGNAL(clicked()), this, SLOT(actionGerman()));
-   connect(ui->okPB,       SIGNAL(clicked()), this, SLOT(actionClose()));
-   connect(ui->closePB,    SIGNAL(clicked()), this, SLOT(actionClose()));
+   //
+   connect(ui->englishRB,  &QPushButton::clicked, this, &International::actionEnglish);
+   connect(ui->frenchRB,   &QPushButton::clicked, this, &International::actionFrench);
+   connect(ui->germanRB,   &QPushButton::clicked, this, &International::actionGerman);
+   connect(ui->okPB,       &QPushButton::clicked, this, &International::actionClose);
+   connect(ui->closePB,    &QPushButton::clicked, this, &International::actionClose);
 
    // force
    ui->nameCB->setFocus();

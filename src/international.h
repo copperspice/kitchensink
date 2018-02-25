@@ -33,21 +33,15 @@ class International : public QWidget
       void changeEvent(QEvent *event);
       void getListData();
 
-      CS_SLOT_1(Private, void actionClose())
-      CS_SLOT_2(actionClose)
-
-      CS_SLOT_1(Private, void actionEnglish())
-      CS_SLOT_2(actionEnglish)
-
-      CS_SLOT_1(Private, void actionFrench())
-      CS_SLOT_2(actionFrench)
-
-      CS_SLOT_1(Private, void actionGerman())
-      CS_SLOT_2(actionGerman)
-
       Ui::International *ui;
       QStringListModel *m_model;
       static QTranslator *m_translator;
+
+      // slot declarations
+      void actionEnglish();
+      void actionFrench();
+      void actionGerman();
+      void actionClose();
 };
 
 #endif

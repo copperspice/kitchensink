@@ -61,8 +61,8 @@ AboutCS::AboutCS(QString route)
    mainLayout->setContentsMargins(0, 0, 0, 15);
 
    // signals
-   connect(homePB,  SIGNAL(clicked()), this, SLOT(actionHome()) );
-   connect(closePB, SIGNAL(clicked()), this, SLOT(actionClose()) );
+   connect(homePB,  &QPushButton::clicked, this, &AboutCS::actionHome );
+   connect(closePB, &QPushButton::clicked, this, &AboutCS::actionClose);
 }
 
 void AboutCS::actionHome() {
