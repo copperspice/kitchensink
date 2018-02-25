@@ -13,7 +13,7 @@
 #ifndef SSL_CLIENT_H
 #define SSL_CLIENT_H
 
-#ifndef QT_NO_OPENSSL
+#ifdef QT_SSL
 
 #include "ui_ssl_client.h"
 

@@ -10,7 +10,7 @@
 *
 ***********************************************************************/
 
-#ifndef QT_NO_OPENSSL
+#ifdef QT_SSL
 
 #include "ssl_cert.h"
 #include "ssl_client.h"

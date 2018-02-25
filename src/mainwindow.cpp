@@ -286,8 +286,8 @@ void MainWindow::actionChat()
 void MainWindow::actionSsl()
 {
 
-#ifdef QT_NO_OPENSSL
-   QMessageBox::information(this, "Secure Socket", "This build of the KitchenSink program does not support OpenSSL.");
+#ifdef QT_SSL
+   QMessageBox::information(this, "Secure Socket", "This build of the KitchenSink program does not support SSL.");
 
 #else
    Ssl_Client *oDw = new Ssl_Client();

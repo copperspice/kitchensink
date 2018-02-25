@@ -13,8 +13,7 @@
 #ifndef SSL_CERT_H
 #define SSL_CERT_H
 
-#ifndef QT_NO_OPENSSL
-
+#ifdef QT_SSL
 #include "ui_ssl_cert.h"
 
 #include <QDialog>
