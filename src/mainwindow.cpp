@@ -287,11 +287,11 @@ void MainWindow::actionSsl()
 {
 
 #ifdef QT_SSL
-   QMessageBox::information(this, "Secure Socket", "This build of the KitchenSink program does not support SSL.");
-
-#else
    Ssl_Client *oDw = new Ssl_Client();
    addMdiChild(oDw);
+
+#else
+   QMessageBox::information(this, "Secure Socket", "This build of the KitchenSink program does not support SSL.");
 
 #endif
 

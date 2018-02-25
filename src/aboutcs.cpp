@@ -66,7 +66,7 @@ AboutCS::AboutCS(QString route)
 }
 
 void AboutCS::actionHome() {
-   QUrl url("http://www.copperspice.com/kitchensink.html");
+   QUrl url("http://www.copperspice.com/documentation-kitchensink.html");
    m_viewer->setUrl(url);
 }
 

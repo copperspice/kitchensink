@@ -44,8 +44,9 @@ XmlPatterns::XmlPatterns()
       ui->defaultQueries->addItem(queries.at(i));
    }
 
-   // signals
-   connect(ui->defaultQueries, SIGNAL(currentIndexChanged(int)), this, SLOT(displayQuery(int)));
+   // static_cast is required since this signal is overloaded
+   connect(ui->defaultQueries, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+                  this, &XmlPatterns::displayQuery);
 }
 
 XmlPatterns::~XmlPatterns()

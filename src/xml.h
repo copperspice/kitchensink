@@ -30,12 +30,6 @@ class Xml : public QWidget
       ~Xml();
 
    private:
-      CS_SLOT_1(Private, void actionOpenXml())
-      CS_SLOT_2(actionOpenXml)
-
-      CS_SLOT_1(Private, void actionClose())
-      CS_SLOT_2(actionClose)
-
       Ui::Xml *ui;
       QString m_fileName;
       QStandardItemModel *m_model;
@@ -45,6 +39,9 @@ class Xml : public QWidget
       void parseMealElement(QStandardItem *parentItem, QDomElement element);
       QStandardItem *addElement(QStandardItem *parentItem, QString text);
 
+      // slot declarations
+      void actionOpenXml();
+      void actionClose();
 };
 
 #endif

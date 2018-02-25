@@ -28,13 +28,13 @@ class XmlPatterns : public QWidget
       ~XmlPatterns();
 
    private:
+      Ui::XmlPatterns *ui;
+
       void evaluate(const QString &str);
       void loadInputFile();
 
-      CS_SLOT_1(Private, void displayQuery(int index))
-      CS_SLOT_2(displayQuery)
-
-      Ui::XmlPatterns *ui;
+      // slot declarations
+      void displayQuery(int index);
 };
 
 #endif

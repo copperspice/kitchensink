@@ -28,9 +28,8 @@ Xml::Xml()
    m_fileName = ":/resources/sampleMenu.xml";
    processXml();
 
-   // signals
-   connect(ui->openPB,  SIGNAL(clicked()), this, SLOT(actionOpenXml()));
-   connect(ui->closePB, SIGNAL(clicked()), this, SLOT(actionClose()));
+   connect(ui->openPB,  &QPushButton::clicked, this, &Xml::actionOpenXml);
+   connect(ui->closePB, &QPushButton::clicked, this, &Xml::actionClose);
 }
 
 Xml::~Xml()
