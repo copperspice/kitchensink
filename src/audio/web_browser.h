@@ -34,7 +34,7 @@ class WebBrowser : public QMainWindow
       CS_SLOT_1(Protected, void setTitle())
       CS_SLOT_2(setTitle)
 
-      CS_SLOT_1(Protected, void setLocation())
+      CS_SLOT_1(Protected, void setLocation(bool ok))
       CS_SLOT_2(setLocation)
 
       CS_SLOT_1(Protected, void setProgress(int p))
@@ -72,6 +72,9 @@ class WebBrowser : public QMainWindow
 
       CS_SLOT_1(Protected, void goCS())
       CS_SLOT_2(goCS)
+
+      CS_SLOT_1(Protected, void goCpp())
+      CS_SLOT_2(goCpp)
 
       CS_SLOT_1(Protected, void goFood())
       CS_SLOT_2(goFood)

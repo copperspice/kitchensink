@@ -69,6 +69,7 @@ WebBrowser::WebBrowser(MainWindow *parent, QUrl url)
    bookMarkMenu->addAction(tr("Astronomy Picture"),      this, SLOT(goNasa()));
    bookMarkMenu->addAction(tr("Cooking for Engineers"),  this, SLOT(goFood()));
    bookMarkMenu->addAction(tr("CopperSpice"),            this, SLOT(goCS()));
+   bookMarkMenu->addAction(tr("C++ Reference"),          this, SLOT(goCpp()));
    bookMarkMenu->addAction(tr("Google"),                 this, SLOT(goGoogle()));
    bookMarkMenu->addAction(tr("Huffington Post"),        this, SLOT(goHuffPo()));
    bookMarkMenu->addAction(tr("Slashdot"),               this, SLOT(goSlash()));
@@ -107,7 +108,7 @@ WebBrowser::WebBrowser(MainWindow *parent, QUrl url)
    // signals
    connect(m_urlEdit, SIGNAL(returnPressed()),     this, SLOT(changeLocation()));
    connect(m_view,    SIGNAL(loadProgress(int)),   this, SLOT(setProgress(int)));
-   connect(m_view,    SIGNAL(loadFinished(bool)),  this, SLOT(setLocation()));
+   connect(m_view,    SIGNAL(loadFinished(bool)),  this, SLOT(setLocation(bool)));
    connect(m_view,    SIGNAL(titleChanged(const QString &)), this, SLOT(setTitle()));
 
    connect(m_view->page(), SIGNAL(linkHovered(const QString &, const QString &, const QString &)), this,
@@ -133,9 +134,20 @@ void WebBrowser::changeLocation()
    m_view->setFocus();
 }
 
-void WebBrowser::setLocation()
+void WebBrowser::setLocation(bool ok)
 {
-   m_urlEdit->setText(m_view->url().toString());
+   if (ok) {
+      m_urlEdit->setText(m_view->url().toString());
+   } else {
+
+#ifdef QT_SSL
+      QMessageBox::information(this, "Web Browser", "Loading web site failed.");
+#else
+      QMessageBox::information(this, "Web Browser",
+            "Loading web site failed, support for SSL (https) is not available which may be the issue.");
+#endif
+
+   }
 }
 
 void WebBrowser::setProgress(int p)
@@ -213,11 +225,9 @@ void WebBrowser::setCustomContextMenu(const QPoint &pos)
    QUrl url = testHit.linkUrl();
 
    if ( ! url.isEmpty()) {
-
       // retrieves the default menu, can add additional actions
       // QMenu *menu = m_view->page()->createStandardContextMenu();
 
-      //
       QMenu *menu = new QMenu(this);
 
       menu->addAction(m_view->pageAction(QWebPage::OpenLink));
@@ -272,7 +282,7 @@ void WebBrowser::actionDownloadLinkToDisk()
 {
    // retrieve url
 
-   // next two lines of code are sadly not good C++ code
+   // next two lines of code are not good C++ code
    // CopperSpice provides a way to pass a parameter to the Slot
 
    QObject *p = sender();
@@ -324,9 +334,14 @@ void WebBrowser::downloadFinished()
 // bookmarks
 void WebBrowser::goNasa()
 {
-   QUrl url = QUrl("http://apod.nasa.gov");
+#ifdef QT_SSL
+   QUrl url = QUrl("https://apod.nasa.gov/apod");
    m_view->load(url);
    m_view->setFocus();
+#else
+      QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
+#endif
+
 }
 
 void WebBrowser::goCS()
@@ -343,6 +358,13 @@ void WebBrowser::goFood()
    m_view->setFocus();
 }
 
+void WebBrowser::goCpp()
+{
+   QUrl url = QUrl("http://en.cppreference.com/w/cpp/language/templates");
+   m_view->load(url);
+   m_view->setFocus();
+}
+
 void WebBrowser::goGoogle()
 {
    QUrl url = QUrl("http://www.google.com");
@@ -352,30 +374,49 @@ void WebBrowser::goGoogle()
 
 void WebBrowser::goHuffPo()
 {
-   QUrl url = QUrl("http://www.huffingtonpost.com");
+#ifdef QT_SSL
+   QUrl url = QUrl("https://www.huffingtonpost.com");
    m_view->load(url);
    m_view->setFocus();
+#else
+      QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
+#endif
+
 }
 
 void WebBrowser::goSlash()
 {
-   QUrl url = QUrl("http://www.slashdot.org");
+
+#ifdef QT_SSL
+   QUrl url = QUrl("https://www.slashdot.org");
    m_view->load(url);
    m_view->setFocus();
+#else
+      QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
+#endif
+
 }
 
 void WebBrowser::goWiki()
 {
-   QUrl url = QUrl("http://en.wikipedia.org");
+#ifdef QT_SSL
+   QUrl url = QUrl("https://en.wikipedia.org");
    m_view->load(url);
    m_view->setFocus();
+#else
+      QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
+#endif
 }
 
 void WebBrowser::goYouTube()
 {
-   QUrl url = QUrl("http://www.youtube.com");
+#ifdef QT_SSL
+   QUrl url = QUrl("https://www.youtube.com");
    m_view->load(url);
    m_view->setFocus();
+#else
+      QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
+#endif
 }
 
 void WebBrowser::actionClose() {
