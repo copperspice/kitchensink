@@ -117,8 +117,9 @@ void LineEdit::validChanged(int index)
          ui->valid_lineEdit->setCursorPosition(0);
 
          {  // validation yyyy-mm-dd
-            QRegExp regExp("([0-9]{4})-(1[0-2]|0[1-9])-(3[0-1]|0[1-9]|[1-2][0-9])");
-            QValidator *validator = new QRegExpValidator(regExp, this);
+            QRegularExpression regExp("([0-9]{4})-(1[0-2]|0[1-9])-(3[0-1]|0[1-9]|[1-2][0-9])");
+
+            QValidator *validator = new QRegularExpressionValidator(regExp, this);
             ui->valid_lineEdit->setValidator(validator);
          }
 

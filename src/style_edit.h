@@ -16,8 +16,8 @@
 #include "ui_style_edit.h"
 
 #include <QDialog>
+#include <qstringfwd.h>
 
-class QString;
 class QWidget;
 
 class Style_Edit : public QDialog

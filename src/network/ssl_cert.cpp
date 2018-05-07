@@ -42,9 +42,9 @@ void Ssl_Cert::setCertificateChain(const QList<QSslCertificate> &chain)
     for (int i = 0; i < chain.size(); ++i) {
         const QSslCertificate &cert = chain.at(i);
 
-        ui->certificationPathView->addItem(tr("%1%2 (%3)").arg(!i ? QString() : tr("Issued by: "))
-                          .arg(cert.subjectInfo(QSslCertificate::Organization).join(QString(" ")))
-                          .arg(cert.subjectInfo(QSslCertificate::CommonName).join(QString(" "))));
+        ui->certificationPathView->addItem(tr("%1%2 (%3)").formatArg(! i ? QString() : tr("Issued by: "))
+                          .formatArg(cert.subjectInfo(QSslCertificate::Organization).join(" "))
+                          .formatArg(cert.subjectInfo(QSslCertificate::CommonName).join(" ")));
     }
 
     ui->certificationPathView->setCurrentIndex(0);
@@ -58,19 +58,20 @@ void Ssl_Cert::updateCertificateInfo(int index)
         const QSslCertificate &cert = chain.at(index);
         QStringList lines;
 
-        lines << tr("Organization: %1").arg(cert.subjectInfo(QSslCertificate::Organization).join(QString(" ")))
-              << tr("Subunit: %1").arg(cert.subjectInfo(QSslCertificate::OrganizationalUnitName).join(QString(" ")))
-              << tr("Country: %1").arg(cert.subjectInfo(QSslCertificate::CountryName).join(QString(" ")))
-              << tr("Locality: %1").arg(cert.subjectInfo(QSslCertificate::LocalityName).join(QString(" ")))
-              << tr("State/Province: %1").arg(cert.subjectInfo(QSslCertificate::StateOrProvinceName).join(QString(" ")))
-              << tr("Common Name: %1").arg(cert.subjectInfo(QSslCertificate::CommonName).join(QString(" ")))
+        lines << tr("Organization: %1").formatArg(cert.subjectInfo(QSslCertificate::Organization).join(" "))
+              << tr("Subunit: %1").formatArg(cert.subjectInfo(QSslCertificate::OrganizationalUnitName).join(" "))
+              << tr("Country: %1").formatArg(cert.subjectInfo(QSslCertificate::CountryName).join(" "))
+              << tr("Locality: %1").formatArg(cert.subjectInfo(QSslCertificate::LocalityName).join(" "))
+              << tr("State/Province: %1").formatArg(cert.subjectInfo(QSslCertificate::StateOrProvinceName).join(" "))
+              << tr("Common Name: %1").formatArg(cert.subjectInfo(QSslCertificate::CommonName).join(" "))
               << QString()
-              << tr("Issuer Organization: %1").arg(cert.issuerInfo(QSslCertificate::Organization).join(QString(" ")))
-              << tr("Issuer Unit Name: %1").arg(cert.issuerInfo(QSslCertificate::OrganizationalUnitName).join(QString(" ")))
-              << tr("Issuer Country: %1").arg(cert.issuerInfo(QSslCertificate::CountryName).join(QString(" ")))
-              << tr("Issuer Locality: %1").arg(cert.issuerInfo(QSslCertificate::LocalityName).join(QString(" ")))
-              << tr("Issuer State/Province: %1").arg(cert.issuerInfo(QSslCertificate::StateOrProvinceName).join(QString(" ")))
-              << tr("Issuer Common Name: %1").arg(cert.issuerInfo(QSslCertificate::CommonName).join(QString(" ")));
+
+              << tr("Issuer Organization: %1").formatArg(cert.issuerInfo(QSslCertificate::Organization).join(" "))
+              << tr("Issuer Unit Name: %1").formatArg(cert.issuerInfo(QSslCertificate::OrganizationalUnitName).join(" "))
+              << tr("Issuer Country: %1").formatArg(cert.issuerInfo(QSslCertificate::CountryName).join(" "))
+              << tr("Issuer Locality: %1").formatArg(cert.issuerInfo(QSslCertificate::LocalityName).join(" "))
+              << tr("Issuer State/Province: %1").formatArg(cert.issuerInfo(QSslCertificate::StateOrProvinceName).join(" "))
+              << tr("Issuer Common Name: %1").formatArg(cert.issuerInfo(QSslCertificate::CommonName).join(" "));
 
         for (QString line : lines) {
             ui->certificateInfoView->addItem(line);

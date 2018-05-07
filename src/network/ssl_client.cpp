@@ -111,8 +111,8 @@ void Ssl_Client::socketEncrypted()
     ui->hostNameEdit->setPalette(palette);
 
     QSslCipher ciph = socket->sessionCipher();
-    QString cipher = QString("%1, %2 (%3/%4)").arg(ciph.authenticationMethod())
-                     .arg(ciph.name()).arg(ciph.usedBits()).arg(ciph.supportedBits());;
+    QString cipher = QString("%1, %2 (%3/%4)").formatArg(ciph.authenticationMethod())
+                     .formatArg (ciph.name()).formatArg(ciph.usedBits()).formatArg(ciph.supportedBits());;
 
     ui->cipherLabel->setText(cipher);
 

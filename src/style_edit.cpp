@@ -26,11 +26,13 @@ Style_Edit::Style_Edit(QWidget *parent, QWidget *dwFrom)
    ui->setupUi(this);
    m_dwFrom = dwFrom;
 
-   QRegExp regExp(".(.*)\\+?Style");
    QString defaultStyle = QApplication::style()->metaObject()->className();
 
-   if (regExp.exactMatch(defaultStyle)) {
-      defaultStyle = regExp.cap(1);
+   QRegularExpression regExp(".(.*)\\+?Style", QPatternOption::ExactMatchOption);
+   QRegularExpressionMatch match = regExp.match(defaultStyle);
+
+   if (match.hasMatch()) {
+      defaultStyle = match.captured(1);
    }
 
    // 1

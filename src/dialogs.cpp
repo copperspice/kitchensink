@@ -62,7 +62,7 @@ void Dialogs::setInteger()
               tr("Percentage:"), 25, 0, 100, 1, &ok);
 
    if (ok) {
-      ui->integer_lineEdit->setText(tr("%1%").arg(i));
+      ui->integer_lineEdit->setText(tr("%1%").formatArg(i));
    }
 }
 
@@ -73,7 +73,7 @@ void Dialogs::setDouble()
               tr("Amount:"), 37.56, -10000, 10000, 2, &ok);
 
    if (ok) {
-      ui->double_lineEdit->setText(QString("$%1").arg(d));
+      ui->double_lineEdit->setText(QString("$%1").formatArg(d));
    }
 }
 
@@ -152,7 +152,7 @@ void Dialogs::setOpenFileNames()
 
    if (files.count()) {
       openFilesPath = files[0];
-      ui->openFiles_lineEdit->setText(QString("[%1]").arg(files.join(", ")));
+      ui->openFiles_lineEdit->setText(QString("[%1]").formatArg(files.join(", ")));
    }
 }
 

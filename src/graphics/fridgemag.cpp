@@ -123,7 +123,7 @@ void FridgeMagnet::dropEvent(QDropEvent *event)
       }
 
    } else if (event->mimeData()->hasText()) {
-      QStringList pieces = event->mimeData()->text().split(QRegExp("\\s+"), QString::SkipEmptyParts);
+      QStringList pieces = event->mimeData()->text().split(QRegularExpression("\\s+"), QStringParser::SkipEmptyParts);
       QPoint position = event->pos();
 
       foreach (QString piece, pieces) {

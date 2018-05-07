@@ -85,8 +85,7 @@ void Script::jsScript(QString contents)
    if (result.isError()) {
       int temp = result.property("lineNumber").toInt32();
 
-      QMessageBox::critical(0,"Script",
-         QString::fromLatin1("%0:%1:\n%2").arg(m_fileName).arg(temp).arg(result.toString()));
+      QMessageBox::critical(0,"Script", QString("%0:%1:\n%2").formatArgs(m_fileName, QString::number(temp), result.toString()));
 
    } else {
 

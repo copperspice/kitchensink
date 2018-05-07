@@ -77,7 +77,7 @@ void Screenshot::saveScreenshot()
     QString initialPath = QDir::currentPath() + tr("/untitled.") + format;
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save As"), initialPath,
-                  tr("%1 Files (*.%2);;All Files (*)").arg(format.toUpper()).arg(format));
+                  tr("%1 Files (*.%2);;All Files (*)").formatArgs(format.toUpper(), format));
 
     if (! fileName.isEmpty()) {
         originalPixmap.save(fileName, format.toLatin1().constData());
@@ -127,7 +127,7 @@ void Screenshot::createButtonsLayout()
     buttonsLayout->addStretch();
 }
 
-QPushButton *Screenshot::createButton(const QString &text, QWidget *receiver, const char *member)
+QPushButton *Screenshot::createButton(const QString &text, QWidget *receiver, const QString &member)
 {
     QPushButton *button = new QPushButton(text);
     button->connect(button, SIGNAL(clicked()), receiver, member);

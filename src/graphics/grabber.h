@@ -33,7 +33,7 @@ class Grabber : public QMainWindow
    private:
       void createActions();
       void createMenus();
-      QSlider *createSlider(const char *changedSignal, const char *setterSlot);
+      QSlider *createSlider(const QString &changedSignal, const QString &setterSlot);
       void setPixmap(const QPixmap &pixmap);
       QSize getSize();
 

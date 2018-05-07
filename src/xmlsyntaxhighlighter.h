@@ -14,13 +14,11 @@
 #define XMLSYNTAXHIGHLIGHTER_H
 
 #include <QSyntaxHighlighter>
+#include <qcontainerfwd.h>
+#include <qstringfwd.h>
+#include <qregularexpression.h>
 
-class QRegExp;
-class QString;
 class QTextCharFormat;
-
-template <typename T>
-class QVector;
 
 class XmlSyntaxHighlighter : public QSyntaxHighlighter
 {
@@ -33,14 +31,14 @@ class XmlSyntaxHighlighter : public QSyntaxHighlighter
     private:
         struct HighlightingRule
         {
-            QRegExp pattern;
+            QRegularExpression pattern;
             QTextCharFormat format;
         };
 
         QVector<HighlightingRule> highlightingRules;
 
-        QRegExp commentStartExpression;
-        QRegExp commentEndExpression;
+        QRegularExpression commentStartExpression;
+        QRegularExpression commentEndExpression;
 
         QTextCharFormat tagFormat;
         QTextCharFormat attributeFormat;

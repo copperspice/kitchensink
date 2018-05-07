@@ -43,9 +43,7 @@ void Svg_View::insertTextObject()
    QFile file(fileName);
 
    if (!file.open(QIODevice::ReadOnly)) {
-
-      QMessageBox::warning(this, tr("Error Opening File"),
-                           tr("Could not open '%1'").arg(fileName));
+      QMessageBox::warning(this, tr("Error Opening File"), tr("Could not open '%1'").formatArg(fileName));
    }
 
    QByteArray svgData = file.readAll();

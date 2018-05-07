@@ -16,9 +16,9 @@
 #include "ui_script.h"
 
 #include <QWidget>
+#include <qstringfwd.h>
 
 class QStandardItemModel;
-class QString;
 
 class Script : public QWidget
 {

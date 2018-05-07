@@ -17,8 +17,8 @@
 #include "client.h"
 
 #include <QDialog>
+#include <qstringfwd.h>
 
-class QString;
 class QTextTableFormat;
 class QWidget;
 

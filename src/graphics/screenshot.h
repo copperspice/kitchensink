@@ -39,7 +39,7 @@ class Screenshot : public QWidget
    private:
        void createOptionsGroupBox();
        void createButtonsLayout();
-       QPushButton *createButton(const QString &text, QWidget *receiver, const char *member);
+       QPushButton *createButton(const QString &text, QWidget *receiver, const QString &member);
        void updateScreenshotLabel();
 
        CS_SLOT_1(Private, void newScreenshot())

@@ -18,9 +18,9 @@
 #include <QPainter>
 #include <QStyleFactory>
 
-QSizeF SvgTextObject::intrinsicSize(QTextDocument * /*doc*/, int /*posInDocument*/, const QTextFormat &format)
+QSizeF SvgTextObject::intrinsicSize(QTextDocument *doc, int posInDocument, const QTextFormat &format)
 {
-   QImage bufferedImage = qVariantValue<QImage>(format.property(Svg_View::SvgData));
+   QImage bufferedImage = format.property(Svg_View::SvgData).value<QImage>();
 
    QSize size = bufferedImage.size();
    size *= 150.0 / (double) size.height();
@@ -28,10 +28,9 @@ QSizeF SvgTextObject::intrinsicSize(QTextDocument * /*doc*/, int /*posInDocument
    return QSizeF(size);
 }
 
-void SvgTextObject::drawObject(QPainter *painter, const QRectF &rect, QTextDocument * /*doc*/,
-         int /*posInDocument*/, const QTextFormat &format)
+void SvgTextObject::drawObject(QPainter *painter, const QRectF &rect, QTextDocument *doc, int posInDocument, const QTextFormat &format)
 {
-   QImage bufferedImage = qVariantValue<QImage>(format.property(Svg_View::SvgData));
+   QImage bufferedImage = format.property(Svg_View::SvgData).value<QImage>();
    painter->drawImage(rect, bufferedImage);
 }
 

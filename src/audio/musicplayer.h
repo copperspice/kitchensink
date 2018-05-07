@@ -21,6 +21,7 @@
 #include <QLCDNumber>
 #include <QStandardItemModel>
 #include <QWidget>
+#include <qstringfwd.h>
 
 #include <phonon/audiooutput.h>
 #include <phonon/seekslider.h>
@@ -29,7 +30,6 @@
 #include <phonon/backendcapabilities.h>
 
 class QAction;
-class QString;
 
 class MusicPlayer : public QWidget
 {

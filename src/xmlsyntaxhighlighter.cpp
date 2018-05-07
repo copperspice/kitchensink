@@ -20,56 +20,77 @@ XmlSyntaxHighlighter::XmlSyntaxHighlighter(QTextDocument *parent)
     // tag format
     tagFormat.setForeground(Qt::darkBlue);
     tagFormat.setFontWeight(QFont::Bold);
-    rule.pattern = QRegExp("(<[a-zA-Z:]+\\b|<\\?[a-zA-Z:]+\\b|\\?>|>|/>|</[a-zA-Z:]+>)");
-    rule.format = tagFormat;
+
+    rule.pattern = QRegularExpression("(<[a-zA-Z:]+\\b|<\\?[a-zA-Z:]+\\b|\\?>|>|/>|</[a-zA-Z:]+>)");
+    rule.format  = tagFormat;
     highlightingRules.append(rule);
 
     // attribute format
     attributeFormat.setForeground(Qt::darkGreen);
-    rule.pattern = QRegExp("[a-zA-Z:]+=");
-    rule.format = attributeFormat;
+    rule.pattern = QRegularExpression("[a-zA-Z:]+=");
+    rule.format  = attributeFormat;
     highlightingRules.append(rule);
 
     // attribute content format
     attributeContentFormat.setForeground(Qt::red);
-    rule.pattern = QRegExp("(\"[^\"]*\"|'[^']*')");
-    rule.format = attributeContentFormat;
+    rule.pattern = QRegularExpression("(\"[^\"]*\"|'[^']*')");
+    rule.format  = attributeContentFormat;
     highlightingRules.append(rule);
 
     commentFormat.setForeground(Qt::lightGray);
     commentFormat.setFontItalic(true);
 
-    commentStartExpression = QRegExp("<!--");
-    commentEndExpression   = QRegExp("-->");
+    commentStartExpression = QRegularExpression("<!--");
+    commentEndExpression   = QRegularExpression("-->");
 }
 
 void XmlSyntaxHighlighter::highlightBlock(const QString &text)
 {
-     for (const HighlightingRule &rule : highlightingRules) {
-         QRegExp expression(rule.pattern);
-         int index = text.indexOf(expression);
-         while (index >= 0) {
-             int length = expression.matchedLength();
-             setFormat(index, length, rule.format);
-             index = text.indexOf(expression, index + length);
-         }
-     }
-     setCurrentBlockState(0);
+   // syntax rules
+   for (const HighlightingRule &rule : highlightingRules) {
+      QRegularExpressionMatch match = rule.pattern.match(text);
 
-     int startIndex = 0;
-     if (previousBlockState() != 1)
-         startIndex = text.indexOf(commentStartExpression);
+      while (match.hasMatch()) {
+         int index  = match.capturedStart(0) - text.begin();
+         int length = match.capturedLength();
 
-     while (startIndex >= 0) {
-         int endIndex = text.indexOf(commentEndExpression, startIndex);
-         int commentLength;
-         if (endIndex == -1) {
-             setCurrentBlockState(1);
-             commentLength = text.length() - startIndex;
-         } else {
-             commentLength = endIndex - startIndex + commentEndExpression.matchedLength();
-         }
-         setFormat(startIndex, commentLength, commentFormat);
-         startIndex = text.indexOf(commentStartExpression, startIndex + commentLength);
-     }
+         setFormat(index, length, rule.format);
+         match = rule.pattern.match(text, match.capturedEnd(0));
+      }
+   }
+
+   // comment block
+   setCurrentBlockState(0);
+   int startIndex = 0;
+
+   if (previousBlockState() != 1) {
+      auto iter = text.indexOfFast(commentStartExpression);
+
+      if (iter != text.end()) {
+        startIndex = iter - text.begin();
+      }
+   }
+
+   while (startIndex >= 0) {
+      int commentLength;
+      QRegularExpressionMatch match = commentEndExpression.match(text, text.begin() + startIndex);
+
+      if (match.hasMatch()) {
+         setCurrentBlockState(1);
+         commentLength = text.length() - startIndex;
+
+      } else {
+         int endIndex  = match.capturedStart() - text.begin();
+         commentLength = endIndex - startIndex + match.capturedLength();
+      }
+
+      setFormat(startIndex, commentLength, commentFormat);
+      match = commentStartExpression.match(text, match.capturedEnd(0));
+
+      if (match.hasMatch()) {
+         startIndex = match.capturedStart(0) - text.begin();
+      } else {
+         startIndex = -1;
+      }
+   }
 }

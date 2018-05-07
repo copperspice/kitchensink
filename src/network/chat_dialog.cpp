@@ -72,7 +72,7 @@ void Chat_Dialog::returnPressed()
         QColor color = ui->textEdit->textColor();
 
         ui->textEdit->setTextColor(Qt::red);
-        ui->textEdit->append(tr("Unknown command: %1").arg(text.left(text.indexOf(' '))));
+        ui->textEdit->append(tr("Unknown command: %1").formatArg(text.left(text.indexOf(' '))));
         ui->textEdit->setTextColor(color);
 
     } else {
@@ -91,7 +91,7 @@ void Chat_Dialog::newParticipant(const QString &nick)
 
     QColor color = ui->textEdit->textColor();
     ui->textEdit->setTextColor(Qt::gray);
-    ui->textEdit->append(tr("* %1 has joined").arg(nick));
+    ui->textEdit->append(tr("* %1 has joined").formatArg(nick));
     ui->textEdit->setTextColor(color);
     ui->listWidget->addItem(nick);
 }
@@ -112,7 +112,7 @@ void Chat_Dialog::participantLeft(const QString &nick)
 
     QColor color = ui->textEdit->textColor();
     ui->textEdit->setTextColor(Qt::gray);
-    ui->textEdit->append(tr("* %1 has left").arg(nick));
+    ui->textEdit->append(tr("* %1 has left").formatArg(nick));
     ui->textEdit->setTextColor(color);
 }
 

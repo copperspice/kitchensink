@@ -161,7 +161,7 @@ void WebBrowser::setTitle()
    if (m_progress <= 0 || m_progress >= 100) {
       setWindowTitle(m_view->title());
    } else {
-      setWindowTitle(QString("%1 (%2%)").arg(m_view->title()).arg(m_progress));
+      setWindowTitle(QString("%1 (%2%)").formatArg(m_view->title()).formatArg(m_progress));
    }
 }
 

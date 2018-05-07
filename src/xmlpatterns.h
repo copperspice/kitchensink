@@ -16,8 +16,7 @@
 #include "ui_xmlpatterns.h"
 
 #include <QWidget>
-
-class QString;
+#include <qstringfwd.h>
 
 class XmlPatterns : public QWidget
 {

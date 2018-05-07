@@ -30,19 +30,19 @@ QString QmlApplicationViewerPrivate::adjustPath(const QString &path)
 {
 #ifdef Q_OS_MAC
     if (!QDir::isAbsolutePath(path))
-        return QString::fromLatin1("%1/../Resources/%2").arg(QCoreApplication::applicationDirPath(), path);
+        return QString("%1/../Resources/%2").formatArg(QCoreApplication::applicationDirPath(), path);
 
 #elif defined(Q_OS_QNX)
     if (!QDir::isAbsolutePath(path))
-        return QString::fromLatin1("app/native/%1").arg(path);
+        return QString("app/native/%1").formatArg(path);
 
 #elif ! defined(Q_OS_ANDROID)
-    QString pathInInstallDir = QString::fromLatin1("%1/../%2").arg(QCoreApplication::applicationDirPath(), path);
+    QString pathInInstallDir = QString("%1/../%2").formatArg(QCoreApplication::applicationDirPath(), path);
 
     if (QFileInfo(pathInInstallDir).exists())
         return pathInInstallDir;
 
-    pathInInstallDir = QString::fromLatin1("%1/%2").arg(QCoreApplication::applicationDirPath(), path);
+    pathInInstallDir = QString("%1/%2").formatArg(QCoreApplication::applicationDirPath(), path);
     if (QFileInfo(pathInInstallDir).exists())
         return pathInInstallDir;
 #endif

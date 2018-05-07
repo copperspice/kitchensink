@@ -66,6 +66,7 @@ MainWindow::MainWindow()
    : QMainWindow(), m_ui(new Ui::MainWindow)
 {
    m_ui->setupUi(this);
+
    setWindowTitle(tr("KitchenSink"));
    setWindowIcon(QIcon("://resources/ks.ico"));
 
@@ -119,6 +120,7 @@ MainWindow::MainWindow()
    connect(m_ui->actionAbout,             &QAction::triggered, this,  &MainWindow::actionAbout);
 
    setUnifiedTitleAndToolBarOnMac(true);
+
 }
 
 MainWindow::~MainWindow()
@@ -440,8 +442,9 @@ void MainWindow::actionAbout()
    msgB.setMinimumWidth(2000);
 
    msgB.setWindowTitle(tr("About KitchenSink"));
-   msgB.setText(QString("<p style=margin-right:25><center><h5>Version: %1<br>Build # %2</h5></center></p>").
-                  arg(versionString).arg(buildDate));
+
+   msgB.setText(QString("<p style=margin-right:25><center><h5>Version: %1<br>Build # %2</h5></center></p>")
+                .formatArgs(QString::fromLatin1(versionString), QString::fromLatin1(buildDate)));
 
    msgB.setInformativeText(textBody);
 

@@ -117,7 +117,7 @@ void Grabber::createMenus()
     helpMenu->addAction(aboutQtAct);
 }
 
-QSlider *Grabber::createSlider(const char *changedSignal,const char *setterSlot)
+QSlider *Grabber::createSlider(const QString &changedSignal, const QString &setterSlot)
 {
     QSlider *slider = new QSlider(Qt::Horizontal);
     slider->setRange(0, 360 * 16);
@@ -142,15 +142,17 @@ QSize Grabber::getSize()
 {
     bool ok;
     QString text = QInputDialog::getText(this, tr("Grabber"), tr("Enter pixmap size:"),
-                  QLineEdit::Normal, tr("%1 x %2").arg(glWidget->width()) .arg(glWidget->height()), &ok);
+                  QLineEdit::Normal, tr("%1 x %2").formatArg(glWidget->width()).formatArg(glWidget->height()), &ok);
     if (! ok) {
         return QSize();
     }
 
-    QRegExp regExp(tr("([0-9]+) *x *([0-9]+)"));
-    if (regExp.exactMatch(text)) {
-        int width = regExp.cap(1).toInt();
-        int height = regExp.cap(2).toInt();
+    QRegularExpression regExp(tr("([0-9]+) *x *([0-9]+)"), QPatternOption::ExactMatchOption);
+    QRegularExpressionMatch match = regExp.match(text);
+
+    if (match.hasMatch()) {
+        int width  = match.captured(1).toInteger<int>();
+        int height = match.captured(2).toInteger<int>();
 
         if (width > 0 && width < 2048 && height > 0 && height < 2048) {
             return QSize(width, height);

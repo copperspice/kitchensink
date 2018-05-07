@@ -15,11 +15,8 @@
 
 #include <QSqlDatabase>
 #include <QWidget>
-
-template <typename T>
-class QList;
-
-class QString;
+#include <qcontainerfwd.h>
+#include <qstringfwd.h>
 
 class TreeView : public QWidget
 {
