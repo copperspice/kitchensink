@@ -38,15 +38,15 @@ XmlPatterns::XmlPatterns()
    loadInputFile();
    const QStringList queries(QDir(qmPath + "/", "*.xq").entryList());
 
-   int len = queries.count();
-
-   for(int i = 0; i < len; ++i)  {
-      ui->defaultQueries->addItem(queries.at(i));
+   for(const QString &item : queries)  {
+      ui->defaultQueries->addItem(item);
    }
 
    // static_cast is required since this signal is overloaded
    connect(ui->defaultQueries, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
                   this, &XmlPatterns::displayQuery);
+
+   displayQuery(0);
 }
 
 XmlPatterns::~XmlPatterns()

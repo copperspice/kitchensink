@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>QStandardPaths</string>
+   <string>Standard Paths</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -202,7 +202,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Directories where files for this Locatoin Type belong:</string>
+      <string>Directories where files for this Location Type belong:</string>
      </property>
     </widget>
    </item>
@@ -313,7 +313,7 @@
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab_1">
       <attribute name="title">
@@ -569,8 +569,13 @@
        </item>
        <item row="1" column="2">
         <widget class="QToolButton" name="findTB">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
          <property name="text">
-          <string>►</string>
+          <string>Find</string>
          </property>
         </widget>
        </item>
@@ -674,8 +679,13 @@
        </item>
        <item row="1" column="2">
         <widget class="QToolButton" name="locateTB">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
          <property name="text">
-          <string>►</string>
+          <string>Locate</string>
          </property>
         </widget>
        </item>

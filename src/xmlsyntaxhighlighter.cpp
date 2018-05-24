@@ -61,7 +61,7 @@ void XmlSyntaxHighlighter::highlightBlock(const QString &text)
 
    // comment block
    setCurrentBlockState(0);
-   int startIndex = 0;
+   int startIndex = -1;
 
    if (previousBlockState() != 1) {
       auto iter = text.indexOfFast(commentStartExpression);
@@ -76,15 +76,21 @@ void XmlSyntaxHighlighter::highlightBlock(const QString &text)
       QRegularExpressionMatch match = commentEndExpression.match(text, text.begin() + startIndex);
 
       if (match.hasMatch()) {
-         setCurrentBlockState(1);
-         commentLength = text.length() - startIndex;
-
-      } else {
          int endIndex  = match.capturedStart() - text.begin();
          commentLength = endIndex - startIndex + match.capturedLength();
+
+      } else {
+         setCurrentBlockState(1);
+         commentLength = text.length() - startIndex;
       }
 
       setFormat(startIndex, commentLength, commentFormat);
+
+      if (! match.hasMatch()) {
+         break;
+      }
+
+      // find the next match
       match = commentStartExpression.match(text, match.capturedEnd(0));
 
       if (match.hasMatch()) {
