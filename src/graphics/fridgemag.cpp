@@ -109,6 +109,7 @@ void FridgeMagnet::dropEvent(QDropEvent *event)
       dataStream >> text >> offset;
 
       DragLabel *newLabel = new DragLabel(text, this);
+
       newLabel->move(event->pos() - offset);
       newLabel->show();
       newLabel->setAttribute(Qt::WA_DeleteOnClose);
@@ -126,7 +127,7 @@ void FridgeMagnet::dropEvent(QDropEvent *event)
       QStringList pieces = event->mimeData()->text().split(QRegularExpression("\\s+"), QStringParser::SkipEmptyParts);
       QPoint position = event->pos();
 
-      foreach (QString piece, pieces) {
+      for (QString piece : pieces) {
          DragLabel *newLabel = new DragLabel(piece, this);
          newLabel->move(position);
          newLabel->show();

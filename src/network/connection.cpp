@@ -11,6 +11,7 @@
 ***********************************************************************/
 
 #include "connection.h"
+#include <util.h>
 
 #include <QHostInfo>
 
