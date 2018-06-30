@@ -11,7 +11,7 @@ gcclibs=libgcc_s_*-1  libstdc++-6  libwinpthread-1
 
 # list of CopperSpice libraries
 cslibs=Core Gui Multimedia Network OpenGL Script Sql Svg WebKit Xml XmlPatterns
-csver=1.4
+csver=1.5
 
 if HAVE_PHONON
    cslibs += Phonon
