@@ -23,7 +23,7 @@ class AboutCS : public QWidget
 
    public:
       AboutCS(QString route);
-      QSize sizeHint() const;
+      QSize sizeHint() const override;
 
    private:
       // slot declarations
