@@ -151,7 +151,6 @@ target_link_libraries(KitchenSink
    CopperSpice::CsMultimedia${CS_VERSION}
    CopperSpice::CsNetwork${CS_VERSION}
    CopperSpice::CsOpenGL${CS_VERSION}
-   CopperSpice::CsPhonon${CS_VERSION}
    CopperSpice::CsScript${CS_VERSION}
    CopperSpice::CsSql${CS_VERSION}
    CopperSpice::CsSvg${CS_VERSION}
@@ -159,6 +158,13 @@ target_link_libraries(KitchenSink
    CopperSpice::CsXml${CS_VERSION}
    CopperSpice::CsXmlPatterns${CS_VERSION}
 )
+
+if("CsPhonon" IN_LIST COPPERSPICE_COMPONENTS)
+target_link_libraries(KitchenSink
+   CopperSpice::CsPhonon${CS_VERSION}
+)
+endif()
+
 
 if(WIN32)
    # disable console on windows
