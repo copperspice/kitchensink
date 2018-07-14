@@ -13,12 +13,11 @@
 #ifndef MANDELBROT_THREAD_H
 #define MANDELBROT_THREAD_H
 
+#include <QImage>
 #include <QMutex>
 #include <QSize>
 #include <QThread>
 #include <QWaitCondition>
-
-class QImage;
 
 class Mandelbrot_Thread : public QThread
 {
@@ -30,7 +29,7 @@ class Mandelbrot_Thread : public QThread
 
       void render(double centerX, double centerY, double scaleFactor, QSize resultSize);
 
-      CS_SIGNAL_1(Public, void renderedImage(const QImage &image,double scaleFactor))
+      CS_SIGNAL_1(Public, void renderedImage(const QImage &image, double scaleFactor))
       CS_SIGNAL_2(renderedImage,image,scaleFactor)
 
    protected:

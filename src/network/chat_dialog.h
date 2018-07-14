@@ -20,7 +20,6 @@
 #include <qstringfwd.h>
 
 class QTextTableFormat;
-class QWidget;
 
 class Chat_Dialog : public QDialog
 {
