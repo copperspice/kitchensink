@@ -10,9 +10,13 @@ include(CheckTypeSize)
 find_package(CopperSpice REQUIRED)
 
 # file locations for installing
-if(WIN32)
+if(MSVC)
+   # use defualts
+
+elseif(WIN32)
    set(CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION .)
    include(${CopperSpice_DIR}/InstallMinGW.cmake)
+
 else()
    include(GNUInstallDirs)
 
@@ -50,8 +54,8 @@ set(CMAKE_INCLUDE_DIRECTORIES_BEFORE ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 14)
 
-if("CsPhonon" IN_LIST COPPERSPICE_COMPONENTS)
-
+if("Phonon" IN_LIST COPPERSPICE_COMPONENTS)
+  # phonon found and will be linked with project
 else()
   add_definitions(-DQT_NO_PHONON)
 endif()

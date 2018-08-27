@@ -159,12 +159,10 @@ target_link_libraries(KitchenSink
    CopperSpice::CsXmlPatterns${CS_VERSION}
 )
 
-if("CsPhonon" IN_LIST COPPERSPICE_COMPONENTS)
-target_link_libraries(KitchenSink
-   CopperSpice::CsPhonon${CS_VERSION}
+if("Phonon" IN_LIST COPPERSPICE_COMPONENTS)
+   target_link_libraries(KitchenSink CopperSpice::CsPhonon${CS_VERSION}
 )
 endif()
-
 
 if(WIN32)
    # disable console on windows
