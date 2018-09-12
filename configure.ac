@@ -1,5 +1,5 @@
 # project name, version, email
-AC_INIT([KitchenSink], 1.4.0, [info@copperspice.com])
+AC_INIT([KitchenSink], 1.4.1, [info@copperspice.com])
 export BUILD_DATE=`date +%m/%d/%Y`
 
 # location of temp autotools files
