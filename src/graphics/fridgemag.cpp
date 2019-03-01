@@ -19,6 +19,7 @@
 
 #include <QByteArray>
 #include <QDrag>
+#include <QMimeData>
 #include <QPoint>
 #include <QTextStream>
 #include <QString>

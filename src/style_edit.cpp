@@ -18,6 +18,8 @@
 #include "style_dw.h"
 #include "util.h"
 
+#include <QCloseEvent>
+#include <QFile>
 #include <QString>
 #include <QStyleFactory>
 

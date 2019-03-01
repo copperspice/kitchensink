@@ -19,6 +19,9 @@
 
 #include <QGridLayout>
 #include <QImage>
+#include <QInputDialog>
+#include <QMenuBar>
+#include <QMessageBox>
 #include <QtOpenGL>
 
 Grabber::Grabber(QWidget *parent)
@@ -45,7 +48,6 @@ Grabber::Grabber(QWidget *parent)
     pixmapLabelArea->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
     pixmapLabelArea->setMinimumSize(50, 50);
 
-    // removed SIGNAL() to pass a string, removed SLOT() to pass a string
     xSlider = createSlider("xRotationChanged(int)", "setXRotation(int)");
     ySlider = createSlider("yRotationChanged(int)", "setYRotation(int)");
     zSlider = createSlider("zRotationChanged(int)", "setZRotation(int)");
@@ -74,7 +76,7 @@ void Grabber::about()
 {
     QMessageBox::about(this, tr("About Grabber"),
             tr("The <b>Grabber</b> example demonstrates two approaches for "
-               "rendering OpenGL into a Qt pixmap."));
+               "rendering OpenGL into a pixmap."));
 }
 
 void Grabber::clearPixmap()
