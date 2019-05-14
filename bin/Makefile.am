@@ -10,11 +10,15 @@ gccpath=$(dir $(shell which $(word 1,$(CC))))
 gcclibs=libgcc_s_*-1  libstdc++-6  libwinpthread-1
 
 # list of CopperSpice libraries
-cslibs=Core Gui Multimedia Network OpenGL Script Sql Svg WebKit Xml XmlPatterns
+cslibs=Core Gui Multimedia Network OpenGL Script Sql Svg Xml XmlPatterns
 csver=1.5
 
 if HAVE_PHONON
    cslibs += Phonon
+endif
+
+if HAVE_WEBKIT
+   cslibs += WebKit
 endif
 
 # location of includes
@@ -39,16 +43,22 @@ if OSTYPE_LINUX
 deploy : all
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend
+	mkdir -p $(deploydir)/platforms
 	mkdir -p $(deploydir)/resources
 
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
 
 	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).so*,$(cslibs)) $(deploydir)
+	rsync -W -a $(CS_HOME)/lib/CsGuiXcb$(csver).so  $(deploydir)/platforms
 
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)
 		rsync -W -a $(CS_HOME)/lib/phonon_gstreamer.so $(deploydir)/phonon_backend
    else
 		@echo "Phonon library was not found"
+   endif
+
+   ifneq ($(findstring WebKit,$(cslibs)),WebKit)
+		@echo "CsWebKit library was not found"
    endif
 
 	rsync -W -a $(top_srcdir)/resources/{ks.ico,script.js,sampleMenu.xml} $(deploydir)/resources
@@ -58,16 +68,22 @@ if OSTYPE_BSD
 deploy : all
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend
+	mkdir -p $(deploydir)/platforms
 	mkdir -p $(deploydir)/resources
 
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
 
 	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).so*,$(cslibs)) $(deploydir)
+	rsync -W -a $(CS_HOME)/lib/CsGuiXcb$(csver).so  $(deploydir)/platforms
 
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)
 		rsync -W -a $(CS_HOME)/lib/phonon_gstreamer.so $(deploydir)/phonon_backend
    else
 		@echo "Phonon library was not found"
+   endif
+
+   ifneq ($(findstring WebKit,$(cslibs)),WebKit)
+		@echo "CsWebKit library was not found"
    endif
 
 	rsync -W -a $(top_srcdir)/resources/{ks.ico,script.js,sampleMenu.xml} $(deploydir)/resources
@@ -101,7 +117,6 @@ deploy : all
 
 	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).dylib,$(cslibs)) $(deployapp)/Frameworks
 
-# phonon	
 	mkdir -p $(deployapp)/MacOS/phonon_backend
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)	
 		rsync -W -a $(CS_HOME)/lib/phonon_qt7.so  $(deployapp)/MacOS/phonon_backend
@@ -123,7 +138,11 @@ deploy : all
 	; done \
 	\
 	; done
+
+	mkdir -p $(deployapp)/MacOS/platforms
+	rsync -W -a  $(CS_HOME)/lib/CsGuiCocoa$(csver).so  $(deployapp)/MacOS/platforms
 	
+   # generate dmg
 	hdiutil create -ov -srcfolder $(deploydir) -format UDBZ -volname $(bin_PROGRAMS) ../$(bin_PROGRAMS).dmg
 	hdiutil internet-enable -yes ../$(bin_PROGRAMS).dmg
 
@@ -133,17 +152,23 @@ if OSTYPE_WIN
 deploy : all
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend
+	mkdir -p $(deploydir)/platforms
 	mkdir -p $(deploydir)/resources
 
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
 
 	rsync -W -a --modify-window=2  $(patsubst %,$(gccpath)%.dll,$(gcclibs))  $(deploydir)
 	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%$(csver).dll,$(cslibs))  $(deploydir)
+	rsync -W -a --modify-window=2  $(CS_HOME)/lib/CsGuiWin$(csver).dll  $(deploydir)/platforms
 
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)
 		rsync -W -a --modify-window=2  $(CS_HOME)/lib/phonon_ds9.dll  $(deploydir)/phonon_backend
    else
 		@echo "Phonon library was not found"
+   endif
+
+   ifneq ($(findstring WebKit,$(cslibs)),WebKit)
+		@echo "CsWebKit library was not found"
    endif
 
 	rsync -W -a $(top_srcdir)/resources/{ks.ico,script.js,sampleMenu.xml} $(deploydir)/resources
@@ -168,7 +193,7 @@ endif
 
 KitchenSink_Audio_C = \
    src/audio/html_viewer.cpp \
-   src/audio/musicplayer.cpp  \
+   src/audio/musicplayer.cpp \
    src/audio/videosurface.cpp \
    src/audio/videoplayer.cpp \
    src/audio/videowidget.cpp \
@@ -371,6 +396,10 @@ install-exec-hook:
 		rsync -W -a --modify-window=2  $(CS_HOME)/lib/phonon_ds9.dll  $(bindir)/phonon_backend
    else
 		@echo "Phonon library was not found"
+   endif
+
+   ifneq ($(findstring WebKit,$(cslibs)),WebKit)
+		@echo "CsWebKit library was not found"
    endif
 
 endif
