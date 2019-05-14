@@ -14,75 +14,75 @@
     <message>
         <location filename="../src/widgets/calendar.cpp" line="26"/>
         <source>Calendar Widget</source>
-        <translation type="unfinished">Kalender Widget</translation>
+        <translation>Kalender Widget</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="111"/>
         <location filename="../src/widgets/calendar.cpp" line="354"/>
         <source>Bold</source>
-        <translation type="unfinished">Fett</translation>
+        <translation>Fett</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="114"/>
         <location filename="../src/widgets/calendar.cpp" line="355"/>
         <source>Italic</source>
-        <translation type="unfinished">Kursiv</translation>
+        <translation>Kursiv</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="117"/>
         <location filename="../src/widgets/calendar.cpp" line="400"/>
         <source>Green</source>
-        <translation type="unfinished">Grün</translation>
+        <translation>Grün</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="153"/>
         <source>Preview</source>
-        <translation type="unfinished">Vorschau</translation>
+        <translation>Vorschau</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="173"/>
         <source>General Options</source>
-        <translation type="unfinished">Allgemeine Optionen</translation>
+        <translation>Allgemeine Optionen</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="206"/>
         <source>&amp;Locale</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebietsschema</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="210"/>
         <source>Sunday</source>
-        <translation type="unfinished">Sonntag</translation>
+        <translation>Sonntag</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="211"/>
         <source>Monday</source>
-        <translation type="unfinished">Montag</translation>
+        <translation>Montag</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="212"/>
         <source>Tuesday</source>
-        <translation type="unfinished">Dienstag</translation>
+        <translation>Dienstag</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="213"/>
         <source>Wednesday</source>
-        <translation type="unfinished">Mittwoch</translation>
+        <translation>Mittwoch</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="214"/>
         <source>Thursday</source>
-        <translation type="unfinished">Donnerstag</translation>
+        <translation>Donnerstag</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="215"/>
         <source>Friday</source>
-        <translation type="unfinished">Freitag</translation>
+        <translation>Freitag</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="216"/>
         <source>Saturday</source>
-        <translation type="unfinished">Samstag</translation>
+        <translation>Samstag</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="218"/>
@@ -92,14 +92,14 @@
     <message>
         <location filename="../src/widgets/calendar.cpp" line="222"/>
         <source>Single selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Einzelauswahl</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="223"/>
         <location filename="../src/widgets/calendar.cpp" line="237"/>
         <location filename="../src/widgets/calendar.cpp" line="245"/>
         <source>None</source>
-        <translation type="unfinished">Kein</translation>
+        <translation>Kein</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="225"/>
@@ -129,7 +129,7 @@
     <message>
         <location filename="../src/widgets/calendar.cpp" line="240"/>
         <source>&amp;Horizontal header:</source>
-        <translation type="unfinished">&amp;Horizontale Header:</translation>
+        <translation>&amp;Horizontale Header:</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="244"/>
@@ -164,24 +164,24 @@
     <message>
         <location filename="../src/widgets/calendar.cpp" line="334"/>
         <source>Text Formats</source>
-        <translation type="unfinished">Textformate</translation>
+        <translation>Textformate</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="341"/>
         <location filename="../src/widgets/calendar.cpp" line="398"/>
         <source>Black</source>
-        <translation type="unfinished">Schwarz</translation>
+        <translation>Schwarz</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="343"/>
         <source>&amp;Weekday color:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="347"/>
         <location filename="../src/widgets/calendar.cpp" line="401"/>
         <source>Red</source>
-        <translation type="unfinished">Rot</translation>
+        <translation>Rot</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="349"/>
@@ -191,12 +191,12 @@
     <message>
         <location filename="../src/widgets/calendar.cpp" line="356"/>
         <source>Plain</source>
-        <translation type="unfinished">Ebene</translation>
+        <translation>Ebene</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="358"/>
         <source>&amp;Header text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Überschrift</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="361"/>
@@ -211,17 +211,17 @@
     <message>
         <location filename="../src/widgets/calendar.cpp" line="399"/>
         <source>Blue</source>
-        <translation type="unfinished">Blau</translation>
+        <translation>Blau</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="402"/>
         <source>Magenta</source>
-        <translation type="unfinished">Magenta</translation>
+        <translation>Magenta</translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="403"/>
         <source>Yellow</source>
-        <translation type="unfinished">gelb</translation>
+        <translation>gelb</translation>
     </message>
 </context>
 <context>
@@ -255,7 +255,7 @@
     <message>
         <location filename="../bin/ui_chat_dialog.h" line="101"/>
         <source>Message:</source>
-        <translation type="unfinished"></translation>
+        <translation>Botschaft</translation>
     </message>
 </context>
 <context>
@@ -291,7 +291,7 @@
     <message>
         <location filename="../src/network/connection.cpp" line="26"/>
         <source>unknown</source>
-        <translation type="unfinished">unbekannte</translation>
+        <translation>unbekannte</translation>
     </message>
 </context>
 <context>
@@ -863,7 +863,7 @@
     <message>
         <location filename="../src/graphics/grabber.cpp" line="71"/>
         <source>About Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Über Grabber</translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="72"/>
@@ -1112,7 +1112,7 @@
     <message>
         <location filename="../src/international.cpp" line="101"/>
         <source>Peach Cobbler</source>
-        <translation>Pfirsich-Cobbler</translation>
+        <translation>Streuselkucken</translation>
     </message>
     <message>
         <location filename="../src/international.cpp" line="102"/>
@@ -1974,7 +1974,7 @@
     <message>
         <location filename="../src/widgets/sliders.cpp" line="71"/>
         <source>Options</source>
-        <translation type="unfinished">Optionen</translation>
+        <translation>Optionen</translation>
     </message>
     <message>
         <location filename="../src/widgets/sliders.cpp" line="77"/>
@@ -1984,12 +1984,12 @@
     <message>
         <location filename="../src/widgets/sliders.cpp" line="80"/>
         <source>Horizontal</source>
-        <translation type="unfinished">Horizontal</translation>
+        <translation>Horizontal</translation>
     </message>
     <message>
         <location filename="../src/widgets/sliders.cpp" line="81"/>
         <source>Vertical</source>
-        <translation type="unfinished">Vertikal</translation>
+        <translation>Vertikal</translation>
     </message>
     <message>
         <location filename="../src/widgets/sliders.cpp" line="97"/>
@@ -2017,7 +2017,7 @@
     <message>
         <location filename="../bin/ui_ssl_cert.h" line="113"/>
         <source>Close</source>
-        <translation type="unfinished">Schließen</translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="45"/>
@@ -2195,7 +2195,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../bin/ui_ssl_error.h" line="123"/>
         <source>Cancel</source>
-        <translation type="unfinished">Abbrechen</translation>
+        <translation>Abbrechen</translation>
     </message>
 </context>
 <context>
