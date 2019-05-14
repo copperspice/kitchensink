@@ -14,6 +14,8 @@
 *
 ***********************************************************************/
 
+#if ! defined(QT_NO_WEBKIT)
+
 #include "aboutcs.h"
 #include "util.h"
 
@@ -82,3 +84,5 @@ QSize AboutCS::sizeHint() const
 {
    return QSize(800, 600);
 }
+
+#endif

@@ -14,6 +14,8 @@
 *
 ***********************************************************************/
 
+#if ! defined(QT_NO_WEBKIT)
+
 #include "util.h"
 #include "web_browser.h"
 
@@ -427,3 +429,4 @@ void WebBrowser::actionClose() {
    this->parentWidget()->close();
 }
 
+#endif

@@ -14,7 +14,7 @@
 *
 ***********************************************************************/
 
-#ifndef QT_NO_PHONON
+#if ! defined(QT_NO_PHONON)
 
 #include "musicplayer.h"
 #include "util.h"

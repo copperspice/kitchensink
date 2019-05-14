@@ -14,6 +14,8 @@
 *
 ***********************************************************************/
 
+#if ! defined(QT_NO_WEBKIT)
+
 #include "html_viewer.h"
 
 #include <QtGui>
@@ -179,3 +181,5 @@ void Html_Viewer::actionPreview()
     QString text = ui->plainTextEdit->toPlainText();
     ui->webView->setHtml(text, m_baseUrl);
 }
+
+#endif

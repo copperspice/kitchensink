@@ -21,10 +21,10 @@
 #include <QtScript>
 #include <QtSql>
 #include <QtSvg>
-#include <QtWebKit>
 #include <QtXmlPatterns>
 
+#if ! defined(QT_NO_WEBKIT)
+#include <QtWebKit>
+#endif
 
 // this file is used to verify include files
-
-

@@ -18,7 +18,10 @@
 #include <mainwindow.h>
 #include <util.h>
 
+#if ! defined(QT_NO_WEBKIT)
 #include <aboutcs.h>
+#endif
+
 #include <colorpicker.h>
 #include <dialogs.h>
 #include <draw.h>
@@ -30,14 +33,20 @@
 #include <svg_view.h>
 #include <xml.h>
 #include <xmlpatterns.h>
-#include <html_viewer.h>
 
-#ifndef QT_NO_PHONON
+#if ! defined(QT_NO_WEBKIT)
+#include <html_viewer.h>
+#endif
+
+#if ! defined(QT_NO_PHONON)
 #include <musicplayer.h>
 #endif
 
 #include <videoplayer.h>
+
+#if ! defined(QT_NO_WEBKIT)
 #include <web_browser.h>
+#endif
 
 #include <analogclock.h>
 #include <animated_tiles.h>
@@ -250,7 +259,7 @@ void MainWindow::actionXmlPatterns()
 void MainWindow::actionMusicPlayer()
 {
 
-#ifndef QT_NO_PHONON
+#if ! defined(QT_NO_PHONON)
    MusicPlayer *oDw = new MusicPlayer();
 
    if ( oDw->loaded() ) {
@@ -259,7 +268,7 @@ void MainWindow::actionMusicPlayer()
       delete oDw;
    }
 #else
-   ksMsg("CsPhonon library was not built with KitchenSink, unable to run MusicPlayer.");
+   ksMsg("KitchenSink was not built with CsPhonon library, unable to run MusicPlayer.");
 #endif
 
 }
@@ -272,14 +281,22 @@ void MainWindow::actionVideoWidget()
 
 void MainWindow::actionHTML_Viewer()
 {
+#if ! defined(QT_NO_WEBKIT)
    Html_Viewer *oDw = new Html_Viewer();
    addMdiChild(oDw);
+#else
+   ksMsg("KitchenSink was not built with CsWebkit library, unable to run Html Viewer.");
+#endif
 }
 
 void MainWindow::actionWebBrowser()
 {
+#if ! defined(QT_NO_WEBKIT)
    WebBrowser *oDw = new WebBrowser(this);
    addMdiChild(oDw);
+#else
+   ksMsg("KitchenSink was not built with CsWebkit library, unable to run WebBrowser.");
+#endif
 }
 
 // network
@@ -420,14 +437,22 @@ void MainWindow::actionWorld_Clock()
 //  help
 void MainWindow::actionAbout_CopperSpice()
 {
+#if ! defined(QT_NO_WEBKIT)
    AboutCS *oDw = new AboutCS("cs");
    addMdiChild(oDw);
+#else
+   ksMsg("KitchenSink was not built with CsWebKit library, unable to run About CopperSpice.");
+#endif
 }
 
 void MainWindow::actionAbout_KitchenSink()
 {
+#if ! defined(QT_NO_WEBKIT)
    AboutCS *oDw = new AboutCS("ks");
    addMdiChild(oDw);
+#else
+   ksMsg("KitchenSink was not built with CsPhonon library, unable to run About KitchenSink.");
+#endif
 }
 
 void MainWindow::actionAbout()
