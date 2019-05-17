@@ -63,7 +63,7 @@ void TableWidget_View::setUpWidget()
 
    ui->tableWidget->setColumnWidth(0, 140);
    ui->tableWidget->setColumnWidth(0, 140);
-   ui->tableWidget->horizontalHeader()->setResizeMode(QHeaderView::Interactive);
+   ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
 
    ui->tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
    ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -163,8 +163,8 @@ void TableWidget_View::setUpView()
    // resize the last column, shown here as an example
    // ui->tableView->horizontalHeader()->setStretchLastSection(true);
 
-   ui->tableView->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
-   ui->tableView->horizontalHeader()->setResizeMode(1, QHeaderView::Stretch);
+   ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+   ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
 
    // not needed since this is false by default, shown here as an example
    // set to false before adding data

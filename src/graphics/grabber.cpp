@@ -22,7 +22,6 @@
 #include <QInputDialog>
 #include <QMenuBar>
 #include <QMessageBox>
-#include <QtOpenGL>
 
 Grabber::Grabber(QWidget *parent)
    : QMainWindow(parent)

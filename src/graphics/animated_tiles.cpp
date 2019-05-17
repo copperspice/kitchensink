@@ -58,7 +58,7 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
    centeredButton->setPos(300, 35);
 
    m_scene.addItem(buttonParent);
-   buttonParent->scale(0.75, 0.75);
+   buttonParent->setTransform(QTransform::fromScale(0.75, 0.75), true);
    buttonParent->setPos(200, 200);
    buttonParent->setZValue(65);
 

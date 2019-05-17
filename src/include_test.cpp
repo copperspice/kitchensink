@@ -17,7 +17,6 @@
 #include <QtCore>
 #include <QtGui>
 #include <QtNetwork>
-#include <QtOpenGL>
 #include <QtScript>
 #include <QtSql>
 #include <QtSvg>
