@@ -18,7 +18,16 @@
     <property name="spacing">
      <number>6</number>
     </property>
-    <property name="margin">
+    <property name="leftMargin">
+     <number>15</number>
+    </property>
+    <property name="topMargin">
+     <number>15</number>
+    </property>
+    <property name="rightMargin">
+     <number>15</number>
+    </property>
+    <property name="bottomMargin">
      <number>15</number>
     </property>
     <item>
@@ -95,54 +104,6 @@
          </item>
         </widget>
        </item>
-       <item row="3" column="1" colspan="2">
-        <widget class="QComboBox" name="countryCombo">
-         <property name="toolTip">
-          <string>Specify country of origin</string>
-         </property>
-         <property name="statusTip">
-          <string>Specify country of origin</string>
-         </property>
-         <property name="currentIndex">
-          <number>0</number>
-         </property>
-         <item>
-          <property name="text">
-           <string>Brazil</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Canada</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>France</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Germany</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Italy</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Norway</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>United States</string>
-          </property>
-         </item>
-        </widget>
-       </item>
        <item row="1" column="4">
         <spacer name="horizontalSpacer_4">
          <property name="orientation">
@@ -198,16 +159,6 @@
          </property>
         </spacer>
        </item>
-       <item row="0" column="1" colspan="2">
-        <widget class="QComboBox" name="nameCB">
-         <property name="toolTip">
-          <string>Specify your name</string>
-         </property>
-         <property name="editable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
        <item row="2" column="1">
         <widget class="QSpinBox" name="ageSpinBox">
          <property name="toolTip">
@@ -246,19 +197,6 @@
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
-       </item>
-       <item row="2" column="3" colspan="2">
-        <spacer name="horizontalSpacer_5">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>61</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="nameLabel">
@@ -393,6 +331,77 @@
           </spacer>
          </item>
         </layout>
+       </item>
+       <item row="3" column="1" colspan="3">
+        <widget class="QComboBox" name="countryCombo">
+         <property name="toolTip">
+          <string>Specify country of origin</string>
+         </property>
+         <property name="statusTip">
+          <string>Specify country of origin</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <item>
+          <property name="text">
+           <string>Brazil</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Canada</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>France</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Germany</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Italy</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Norway</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>United States</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="3">
+        <widget class="QComboBox" name="nameCB">
+         <property name="toolTip">
+          <string>Specify your name</string>
+         </property>
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="4">
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>61</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
