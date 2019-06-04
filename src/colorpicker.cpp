@@ -45,23 +45,23 @@ ColorPicker::~ColorPicker()
 
 void ColorPicker::setColor()
 {
-    QColor color;
+   QColor color;
 
-    if (ui->native_checkBox->isChecked())  {
-        color = QColorDialog::getColor(Qt::green, this);
+   if (ui->native_checkBox->isChecked())  {
+     color = QColorDialog::getColor(Qt::green, this);
 
-    } else  {
-        color = QColorDialog::getColor(Qt::green, this, "Select Color", QColorDialog::DontUseNativeDialog);
+   } else  {
+     color = QColorDialog::getColor(Qt::green, this, "Select Color", QColorDialog::DontUseNativeDialog);
 
-    }
+   }
 
-    if (color.isValid()) {
-         ui->label->setText("Sample Text Background in " + color.name().toUpper() );
+   if (color.isValid()) {
+      ui->label->setText("Sample Text Background in " + color.name().toUpper() );
 
-         QPalette temp = ui->colorEdit->palette();
-         temp.setColor(QPalette::Base, color);
-         ui->colorEdit->setPalette(temp);
-    }
+      QPalette temp = ui->colorEdit->palette();
+      temp.setColor(QPalette::Base, color);
+      ui->colorEdit->setPalette(temp);
+   }
 }
 
 void ColorPicker::actionClose() {
