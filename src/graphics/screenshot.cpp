@@ -23,6 +23,7 @@
 #include <QGroupBox>
 #include <QLabel>
 #include <QPushButton>
+#include <QScreen>
 #include <QSize>
 #include <QString>
 #include <QSpinBox>
@@ -50,7 +51,7 @@ Screenshot::Screenshot()
    mainLayout->addLayout(buttonsLayout);
    setLayout(mainLayout);
 
-   shootScreen();
+   captureScreen();
    delaySpinBox->setValue(5);
 }
 
@@ -72,7 +73,7 @@ QSize Screenshot::sizeHint() const
 void Screenshot::newScreenshot()
 {
     newScreenshotButton->setDisabled(true);
-    QTimer::singleShot(delaySpinBox->value() * 1000, this, SLOT(shootScreen()));
+    QTimer::singleShot(delaySpinBox->value() * 1000, this, SLOT(captureScreen()));
 }
 
 void Screenshot::saveScreenshot()
@@ -84,19 +85,17 @@ void Screenshot::saveScreenshot()
                   tr("%1 Files (*.%2);;All Files (*)").formatArgs(format.toUpper(), format));
 
     if (! fileName.isEmpty()) {
-        originalPixmap.save(fileName, format.toLatin1().constData());
+        originalPixmap.save(fileName, csPrintable(format));
     }
 }
 
-void Screenshot::shootScreen()
+void Screenshot::captureScreen()
 {
     if (delaySpinBox->value() != 0) {
         qApp->beep();
     }
 
-    originalPixmap = QPixmap();
-
-    originalPixmap = QPixmap::grabWindow(QApplication::desktop()->winId());
+    originalPixmap = QGuiApplication::primaryScreen()->grabWindow(QApplication::desktop()->winId());
     updateScreenshotLabel();
 
     newScreenshotButton->setDisabled(false);

@@ -52,8 +52,8 @@ class Screenshot : public QWidget
        CS_SLOT_1(Private, void saveScreenshot())
        CS_SLOT_2(saveScreenshot)
 
-       CS_SLOT_1(Private, void shootScreen())
-       CS_SLOT_2(shootScreen)
+       CS_SLOT_1(Private, void captureScreen())
+       CS_SLOT_2(captureScreen)
 
        QPixmap originalPixmap;
 
