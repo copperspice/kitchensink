@@ -43,13 +43,11 @@ if OSTYPE_LINUX
 deploy : all
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend
-	mkdir -p $(deploydir)/platforms
 	mkdir -p $(deploydir)/resources
 
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
 
 	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).so*,$(cslibs)) $(deploydir)
-	rsync -W -a $(CS_HOME)/lib/CsGuiXcb$(csver).so  $(deploydir)/platforms
 
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)
 		rsync -W -a $(CS_HOME)/lib/phonon_gstreamer.so $(deploydir)/phonon_backend
@@ -68,13 +66,11 @@ if OSTYPE_BSD
 deploy : all
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend
-	mkdir -p $(deploydir)/platforms
 	mkdir -p $(deploydir)/resources
 
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
 
 	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).so*,$(cslibs)) $(deploydir)
-	rsync -W -a $(CS_HOME)/lib/CsGuiXcb$(csver).so  $(deploydir)/platforms
 
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)
 		rsync -W -a $(CS_HOME)/lib/phonon_gstreamer.so $(deploydir)/phonon_backend
@@ -138,9 +134,6 @@ deploy : all
 	; done \
 	\
 	; done
-
-	mkdir -p $(deployapp)/MacOS/platforms
-	rsync -W -a  $(CS_HOME)/lib/CsGuiCocoa$(csver).so  $(deployapp)/MacOS/platforms
 	
    # generate dmg
 	hdiutil create -ov -srcfolder $(deploydir) -format UDBZ -volname $(bin_PROGRAMS) ../$(bin_PROGRAMS).dmg
@@ -152,14 +145,12 @@ if OSTYPE_WIN
 deploy : all
 	mkdir -p $(deploydir)
 	mkdir -p $(deploydir)/phonon_backend
-	mkdir -p $(deploydir)/platforms
 	mkdir -p $(deploydir)/resources
 
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
 
 	rsync -W -a --modify-window=2  $(patsubst %,$(gccpath)%.dll,$(gcclibs))  $(deploydir)
 	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%$(csver).dll,$(cslibs))  $(deploydir)
-	rsync -W -a --modify-window=2  $(CS_HOME)/lib/CsGuiWin$(csver).dll  $(deploydir)/platforms
 
    ifeq ($(findstring Phonon,$(cslibs)),Phonon)
 		rsync -W -a --modify-window=2  $(CS_HOME)/lib/phonon_ds9.dll  $(deploydir)/phonon_backend
