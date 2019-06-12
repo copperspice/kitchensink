@@ -26,7 +26,7 @@
      <x>0</x>
      <y>0</y>
      <width>1298</width>
-     <height>29</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -87,7 +87,7 @@
     <addaction name="actionXml"/>
     <addaction name="actionXmlPatterns"/>
    </widget>
-   <widget class="QMenu" name="menuFoo">
+   <widget class="QMenu" name="menuAudio">
     <property name="title">
      <string>Audio/Web</string>
     </property>
@@ -119,7 +119,7 @@
     <addaction name="actionSsl"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuFoo"/>
+   <addaction name="menuAudio"/>
    <addaction name="menuWindows"/>
    <addaction name="menuNetwork"/>
    <addaction name="menuLayouts"/>
@@ -261,6 +261,9 @@
   </action>
   <action name="actionTabs">
    <property name="text">
+    <string>Tabs</string>
+   </property>
+   <property name="toolTip">
     <string>Tabs</string>
    </property>
   </action>

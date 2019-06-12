@@ -2,14 +2,6 @@
 <ui version="4.0">
  <class>MusicPlayer</class>
  <widget class="QWidget" name="MusicPlayer">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>500</width>
-    <height>300</height>
-   </rect>
-  </property>
   <property name="minimumSize">
    <size>
     <width>500</width>
@@ -107,7 +99,7 @@
      <item>
       <widget class="QPushButton" name="aboutCs_PB">
        <property name="text">
-        <string>About CoperSpice</string>
+        <string> About CoperSpice </string>
        </property>
       </widget>
      </item>
