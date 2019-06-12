@@ -31,11 +31,11 @@ AboutCS::AboutCS(QString route)
    QUrl url;
 
    if (route == "cs")  {
-      url = QUrl("http://www.copperspice.com");
+      url = QUrl("https://www.copperspice.com");
       setWindowTitle("About CopperSpice");
 
    } else   {
-      url = QUrl("http://www.copperspice.com/documentation-kitchensink.html");
+      url = QUrl("https://www.copperspice.com/documentation-kitchensink.html");
       setWindowTitle("About KitchenSink");
 
    }
@@ -72,7 +72,7 @@ AboutCS::AboutCS(QString route)
 }
 
 void AboutCS::actionHome() {
-   QUrl url("http://www.copperspice.com/documentation-kitchensink.html");
+   QUrl url("https://www.copperspice.com/documentation-kitchensink.html");
    m_viewer->setUrl(url);
 }
 
