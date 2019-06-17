@@ -33,7 +33,7 @@ set(PACKAGE_VERSION "${BUILD_MAJOR}.${BUILD_MINOR}.${BUILD_MICRO}")
 set(PACKAGE_STRING "KitchenSink ${BUILD_MAJOR}.${BUILD_MINOR}.${BUILD_MICRO}")
 set(PACKAGE_TARNAME "KitchenSink")
 set(PACKAGE_BUGREPORT "info@copperspice.com")
-set(PACKAGE_URL "http://www.copperspice.com/")
+set(PACKAGE_URL "https://www.copperspice.com/")
 
 set(CPACK_PACKAGE_NAME ${PROJECT_NAME} )
 set(CPACK_PACKAGE_VENDOR "CopperSpice")
@@ -54,10 +54,16 @@ set(CMAKE_INCLUDE_DIRECTORIES_BEFORE ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 14)
 
-if("Phonon" IN_LIST COPPERSPICE_COMPONENTS)
-  # phonon found and will be linked with project
+if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
+  # multimedia found and will be linked with project
 else()
-  add_definitions(-DQT_NO_PHONON)
+  add_definitions(-DQT_NO_MULTIMEDIA)
+endif()
+
+if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
+  # webkit found and will be linked with project
+else()
+  add_definitions(-DQT_NO_WEBKIT)
 endif()
 
 if(APPLE)

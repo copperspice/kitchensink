@@ -5,10 +5,22 @@ macro(cs_copy_dll APP DLL)
    install(FILES  ${CS_${DLL}_LIB}  DESTINATION .)
 endmacro()
 
-# only called for win32
-macro(cs_copy_phonon)
-   get_target_property(PHONON_BACKEND_LIB  CopperSpice::phonon_ds9 LOCATION)
-   install(FILES  ${PHONON_BACKEND_LIB}  DESTINATION ./phonon_backend)
+# only called for windows
+macro(cs_copy_plugins name)
+
+if (name strequal "Gui")
+   get_target_property(GUI_PLATFORM_LIB  CopperSpice::CsGuiWin${CS_VERSION} LOCATION)
+   install(FILES  ${GUI_PLATFORM_LIB}  DESTINATION ./platforms)
+endif()
+
+if (name strequal "Multimedia")
+   get_target_property(DIRECTSHOW_LIB  CopperSpice::CsMultimedia_DirectShow${CS_VERSION} LOCATION)
+   install(FILES  ${DIRECTSHOW_LIB}  DESTINATION ./mediaservices)
+
+   get_target_property(MU3_LIB  CopperSpice::CsMultimedia_m3u${CS_VERSION} LOCATION)
+   install(FILES  ${MU3_LIB}  DESTINATION ./playlistformats)
+endif()
+
 endmacro()
 
 check_include_file(windows.h HAVE_WINDOWS_H)
@@ -148,19 +160,22 @@ target_include_directories(KitchenSink
 target_link_libraries(KitchenSink
    CopperSpice::CsCore${CS_VERSION}
    CopperSpice::CsGui${CS_VERSION}
-   CopperSpice::CsMultimedia${CS_VERSION}
    CopperSpice::CsNetwork${CS_VERSION}
    CopperSpice::CsOpenGL${CS_VERSION}
    CopperSpice::CsScript${CS_VERSION}
    CopperSpice::CsSql${CS_VERSION}
    CopperSpice::CsSvg${CS_VERSION}
-   CopperSpice::CsWebKit${CS_VERSION}
    CopperSpice::CsXml${CS_VERSION}
    CopperSpice::CsXmlPatterns${CS_VERSION}
 )
 
-if("Phonon" IN_LIST COPPERSPICE_COMPONENTS)
-   target_link_libraries(KitchenSink CopperSpice::CsPhonon${CS_VERSION}
+if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
+   target_link_libraries(KitchenSink CopperSpice::CsMultimedia${CS_VERSION}
+)
+endif()
+
+if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
+   target_link_libraries(KitchenSink CopperSpice::CsWebKit${CS_VERSION}
 )
 endif()
 
@@ -171,23 +186,31 @@ endif()
 
 install(TARGETS KitchenSink DESTINATION .)
 
-install(FILES   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks.ico  DESTINATION ./resources)
-install(FILES   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/script.js  DESTINATION ./resources)
-install(FILES   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/sampleMenu.xml  DESTINATION ./resources)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks.ico  DESTINATION ./resources)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/script.js  DESTINATION ./resources)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/sampleMenu.xml  DESTINATION ./resources)
 
 if(WIN32)
-   cs_copy_phonon()
    cs_copy_dll(KitchenSink Core)
    cs_copy_dll(KitchenSink Gui)
-   cs_copy_dll(KitchenSink Multimedia)
    cs_copy_dll(KitchenSink Network)
    cs_copy_dll(KitchenSink OpenGL)
-   cs_copy_dll(KitchenSink Phonon)
    cs_copy_dll(KitchenSink Script)
    cs_copy_dll(KitchenSink Sql)
    cs_copy_dll(KitchenSink Svg)
-   cs_copy_dll(KitchenSink WebKit)
    cs_copy_dll(KitchenSink Xml)
    cs_copy_dll(KitchenSink XmlPatterns)
+
+   cs_copy_plugins("Gui")
+
+if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
+   cs_copy_dll(KitchenSink Multimedia)
+   cs_copy_plugins("Multimedia")
+endif()
+
+if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
+   cs_copy_dll(KitchenSink WebKit)
+endif()
+
 endif()
 
