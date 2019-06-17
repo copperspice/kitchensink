@@ -10,11 +10,11 @@ gccpath=$(dir $(shell which $(word 1,$(CC))))
 gcclibs=libgcc_s_*-1  libstdc++-6  libwinpthread-1
 
 # list of CopperSpice libraries
-cslibs=Core Gui Multimedia Network OpenGL Script Sql Svg Xml XmlPatterns
+cslibs=Core Gui Network OpenGL Script Sql Svg Xml XmlPatterns
 csver=1.5
 
-if HAVE_PHONON
-   cslibs += Phonon
+if HAVE_MULTIMEDIA
+   cslibs += Multimedia
 endif
 
 if HAVE_WEBKIT
@@ -22,12 +22,11 @@ if HAVE_WEBKIT
 endif
 
 # location of includes
-AM_CXXFLAGS+=-I../src -I../src/audio -I../src/graphics -I../src/network -I../src/views \
-             -I../src/widgets -I$(CS_HOME)/include/phonon
+AM_CXXFLAGS+=-I../src -I../src/audio -I../src/graphics -I../src/network -I../src/views -I../src/widgets
 
 if OSTYPE_WIN
    # disable console on window
-   AM_CXXFLAGS+=-mwindows
+   # AM_CXXFLAGS+=-mwindows
 
    # location for 'make install'
    installdir=$(abs_top_builddir)/install
@@ -42,7 +41,7 @@ bin_PROGRAMS = KitchenSink
 if OSTYPE_LINUX
 deploy : all
 	mkdir -p $(deploydir)
-	mkdir -p $(deploydir)/phonon_backend
+	mkdir -p $(deploydir)/mediaservices
 	mkdir -p $(deploydir)/platforms
 	mkdir -p $(deploydir)/resources
 
@@ -51,10 +50,10 @@ deploy : all
 	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).so*,$(cslibs)) $(deploydir)
 	rsync -W -a $(CS_HOME)/lib/CsGuiXcb$(csver).so  $(deploydir)/platforms
 
-   ifeq ($(findstring Phonon,$(cslibs)),Phonon)
-		rsync -W -a $(CS_HOME)/lib/phonon_gstreamer.so $(deploydir)/phonon_backend
+   ifeq ($(findstring Multimedia,$(cslibs)),Multimedia)
+		rsync -W -a $(CS_HOME)/lib/CsMultimedia_gst_mediaplayer$(csver).so $(deploydir)/mediaservices
    else
-		@echo "Phonon library was not found"
+		@echo "Multimedia library was not found"
    endif
 
    ifneq ($(findstring WebKit,$(cslibs)),WebKit)
@@ -67,7 +66,7 @@ endif
 if OSTYPE_BSD
 deploy : all
 	mkdir -p $(deploydir)
-	mkdir -p $(deploydir)/phonon_backend
+	mkdir -p $(deploydir)/mediaservices
 	mkdir -p $(deploydir)/platforms
 	mkdir -p $(deploydir)/resources
 
@@ -76,10 +75,10 @@ deploy : all
 	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).so*,$(cslibs)) $(deploydir)
 	rsync -W -a $(CS_HOME)/lib/CsGuiXcb$(csver).so  $(deploydir)/platforms
 
-   ifeq ($(findstring Phonon,$(cslibs)),Phonon)
-		rsync -W -a $(CS_HOME)/lib/phonon_gstreamer.so $(deploydir)/phonon_backend
+   ifeq ($(findstring Multimedia,$(cslibs)),Multimedia)
+		rsync -W -a $(CS_HOME)/lib/CsMultimedia_gst_mediaplayer$(csver).so $(deploydir)/mediaservices
    else
-		@echo "Phonon library was not found"
+		@echo "GStreamer library was not found"
    endif
 
    ifneq ($(findstring WebKit,$(cslibs)),WebKit)
@@ -116,13 +115,21 @@ deploy : all
 	rsync -W -a $(top_srcdir)/resources/{ks.ico,script.js,sampleMenu.xml} $(deployapp)/Resources
 
 	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).dylib,$(cslibs)) $(deployapp)/Frameworks
+	rsync -W -a $(CS_HOME)/lib/CsGuiCocoa$(csver).so  $(deployapp)/MacOS/platforms
 
-	mkdir -p $(deployapp)/MacOS/phonon_backend
-   ifeq ($(findstring Phonon,$(cslibs)),Phonon)	
-		rsync -W -a $(CS_HOME)/lib/phonon_qt7.so  $(deployapp)/MacOS/phonon_backend
+	mkdir -p $(deployapp)/MacOS/mediaservices
+   ifeq ($(findstring Multimedia,$(cslibs)),Multimedia)
+		rsync -W -a $(CS_HOME)/lib/CsMultimedia_avf_mediaplayer$(csver).so  $(deployapp)/MacOS/mediaservices
    else
-		@echo "Phonon Backend library was not found"
-   endif
+		@echo "AVF Foundation was not found"
+   endif	
+
+#	mkdir -p $(deployapp)/MacOS/printdrivers
+#  ifeq ($(findstring Gui,$(cslibs)),Gui)
+#		rsync -W -a $(CS_HOME)/lib/CsPrinterDriverCocoa$(csver).so  $(deployapp)/MacOS/printdrivers
+#  else
+#		@echo "Cocoa printer driver was not found"
+#  endif
 	
 	for libname in $(patsubst %,libCs%$(csver).dylib,$(cslibs)) ; do \
 	\
@@ -130,7 +137,10 @@ deploy : all
 	@executable_path/../Frameworks/$$libname $(deployapp)/MacOS/$(bin_PROGRAMS); \
 	\
 	install_name_tool -change $(CS_HOME)/lib/$$libname \
-	@executable_path/../Frameworks/$$libname $(deployapp)/MacOS/phonon_backend/phonon_qt7.0.so; \
+	@executable_path/../Frameworks/$$libname $(deployapp)/MacOS/mediaservices/CsMultimedia_avf_mediaplayer$(csver).so; \
+	\
+	install_name_tool -change $(CS_HOME)/lib/$$libname \
+	@executable_path/../Frameworks/$$libname $(deployapp)/MacOS/platforms/CsGuiCocoa$(csver).so; \
 	\
 	for templib in $(patsubst %,libCs%$(csver).dylib,$(cslibs)) ; do \
 	install_name_tool -change $(CS_HOME)/lib/$$templib \
@@ -151,8 +161,9 @@ endif
 if OSTYPE_WIN
 deploy : all
 	mkdir -p $(deploydir)
-	mkdir -p $(deploydir)/phonon_backend
+	mkdir -p $(deploydir)/mediaservices
 	mkdir -p $(deploydir)/platforms
+	mkdir -p $(deploydir)/playlistformats
 	mkdir -p $(deploydir)/resources
 
 	$(LIBTOOL) --mode=install cp $(bin_PROGRAMS) $(deploydir)
@@ -161,10 +172,12 @@ deploy : all
 	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%$(csver).dll,$(cslibs))  $(deploydir)
 	rsync -W -a --modify-window=2  $(CS_HOME)/lib/CsGuiWin$(csver).dll  $(deploydir)/platforms
 
-   ifeq ($(findstring Phonon,$(cslibs)),Phonon)
-		rsync -W -a --modify-window=2  $(CS_HOME)/lib/phonon_ds9.dll  $(deploydir)/phonon_backend
+   ifeq ($(findstring Multimedia,$(cslibs)),Multimedia)
+		rsync -W -a --modify-window=2  $(CS_HOME)/lib/CsMultimedia_DirectShow$(csver).dll $(deploydir)/mediaservices
+		rsync -W -a --modify-window=2  $(CS_HOME)/lib/CsMultimedia_m3u$(csver).dll $(deploydir)/playlistformats
+
    else
-		@echo "Phonon library was not found"
+		@echo "Multimedia library was not found"
    endif
 
    ifneq ($(findstring WebKit,$(cslibs)),WebKit)
@@ -235,7 +248,6 @@ KitchenSink_Graphics_C = \
 # qmlapplicationviewer.cpp
 # wiggle_boxes.cpp
 # world_clock.cpp
-
 
 KitchenSink_SOURCES = \
    src/aboutcs.cpp \
@@ -311,7 +323,6 @@ KitchenSink_Graphics_H = \
 # wiggle_boxes.h
 # world_clock.h
 
-
 noinst_HEADERS = \
    src/aboutcs.h \
    src/colorpicker.h \
@@ -376,33 +387,15 @@ qrc_kitchensink.cpp: kitchensink.qrc   $(wildcard ../resources/*)
 # required to compile qrc
 nodist_KitchenSink_SOURCES=qrc_kitchensink.cpp
 
-# install
-if OSTYPE_LINUX
-endif
+EXTRA_DIST += \
+	CMakeLists.txt \
+	src/CMakeLists.txt \
+	src/audio/audio.cmake \
+	src/graphics/graphics.cmake \
+	src/network/network.cmake \
+	src/views/views.cmake \
+	src/widgets/widgets.cmake
 
-if OSTYPE_DARWIN
-endif
-
-if OSTYPE_WIN
-install-exec-hook:
-	rsync -W -a --modify-window=2  $(top_srcdir)/resources/ks.ico $(bindir)
-
-	rsync -W -a --modify-window=2  $(patsubst %,$(gccpath)%.dll,$(gcclibs))  $(bindir)
-	rsync -W -a --modify-window=2  $(patsubst %,$(CS_HOME)/bin/libCs%$(csver).dll,$(cslibs))  $(bindir)
-
-	mkdir -p $(bindir)/phonon_backend
-
-   ifeq ($(findstring Phonon,$(cslibs)),Phonon)
-		rsync -W -a --modify-window=2  $(CS_HOME)/lib/phonon_ds9.dll  $(bindir)/phonon_backend
-   else
-		@echo "Phonon library was not found"
-   endif
-
-   ifneq ($(findstring WebKit,$(cslibs)),WebKit)
-		@echo "CsWebKit library was not found"
-   endif
-
-endif
 
 # distribution for 'make dist'
 distdir: $(DISTFILES)
@@ -413,6 +406,7 @@ distdir: $(DISTFILES)
 	mkdir -p $(distdir_custom)/resources_qml                    ; \
 \
 	for f in $(DIST_SOURCES)  ; do install -D $$f $(distdir_custom)/$$f ; done ; \
+	for f in $(EXTRA_DIST)    ; do install -D $$f $(distdir_custom)/$$f ; done ; \
 	for f in $(HEADERS)       ; do install -D $$f $(distdir_custom)/$$f ; done ; \
 	for f in $(FORMS)         ; do install -D $$f $(distdir_custom)/$$f ; done ; \
 \
@@ -431,7 +425,7 @@ dist-hook:
 	cp -r bin/$(distdir)/../*   $(distdir_custom)  ; \
 	cd $(distdir_custom)/..                        ; \
 \
-	rm -f    ../KitchenSink-$(VERSION).zip                  ; \
-	zip -r   ../KitchenSink-$(VERSION).zip .                ; \
-	rm  -f   ../KitchenSink-$(VERSION).tar.bz2              ; \
+	rm -f    ../KitchenSink-$(VERSION).zip         ; \
+	zip -r   ../KitchenSink-$(VERSION).zip .       ; \
+	rm  -f   ../KitchenSink-$(VERSION).tar.bz2     ; \
 	tar -cjf ../KitchenSink-$(VERSION).tar.bz2 .
