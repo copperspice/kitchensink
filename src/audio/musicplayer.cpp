@@ -14,75 +14,50 @@
 *
 ***********************************************************************/
 
-#if ! defined(QT_NO_PHONON)
+#if ! defined(QT_NO_MULTIMEDIA)
 
 #include "musicplayer.h"
+#include "volumebutton.h"
 #include "util.h"
 
-#include <QtGui>
+#include <QCloseEvent>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QToolBar>
+#include <QStandardPaths>
+#include <QStyleFactory>
 
-MusicPlayer::MusicPlayer()
-   : QWidget(), ui(new Ui::MusicPlayer)
+static QString formatTime(qint64 timeMilliSeconds);
+
+MusicPlayer::MusicPlayer(QWidget *parent)
+   : QWidget(parent), m_ui(new Ui::MusicPlayer)
 {
-   // configure Phonon
-   m_audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
-
-   if (! m_audioOutput->pluginLoaded())  {
-      // new method in CopperSpice, plugin did not load
-
-      ksMsg("Unable to load Audio plugin. Program may terminate.");
-      m_loaded = false;
-      return;
-   }
-
-   m_mediaObject = new Phonon::MediaObject(this);
-   m_mediaObject->setTickInterval(1000);
-
-   // used when adding files to the music list
-   m_metaParser = new Phonon::MediaObject(this);
-
-   Phonon::createPath(m_mediaObject, m_audioOutput);
-   m_loaded = true;
-
-   // ui
-   ui->setupUi(this);
-   setWindowTitle(tr("Music Player"));
+   // user interface
+   m_ui->setupUi(this);
+   setWindowTitle(tr("Multimedia Music Player"));
 
    setupActions();
    setupUi();
 
-   m_seekSlider->setMediaObject(m_mediaObject);
-   m_volumeSlider->setAudioOutput(m_audioOutput);
+   connect(m_ui->openFile_PB, &QPushButton::clicked, this, &MusicPlayer::openFile);
+   connect(m_ui->close_PB,    &QPushButton::clicked, this, &MusicPlayer::close);
+   connect(m_ui->aboutCs_PB,  &QPushButton::clicked, this, &MusicPlayer::aboutCs);
+   connect(m_ui->musicTable,  &QTableView::clicked,  this, &MusicPlayer::tableClicked);
 
-   // phonon Signals
-   connect(m_mediaObject, SIGNAL(tick(qint64)),    this, SLOT(tick(qint64)));
-   connect(m_mediaObject, SIGNAL(aboutToFinish()), this, SLOT(aboutToFinish()));
+   connect(m_playAction,      &QAction::triggered,   this,           &MusicPlayer::togglePlayback);
+   connect(m_pauseAction,     &QAction::triggered,   this,           &MusicPlayer::togglePlayback);
+   connect(m_stopAction,      &QAction::triggered,   &m_mediaPlayer, &QMediaPlayer::stop);
 
-   connect(m_mediaObject, SIGNAL(currentSourceChanged(const Phonon::MediaSource &)),
-           this, SLOT(sourceChanged(const Phonon::MediaSource &)));
+   connect(&m_mediaPlayer,    &QMediaPlayer::positionChanged, this, &MusicPlayer::updateTime);
+   connect(&m_mediaPlayer,    &QMediaPlayer::durationChanged, this, &MusicPlayer::updateDuration);
 
-   connect(m_mediaObject, SIGNAL(stateChanged(Phonon::State,Phonon::State)),
-           this, SLOT(stateChanged(Phonon::State,Phonon::State)));
-
-   // call back when meta data is parsed
-   connect(m_metaParser, SIGNAL(stateChanged(Phonon::State,Phonon::State)),
-           this, SLOT(metaParserStateChanged(Phonon::State,Phonon::State)));
-
-   // signals
-   connect(ui->openFile_PB, SIGNAL(clicked()), this, SLOT(openFile()) );
-   connect(ui->close_PB,    SIGNAL(clicked()), this, SLOT(close())    );
-   connect(ui->aboutCs_PB,  SIGNAL(clicked()), this, SLOT(aboutCs())  );
-
-   connect(ui->musicTable,  SIGNAL(clicked(const QModelIndex &)), this, SLOT(tableClicked(const QModelIndex &)) );
-
-   connect(m_playAction,    SIGNAL(triggered()), m_mediaObject, SLOT(play()));
-   connect(m_pauseAction,   SIGNAL(triggered()), m_mediaObject, SLOT(pause()) );
-   connect(m_stopAction,    SIGNAL(triggered()), m_mediaObject, SLOT(stop()));
+   connect(&m_mediaPlayer, static_cast<void (QMediaPlayer::*)(QMediaPlayer::Error)>(&QMediaPlayer::error),
+                  this, &MusicPlayer::handleError);
 }
 
 MusicPlayer::~MusicPlayer()
 {
-   delete ui;
+   delete m_ui;
 }
 
 void MusicPlayer::aboutCs()
@@ -96,20 +71,17 @@ void MusicPlayer::close() {
 
 void MusicPlayer::closeEvent(QCloseEvent *event)
 {
-   m_mediaObject->stop();
-   m_mediaObject->clearQueue();
    event->accept();
-}
-
-bool MusicPlayer::loaded()
-{
-   return m_loaded;
 }
 
 void MusicPlayer::openFile()
 {
    if (m_dir.isEmpty()) {
-      m_dir = QDesktopServices::storageLocation(QDesktopServices::MusicLocation);
+      QStringList list = QStandardPaths::standardLocations(QStandardPaths::MusicLocation);
+
+      if (! list.isEmpty()) {
+         m_dir = list.first();
+      }
    }
 
    QStringList fileList = QFileDialog::getOpenFileNames(this, tr("Select Music Files"), m_dir);
@@ -118,20 +90,61 @@ void MusicPlayer::openFile()
       return;
    }
 
-   // save the path for the next loop through
-   QFileInfo temp = QFileInfo( fileList.at(0) );
-   m_dir = temp.absolutePath();
+   // save the user selected path for the next loop through
+   QFileInfo tmp = QFileInfo(fileList.at(0));
+   m_dir = tmp.absolutePath();
 
-   //
-   int index = m_sources.size();
+   for (QString fileName : fileList) {
+      QUrl url = QUrl::fromLocalFile(fileName);
+      m_sources.append(url);
 
-   foreach (QString fileName, fileList) {
-      Phonon::MediaSource source = Phonon::MediaSource(fileName);
-      m_sources.append(source);
+      std::shared_ptr<QMediaPlayer> tmpPlayer = std::make_shared<QMediaPlayer>();
+
+      int row = m_model->rowCount();
+      m_model->insertRow(row);
+
+      QStandardItem *itemTitle    = new QStandardItem(url.fileName());
+      QStandardItem *itemArtist   = new QStandardItem("");
+      QStandardItem *itemAlbum    = new QStandardItem("");
+      QStandardItem *itemDuration = new QStandardItem("00:00");
+
+      m_model->setItem(row, 0, itemTitle);
+      m_model->setItem(row, 1, itemArtist);
+      m_model->setItem(row, 2, itemAlbum);
+      m_model->setItem(row, 3, itemDuration);
+
+      // if you want to capture m_model in the lambda use a generalized capture: model = m_model
+
+      connect(tmpPlayer.get(), &QMediaPlayer::metaDataAvailableChanged, this,
+                  [ tmpPlayer, url, itemTitle, itemArtist, itemAlbum, itemDuration]( )
+         {
+
+            QString title    = url.fileName();
+            QString artist   = "Not Available";
+            QString album    = "Not Available";
+            QString duration = "00:00";
+
+            if (tmpPlayer->isMetaDataAvailable()) {
+               title    = tmpPlayer->metaData("Title").toString();
+               artist   = tmpPlayer->metaData("Author").toString();
+               album    = tmpPlayer->metaData("AlbumTitle").toString();
+               duration = formatTime(tmpPlayer->duration());
+            }
+
+            itemTitle->setText(title);
+            itemArtist->setText(artist);
+            itemAlbum->setText(album);
+            itemDuration->setText(duration);
+         });
+
+      // wait until the connect is configured
+      tmpPlayer->setMedia(url);
    }
 
-   if (! m_sources.isEmpty()) {
-      m_metaParser->setCurrentSource(m_sources.at(index));
+   if (m_mediaPlayer.state() != QMediaPlayer::PlayingState) {
+      m_playAction->setEnabled(true);
+      m_pauseAction->setEnabled(false);
+      m_stopAction->setEnabled(false);
    }
 }
 
@@ -157,187 +170,137 @@ void MusicPlayer::setupUi()
    bar->addAction(m_pauseAction);
    bar->addAction(m_stopAction);
 
-   m_seekSlider = new Phonon::SeekSlider(this);
+   m_slider = new QSlider(Qt::Horizontal, this);
+   m_slider->setEnabled(false);
+   m_slider->setToolTip(tr("Seek"));
+   m_slider->setStyle(QStyleFactory::create("Fusion"));
+   connect(m_slider, &QAbstractSlider::valueChanged, this, &MusicPlayer::setSlider);
 
-   m_volumeSlider = new Phonon::VolumeSlider(this);
-   m_volumeSlider->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
+   m_labelTime = new QLabel(tr("00:00"), this);
+   m_labelTime->setMinimumWidth(m_labelTime->sizeHint().width());
+   m_labelTime->setFrameStyle(QFrame::Panel);
 
-   m_timerLCD = new QLCDNumber;
-   m_timerLCD->setSegmentStyle(QLCDNumber::Filled);
-   m_timerLCD->setFrameStyle(QFrame::Panel);
-   m_timerLCD->setLineWidth(1);
-   m_timerLCD->display("00:00");
+   m_status = new QLabel("", this);
+   m_status->setWordWrap(true);
 
-   QPalette palette;
-   palette.setBrush(QPalette::Light, Qt::darkYellow);
-   palette.setBrush(QPalette::Dark,  Qt::black);
-   m_timerLCD->setPalette(palette);
+   m_volumeButton = new VolumeButton(this);
+   m_volumeButton->setToolTip(tr("Adjust volume"));
+   m_volumeButton->setVolume(m_mediaPlayer.volume());
+   connect(m_volumeButton, &VolumeButton::volumeChanged, &m_mediaPlayer, &QMediaPlayer::setVolume);
 
    QHBoxLayout *seekerLayout = new QHBoxLayout;
-   seekerLayout->addWidget(m_seekSlider);
-   seekerLayout->addWidget(m_timerLCD);
+   seekerLayout->addWidget(m_slider);
+   seekerLayout->addSpacing(3);
+   seekerLayout->addWidget(m_labelTime);
 
    QHBoxLayout *playbackLayout = new QHBoxLayout;
    playbackLayout->addWidget(bar);
+   playbackLayout->addSpacing(10);
+   playbackLayout->addWidget(m_status);
    playbackLayout->addStretch();
-   playbackLayout->addWidget(m_volumeSlider);
+   playbackLayout->addWidget(m_volumeButton);
 
-   QVBoxLayout *layout = ui->verticalLayout;
+   QVBoxLayout *layout = m_ui->verticalLayout;
    layout->addLayout(seekerLayout);
    layout->addLayout(playbackLayout);
 
    // table
    m_model = new QStandardItemModel;
-   m_model->setColumnCount(3);
+   m_model->setColumnCount(4);
    m_model->setHeaderData(0, Qt::Horizontal, tr("Title"));
    m_model->setHeaderData(1, Qt::Horizontal, tr("Artist"));
    m_model->setHeaderData(2, Qt::Horizontal, tr("Album"));
+   m_model->setHeaderData(3, Qt::Horizontal, tr("Duration"));
 
-   ui->musicTable->setModel(m_model);
-   ui->musicTable->setSelectionMode(QAbstractItemView::SingleSelection);
-   ui->musicTable->setSelectionBehavior(QAbstractItemView::SelectRows);
-   ui->musicTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+   m_ui->musicTable->setModel(m_model);
+   m_ui->musicTable->setSelectionMode(QAbstractItemView::SingleSelection);
+   m_ui->musicTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+   m_ui->musicTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
-   ui->musicTable->setColumnWidth(0, 175);
-   ui->musicTable->setColumnWidth(1, 175);
-   ui->musicTable->horizontalHeader()->setStretchLastSection(true);
+   m_ui->musicTable->setColumnWidth(0, 225);
+   m_ui->musicTable->setColumnWidth(1, 200);
+   m_ui->musicTable->setColumnWidth(2, 200);
+   m_ui->musicTable->horizontalHeader()->setStretchLastSection(true);
 }
 
-void MusicPlayer::tick(qint64 time)
+void MusicPlayer::setSlider(int position)
 {
-   QTime displayTime(0, (time / 60000) % 60, (time / 1000) % 60);
-   m_timerLCD->display(displayTime.toString("mm:ss"));
-}
-
-void MusicPlayer::aboutToFinish()
-{
-   int index = m_sources.indexOf(m_mediaObject->currentSource()) + 1;
-
-   if (m_sources.size() > index) {
-      m_mediaObject->enqueue(m_sources.at(index));
+   // avoid seeking when the slider value change is triggered from updatePosition()
+   if (qAbs(m_mediaPlayer.position() - position) > 99) {
+      m_mediaPlayer.setPosition(position);
    }
 }
 
-void MusicPlayer::sourceChanged(const Phonon::MediaSource &source)
+void MusicPlayer::playUrl(const QUrl &url)
 {
-   ui->musicTable->selectRow(m_sources.indexOf(source));
-   m_timerLCD->display("00:00");
+   m_mediaPlayer.setMedia(url);
+
+   m_playAction->setEnabled(false);
+   m_pauseAction->setEnabled(true);
+   m_stopAction->setEnabled(true);
+
+   m_mediaPlayer.play();
 }
 
-void MusicPlayer::stateChanged(Phonon::State newState, Phonon::State oldState)
+void MusicPlayer::togglePlayback()
 {
-   switch (newState) {
+   if (m_mediaPlayer.state() == QMediaPlayer::PlayingState) {
+      m_mediaPlayer.pause();
 
-      case Phonon::ErrorState:
-         if (m_mediaObject->errorType() == Phonon::FatalError) {
-            QMessageBox::warning(this, tr("Fatal Error"), m_mediaObject->errorString());
+      m_playAction->setEnabled(true);
+      m_pauseAction->setEnabled(false);
+      m_stopAction->setEnabled(false);
 
-         } else {
-            QMessageBox::warning(this, tr("Error"), m_mediaObject->errorString());
+   } else {
 
-         }
-         break;
+      if (m_mediaPlayer.mediaStatus() != QMediaPlayer::NoMedia)  {
+         int row = m_ui->musicTable->currentIndex().row();
 
-      case Phonon::PlayingState:
-         m_playAction->setEnabled(false);
-         m_pauseAction->setEnabled(true);
-         m_stopAction->setEnabled(true);
-         break;
+         m_current_row = row;
+         playUrl(m_sources[row]);
 
-      case Phonon::StoppedState:
-         m_stopAction->setEnabled(false);
-         m_playAction->setEnabled(true);
-         m_pauseAction->setEnabled(false);
-         m_timerLCD->display("00:00");
-         break;
-
-      case Phonon::PausedState:
-         m_pauseAction->setEnabled(false);
-         m_stopAction->setEnabled(true);
-         m_playAction->setEnabled(true);
-         break;
-
-      case Phonon::BufferingState:
-         break;
-
-      default:
-         break;
-   }
-}
-
-void MusicPlayer::metaParserStateChanged(Phonon::State newState, Phonon::State oldState)
-{
-    switch(newState) {
-
-      case Phonon::ErrorState:
-      {
-         QString temp = m_metaParser->currentSource().fileName()
-                + "\n\nFile may be damaged, corrupted, or contain an image file"
-                + "\n\n" + m_metaParser->errorString();
-
-         QMessageBox::warning(this, tr("Error Opening File(s)"), temp);
-
-         while ( ! m_sources.isEmpty() ) {
-
-            Phonon::MediaSource item = m_sources.takeLast();
-
-            if (item == m_metaParser->currentSource()) {
-               break;
-            }
-         }
-
-         return;
+      } else {
+         m_mediaPlayer.play();
       }
 
-      case Phonon::StoppedState:
-         break;
+      m_playAction->setEnabled(false);
+      m_pauseAction->setEnabled(true);
+      m_stopAction->setEnabled(true);
 
-      case Phonon::PausedState:
-         break;
-
-      default:
-         return;
    }
+}
 
-   if (m_metaParser->currentSource().type() == Phonon::MediaSource::Invalid) {
-      return;
-   }
+QString formatTime(qint64 timeMilliSeconds)
+{
+   qint64 seconds = timeMilliSeconds / 1000;
 
-   // take map data and display on the table
-   QMultiMap<QString, QString> metaData = m_metaParser->metaData();
+   const qint64 minutes = seconds / 60;
+   seconds -= minutes * 60;
 
-   QString title = metaData.value("TITLE");
-   if ( title.isEmpty() ) {
-      title = m_metaParser->currentSource().fileName();
-   }
+   return QString("%1:%2").formatArg(minutes, 2, 10, '0').formatArg(seconds, 2, 10, '0');
+}
 
-   QString album = metaData.value("ALBUM");
-   if ( album.isEmpty() ) {
-      album = "Information unavailable";
-   }
+void MusicPlayer::updateTime(qint64 position)
+{
+   m_slider->setValue(position);
+   m_labelTime->setText(formatTime(position));
+}
 
-   QStandardItem *titletItem = new QStandardItem(title);
-   QStandardItem *artistItem = new QStandardItem(metaData.value("ARTIST"));
-   QStandardItem *albumItem  = new QStandardItem(album);
+void MusicPlayer::updateDuration(qint64 duration)
+{
+   m_slider->setRange(0, duration);
+   m_slider->setEnabled(duration > 0);
+   m_slider->setPageStep(duration / 10);
+}
 
-   //
-   int row = m_model->rowCount();
-   m_model->insertRow(row);
+void MusicPlayer::updateState(QMediaPlayer::State state)
+{
+   if (state == QMediaPlayer::PlayingState) {
+     m_playAction->setToolTip(tr("Pause"));
 
-   m_model->setItem(row, 0, titletItem);
-   m_model->setItem(row, 1, artistItem);
-   m_model->setItem(row, 2, albumItem);
+   } else {
+     m_playAction->setToolTip(tr("Play"));
 
-   //
-   ui->musicTable->selectRow(row);
-   m_mediaObject->setCurrentSource(m_metaParser->currentSource());
-
-   //
-   int index = m_sources.indexOf(m_metaParser->currentSource()) + 1;
-
-   if (m_sources.size() > index) {
-      // on the last song
-      m_metaParser->setCurrentSource(m_sources.at(index));
    }
 }
 
@@ -349,17 +312,26 @@ void MusicPlayer::tableClicked(const QModelIndex &index)
       return;
    }
 
-   bool wasPlaying = (m_mediaObject->state() == Phonon::PlayingState);
+   m_current_row = row;
+   playUrl(m_sources[row]);
+}
 
-   m_mediaObject->stop();
-   m_mediaObject->clearQueue();
-   m_mediaObject->setCurrentSource(m_sources[row]);
+void MusicPlayer::handleError()
+{
+   m_playAction->setEnabled(false);
 
-   if (wasPlaying) {
-      m_mediaObject->play();
-   } else {
-      m_mediaObject->stop();
+   QString errorMsg = m_mediaPlayer.errorString();
+
+   if (errorMsg.isEmpty()) {
+      errorMsg = tr("Unknown error #%1").formatArg(int(m_mediaPlayer.error()));
    }
+
+   m_status->setText(errorMsg);
+}
+
+QSize MusicPlayer::sizeHint() const
+{
+   return QSize(800, 300);
 }
 
 #endif

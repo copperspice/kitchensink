@@ -17,80 +17,65 @@
 #ifndef MUSICPLAYER_H
 #define MUSICPLAYER_H
 
-#ifndef QT_NO_PHONON
+#ifndef QT_NO_MULTIMEDIA
 
 #include "ui_musicplayer.h"
 
+#include <QAction>
+#include <QLabel>
 #include <QList>
-#include <QLCDNumber>
+#include <QMediaPlayer>
 #include <QStandardItemModel>
+#include <QSlider>
+#include <QUrl>
 #include <QWidget>
+
 #include <qstringfwd.h>
 
-#include <phonon/audiooutput.h>
-#include <phonon/seekslider.h>
-#include <phonon/mediaobject.h>
-#include <phonon/volumeslider.h>
-#include <phonon/backendcapabilities.h>
-
-class QAction;
+class VolumeButton;
 
 class MusicPlayer : public QWidget
 {
    CS_OBJECT(MusicPlayer)
 
    public:
-      MusicPlayer();
+      MusicPlayer(QWidget *parent = nullptr);
       ~MusicPlayer();
 
-      bool loaded();
+      QSize sizeHint() const override;
 
    private:
       void closeEvent(QCloseEvent *event);
       void setupActions();
       void setupUi();
 
-      CS_SLOT_1(Private, void openFile())
-      CS_SLOT_2(openFile)
+      // slots
+      void openFile();
+      void aboutCs();
+      void close();
+      void tableClicked(const QModelIndex &index);
 
-      CS_SLOT_1(Private, void aboutCs())
-      CS_SLOT_2(aboutCs)
+      void togglePlayback();
+      void playUrl(const QUrl &url);
+      void setSlider(int position);
+      void updateTime(qint64 position);
+      void updateDuration(qint64 duration);
+      void updateState(QMediaPlayer::State state);
+      void handleError();
 
-      CS_SLOT_1(Private, void close())
-      CS_SLOT_2(close)
-
-      CS_SLOT_1(Private, void stateChanged(Phonon::State newState,Phonon::State oldState))
-      CS_SLOT_2(stateChanged)
-
-      CS_SLOT_1(Private, void tick(qint64 time))
-      CS_SLOT_2(tick)
-
-      CS_SLOT_1(Private, void tableClicked(const QModelIndex & un_named_arg1))
-      CS_SLOT_2(tableClicked)
-
-      CS_SLOT_1(Private, void sourceChanged(const Phonon::MediaSource & source))
-      CS_SLOT_2(sourceChanged)
-
-      CS_SLOT_1(Private, void metaParserStateChanged(Phonon::State newState,Phonon::State oldState))
-      CS_SLOT_2(metaParserStateChanged)
-
-      CS_SLOT_1(Private, void aboutToFinish())
-      CS_SLOT_2(aboutToFinish)
-
-      Ui::MusicPlayer *ui;
+      Ui::MusicPlayer *m_ui;
       QStandardItemModel *m_model;
       QString m_dir;
-      bool m_loaded;
+      int m_current_row;
 
-      Phonon::AudioOutput *m_audioOutput;
-      Phonon::MediaObject *m_mediaObject;
-      Phonon::MediaObject *m_metaParser;
+      QMediaPlayer m_mediaPlayer;
 
-      Phonon::SeekSlider   *m_seekSlider;
-      Phonon::VolumeSlider *m_volumeSlider;
-      QLCDNumber *m_timerLCD;
+      VolumeButton *m_volumeButton = nullptr;
+      QSlider *m_slider            = nullptr;
+      QLabel  *m_labelTime         = nullptr;
+      QLabel  *m_status            = nullptr;
 
-      QList<Phonon::MediaSource> m_sources;
+      QList<QUrl> m_sources;
 
       QAction *m_playAction;
       QAction *m_pauseAction;
