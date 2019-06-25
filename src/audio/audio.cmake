@@ -1,19 +1,21 @@
 set(KITCHENSINK_INCLUDES
-    ${KITCHENSINK_INCLUDES}
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio/html_viewer.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio/musicplayer.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio/videoplayer.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio/videowidget.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio/videosurface.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio/web_browser.h
+   ${KITCHENSINK_INCLUDES}
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/html_viewer.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/musicplayer.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/videoplayer.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/videowidget.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/videosurface.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/volumebutton.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/web_browser.h
 )
 
 set(KITCHENSINK_SOURCES
-    ${KITCHENSINK_SOURCES}
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio/html_viewer.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio/musicplayer.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio/videoplayer.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio/videowidget.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio/videosurface.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio/web_browser.cpp
+   ${KITCHENSINK_SOURCES}
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/html_viewer.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/musicplayer.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/videoplayer.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/videowidget.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/videosurface.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/volumebutton.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/audio/web_browser.cpp
 )

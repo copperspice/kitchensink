@@ -210,6 +210,7 @@ KitchenSink_Audio_C = \
    src/audio/videosurface.cpp \
    src/audio/videoplayer.cpp \
    src/audio/videowidget.cpp \
+   src/audio/volumebutton.cpp \
    src/audio/web_browser.cpp
 
 KitchenSink_Network_C = \
@@ -284,6 +285,7 @@ KitchenSink_Audio_H = \
    src/audio/videoplayer.h \
    src/audio/videowidget.h \
    src/audio/videosurface.h \
+   src/audio/volumebutton.h \
    src/audio/web_browser.h
 
 KitchenSink_Network_H = \
