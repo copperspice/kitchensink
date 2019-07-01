@@ -99,7 +99,7 @@
      <item>
       <widget class="QPushButton" name="aboutCs_PB">
        <property name="text">
-        <string> About CoperSpice </string>
+        <string> About CopperSpice </string>
        </property>
       </widget>
      </item>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>566</width>
-    <height>379</height>
+    <width>665</width>
+    <height>436</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,7 +50,7 @@
    <item row="0" column="0" colspan="3">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_1">
       <attribute name="title">
@@ -237,11 +237,6 @@
           </property>
           <item row="0" column="1">
            <widget class="QCheckBox" name="avocado_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Avocado</string>
             </property>
@@ -249,11 +244,6 @@
           </item>
           <item row="5" column="2">
            <widget class="QCheckBox" name="siracha_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Sriracha Sauce</string>
             </property>
@@ -261,11 +251,6 @@
           </item>
           <item row="2" column="2">
            <widget class="QCheckBox" name="mustard_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Mustard</string>
             </property>
@@ -273,11 +258,6 @@
           </item>
           <item row="1" column="3">
            <widget class="QCheckBox" name="jack_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Jack</string>
             </property>
@@ -285,11 +265,6 @@
           </item>
           <item row="2" column="0">
            <widget class="QCheckBox" name="chicken_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Roast Chicken</string>
             </property>
@@ -297,11 +272,6 @@
           </item>
           <item row="0" column="0">
            <widget class="QCheckBox" name="cornBeef_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Corned Beef</string>
             </property>
@@ -309,11 +279,6 @@
           </item>
           <item row="0" column="2">
            <widget class="QCheckBox" name="lettuce_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Lettuce</string>
             </property>
@@ -321,11 +286,6 @@
           </item>
           <item row="3" column="1">
            <widget class="QCheckBox" name="tomatoes_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Tomatoes</string>
             </property>
@@ -333,11 +293,6 @@
           </item>
           <item row="1" column="2">
            <widget class="QCheckBox" name="mayo_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Mayonnaise</string>
             </property>
@@ -345,11 +300,6 @@
           </item>
           <item row="2" column="3">
            <widget class="QCheckBox" name="provolone_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Provolone</string>
             </property>
@@ -371,11 +321,6 @@
           </item>
           <item row="2" column="1">
            <widget class="QCheckBox" name="onions_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Grilled Onions</string>
             </property>
@@ -390,11 +335,6 @@
           </item>
           <item row="5" column="0">
            <widget class="QCheckBox" name="veggies_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Grilled Vegetables</string>
             </property>
@@ -402,11 +342,6 @@
           </item>
           <item row="1" column="0">
            <widget class="QCheckBox" name="pastrami_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Pastrami</string>
             </property>
@@ -414,11 +349,6 @@
           </item>
           <item row="0" column="3">
            <widget class="QCheckBox" name="cheddar_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Cheddar</string>
             </property>
@@ -426,11 +356,6 @@
           </item>
           <item row="3" column="0">
            <widget class="QCheckBox" name="turkey_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Roast Turkey</string>
             </property>
@@ -438,11 +363,6 @@
           </item>
           <item row="3" column="2">
            <widget class="QCheckBox" name="pickles_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Pickles</string>
             </property>
@@ -450,11 +370,6 @@
           </item>
           <item row="3" column="3">
            <widget class="QCheckBox" name="swiss_CB">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Swiss</string>
             </property>
@@ -647,11 +562,6 @@
           </property>
           <item>
            <widget class="QCheckBox" name="checkBox_38">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Chocolate Chip Cookie</string>
             </property>
@@ -659,11 +569,6 @@
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_39">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Lemon Bar</string>
             </property>
@@ -671,11 +576,6 @@
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_40">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Peanut Butter Cookie</string>
             </property>
@@ -722,11 +622,6 @@
           </property>
           <item>
            <widget class="QCheckBox" name="checkBox_35">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Carrot Salad</string>
             </property>
@@ -734,11 +629,6 @@
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_36">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Pasta Salad</string>
             </property>
@@ -746,11 +636,6 @@
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_37">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Potato Salad</string>
             </property>
@@ -829,11 +714,6 @@
           </property>
           <item>
            <widget class="QCheckBox" name="checkBox_31">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>BBQ</string>
             </property>
@@ -841,11 +721,6 @@
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_32">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Ranch</string>
             </property>
@@ -853,11 +728,6 @@
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_33">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Salt &amp;&amp; Pepper</string>
             </property>
@@ -865,11 +735,6 @@
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_34">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Sweet Onion</string>
             </property>
