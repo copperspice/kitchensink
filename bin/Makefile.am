@@ -109,12 +109,13 @@ deploy : all
 	echo "APPL????" > $(deployapp)/PkgInfo
 
 	touch $(deployapp)/Resources/empty.lproj
-	cp -r $(CS_HOME)/mac/qt_menu.nib $(deployapp)/Resources
 
 	cp $(top_srcdir)/resources/ks.icns $(deployapp)/Resources
 	rsync -W -a $(top_srcdir)/resources/{ks.ico,script.js,sampleMenu.xml} $(deployapp)/Resources
 
 	rsync -W -a $(patsubst %,$(CS_HOME)/lib/libCs%$(csver).dylib,$(cslibs)) $(deployapp)/Frameworks
+
+	mkdir -p $(deployapp)/MacOS/platforms
 	rsync -W -a $(CS_HOME)/lib/CsGuiCocoa$(csver).so  $(deployapp)/MacOS/platforms
 
 	mkdir -p $(deployapp)/MacOS/mediaservices
