@@ -125,7 +125,9 @@ MainWindow::MainWindow()
    connect(m_ui->actionAbout_KitchenSink, &QAction::triggered, this,  &MainWindow::actionAbout_KitchenSink);
    connect(m_ui->actionAbout,             &QAction::triggered, this,  &MainWindow::actionAbout);
 
+#ifdef Q_OS_MAC
    setUnifiedTitleAndToolBarOnMac(true);
+#endif
 
 }
 
