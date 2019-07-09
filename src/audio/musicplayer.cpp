@@ -46,7 +46,7 @@ MusicPlayer::MusicPlayer(QWidget *parent)
 
    connect(m_playAction,      &QAction::triggered,   this, &MusicPlayer::togglePlayer);
    connect(m_pauseAction,     &QAction::triggered,   this, &MusicPlayer::togglePlayer);
-   connect(m_stopAction,      &QAction::triggered,   &m_mediaPlayer, &QMediaPlayer::stop);
+   connect(m_stopAction,      &QAction::triggered,   this, &MusicPlayer::stopPlayer);
 
    connect(&m_mediaPlayer,    &QMediaPlayer::positionChanged, this, &MusicPlayer::updateTime);
    connect(&m_mediaPlayer,    &QMediaPlayer::durationChanged, this, &MusicPlayer::updateDuration);
@@ -268,6 +268,15 @@ void MusicPlayer::togglePlayer()
       m_stopAction->setEnabled(true);
 
    }
+}
+
+void MusicPlayer::stopPlayer()
+{
+   m_mediaPlayer.stop();
+
+   m_playAction->setEnabled(true);
+   m_pauseAction->setEnabled(false);
+   m_stopAction->setEnabled(false);
 }
 
 QString formatTime(qint64 timeMilliSeconds)

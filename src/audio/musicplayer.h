@@ -56,6 +56,7 @@ class MusicPlayer : public QWidget
       void tableClicked(const QModelIndex &index);
 
       void togglePlayer();
+      void stopPlayer();
       void playUrl(const QUrl &url);
       void setSlider(int position);
       void updateTime(qint64 position);
