@@ -44,8 +44,8 @@ MusicPlayer::MusicPlayer(QWidget *parent)
    connect(m_ui->aboutCs_PB,  &QPushButton::clicked, this, &MusicPlayer::aboutCs);
    connect(m_ui->musicTable,  &QTableView::clicked,  this, &MusicPlayer::tableClicked);
 
-   connect(m_playAction,      &QAction::triggered,   this,           &MusicPlayer::togglePlayback);
-   connect(m_pauseAction,     &QAction::triggered,   this,           &MusicPlayer::togglePlayback);
+   connect(m_playAction,      &QAction::triggered,   this, &MusicPlayer::togglePlayer);
+   connect(m_pauseAction,     &QAction::triggered,   this, &MusicPlayer::togglePlayer);
    connect(m_stopAction,      &QAction::triggered,   &m_mediaPlayer, &QMediaPlayer::stop);
 
    connect(&m_mediaPlayer,    &QMediaPlayer::positionChanged, this, &MusicPlayer::updateTime);
@@ -242,7 +242,7 @@ void MusicPlayer::playUrl(const QUrl &url)
    m_mediaPlayer.play();
 }
 
-void MusicPlayer::togglePlayback()
+void MusicPlayer::togglePlayer()
 {
    if (m_mediaPlayer.state() == QMediaPlayer::PlayingState) {
       m_mediaPlayer.pause();
