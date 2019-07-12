@@ -248,25 +248,29 @@ void MusicPlayer::togglePlayer()
       m_mediaPlayer.pause();
 
       m_playAction->setEnabled(true);
-      m_pauseAction->setEnabled(false);
+      m_pauseAction->setEnabled(true);
       m_stopAction->setEnabled(false);
 
-   } else {
-
-      if (m_mediaPlayer.mediaStatus() != QMediaPlayer::NoMedia)  {
-         int row = m_ui->musicTable->currentIndex().row();
-
-         m_current_row = row;
-         playUrl(m_sources[row]);
-
-      } else {
-         m_mediaPlayer.play();
-      }
+   } else if (m_mediaPlayer.state() == QMediaPlayer::PausedState) {
+      m_mediaPlayer.play();
 
       m_playAction->setEnabled(false);
       m_pauseAction->setEnabled(true);
       m_stopAction->setEnabled(true);
 
+   } else {
+      int row;
+      QModelIndex index = m_ui->musicTable->currentIndex();
+
+      if (index.isValid()) {
+         row = index.row();
+
+      } else {
+         row = m_sources.size() - 1;
+      }
+
+      m_current_row = row;
+      playUrl(m_sources[row]);
    }
 }
 
