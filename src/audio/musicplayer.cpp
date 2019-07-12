@@ -48,8 +48,8 @@ MusicPlayer::MusicPlayer(QWidget *parent)
    connect(m_pauseAction,     &QAction::triggered,   this, &MusicPlayer::togglePlayer);
    connect(m_stopAction,      &QAction::triggered,   this, &MusicPlayer::stopPlayer);
 
-   connect(&m_mediaPlayer,    &QMediaPlayer::positionChanged, this, &MusicPlayer::updateTime);
-   connect(&m_mediaPlayer,    &QMediaPlayer::durationChanged, this, &MusicPlayer::updateDuration);
+   connect(&m_mediaPlayer,    &QMediaPlayer::positionChanged, this,  &MusicPlayer::updateTime);
+   connect(&m_mediaPlayer,    &QMediaPlayer::durationChanged, this,  &MusicPlayer::updateDuration);
 
    connect(&m_mediaPlayer, static_cast<void (QMediaPlayer::*)(QMediaPlayer::Error)>(&QMediaPlayer::error),
                   this, &MusicPlayer::handleError);
