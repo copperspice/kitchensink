@@ -139,7 +139,7 @@ void Sliders::rotateWidgets()
 {
    Q_ASSERT(m_rotableWidgets.count() % 2 == 0);
 
-   foreach (QWidget *widget, m_rotableWidgets) {
+   for (QWidget *widget : m_rotableWidgets) {
       m_rotableLayout->removeWidget(widget);
    }
 
