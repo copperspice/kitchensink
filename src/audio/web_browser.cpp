@@ -38,7 +38,7 @@ WebBrowser::WebBrowser(MainWindow *parent, QUrl url)
    m_view = new QWebView(this);
 
    if (url.isEmpty()) {
-      url = QUrl("http://www.copperspice.com");
+      url = QUrl("http://www.google.com");
    }
    m_view->load(url);
 
