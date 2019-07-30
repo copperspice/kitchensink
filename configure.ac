@@ -44,9 +44,12 @@ case "$target" in
 esac
 
 AC_LANG_PUSH([C++])
-export CPPFLAGS="$CPPFLAGS -I$CS_HOME/include/QtCore -I$CS_HOME/include"
+
+export CPPFLAGS="$CPPFLAGS -I$CS_HOME/include \
+   -I$CS_HOME/include/QtCore -I$CS_HOME/include/QtGui"
+
 AC_CHECK_HEADER([QtMultimedia/qmultimedia.h], [HAVE_MULTIMEDIA=yes], AC_DEFINE([QT_NO_MULTIMEDIA]) )
-AC_CHECK_HEADER([QtWebKit/qtwebkit.h],        [HAVE_WEBKIT=yes],     AC_DEFINE([QT_NO_WEBKIT]) )
+AC_CHECK_HEADER([QtWebKit/qwebkitglobal.h],   [HAVE_WEBKIT=yes],     AC_DEFINE([QT_NO_WEBKIT]) )
 AC_LANG_POP([C++])
 
 AM_CONDITIONAL(HAVE_MULTIMEDIA, test "$HAVE_MULTIMEDIA" == yes)
