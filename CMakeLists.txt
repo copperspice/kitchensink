@@ -24,7 +24,7 @@ endif()
 
 set(BUILD_MAJOR "1")
 set(BUILD_MINOR "4")
-set(BUILD_MICRO "3")
+set(BUILD_MICRO "4")
 set(BUILD_COMPONENTS "KitchenSink")
 
 set(PACKAGE "KitchenSink")
