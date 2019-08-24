@@ -47,6 +47,8 @@ Style_DW::Style_DW(MainWindow *parent)
    connect(ui->editPB,  SIGNAL(clicked()), this, SLOT(actionEdit()));
    connect(ui->closePB, SIGNAL(clicked()), this, SLOT(actionClose()));
 
+   connect(ui->closePB, SIGNAL(clicked()), this, SLOT(actionClose()));
+
    // force
    ui->nameCB->setFocus();
 }
@@ -85,3 +87,10 @@ void Style_DW::styleEditClose()
    // marks the style_edit window closed
    m_style = nullptr;
 }
+
+void Style_DW::closeEvent(QCloseEvent *event)
+{
+   actionClose();
+   QWidget::closeEvent(event);
+}
+

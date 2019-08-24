@@ -33,6 +33,9 @@ class Style_DW : public QMainWindow
       ~Style_DW();
       void styleEditClose();
 
+   protected:
+      void closeEvent(QCloseEvent *event) override;
+
    private:
       CS_SLOT_1(Private, void actionAbout())
       CS_SLOT_2(actionAbout)
