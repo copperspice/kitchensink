@@ -11,7 +11,7 @@ gcclibs=libgcc_s_*-1  libstdc++-6  libwinpthread-1
 
 # list of CopperSpice libraries
 cslibs=Core Gui Network OpenGL Script Sql Svg Xml XmlPatterns
-csver=1.5
+csver=1.6
 
 if HAVE_MULTIMEDIA
    cslibs += Multimedia
@@ -26,7 +26,7 @@ AM_CXXFLAGS+=-I../src -I../src/audio -I../src/graphics -I../src/network -I../src
 
 if OSTYPE_WIN
    # disable console on window
-   # AM_CXXFLAGS+=-mwindows
+   AM_CXXFLAGS+=-mwindows
 
    # location for 'make install'
    installdir=$(abs_top_builddir)/install

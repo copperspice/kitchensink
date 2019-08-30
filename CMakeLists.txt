@@ -23,8 +23,8 @@ else()
 endif()
 
 set(BUILD_MAJOR "1")
-set(BUILD_MINOR "4")
-set(BUILD_MICRO "2")
+set(BUILD_MINOR "6")
+set(BUILD_MICRO "0")
 set(BUILD_COMPONENTS "KitchenSink")
 
 set(PACKAGE "KitchenSink")
