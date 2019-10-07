@@ -4,6 +4,7 @@ autotools/m4/lt*.m4
 autotools/m4/libtool.m4
 cmakefiles/*
 
+CMakeCache.txt
 config.status
 libtool
 Makefile
@@ -11,15 +12,13 @@ Makefile.in
 aclocal.m4
 configure
 config.log
+*.zip
 
-KitchenSink-Cs5.creator*
-KitchenSink-Cs5.config
-KitchenSink-Cs5.files
-KitchenSink-Cs5.includes
+KitchenSink-Cs5.*
 kitchensink*.tar.gz
 
-do-build
-do-config
+do-build*
+do-config*
 
 /bin/.deps
 /bin/.libs
@@ -31,5 +30,6 @@ do-config
 /bin/*.exe
 /build/
 /deploy/
+/source_dist/
 /src/ks_build_info.h
 
