@@ -1,35 +1,4 @@
-set(CS_VERSION 1.6)
-
-macro(cs_copy_dll APP DLL)
-   get_target_property(CS_${DLL}_LIB  CopperSpice::Cs${DLL}${CS_VERSION} LOCATION)
-   install(FILES  ${CS_${DLL}_LIB}  DESTINATION .)
-endmacro()
-
-# only called for windows
-macro(cs_copy_plugins name)
-
-if (name strequal "Gui")
-   get_target_property(GUI_PLATFORM_LIB  CopperSpice::CsGuiWin${CS_VERSION} LOCATION)
-   install(FILES  ${GUI_PLATFORM_LIB}  DESTINATION ./platforms)
-endif()
-
-if (name strequal "Multimedia")
-   get_target_property(DIRECTSHOW_LIB  CopperSpice::CsMultimedia_DirectShow${CS_VERSION} LOCATION)
-   install(FILES  ${DIRECTSHOW_LIB}  DESTINATION ./mediaservices)
-
-   get_target_property(MU3_LIB  CopperSpice::CsMultimedia_m3u${CS_VERSION} LOCATION)
-   install(FILES  ${MU3_LIB}  DESTINATION ./playlistformats)
-endif()
-
-endmacro()
-
-check_include_file(windows.h HAVE_WINDOWS_H)
-
-if (HAVE_WINDOWS_H)
-   add_definitions(-DHAVE_WINDOWS_H)
-endif()
-
-set(KITCHENSINK_INCLUDES
+list(APPEND KITCHENSINK_INCLUDES
    ${CMAKE_CURRENT_SOURCE_DIR}/aboutcs.h
    ${CMAKE_CURRENT_SOURCE_DIR}/colorpicker.h
    ${CMAKE_CURRENT_SOURCE_DIR}/dialogs.h
@@ -52,7 +21,7 @@ set(KITCHENSINK_INCLUDES
    ${CMAKE_CURRENT_SOURCE_DIR}/xmlsyntaxhighlighter.h
 )
 
-set(KITCHENSINK_SOURCES
+list(APPEND KITCHENSINK_SOURCES
    ${CMAKE_CURRENT_SOURCE_DIR}/aboutcs.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/colorpicker.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/dialogs.cpp
@@ -146,7 +115,6 @@ COPPERSPICE_RESOURCES(
 
 add_executable(KitchenSink ${KITCHENSINK_SOURCES} )
 
-# location of includes
 target_include_directories(KitchenSink
    PRIVATE
    ${CMAKE_SOURCE_DIR}/src
@@ -158,59 +126,102 @@ target_include_directories(KitchenSink
 )
 
 target_link_libraries(KitchenSink
-   CopperSpice::CsCore${CS_VERSION}
-   CopperSpice::CsGui${CS_VERSION}
-   CopperSpice::CsNetwork${CS_VERSION}
-   CopperSpice::CsOpenGL${CS_VERSION}
-   CopperSpice::CsScript${CS_VERSION}
-   CopperSpice::CsSql${CS_VERSION}
-   CopperSpice::CsSvg${CS_VERSION}
-   CopperSpice::CsXml${CS_VERSION}
-   CopperSpice::CsXmlPatterns${CS_VERSION}
+   CopperSpice::CsCore
+   CopperSpice::CsGui
+   CopperSpice::CsNetwork
+   CopperSpice::CsOpenGL
+   CopperSpice::CsScript
+   CopperSpice::CsSql
+   CopperSpice::CsSvg
+   CopperSpice::CsXml
+   CopperSpice::CsXmlPatterns
 )
 
 if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
-   target_link_libraries(KitchenSink CopperSpice::CsMultimedia${CS_VERSION}
+   target_link_libraries(KitchenSink CopperSpice::CsMultimedia
 )
 endif()
 
 if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
-   target_link_libraries(KitchenSink CopperSpice::CsWebKit${CS_VERSION}
+   target_link_libraries(KitchenSink CopperSpice::CsWebKit
 )
 endif()
 
-if(WIN32)
+if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
+   set_target_properties(KitchenSink PROPERTIES OUTPUT_NAME kitchensink)
+
+   target_link_libraries(KitchenSink
+      "-framework OpenGL"
+   )
+
+elseif(CMAKE_SYSTEM_NAME MATCHES "(Linux|OpenBSD|FreeBSD|NetBSD|DragonFly)")
+   set_target_properties(KitchenSink PROPERTIES OUTPUT_NAME kitchensink)
+
+elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")
    # disable console on windows
-   target_link_libraries(KitchenSink -lnetapi32 -lmpr -mwindows)
+   target_link_libraries(KitchenSink
+      netapi32
+      mpr
+      -mwindows
+   )
+
 endif()
 
 install(TARGETS KitchenSink DESTINATION .)
 
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks.ico  DESTINATION ./resources)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/script.js  DESTINATION ./resources)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/script.js       DESTINATION ./resources)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/sampleMenu.xml  DESTINATION ./resources)
 
-if(WIN32)
-   cs_copy_dll(KitchenSink Core)
-   cs_copy_dll(KitchenSink Gui)
-   cs_copy_dll(KitchenSink Network)
-   cs_copy_dll(KitchenSink OpenGL)
-   cs_copy_dll(KitchenSink Script)
-   cs_copy_dll(KitchenSink Sql)
-   cs_copy_dll(KitchenSink Svg)
-   cs_copy_dll(KitchenSink Xml)
-   cs_copy_dll(KitchenSink XmlPatterns)
+# installs the CopperSpice libraries
+cs_copy_library(CsCore)
+cs_copy_library(CsGui)
+cs_copy_library(CsNetwork)
+cs_copy_library(CsOpenGL)
+cs_copy_library(CsScript)
+cs_copy_library(CsSql)
+cs_copy_library(CsSvg)
+cs_copy_library(CsXml)
+cs_copy_library(CsXmlPatterns)
 
-   cs_copy_plugins("Gui")
+# installs the platform Gui plugin
+cs_copy_plugins(CsGui)
 
 if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
-   cs_copy_dll(KitchenSink Multimedia)
-   cs_copy_plugins("Multimedia")
+   cs_copy_library(CsMultimedia)
 endif()
 
 if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
-   cs_copy_dll(KitchenSink WebKit)
+   cs_copy_library(CsWebKit)
 endif()
 
-endif()
+if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
 
+   set(CPACK_DMG_VOLUME_NAME KitchenSink)
+   set(CPACK_DMG_FORMAT UDBZ)
+
+   # one file
+   if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
+      cs_copy_plugins(CsMultimedia)
+   endif()
+
+   install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks.icns DESTINATION ./resources)
+
+elseif(CMAKE_SYSTEM_NAME MATCHES "(Linux|OpenBSD|FreeBSD|NetBSD|DragonFly)")
+
+   # one file
+   if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
+      cs_copy_plugins(CsMultimedia)
+   endif()
+
+   install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks.png DESTINATION ./resources)
+
+elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")
+
+   # two files
+   if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
+      cs_copy_plugins(CsMultimedia)
+   endif()
+
+   install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks.ico DESTINATION ./resources)
+
+endif()

@@ -76,6 +76,14 @@ MainWindow::MainWindow()
    setWindowTitle(tr("KitchenSink"));
    setWindowIcon(QIcon("://resources/ks.ico"));
 
+/*
+   // future usage
+
+   m_ui->menuWidgets->setToolTipsVisible(true);
+   // m_ui->menuWidgets->setToolTipDuration(60000);  // 60 secs
+   m_ui->actionTabs->setToolTip("Source File: widgets/tabdialog.cpp");
+*/
+
    connect(m_ui->actionClose_Window,      &QAction::triggered, this,  &MainWindow::actionClose_Window);
    connect(m_ui->actionCloseAll_Windows,  &QAction::triggered, this,  &MainWindow::actionCloseAll_Windows);
    connect(m_ui->actionExit_Program,      &QAction::triggered, this,  &MainWindow::actionExit_Program);

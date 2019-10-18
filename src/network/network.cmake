@@ -1,5 +1,4 @@
-set(KITCHENSINK_INCLUDES
-    ${KITCHENSINK_INCLUDES}
+list(APPEND KITCHENSINK_INCLUDES
     ${CMAKE_CURRENT_SOURCE_DIR}/network/chat_dialog.h
     ${CMAKE_CURRENT_SOURCE_DIR}/network/client.h
     ${CMAKE_CURRENT_SOURCE_DIR}/network/connection.h
@@ -9,8 +8,7 @@ set(KITCHENSINK_INCLUDES
     ${CMAKE_CURRENT_SOURCE_DIR}/network/ssl_client.h
 )
 
-set(KITCHENSINK_SOURCES
-    ${KITCHENSINK_SOURCES}
+list(APPEND KITCHENSINK_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/network/chat_dialog.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/network/client.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/network/connection.cpp

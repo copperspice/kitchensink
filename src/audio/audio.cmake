@@ -1,5 +1,4 @@
-set(KITCHENSINK_INCLUDES
-   ${KITCHENSINK_INCLUDES}
+list(APPEND KITCHENSINK_INCLUDES
    ${CMAKE_CURRENT_SOURCE_DIR}/audio/html_viewer.h
    ${CMAKE_CURRENT_SOURCE_DIR}/audio/musicplayer.h
    ${CMAKE_CURRENT_SOURCE_DIR}/audio/videoplayer.h
@@ -9,8 +8,7 @@ set(KITCHENSINK_INCLUDES
    ${CMAKE_CURRENT_SOURCE_DIR}/audio/web_browser.h
 )
 
-set(KITCHENSINK_SOURCES
-   ${KITCHENSINK_SOURCES}
+list(APPEND KITCHENSINK_SOURCES
    ${CMAKE_CURRENT_SOURCE_DIR}/audio/html_viewer.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/audio/musicplayer.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/audio/videoplayer.cpp
