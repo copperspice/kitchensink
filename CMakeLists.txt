@@ -51,6 +51,7 @@ set(PACKAGE_URL       "https://www.copperspice.com/")
 
 set(CPACK_PACKAGE_NAME    ${PROJECT_NAME} )
 set(CPACK_PACKAGE_VENDOR  "CopperSpice")
+
 set(CPACK_PACKAGE_VERSION_MAJOR ${BUILD_MAJOR})
 set(CPACK_PACKAGE_VERSION_MINOR ${BUILD_MINOR})
 set(CPACK_PACKAGE_VERSION_PATCH ${BUILD_MICRO})
@@ -58,7 +59,6 @@ set(CPACK_PACKAGE_VERSION_PATCH ${BUILD_MICRO})
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "GUI application containing multiple examples using the CopperSpice libraries")
 set(CPACK_PACKAGE_DESCRIPTION_FILE    "${CMAKE_SOURCE_DIR}/README.md")
 
-set(CPACK_SOURCE_IGNORE_FILES         "/build/;/.git;${CPACK_SOURCE_IGNORE_FILES}")
 set(CPACK_PACKAGE_INSTALL_DIRECTORY   ${CMAKE_INSTALL_PREFIX})
 set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY  OFF)
 
@@ -70,13 +70,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 17)
 
 if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
-  # multimedia found and will be linked with project
+  # multimedia found and will be linked with this project
 else()
   add_definitions(-DQT_NO_MULTIMEDIA)
 endif()
 
 if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
-  # webkit found and will be linked with project
+  # webkit found and will be linked with this project
 else()
   add_definitions(-DQT_NO_WEBKIT)
 endif()

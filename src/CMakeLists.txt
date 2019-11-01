@@ -199,7 +199,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
    set(CPACK_DMG_VOLUME_NAME KitchenSink)
    set(CPACK_DMG_FORMAT UDBZ)
 
-   # one file
+   # two files
    if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
       cs_copy_plugins(CsMultimedia)
    endif()
@@ -208,7 +208,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
 
 elseif(CMAKE_SYSTEM_NAME MATCHES "(Linux|OpenBSD|FreeBSD|NetBSD|DragonFly)")
 
-   # one file
+   # three files
    if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
       cs_copy_plugins(CsMultimedia)
    endif()
