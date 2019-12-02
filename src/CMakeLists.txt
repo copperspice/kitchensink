@@ -159,12 +159,20 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "(Linux|OpenBSD|FreeBSD|NetBSD|DragonFly)")
 
 elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")
    # disable console on windows
-   target_link_libraries(KitchenSink
-      netapi32
-      mpr
-      -mwindows
-   )
-
+     if(MSVC)
+      set_target_properties(${PROJECT_NAME} PROPERTIES
+			WIN32_EXECUTABLE YES
+			LINK_FLAGS "/ENTRY:mainCRTStartup"
+		)
+	   elseif(CMAKE_COMPILER_IS_GNUCXX)
+        target_link_libraries(KitchenSink
+        netapi32
+        mpr
+        -mwindows
+        )
+       else()
+		    message(SEND_ERROR "You are using an unsupported Windows compiler! (Not MSVC or GCC)")
+	  endif(MSVC)
 endif()
 
 install(TARGETS KitchenSink DESTINATION .)
