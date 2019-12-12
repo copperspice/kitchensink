@@ -103,3 +103,15 @@ configure_file(
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_subdirectory(src)
+
+if(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
+   set(TARGETBITS 32)
+else()
+   set(TARGETBITS 64)
+endif()
+
+message("")
+message("KitchenSink configured to run on:  ${CMAKE_SYSTEM_NAME} ${TARGETBITS} bit, ${CMAKE_BUILD_TYPE} Mode")
+message("KitchenSink will be built in:      ${CMAKE_BINARY_DIR}")
+message("KitchenSink will be installed in:  ${CMAKE_INSTALL_PREFIX}")
+message("\n")
