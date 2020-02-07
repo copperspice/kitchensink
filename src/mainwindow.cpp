@@ -84,6 +84,12 @@ MainWindow::MainWindow()
    m_ui->actionTabs->setToolTip("Source File: widgets/tabdialog.cpp");
 */
 
+#if defined(QT_NO_WEBKIT)
+   // webkit temporarily removed, pending overflow issue resolution in CsWebKit
+   m_ui->actionAbout_CopperSpice->setVisible(false);
+   m_ui->actionAbout_KitchenSink->setVisible(false);
+#endif
+
    connect(m_ui->actionClose_Window,      &QAction::triggered, this,  &MainWindow::actionClose_Window);
    connect(m_ui->actionCloseAll_Windows,  &QAction::triggered, this,  &MainWindow::actionCloseAll_Windows);
    connect(m_ui->actionExit_Program,      &QAction::triggered, this,  &MainWindow::actionExit_Program);
@@ -266,7 +272,7 @@ void MainWindow::actionMusicPlayer()
    MusicPlayer *oDw = new MusicPlayer();
    addMdiChild(oDw);
  #else
-   ksMsg("KitchenSink was not built with CsMultimedia library, unable to run MusicPlayer.");
+   ksMsg("KS was not built with CsMultimedia library, MusicPlayer disabled.");
 #endif
 
 }
@@ -283,7 +289,7 @@ void MainWindow::actionHTML_Viewer()
    Html_Viewer *oDw = new Html_Viewer();
    addMdiChild(oDw);
 #else
-   ksMsg("KitchenSink was not built with CsWebkit library, unable to run Html Viewer.");
+   ksMsg("KS was not built with CsWebkit library, Html Viewer disabled.");
 #endif
 }
 
@@ -293,7 +299,7 @@ void MainWindow::actionWebBrowser()
    WebBrowser *oDw = new WebBrowser(this);
    addMdiChild(oDw);
 #else
-   ksMsg("KitchenSink was not built with CsWebkit library, unable to run WebBrowser.");
+   ksMsg("KS was not built with CsWebkit library, WebBrowser disabled.");
 #endif
 }
 
@@ -460,7 +466,7 @@ void MainWindow::actionAbout()
                       "<tr><td style=padding-right:25><nobr>Developed by Ansel Sermersheim</nobr></td><td>ansel@copperspice.com</td></tr>"
                       "</table></font>"
                       "<br>"
-                      "<p><small>Copyright 2012-2020 BG Consulting, released under the terms of the 2-Clause BSD license<br>"
+                      "<p><small>Copyright 2012-2020 BG Consulting, released under the 2-Clause BSD license<br>"
                       "This program is provided AS IS with no warranty of any kind.<br></small></p>";
 
    QMessageBox msgB;

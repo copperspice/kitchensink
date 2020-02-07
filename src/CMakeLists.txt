@@ -191,7 +191,8 @@ if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
 endif()
 
 if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
-   cs_copy_library(CsWebKit)
+   # webkit temporarily removed, pending overflow issue resolution in CsWebKit
+   # cs_copy_library(CsWebKit)
 endif()
 
 if (CMAKE_SYSTEM_NAME MATCHES "Darwin")

@@ -75,11 +75,16 @@ else()
   add_definitions(-DQT_NO_MULTIMEDIA)
 endif()
 
-if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
-  # webkit found and will be linked with this project
-else()
-  add_definitions(-DQT_NO_WEBKIT)
-endif()
+
+# webkit temporarily removed, pending overflow issue resolution in CsWebKit
+add_definitions(-DQT_NO_WEBKIT)
+
+# if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
+#   # webkit found and will be linked with this project
+# else()
+#   add_definitions(-DQT_NO_WEBKIT)
+# endif()
+
 
 if(APPLE)
     set(CMAKE_EXE_LINKER_FLAGS    "${CMAKE_EXE_LINKER_FLAGS}    -Wl,-undefined,error")
