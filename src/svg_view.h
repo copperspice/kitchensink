@@ -39,10 +39,9 @@ class Svg_View : public QWidget
       void setupTextObject();
       void setupGui();
 
-      CS_SLOT_1(Private, void insertTextObject())
-      CS_SLOT_2(insertTextObject)
-      CS_SLOT_1(Private, void actionClose())
-      CS_SLOT_2(actionClose)
+      // slot declarations
+      void insertTextObject();
+      void actionClose();
 
       QTextEdit   *m_textEdit;
       QLabel      *m_fileNameLabel;

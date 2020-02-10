@@ -52,8 +52,8 @@ class SysTray : public QDialog
       void showMessage();
       void setIcon(int index);
 
-      CS_SLOT_1(Private, void actionQuit())
-      CS_SLOT_2(actionQuit)
+      // slot declarations
+      void actionQuit();
 
       QGroupBox *iconGroupBox;
       QLabel *iconLabel;

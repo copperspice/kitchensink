@@ -150,16 +150,16 @@ void SysTray::createTrayIcon()
 void SysTray::createActions()
 {
    minimizeAction = new QAction(tr("Mi&nimize"), this);
-   connect(minimizeAction, SIGNAL(triggered()),  this, SLOT(hide()));
+   connect(minimizeAction, &QAction::triggered,  this, &SysTray::hide);
 
    maximizeAction = new QAction(tr("Ma&ximize"), this);
-   connect(maximizeAction, SIGNAL(triggered()),  this, SLOT(showMaximized()));
+   connect(maximizeAction, &QAction::triggered,  this, &SysTray::showMaximized);
 
    restoreAction = new QAction(tr("&Restore"),   this);
-   connect(restoreAction,  SIGNAL(triggered()),  this, SLOT(showNormal()));
+   connect(restoreAction,  &QAction::triggered,  this, &SysTray::showNormal);
 
    quitAction = new QAction(tr("&Quit"), this);
-   connect(quitAction,     SIGNAL(triggered()),  this, SLOT(actionQuit()));
+   connect(quitAction,     &QAction::triggered,  this, &SysTray::actionQuit);
 }
 
 //

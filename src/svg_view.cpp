@@ -125,9 +125,8 @@ void Svg_View::setupGui()
    mainLayout->setContentsMargins(14,14,14,9);
    setLayout(mainLayout);
 
-   // signals
-   connect(m_insertSVG_PB, SIGNAL(clicked()), this, SLOT(insertTextObject()));
-   connect(close_PB,       SIGNAL(clicked()), this, SLOT(actionClose()));
+   connect(m_insertSVG_PB, &QPushButton::clicked, this, &Svg_View::insertTextObject);
+   connect(close_PB,       &QPushButton::clicked, this, &Svg_View::actionClose);
 }
 
 void Svg_View::actionClose() {
