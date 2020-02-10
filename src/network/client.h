@@ -28,36 +28,36 @@ class PeerManager;
 
 class Client : public QObject
 {
-    CS_OBJECT(Client)
+   CS_OBJECT(Client)
 
- public:
-   Client();
+   public:
+      Client();
 
-   void sendMessage(const QString &message);
-   QString nickName() const;
-   bool hasConnection(const QHostAddress &senderIp, int senderPort = -1) const;
+      void sendMessage(const QString &message);
+      QString nickName() const;
+      bool hasConnection(const QHostAddress &senderIp, int senderPort = -1) const;
 
-   CS_SIGNAL_1(Public, void newMessage(const QString &from, const QString &message))
-   CS_SIGNAL_2(newMessage, from, message)
+      CS_SIGNAL_1(Public, void newMessage(const QString &from, const QString &message))
+      CS_SIGNAL_2(newMessage, from, message)
 
-   CS_SIGNAL_1(Public, void newParticipant(const QString &nick))
-   CS_SIGNAL_2(newParticipant, nick)
+      CS_SIGNAL_1(Public, void newParticipant(const QString &nick))
+      CS_SIGNAL_2(newParticipant, nick)
 
-   CS_SIGNAL_1(Public, void participantLeft(const QString &nick))
-   CS_SIGNAL_2(participantLeft, nick)
+      CS_SIGNAL_1(Public, void participantLeft(const QString &nick))
+      CS_SIGNAL_2(participantLeft, nick)
 
- private:
-    void removeConnection(Connection *connection);
+   private:
+      void removeConnection(Connection *connection);
 
-    // slots
-    void newConnection(Connection *connection);
-    void connectionError(QAbstractSocket::SocketError socketError);
-    void disconnected();
-    void readyForUse();
+      // slot declarations
+      void newConnection(Connection *connection);
+      void connectionError(QAbstractSocket::SocketError socketError);
+      void disconnected();
+      void readyForUse();
 
-    PeerManager *peerManager;
-    Server server;
-    QMultiHash<QHostAddress, Connection *> peers;
+      PeerManager *peerManager;
+      Server server;
+      QMultiHash<QHostAddress, Connection *> peers;
 };
 
 #endif

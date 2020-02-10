@@ -27,25 +27,25 @@ class QTextTableFormat;
 
 class Chat_Dialog : public QDialog
 {
-    CS_OBJECT(Chat_Dialog)
+   CS_OBJECT(Chat_Dialog)
 
- public:
-    Chat_Dialog(QWidget *parent = nullptr);
-    void appendMessage(const QString &from, const QString &message);
+   public:
+      Chat_Dialog(QWidget *parent = nullptr);
+      void appendMessage(const QString &from, const QString &message);
 
- private:
-   void returnPressed();
-   void newParticipant(const QString &nick);
-   void participantLeft(const QString &nick);
+   private:
+      void returnPressed();
+      void newParticipant(const QString &nick);
+      void participantLeft(const QString &nick);
 
-   CS_SLOT_1(Private, void showInformation())
-   CS_SLOT_2(showInformation)
+      CS_SLOT_1(Private, void showInformation())
+      CS_SLOT_2(showInformation)
 
-   Ui::Chat_Dialog *ui;
+      Ui::Chat_Dialog *ui;
 
-   Client client;
-   QString myNickName;
-   QTextTableFormat tableFormat;
+      Client client;
+      QString myNickName;
+      QTextTableFormat tableFormat;
 };
 
 #endif

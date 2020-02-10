@@ -25,14 +25,14 @@ class Server : public QTcpServer
 {
    CS_OBJECT(Server)
 
- public:
-   Server(QObject *parent = nullptr);
+   public:
+      Server(QObject *parent = nullptr);
 
-   CS_SIGNAL_1(Public, void newConnection(Connection *connection))
-   CS_SIGNAL_2(newConnection, connection)
+      CS_SIGNAL_1(Public, void newConnection(Connection *connection))
+      CS_SIGNAL_2(newConnection, connection)
 
- protected:
-   void incomingConnection(qintptr socketDescriptor) override;
+   protected:
+      void incomingConnection(qintptr socketDescriptor) override;
 
 };
 

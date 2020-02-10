@@ -23,7 +23,7 @@
 
 class VideoPlayer : public QWidget
 {
-      CS_OBJECT(VideoPlayer)
+   CS_OBJECT(VideoPlayer)
 
    public:
       VideoPlayer(QWidget *parent = nullptr);

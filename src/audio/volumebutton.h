@@ -25,29 +25,29 @@
 
 class VolumeButton : public QToolButton
 {
-    CS_OBJECT(VolumeButton)
+   CS_OBJECT(VolumeButton)
 
-    CS_PROPERTY_READ(volume,   volume)
-    CS_PROPERTY_WRITE(volume,  setVolume)
-    CS_PROPERTY_NOTIFY(volume, volumeChanged)
+   CS_PROPERTY_READ(volume,   volume)
+   CS_PROPERTY_WRITE(volume,  setVolume)
+   CS_PROPERTY_NOTIFY(volume, volumeChanged)
 
-public:
-    explicit VolumeButton(QWidget *parent = nullptr);
+   public:
+      explicit VolumeButton(QWidget *parent = nullptr);
 
-    int volume() const;
+      int volume() const;
 
-    CS_SIGNAL_1(Public, void volumeChanged(int volume))
-    CS_SIGNAL_2(volumeChanged,volume)
+      CS_SIGNAL_1(Public, void volumeChanged(int volume))
+      CS_SIGNAL_2(volumeChanged,volume)
 
-    // slots
-    void increaseVolume();
-    void descreaseVolume();
-    void setVolume(int volume);
+      // slots
+      void increaseVolume();
+      void descreaseVolume();
+      void setVolume(int volume);
 
-private:
-    QMenu   *menu   = nullptr;
-    QLabel  *label  = nullptr;
-    QSlider *slider = nullptr;
+   private:
+      QMenu   *menu   = nullptr;
+      QLabel  *label  = nullptr;
+      QSlider *slider = nullptr;
 };
 
 #endif

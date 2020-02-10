@@ -63,5 +63,4 @@ class DrawArea : public QWidget
        QPixmap pixmap;
 };
 
-
 #endif

@@ -32,7 +32,8 @@ class Draw : public QWidget
    public:
       Draw();
 
-   private :
+   private:
+      // slot declarations
       CS_SLOT_1(Private, void shapeChanged())
       CS_SLOT_2(shapeChanged)
 
@@ -59,6 +60,5 @@ class Draw : public QWidget
       QCheckBox *antialiasingCheckBox;
       QCheckBox *transformationsCheckBox;
 };
-
 
 #endif

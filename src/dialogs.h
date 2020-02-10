@@ -33,6 +33,7 @@ class Dialogs : public QWidget
       ~Dialogs();
 
    private:
+      // slot declarations
       CS_SLOT_1(Private, void setInteger())
       CS_SLOT_2(setInteger)
 

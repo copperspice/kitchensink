@@ -24,13 +24,15 @@
 
 class VideoWidget : public QWidget
 {
-      CS_OBJECT(VideoWidget)
+   CS_OBJECT(VideoWidget)
 
    public:
       VideoWidget(QWidget *parent = nullptr);
       ~VideoWidget();
 
-      QAbstractVideoSurface *videoSurface() const { return surface; }
+      QAbstractVideoSurface *videoSurface() const {
+         return surface;
+      }
 
       QSize sizeHint() const;
 

@@ -26,28 +26,28 @@ class QTextCharFormat;
 
 class XmlSyntaxHighlighter : public QSyntaxHighlighter
 {
-    public:
-        XmlSyntaxHighlighter(QTextDocument *parent = nullptr);
+   public:
+      XmlSyntaxHighlighter(QTextDocument *parent = nullptr);
 
-    protected:
-        virtual void highlightBlock(const QString &text);
+   protected:
+      virtual void highlightBlock(const QString &text);
 
-    private:
-        struct HighlightingRule
-        {
-            QRegularExpression pattern;
-            QTextCharFormat format;
-        };
+   private:
+      struct HighlightingRule
+      {
+         QRegularExpression pattern;
+         QTextCharFormat format;
+      };
 
-        QVector<HighlightingRule> highlightingRules;
+      QVector<HighlightingRule> highlightingRules;
 
-        QRegularExpression commentStartExpression;
-        QRegularExpression commentEndExpression;
+      QRegularExpression commentStartExpression;
+      QRegularExpression commentEndExpression;
 
-        QTextCharFormat tagFormat;
-        QTextCharFormat attributeFormat;
-        QTextCharFormat attributeContentFormat;
-        QTextCharFormat commentFormat;
+      QTextCharFormat tagFormat;
+      QTextCharFormat attributeFormat;
+      QTextCharFormat attributeContentFormat;
+      QTextCharFormat commentFormat;
 };
 
 #endif

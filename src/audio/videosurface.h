@@ -55,5 +55,4 @@ class VideoSurface : public QAbstractVideoSurface
       QVideoFrame currentFrame;
 };
 
-
 #endif

@@ -27,19 +27,19 @@
 
 class Ssl_Cert : public QDialog
 {
-    CS_OBJECT(Ssl_Cert)
+   CS_OBJECT(Ssl_Cert)
 
- public:
-    Ssl_Cert(QWidget *parent = nullptr);
-    ~Ssl_Cert();
+   public:
+      Ssl_Cert(QWidget *parent = nullptr);
+      ~Ssl_Cert();
 
-    void setCertificateChain(const QList<QSslCertificate> &chain);
+      void setCertificateChain(const QList<QSslCertificate> &chain);
 
-private:
-    void updateCertificateInfo(int index);
+   private:
+      void updateCertificateInfo(int index);
 
-    Ui::Ssl_Cert *ui;
-    QList<QSslCertificate> chain;
+      Ui::Ssl_Cert *ui;
+      QList<QSslCertificate> chain;
 };
 
 #endif
