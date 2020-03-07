@@ -138,14 +138,14 @@ target_link_libraries(KitchenSink
 )
 
 if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
-   target_link_libraries(KitchenSink CopperSpice::CsMultimedia
-)
+   target_link_libraries(KitchenSink CopperSpice::CsMultimedia)
 endif()
 
-if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
-   target_link_libraries(KitchenSink CopperSpice::CsWebKit
-)
-endif()
+# webkit temporarily removed, pending overflow issue resolution in CsWebKit
+
+# if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
+#   target_link_libraries(KitchenSink CopperSpice::CsWebKit)
+# endif()
 
 if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
    set_target_properties(KitchenSink PROPERTIES OUTPUT_NAME kitchensink)
