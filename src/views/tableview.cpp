@@ -34,13 +34,13 @@ TableView::TableView()
    }
 
    setWindowTitle(tr("Table View Model"));
-   setMinimumSize(300, 350);
+   setMinimumSize(850, 335);
 
    //
    QSqlTableModel *model = new QSqlTableModel(this, m_db);
 
-   QStringList tempX = m_db.tables();
-   model->setTable(tempX.at(0));
+   QStringList tableList = m_db.tables();
+   model->setTable(tableList.at(0));
 
    QSqlError error = model->lastError();
 
@@ -52,27 +52,32 @@ TableView::TableView()
    model->setSort(2, Qt::AscendingOrder);
    model->select();
 
-   model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-   model->setHeaderData(1, Qt::Horizontal, QObject::tr("First name"));
-   model->setHeaderData(2, Qt::Horizontal, QObject::tr("Last name"));
+   model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+   model->setHeaderData(1, Qt::Horizontal, QObject::tr("First Name"));
+   model->setHeaderData(2, Qt::Horizontal, QObject::tr("Last Name"));
+   model->setHeaderData(3, Qt::Horizontal, QObject::tr("Biography"));
 
    //
    QTableView *view = new QTableView;
    view->setModel(model);
-   view->resizeColumnsToContents();
 
-   QHeaderView *temp = view->horizontalHeader();
-   temp->setStretchLastSection(true);
+   view->setColumnWidth(0, 30);  
+   view->setColumnWidth(1, 100);
+   view->setColumnWidth(2, 100);
+   view->setColumnWidth(3, 500);
+   view->horizontalHeader()->setStretchLastSection(true);
 
    QHBoxLayout *mainLayout = new QHBoxLayout;
-   mainLayout->addWidget(view);
    setLayout(mainLayout);
+
+   mainLayout->addWidget(view);
+
+   // adjust the height of each row
+   view->resizeRowsToContents();
 }
 
 TableView::~TableView()
 {
-   // need to close the model before the db can be closed
-   // m_db.close();
 }
 
 bool TableView::createConnection()
@@ -92,23 +97,32 @@ bool TableView::createConnection()
 
    QSqlQuery query(m_db);
    query.exec("create table person (id int primary key, "
-              "firstname varchar(20), lastname varchar(20))");
+              "firstname varchar(20), lastname varchar(20), bio varchar(200))");
 
-   query.exec("insert into person values(101, 'Gordon',  'Lightfoot')");
-   query.exec("insert into person values(102, 'Whoopi',  'Goldberg')");
-   query.exec("insert into person values(103, 'George',  'Burns')");
-   query.exec("insert into person values(104, 'Dennis',  'Ritchie')");
-   query.exec("insert into person values(105, 'Robert',  'Heinlein')");
-   query.exec("insert into person values(106, 'Shirley', 'Corriher')");
+   query.exec("insert into person values(1, 'Gordon',  'Lightfoot', "
+        "'Canadian folk singer, wrote ballads which told elaborate stories.')");
 
-   /*
-   query.exec("create table offices (id int primary key,"
-              "country varchar(20),"
-              "description varchar(100))");
+   query.exec("insert into person values(2, 'Whoopi',  'Goldberg', "
+        "'Comedian, actress, talk show host, activist. She was on Star Trek NG, which is one of "
+        "here most cherished experiences.')");
 
-   query.exec("insert into offices values(0,'USA','Cook')");
-   */
+   query.exec("insert into person values(3, 'Paul', 'McCartney', "
+         "'English singer and songwriter, key member of the Beatles')");
 
+   query.exec("insert into person values(4, 'Dennis',  'Ritchie', "
+         "'A key developer of the C programming language.')");
+
+   query.exec("insert into person values(5, 'Robert',  'Heinlein', "
+         "'Science fiction author.')");
+
+   query.exec("insert into person values(6, 'Shirley', 'Corriher', "
+         "'Biochemist, cookbook author, James Beard foundation award winner. If you want to understand "
+         "the chemistry of baking her books are fantastic.')");
+
+   query.exec("insert into person values(7, 'Vincent', 'Van Gogh', "
+         "'Dutch painter with a very unique and special style, influenced modern art.')");
+
+ 
    return true;
 }
 
@@ -121,7 +135,6 @@ bool TableView::createConnection()
                            With a QTableView a model must be supplied.
 
    Models for QTableView
-
       QSqlTableModel
       QSqlRelationalTableModel
 
