@@ -25,7 +25,8 @@ find_package(CopperSpice REQUIRED)
 if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
    include(GNUInstallDirs)
 
-   set(CMAKE_INSTALL_RPATH "@executable_path")
+   # indicates where libraries are located relative to the executable
+   set(CMAKE_INSTALL_RPATH "@executable_path/../Resources")
 
 elseif(CMAKE_SYSTEM_NAME MATCHES "(Linux|OpenBSD|FreeBSD|NetBSD|DragonFly)")
    include(GNUInstallDirs)
@@ -61,6 +62,10 @@ set(CPACK_PACKAGE_DESCRIPTION_FILE    "${CMAKE_SOURCE_DIR}/README.md")
 
 set(CPACK_PACKAGE_INSTALL_DIRECTORY   ${CMAKE_INSTALL_PREFIX})
 set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY  OFF)
+
+set(CPACK_BUNDLE_NAME  KitchenSink)
+set(CPACK_BUNDLE_ICON  "${CMAKE_SOURCE_DIR}/resources/ks.icns")
+set(CPACK_BUNDLE_PLIST "${CMAKE_SOURCE_DIR}/resources/Info.plist")
 
 include(CPack)
 

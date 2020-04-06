@@ -167,7 +167,11 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")
 
 endif()
 
-install(TARGETS KitchenSink DESTINATION .)
+if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
+   install(TARGETS KitchenSink DESTINATION ../MacOS)
+else()
+   install(TARGETS KitchenSink DESTINATION .)
+endif()
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/script.js       DESTINATION ./resources)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/sampleMenu.xml  DESTINATION ./resources)
@@ -183,9 +187,6 @@ cs_copy_library(CsSvg)
 cs_copy_library(CsXml)
 cs_copy_library(CsXmlPatterns)
 
-# installs the platform Gui plugin
-cs_copy_plugins(CsGui)
-
 if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
    cs_copy_library(CsMultimedia)
 endif()
@@ -200,14 +201,20 @@ if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
    set(CPACK_DMG_VOLUME_NAME KitchenSink)
    set(CPACK_DMG_FORMAT UDBZ)
 
+   # installs the platform Gui plugin
+   cs_copy_plugins(CsGui ../plugins)
+
    # two files
    if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
-      cs_copy_plugins(CsMultimedia)
+      cs_copy_plugins(CsMultimedia ../plugins)
    endif()
 
    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks.icns DESTINATION ./resources)
 
 elseif(CMAKE_SYSTEM_NAME MATCHES "(Linux|OpenBSD|FreeBSD|NetBSD|DragonFly)")
+
+   # installs the platform Gui plugin
+   cs_copy_plugins(CsGui)
 
    # three files
    if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
@@ -217,6 +224,9 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "(Linux|OpenBSD|FreeBSD|NetBSD|DragonFly)")
    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks.png DESTINATION ./resources)
 
 elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")
+
+   # installs the platform Gui plugin
+   cs_copy_plugins(CsGui)
 
    # two files
    if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
