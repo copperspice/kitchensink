@@ -19,6 +19,7 @@
 #include <QGridLayout>
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
+#include <QSignalTransition>
 #include <QState>
 
 #include <math.h>
@@ -126,7 +127,7 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
       group->addAnimation(anim);
    }
 
-   QAbstractTransition *trans = rootState->addTransition(ellipseButton, &Button::pressed, ellipseState);
+   QSignalTransition *trans = rootState->addTransition(ellipseButton, &Button::pressed, ellipseState);
    trans->addAnimation(group);
 
    trans = rootState->addTransition(figure8Button, &Button::pressed, figure8State);
