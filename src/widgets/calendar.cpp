@@ -88,8 +88,8 @@ void Calendar::maximumDateChanged(const QDate &date)
 void Calendar::weekdayFormatChanged()
 {
    QTextCharFormat format;
+   format.setForeground( weekdayColorCombo->itemData(weekdayColorCombo->currentIndex()).value<QColor>() );
 
-   format.setForeground(qvariant_cast<QColor>(weekdayColorCombo->itemData(weekdayColorCombo->currentIndex())));
    m_calendar->setWeekdayTextFormat(Qt::Monday,    format);
    m_calendar->setWeekdayTextFormat(Qt::Tuesday,   format);
    m_calendar->setWeekdayTextFormat(Qt::Wednesday, format);
@@ -100,9 +100,8 @@ void Calendar::weekdayFormatChanged()
 void Calendar::weekendFormatChanged()
 {
    QTextCharFormat format;
+   format.setForeground( weekendColorCombo->itemData(weekendColorCombo->currentIndex()).value<QColor>() );
 
-   format.setForeground(qvariant_cast<QColor>(
-               weekendColorCombo->itemData(weekendColorCombo->currentIndex())));
    m_calendar->setWeekdayTextFormat(Qt::Saturday, format);
    m_calendar->setWeekdayTextFormat(Qt::Sunday,   format);
 }
@@ -399,12 +398,12 @@ void Calendar::createTextFormatsGroupBox()
 QComboBox *Calendar::createColorComboBox()
 {
    QComboBox *comboBox = new QComboBox;
-   comboBox->addItem(tr("Black"),   Qt::black);
-   comboBox->addItem(tr("Blue"),    Qt::blue);
-   comboBox->addItem(tr("Green"),   Qt::green);
-   comboBox->addItem(tr("Red"),     Qt::darkRed);
-   comboBox->addItem(tr("Magenta"), Qt::magenta);
-   comboBox->addItem(tr("Yellow"),  Qt::darkYellow);
+   comboBox->addItem(tr("Black"),   QColor(Qt::black));
+   comboBox->addItem(tr("Blue"),    QColor(Qt::blue));
+   comboBox->addItem(tr("Green"),   QColor(Qt::green));
+   comboBox->addItem(tr("Red"),     QColor(Qt::darkRed));
+   comboBox->addItem(tr("Magenta"), QColor(Qt::magenta));
+   comboBox->addItem(tr("Yellow"),  QColor(Qt::darkYellow));
 
    return comboBox;
 }

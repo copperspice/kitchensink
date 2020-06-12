@@ -49,7 +49,4 @@ class StdPath : public QWidget
        Ui::StdPath *m_ui;
 };
 
-// add type to QVarient
-Q_DECLARE_METATYPE(QStandardPaths::StandardLocation)
-
 #endif
