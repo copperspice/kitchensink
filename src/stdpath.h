@@ -31,10 +31,10 @@ class StdPath : public QWidget
        ~StdPath();
 
    private:
-       CS_SLOT_1(Private, void standardLocations(int un_named_arg1))
+       CS_SLOT_1(Private, void standardLocations(int index))
        CS_SLOT_2(standardLocations)
 
-       CS_SLOT_1(Private, void writeableLocation(int un_named_arg1))
+       CS_SLOT_1(Private, void writeableLocation(int index))
        CS_SLOT_2(writeableLocation)
 
        CS_SLOT_1(Private, void find())

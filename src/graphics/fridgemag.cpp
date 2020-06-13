@@ -177,7 +177,6 @@ void FridgeMagnet::mousePressEvent(QMouseEvent *event)
    if (drag->exec(Qt::MoveAction | Qt::CopyAction, Qt::CopyAction) == Qt::MoveAction)  {
       child->close();
 
-
    } else {
       child->show();
 

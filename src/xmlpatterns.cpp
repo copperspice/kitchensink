@@ -60,54 +60,53 @@ XmlPatterns::~XmlPatterns()
 
 void XmlPatterns::displayQuery(int index)
 {
-    QFile queryFile(QString(qmPath + "/") + ui->defaultQueries->itemText(index));
-    queryFile.open(QIODevice::ReadOnly);
+   QFile queryFile(QString(qmPath + "/") + ui->defaultQueries->itemText(index));
+   queryFile.open(QIODevice::ReadOnly);
 
-    const QString query(QString::fromLatin1(queryFile.readAll()));
-    this->findChild<QTextEdit*>("queryTextEdit")->setPlainText(query);
+   const QString query(QString::fromLatin1(queryFile.readAll()));
+   this->findChild<QTextEdit*>("queryTextEdit")->setPlainText(query);
 
-    evaluate(query);
+   evaluate(query);
 }
 
 void XmlPatterns::loadInputFile()
 {
-    QFile forView;
-    forView.setFileName(qmPath + "/cookbook.xml");
+   QFile forView;
+   forView.setFileName(qmPath + "/cookbook.xml");
 
-    if (! forView.open(QIODevice::ReadOnly)) {
-        ksMsg(tr("Unable to Open File") + forView.errorString());
-        return;
-    }
+   if (! forView.open(QIODevice::ReadOnly)) {
+     ksMsg(tr("Unable to Open File") + forView.errorString());
+     return;
+   }
 
-    QTextStream in(&forView);
-    QString inputDocument = in.readAll();
-    this->findChild<QTextEdit*>("inputTextEdit")->setPlainText(inputDocument);
+   QTextStream in(&forView);
+   QString inputDocument = in.readAll();
+   this->findChild<QTextEdit*>("inputTextEdit")->setPlainText(inputDocument);
 }
 
 void XmlPatterns::evaluate(const QString &str)
 {
-    QFile sourceDocument;
-    sourceDocument.setFileName(qmPath + "/cookbook.xml");
-    sourceDocument.open(QIODevice::ReadOnly);
+   QFile sourceDocument;
+   sourceDocument.setFileName(qmPath + "/cookbook.xml");
+   sourceDocument.open(QIODevice::ReadOnly);
 
-    QByteArray outArray;
-    QBuffer buffer(&outArray);
-    buffer.open(QIODevice::ReadWrite);
+   QByteArray outArray;
+   QBuffer buffer(&outArray);
+   buffer.open(QIODevice::ReadWrite);
 
-    QXmlQuery query;
+   QXmlQuery query;
+   query.bindVariable("inputDocument", &sourceDocument);
+   query.setQuery(str);
 
-    query.bindVariable("inputDocument", &sourceDocument);
-    query.setQuery(str);
+   if (! query.isValid()) {
+     return;
+   }
 
-    if (! query.isValid()) {
-        return;
-    }
+   QXmlFormatter formatter(query, &buffer);
+   if (! query.evaluateTo(&formatter)) {
+      return;
+   }
 
-    QXmlFormatter formatter(query, &buffer);
-    if (! query.evaluateTo(&formatter)) {
-        return;
-    }
-
-    buffer.close();
-    this->findChild<QTextEdit*>("outputTextEdit")->setPlainText(QString::fromUtf8(outArray.constData()));
+   buffer.close();
+   this->findChild<QTextEdit*>("outputTextEdit")->setPlainText(QString::fromUtf8(outArray.constData()));
 }

@@ -23,38 +23,38 @@
 StdPath::StdPath(QWidget *parent)
    : QWidget(parent), m_ui(new Ui::StdPath)
 {
-    m_ui->setupUi(this);
+   m_ui->setupUi(this);
 
-    QList<QStandardPaths::StandardLocation> tempList;
-    tempList.append(QStandardPaths::DesktopLocation);
-    tempList.append(QStandardPaths::DocumentsLocation);
-    tempList.append(QStandardPaths::FontsLocation);
-    tempList.append(QStandardPaths::ApplicationsLocation);
-    tempList.append(QStandardPaths::MusicLocation);
-    tempList.append(QStandardPaths::MoviesLocation);
-    tempList.append(QStandardPaths::PicturesLocation);
-    tempList.append(QStandardPaths::TempLocation);
-    tempList.append(QStandardPaths::HomeLocation);
-    tempList.append(QStandardPaths::DataLocation);
-    tempList.append(QStandardPaths::CacheLocation);
-    tempList.append(QStandardPaths::GenericDataLocation);
-    tempList.append(QStandardPaths::RuntimeLocation);
-    tempList.append(QStandardPaths::ConfigLocation);
-    tempList.append(QStandardPaths::DownloadLocation);
-    tempList.append(QStandardPaths::GenericCacheLocation);
+   QList<QStandardPaths::StandardLocation> tempList;
+   tempList.append(QStandardPaths::DesktopLocation);
+   tempList.append(QStandardPaths::DocumentsLocation);
+   tempList.append(QStandardPaths::FontsLocation);
+   tempList.append(QStandardPaths::ApplicationsLocation);
+   tempList.append(QStandardPaths::MusicLocation);
+   tempList.append(QStandardPaths::MoviesLocation);
+   tempList.append(QStandardPaths::PicturesLocation);
+   tempList.append(QStandardPaths::TempLocation);
+   tempList.append(QStandardPaths::HomeLocation);
+   tempList.append(QStandardPaths::DataLocation);
+   tempList.append(QStandardPaths::CacheLocation);
+   tempList.append(QStandardPaths::GenericDataLocation);
+   tempList.append(QStandardPaths::RuntimeLocation);
+   tempList.append(QStandardPaths::ConfigLocation);
+   tempList.append(QStandardPaths::DownloadLocation);
+   tempList.append(QStandardPaths::GenericCacheLocation);
 
-    for (int k = 0; k < tempList.size(); ++k) {
-       QStandardPaths::StandardLocation type = tempList.at(k);
-       m_ui->locationComboBox->addItem(QStandardPaths::displayName(type), QVariant::fromValue(type));
-    }
+   for (int k = 0; k < tempList.size(); ++k) {
+      QStandardPaths::StandardLocation type = tempList.at(k);
+      m_ui->locationComboBox->addItem(QStandardPaths::displayName(type), QVariant::fromValue(type));
+   }
 
-    //
-    connect(m_ui->locationComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(standardLocations(int)));
-    connect(m_ui->locationComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(writeableLocation(int)));
+   //
+   connect(m_ui->locationComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(standardLocations(int)));
+   connect(m_ui->locationComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(writeableLocation(int)));
 
-    connect(m_ui->findTB,           SIGNAL(clicked(bool)), this, SLOT(find()));
-    connect(m_ui->locateTB,         SIGNAL(clicked(bool)), this, SLOT(locate()));
-    connect(m_ui->locateTB,         SIGNAL(clicked(bool)), this, SLOT(locateAll()));
+   connect(m_ui->findTB,           SIGNAL(clicked(bool)), this, SLOT(find()));
+   connect(m_ui->locateTB,         SIGNAL(clicked(bool)), this, SLOT(locate()));
+   connect(m_ui->locateTB,         SIGNAL(clicked(bool)), this, SLOT(locateAll()));
 }
 
 StdPath::~StdPath()

@@ -253,8 +253,8 @@ void Calendar::createGeneralOptionsGroupBox()
    connect(localeCombo,          SIGNAL(currentIndexChanged(int)), this, SLOT(localeChanged(int)));
    connect(firstDayCombo,        SIGNAL(currentIndexChanged(int)), this, SLOT(firstDayChanged(int)));
    connect(selectionModeCombo,   SIGNAL(currentIndexChanged(int)), this, SLOT(selectionModeChanged(int)));
-   connect(gridCheckBox,         SIGNAL(toggled(bool)), m_calendar,       SLOT(setGridVisible(bool)));
-   connect(navigationCheckBox,   SIGNAL(toggled(bool)), m_calendar,       SLOT(setNavigationBarVisible(bool)));
+   connect(gridCheckBox,         SIGNAL(toggled(bool)), m_calendar,      SLOT(setGridVisible(bool)));
+   connect(navigationCheckBox,   SIGNAL(toggled(bool)), m_calendar,      SLOT(setNavigationBarVisible(bool)));
    connect(horizontalHeaderCombo,SIGNAL(currentIndexChanged(int)), this, SLOT(horizontalHeaderChanged(int)));
    connect(verticalHeaderCombo,  SIGNAL(currentIndexChanged(int)), this, SLOT(verticalHeaderChanged(int)));
 
@@ -264,10 +264,10 @@ void Calendar::createGeneralOptionsGroupBox()
    checkBoxLayout->addWidget(navigationCheckBox);
 
    QGridLayout *outerLayout = new QGridLayout;
-   outerLayout->addWidget(localeLabel, 0, 0);
-   outerLayout->addWidget(localeCombo, 0, 1);
-   outerLayout->addWidget(firstDayLabel, 1, 0);
-   outerLayout->addWidget(firstDayCombo, 1, 1);
+   outerLayout->addWidget(localeLabel,        0, 0);
+   outerLayout->addWidget(localeCombo,        0, 1);
+   outerLayout->addWidget(firstDayLabel,      1, 0);
+   outerLayout->addWidget(firstDayCombo,      1, 1);
    outerLayout->addWidget(selectionModeLabel, 2, 0);
    outerLayout->addWidget(selectionModeCombo, 2, 1);
    outerLayout->addLayout(checkBoxLayout, 3, 0, 1, 2);
@@ -316,7 +316,7 @@ void Calendar::createDatesGroupBox()
    maximumDateLabel->setBuddy(maximumDateEdit);
 
    connect(currentDateEdit, SIGNAL(dateChanged(const QDate &)), m_calendar, SLOT(setSelectedDate(const QDate &)));
-   connect(m_calendar,      SIGNAL(selectionChanged()), this, SLOT(selectedDateChanged()));
+   connect(m_calendar,      SIGNAL(selectionChanged()),         this,       SLOT(selectedDateChanged()));
    connect(minimumDateEdit, SIGNAL(dateChanged(const QDate &)), this,       SLOT(minimumDateChanged(const QDate &)));
    connect(maximumDateEdit, SIGNAL(dateChanged(const QDate &)), this,       SLOT(maximumDateChanged(const QDate &)));
 
@@ -379,10 +379,10 @@ void Calendar::createTextFormatsGroupBox()
    checkBoxLayout->addWidget(mayFirstCheckBox);
 
    QGridLayout *outerLayout = new QGridLayout;
-   outerLayout->addWidget(weekdayColorLabel, 0, 0);
-   outerLayout->addWidget(weekdayColorCombo, 0, 1);
-   outerLayout->addWidget(weekendColorLabel, 1, 0);
-   outerLayout->addWidget(weekendColorCombo, 1, 1);
+   outerLayout->addWidget(weekdayColorLabel,     0, 0);
+   outerLayout->addWidget(weekdayColorCombo,     0, 1);
+   outerLayout->addWidget(weekendColorLabel,     1, 0);
+   outerLayout->addWidget(weekendColorCombo,     1, 1);
    outerLayout->addWidget(headerTextFormatLabel, 2, 0);
    outerLayout->addWidget(headerTextFormatCombo, 2, 1);
    outerLayout->addLayout(checkBoxLayout, 3, 0, 1, 2);
