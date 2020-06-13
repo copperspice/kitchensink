@@ -95,6 +95,8 @@ void Calendar::weekdayFormatChanged()
    m_calendar->setWeekdayTextFormat(Qt::Wednesday, format);
    m_calendar->setWeekdayTextFormat(Qt::Thursday,  format);
    m_calendar->setWeekdayTextFormat(Qt::Friday,    format);
+
+   reformatCalendarPage();
 }
 
 void Calendar::weekendFormatChanged()
@@ -126,29 +128,40 @@ void Calendar::reformatHeaders()
 
 void Calendar::reformatCalendarPage()
 {
-   if (firstFridayCheckBox->isChecked()) {
-      QDate firstFriday(m_calendar->yearShown(), m_calendar->monthShown(), 1);
+   // first Friday of the month
+   QDate firstFriday(m_calendar->yearShown(), m_calendar->monthShown(), 1);
 
-      while (firstFriday.dayOfWeek() != Qt::Friday) {
-         firstFriday = firstFriday.addDays(1);
-      }
-
-      QTextCharFormat firstFridayFormat;
-      firstFridayFormat.setForeground(Qt::blue);
-      m_calendar->setDateTextFormat(firstFriday, firstFridayFormat);
+   while (firstFriday.dayOfWeek() != Qt::Friday) {
+      firstFriday = firstFriday.addDays(1);
    }
 
-   // May 1st in red takes precedence
+   QTextCharFormat firstFridayFormat;
+
+   if (firstFridayCheckBox->isChecked()) {
+      firstFridayFormat.setForeground(Qt::blue);
+      m_calendar->setDateTextFormat(firstFriday, firstFridayFormat);
+
+   } else {
+      firstFridayFormat.setForeground( weekdayColorCombo->itemData(weekdayColorCombo->currentIndex()).value<QColor>() );
+      m_calendar->setDateTextFormat(firstFriday, firstFridayFormat);
+
+   }
+
+   // May 1st in red takes precedence over first Friday
    const QDate mayFirst(m_calendar->yearShown(), 5, 1);
    QTextCharFormat mayFirstFormat;
 
    if (mayFirstCheckBox->isChecked()) {
       mayFirstFormat.setForeground(Qt::red);
-   } else  {
-      mayFirstFormat.setForeground(qvariant_cast<QColor>(weekdayColorCombo->itemData(weekdayColorCombo->currentIndex())));
-   }
+      m_calendar->setDateTextFormat(mayFirst, mayFirstFormat);
 
-   m_calendar->setDateTextFormat(mayFirst, mayFirstFormat);
+   } else {
+
+      if (! firstFridayCheckBox->isChecked() ) {
+         mayFirstFormat.setForeground( weekdayColorCombo->itemData(weekdayColorCombo->currentIndex()).value<QColor>() );
+         m_calendar->setDateTextFormat(mayFirst, mayFirstFormat);
+      }
+   }
 }
 
 void Calendar::createCalendarGroupBox()
@@ -202,6 +215,7 @@ void Calendar::createGeneralOptionsGroupBox()
          ++index;
       }
    }
+
    if (curLocaleIndex != -1) {
       localeCombo->setCurrentIndex(curLocaleIndex);
    }
@@ -228,12 +242,6 @@ void Calendar::createGeneralOptionsGroupBox()
    selectionModeLabel = new QLabel(tr("&Selection mode:"));
    selectionModeLabel->setBuddy(selectionModeCombo);
 
-   gridCheckBox = new QCheckBox(tr("&Grid"));
-   gridCheckBox->setChecked(m_calendar->isGridVisible());
-
-   navigationCheckBox = new QCheckBox(tr("&Navigation bar"));
-   navigationCheckBox->setChecked(true);
-
    horizontalHeaderCombo = new QComboBox;
    horizontalHeaderCombo->addItem(tr("Single letter day names"), QCalendarWidget::SingleLetterDayNames);
    horizontalHeaderCombo->addItem(tr("Short day names"), QCalendarWidget::ShortDayNames);
@@ -249,6 +257,12 @@ void Calendar::createGeneralOptionsGroupBox()
 
    verticalHeaderLabel = new QLabel(tr("&Vertical header:"));
    verticalHeaderLabel->setBuddy(verticalHeaderCombo);
+
+   gridCheckBox = new QCheckBox(tr("&Show Grid"));
+   gridCheckBox->setChecked(m_calendar->isGridVisible());
+
+   navigationCheckBox = new QCheckBox(tr("&Navigation bar"));
+   navigationCheckBox->setChecked(true);
 
    connect(localeCombo,          SIGNAL(currentIndexChanged(int)), this, SLOT(localeChanged(int)));
    connect(firstDayCombo,        SIGNAL(currentIndexChanged(int)), this, SLOT(firstDayChanged(int)));
@@ -270,11 +284,12 @@ void Calendar::createGeneralOptionsGroupBox()
    outerLayout->addWidget(firstDayCombo,      1, 1);
    outerLayout->addWidget(selectionModeLabel, 2, 0);
    outerLayout->addWidget(selectionModeCombo, 2, 1);
-   outerLayout->addLayout(checkBoxLayout, 3, 0, 1, 2);
-   outerLayout->addWidget(horizontalHeaderLabel, 4, 0);
-   outerLayout->addWidget(horizontalHeaderCombo, 4, 1);
-   outerLayout->addWidget(verticalHeaderLabel, 5, 0);
-   outerLayout->addWidget(verticalHeaderCombo, 5, 1);
+   outerLayout->addWidget(horizontalHeaderLabel, 3, 0);
+   outerLayout->addWidget(horizontalHeaderCombo, 3, 1);
+   outerLayout->addWidget(verticalHeaderLabel,   4, 0);
+   outerLayout->addWidget(verticalHeaderCombo,   4, 1);
+   outerLayout->addLayout(checkBoxLayout,        5, 1);
+   outerLayout->setHorizontalSpacing(10);
    generalOptionsGroupBox->setLayout(outerLayout);
 
    firstDayChanged(firstDayCombo->currentIndex());
@@ -343,13 +358,13 @@ void Calendar::createTextFormatsGroupBox()
    weekdayColorCombo = createColorComboBox();
    weekdayColorCombo->setCurrentIndex(weekdayColorCombo->findText(tr("Black")));
 
-   weekdayColorLabel = new QLabel(tr("&Weekday color:"));
+   weekdayColorLabel = new QLabel(tr("&Monday to Friday:"));
    weekdayColorLabel->setBuddy(weekdayColorCombo);
 
    weekendColorCombo = createColorComboBox();
    weekendColorCombo->setCurrentIndex(weekendColorCombo->findText(tr("Red")));
 
-   weekendColorLabel = new QLabel(tr("Week&end color:"));
+   weekendColorLabel = new QLabel(tr("Saturday, Sunday:"));
    weekendColorLabel->setBuddy(weekendColorCombo);
 
    //
@@ -361,11 +376,9 @@ void Calendar::createTextFormatsGroupBox()
    headerTextFormatLabel = new QLabel(tr("&Header text:"));
    headerTextFormatLabel->setBuddy(headerTextFormatCombo);
 
-   firstFridayCheckBox = new QCheckBox(tr("&First Friday in blue"));
+   firstFridayCheckBox = new QCheckBox(tr("First Friday (blue)"));
+   mayFirstCheckBox    = new QCheckBox(tr("May first (red)"));
 
-   mayFirstCheckBox = new QCheckBox(tr("May &1 in red"));
-
-   //
    connect(weekdayColorCombo,    SIGNAL(currentIndexChanged(int)), this, SLOT(weekdayFormatChanged()));
    connect(weekendColorCombo,    SIGNAL(currentIndexChanged(int)), this, SLOT(weekendFormatChanged()));
    connect(headerTextFormatCombo,SIGNAL(currentIndexChanged(const QString &)), this, SLOT(reformatHeaders()));
@@ -385,7 +398,11 @@ void Calendar::createTextFormatsGroupBox()
    outerLayout->addWidget(weekendColorCombo,     1, 1);
    outerLayout->addWidget(headerTextFormatLabel, 2, 0);
    outerLayout->addWidget(headerTextFormatCombo, 2, 1);
-   outerLayout->addLayout(checkBoxLayout, 3, 0, 1, 2);
+   outerLayout->addLayout(checkBoxLayout,        3, 1);
+
+   outerLayout->setColumnStretch(0, 1);
+   outerLayout->setColumnStretch(1, 3);
+   outerLayout->setHorizontalSpacing(10);
    textFormatsGroupBox->setLayout(outerLayout);
 
    weekdayFormatChanged();
