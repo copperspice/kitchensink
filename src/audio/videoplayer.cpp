@@ -124,7 +124,7 @@ void VideoPlayer::stateChanged(QMovie::MovieState state)
    }
 }
 
-void VideoPlayer::frameChanged(int frame)
+void VideoPlayer::frameChanged(int)
 {
    if (! presentImage(m_movie.currentImage())) {
       m_movie.stop();
