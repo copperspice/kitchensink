@@ -28,6 +28,8 @@ LineEdit::LineEdit()
    setMinimumSize(100,100);
 
    ui->align_lineEdit->setText("Sample menu availabe on line.");
+   ui->align_lineEdit->setClearButtonEnabled(true);
+
    ui->readonly_lineEdit->setText("Sample menu availabe on line.");
    ui->readonly_lineEdit->setReadOnly(true);
 
