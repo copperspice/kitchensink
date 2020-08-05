@@ -29,8 +29,10 @@ if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
    set(CMAKE_INSTALL_RPATH "@executable_path/../Resources")
 
 elseif(CMAKE_SYSTEM_NAME MATCHES "(Linux|OpenBSD|FreeBSD|NetBSD|DragonFly)")
+   # binaries are in bin, libraries are in lib or lib64
    include(GNUInstallDirs)
 
+   # application should look for libraries in the current directory
    set(CMAKE_INSTALL_RPATH "\$ORIGIN")
 
 elseif(MSVC)

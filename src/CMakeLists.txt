@@ -215,6 +215,7 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "(Linux|OpenBSD|FreeBSD|NetBSD|DragonFly)")
 
    # installs the platform Gui plugin
    cs_copy_plugins(CsGui)
+   cs_copy_plugins(CsOpenGL)
 
    # three files
    if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
