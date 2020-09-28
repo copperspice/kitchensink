@@ -32,6 +32,7 @@
 #include <xmlpatterns.h>
 
 #if ! defined(QT_NO_MULTIMEDIA)
+#include <camera.h>
 #include <musicplayer.h>
 #endif
 
@@ -107,6 +108,7 @@ MainWindow::MainWindow()
    connect(m_ui->actionXml,               &QAction::triggered, this,  &MainWindow::actionXml);
    connect(m_ui->actionXmlPatterns,       &QAction::triggered, this,  &MainWindow::actionXmlPatterns);
 
+   connect(m_ui->actionCamera,            &QAction::triggered, this,  &MainWindow::actionCamera);
    connect(m_ui->actionMusicPlayer,       &QAction::triggered, this,  &MainWindow::actionMusicPlayer);
    connect(m_ui->actionVideoWidget,       &QAction::triggered, this,  &MainWindow::actionVideoWidget);
    connect(m_ui->actionHTML_Viewer,       &QAction::triggered, this,  &MainWindow::actionHTML_Viewer);
@@ -265,6 +267,23 @@ void MainWindow::actionXmlPatterns()
 }
 
 // audio & visual
+void MainWindow::actionCamera()
+{
+
+#if ! defined(QT_NO_MULTIMEDIA)
+   try {
+      Camera *oDw = new Camera();
+      addMdiChild(oDw);
+   } catch (...) {
+      ksMsg(this, "Audio/Video Issue", "No camera or capture device was found.");
+   }
+
+ #else
+   ksMsg("KS was not built with CsMultimedia library, Camera disabled.");
+#endif
+
+}
+
 void MainWindow::actionMusicPlayer()
 {
 

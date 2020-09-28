@@ -78,6 +78,9 @@ class MainWindow : public QMainWindow
       CS_SLOT_2(actionXmlPatterns)
 
       //
+      CS_SLOT_1(Private, void actionCamera())
+      CS_SLOT_2(actionCamera)
+
       CS_SLOT_1(Private, void actionMusicPlayer())
       CS_SLOT_2(actionMusicPlayer)
 

@@ -89,8 +89,9 @@
    </widget>
    <widget class="QMenu" name="menuAudio">
     <property name="title">
-     <string>Audio/Web</string>
+     <string>Audio/Video</string>
     </property>
+    <addaction name="actionCamera"/>
     <addaction name="actionMusicPlayer"/>
     <addaction name="actionVideoWidget"/>
     <addaction name="separator"/>
@@ -219,6 +220,11 @@
   <action name="actionInternational">
    <property name="text">
     <string>International</string>
+   </property>
+  </action>
+  <action name="actionCamera">
+   <property name="text">
+    <string>Camera</string>
    </property>
   </action>
   <action name="actionMusicPlayer">
