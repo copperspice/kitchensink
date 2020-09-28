@@ -43,6 +43,9 @@ list(APPEND KITCHENSINK_SOURCES
    ${CMAKE_CURRENT_SOURCE_DIR}/xml.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/xmlpatterns.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/xmlsyntaxhighlighter.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/camera.ui
+   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/camera_imagesettings.ui
+   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/camera_videosettings.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/mainwindow.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/chat_dialog.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/colorpicker.ui
@@ -71,6 +74,7 @@ list(APPEND KITCHENSINK_SOURCES
 )
 
 include(audio/audio.cmake)
+include(camera/camera.cmake)
 include(graphics/graphics.cmake)
 include(network/network.cmake)
 include(views/views.cmake)
@@ -91,6 +95,10 @@ COPPERSPICE_RESOURCES(
 # run uic to generate source
 COPPERSPICE_RESOURCES(
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/mainwindow.ui
+
+   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/camera.ui
+   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/camera_imagesettings.ui
+   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/camera_videosettings.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/chat_dialog.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/colorpicker.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/fontpicker.ui
@@ -119,6 +127,7 @@ target_include_directories(KitchenSink
    PRIVATE
    ${CMAKE_SOURCE_DIR}/src
    ${CMAKE_CURRENT_SOURCE_DIR}/audio
+   ${CMAKE_CURRENT_SOURCE_DIR}/camera
    ${CMAKE_CURRENT_SOURCE_DIR}/graphics
    ${CMAKE_CURRENT_SOURCE_DIR}/network
    ${CMAKE_CURRENT_SOURCE_DIR}/views
