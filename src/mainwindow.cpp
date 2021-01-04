@@ -1,16 +1,19 @@
-/**********************************************************************
+/***********************************************************************
 *
-* Copyright (c) 2012-2020 Barbara Geller
+* Copyright (c) 2012-2021 Barbara Geller
+* Copyright (c) 2012-2021 Ansel Sermersheim
 * Copyright (c) 2015 The Qt Company Ltd.
 *
-* You may use this file under the terms of the 2-Clause BSD license
-* provided with KitchenSink or available at:
+* This file is part of KitchenSink.
 *
-* https://opensource.org/licenses/BSD-2-Clause
+* KitchenSink is free software, released under the BSD 2-Clause license.
+* For license details refer to LICENSE provided with this project.
 *
-* KitchenSink is distributed in the hope that it will be useful,
+* CopperSpice is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*
+* https://opensource.org/licenses/BSD-2-Clause
 *
 ***********************************************************************/
 
@@ -485,7 +488,7 @@ void MainWindow::actionAbout()
                       "<tr><td style=padding-right:25><nobr>Developed by Ansel Sermersheim</nobr></td><td>ansel@copperspice.com</td></tr>"
                       "</table></font>"
                       "<br>"
-                      "<p><small>Copyright 2012-2020 BG Consulting, released under the 2-Clause BSD license<br>"
+                      "<p><small>Copyright 2012-2021 BG Consulting, released under the 2-Clause BSD license<br>"
                       "This program is provided AS IS with no warranty of any kind.<br></small></p>";
 
    QMessageBox msgB;
