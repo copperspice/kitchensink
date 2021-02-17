@@ -128,6 +128,6 @@ void Lighting::setupScene()
    }
 }
 
-void Lighting::resizeEvent(QResizeEvent */*event*/)
+void Lighting::resizeEvent(QResizeEvent *)
 {
 }

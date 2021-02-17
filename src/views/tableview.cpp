@@ -64,7 +64,7 @@ TableView::TableView()
    QTableView *view = new QTableView;
    view->setModel(model);
 
-   view->setColumnWidth(0, 30);  
+   view->setColumnWidth(0, 30);
    view->setColumnWidth(1, 100);
    view->setColumnWidth(2, 100);
    view->setColumnWidth(3, 500);
@@ -125,7 +125,7 @@ bool TableView::createConnection()
    query.exec("insert into person values(7, 'Vincent', 'Van Gogh', "
          "'Dutch painter with a very unique and special style, influenced modern art.')");
 
- 
+
    return true;
 }
 

@@ -48,7 +48,7 @@ Mandelbrot_Widget::Mandelbrot_Widget(QWidget *parent)
    setCursor(Qt::CrossCursor);
 }
 
-void Mandelbrot_Widget::paintEvent(QPaintEvent * /* event */)
+void Mandelbrot_Widget::paintEvent(QPaintEvent *)
 {
    QPainter painter(this);
    painter.fillRect(rect(), Qt::black);
@@ -92,7 +92,7 @@ void Mandelbrot_Widget::paintEvent(QPaintEvent * /* event */)
 
 }
 
-void Mandelbrot_Widget::resizeEvent(QResizeEvent * /* event */)
+void Mandelbrot_Widget::resizeEvent(QResizeEvent *)
 {
    thread.render(centerX, centerY, curScale, size());
 }

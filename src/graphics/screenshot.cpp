@@ -58,7 +58,7 @@ Screenshot::Screenshot()
    delaySpinBox->setValue(5);
 }
 
-void Screenshot::resizeEvent(QResizeEvent * /* event */)
+void Screenshot::resizeEvent(QResizeEvent *)
 {
     QSize scaledSize = originalPixmap.size();
     scaledSize.scale(screenshotLabel->size(), Qt::KeepAspectRatio);

@@ -33,10 +33,10 @@ TableWidget_View::TableWidget_View(QWidget *parent)
    setUpWidget();
    setUpView();
 
-   // this was done in the UI form
+   // this code appears in the UI generated file, shown here as an example
    // ui->splitter->setHandleWidth(10);
 
-   // adjust size of the widget based
+   // adjust size of the widget
    QSize size = this->size();
    setMinimumWidth( size.width() );
    setMinimumHeight( size.height() );
@@ -52,7 +52,7 @@ void TableWidget_View::setUpWidget()
    QStringList headers;
    headers << tr("Name") << tr("Type") << tr("First Aired");
 
-   // next line of code can be used if UI is created by hand
+   // this code appears in the UI generated file, shown here as an example
    // tableWidget = new QTableWidget(0, 3);
 
    ui->tableWidget->setRowCount(0);
@@ -61,7 +61,7 @@ void TableWidget_View::setUpWidget()
    // name the columns
    ui->tableWidget->setHorizontalHeaderLabels(headers);
 
-   // resize the last column, shown here as an example
+   // resizes the last column automatically, shown here as an example
    // ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
 
    ui->tableWidget->setColumnWidth(0, 140);
@@ -71,8 +71,8 @@ void TableWidget_View::setUpWidget()
    ui->tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
    ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-   // not needed here since this is false by degault, shown here as an example
-   // set to false before adding data
+   // sorting should be set to false before adding data
+   // following line is not required since default is false
    // ui->tableWidget->setSortingEnabled(false);
 
    // data
@@ -131,16 +131,16 @@ void TableWidget_View::setUpWidget()
    ui->tableWidget->sortByColumn(0, Qt::AscendingOrder);
    ui->tableWidget->setSortingEnabled(true);
 
-   // signals
-   connect(ui->tableWidget, SIGNAL(cellPressed(int,int)),this, SLOT(tableClicked_W(int,int)));
+   // signal and slot are method pointers
+   connect(ui->tableWidget, &QTableWidget::cellPressed, this, &TableWidget_View::tableClicked_W);
 
-   // complies but will fail at run time since the SLOT is not defined
+   // following code will compile however it will fail at run time since this SLOT does not exist
    // connect(ui->tableWidget, SIGNAL(itemChanged(QTableWidgetItem * )),
-   //        this, SLOT( actionItemChanged(QTableWidgetItem *)));
+   //        this, SLOT(actionItemChanged(QTableWidgetItem *)));
 
-   // This is the error you would see at run time
+   // error reported at run time
    // QObject::connect() QTableWidget::itemChanged(QTableWidgetItem * )
-   // Unable to connect to receiver in TableWidget_View (../tablewidget_view.cpp:154)
+   // Unable to connect to receiver in TableWidget_View (../tablewidget_view.cpp:xxx)
    // Signal Index: 9 Slot Index: -1
 
 }
@@ -163,14 +163,14 @@ void TableWidget_View::setUpView()
    ui->tableView->setColumnWidth(0, 175);
    ui->tableView->setColumnWidth(1, 175);
 
-   // resize the last column, shown here as an example
+   // resizes the last column automatically, shown here as an example
    // ui->tableView->horizontalHeader()->setStretchLastSection(true);
 
    ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
    ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
 
-   // not needed since this is false by default, shown here as an example
-   // set to false before adding data
+   // sorting should be set to false before adding data
+   // following line is not required since default is false
    // ui->tableView->setSortingEnabled(false);
 
    // data
@@ -229,17 +229,14 @@ void TableWidget_View::setUpView()
    ui->tableView->sortByColumn(0, Qt::AscendingOrder);
    ui->tableView->setSortingEnabled(true);
 
-   // signals
-   connect(ui->tableView, SIGNAL(clicked(const QModelIndex &)),this, SLOT(tableClicked_V(const QModelIndex &)));
-
-   // signals - complies but will fail at run time since tableClicked is not defined!
-   // add something here
+   // signal and slot are method pointers
+   connect(ui->tableView, &QTableView::clicked, this, &TableWidget_View::tableClicked_V);
 }
 
 void TableWidget_View::tableClicked_W(int row, int column)
 {
    ksMsg(this, "Table Widget", "SIGNAL cellPressed() SLOT tableClicked_W\nint row & int column values passed\n\n"
-         "Row: " + QString::number(row) + "  Column:" + QString::number(column) );
+         "Row: " + QString::number(row) + "  Column:" + QString::number(column));
 }
 
 void TableWidget_View::tableClicked_V(const QModelIndex & index)
@@ -248,41 +245,5 @@ void TableWidget_View::tableClicked_V(const QModelIndex & index)
    int column = index.column();
 
    ksMsg(this, "Table View", "SIGNAL clicked() SLOT tableClicked_V()\nModel index value passed\n\n"
-         "Row: " + QString::number(row) + "  Column:" + QString::number(column) );
+         "Row: " + QString::number(row) + "  Column:" + QString::number(column));
 }
-
-
-
-
-
-/*
-
-QTableView::sortByColumn(int column, Qt::SortOrder order) SLOT
-   Sorts the view by column
-
-QTableView::sortingEnabled(bool)
-   When set to true, sorting is enabled.
-
-QStandardItemModel::sort(int column, Qt::SortOrder order )
-   Sorts the model by column
-
-QHeaderView::sortIndicatorChanged() SIGNAL
-
-
-// how this works
-connection automatically made from SIGNAL(sortIndicatorChanged) to SLOT(sortByColumn)
-   slot calls model->sort()
-
-
-QTableWidget->sortItems(0, Qt::AscendingOrder)
-   would also call model->sort
-   not a SLOT
-
-*/
-
-
-
-
-
-
-

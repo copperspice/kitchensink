@@ -97,6 +97,7 @@ void DrawArea::paintEvent(QPaintEvent * /* event */)
     QPainter painter(this);
     painter.setPen(pen);
     painter.setBrush(brush);
+
     if (antialiased) {
         painter.setRenderHint(QPainter::Antialiasing, true);
     }
