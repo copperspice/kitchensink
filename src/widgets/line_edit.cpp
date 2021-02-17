@@ -117,7 +117,7 @@ void LineEdit::validChanged(int index)
 
    switch (index) {
       case 0:
-         ui->valid_lineEdit->setValidator(0);
+         ui->valid_lineEdit->setValidator(nullptr);
          break;
 
       case 1:

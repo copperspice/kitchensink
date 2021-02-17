@@ -23,7 +23,7 @@
 #include <QtMultimedia>
 
 VideoWidget::VideoWidget(QWidget *parent)
-   : QWidget(parent), surface(0)
+   : QWidget(parent), surface(nullptr)
 {
    setAutoFillBackground(false);
    setAttribute(Qt::WA_NoSystemBackground, true);

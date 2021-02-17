@@ -60,7 +60,7 @@ void Xml::processXml()
    if (! file.open(QFile::ReadOnly | QFile::Text)) {
 
       const QString msg = "Unable to open file " + m_fileName + " : " + file.errorString();
-      QMessageBox::warning( 0, "XML", msg );
+      QMessageBox::warning(nullptr, "XML", msg);
       return;
    }
 

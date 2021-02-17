@@ -52,7 +52,7 @@ void Script::displayScript()
 
    if (! file.open(QFile::ReadOnly | QFile::Text)) {
       const QString msg = "Unable to open file " + m_fileName + " : " + file.errorString();
-      QMessageBox::warning( 0, "Script", msg );
+      QMessageBox::warning(nullptr, "Script", msg);
       return;
    }
 
@@ -92,7 +92,7 @@ void Script::jsScript(QString contents)
    if (result.isError()) {
       int temp = result.property("lineNumber").toInt32();
 
-      QMessageBox::critical(0,"Script", QString("%0:%1:\n%2").formatArgs(m_fileName, QString::number(temp), result.toString()));
+      QMessageBox::critical(nullptr,"Script", QString("%0:%1:\n%2").formatArgs(m_fileName, QString::number(temp), result.toString()));
 
    } else {
 

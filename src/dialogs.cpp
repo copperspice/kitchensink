@@ -211,7 +211,7 @@ void Dialogs::questionMessage()
 
 void Dialogs::warningMessage()
 {
-   QMessageBox msgBox(QMessageBox::Warning, tr("Dialog Test:  warning()"), MESSAGE, 0, this);
+   QMessageBox msgBox(QMessageBox::Warning, tr("Dialog Test:  warning()"), MESSAGE, Qt::EmptyFlag, this);
    msgBox.addButton(tr("Save &Again"), QMessageBox::AcceptRole);
    msgBox.addButton(tr("&Continue"), QMessageBox::RejectRole);
 

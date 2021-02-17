@@ -37,8 +37,8 @@
 CS_DECLARE_METATYPE(QCameraInfo)
 
 Camera::Camera(QWidget *parent)
-   : QMainWindow(parent), ui(new Ui::Camera), camera(0), imageCapture(0),
-     mediaRecorder(0), isCapturingImage(false), applicationExiting(false)
+   : QMainWindow(parent), ui(new Ui::Camera), camera(nullptr), imageCapture(nullptr),
+     mediaRecorder(nullptr), isCapturingImage(false), applicationExiting(false)
 {
    ui->setupUi(this);
 

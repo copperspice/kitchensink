@@ -214,7 +214,7 @@ void SysTray::showMessage()
 
 void SysTray::messageClicked()
 {
-   QMessageBox::information(0, tr("Systray"),
+   QMessageBox::information(nullptr, tr("Systray"),
            tr("We already provided the best known support.\nMaybe you can ask another user."));
 }
 

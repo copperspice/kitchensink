@@ -94,7 +94,7 @@ bool TreeView::createConnection()
    m_db.setDatabaseName(":memory:");
 
    if (! m_db.open()) {
-      QMessageBox::critical(0, tr("Unable to Open Database"),
+      QMessageBox::critical(nullptr, tr("Unable to Open Database"),
            tr("Unable to establish a connection to the database.\n"
               "This example requires SQLite.\n\n"), QMessageBox::Cancel);
       return false;

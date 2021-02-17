@@ -25,7 +25,7 @@
 #include <QtMultimedia>
 
 VideoPlayer::VideoPlayer(QWidget *parent)
-   : QWidget(parent), m_surface(0)
+   : QWidget(parent), m_surface(nullptr)
 {
    setWindowTitle(tr("Video Widget"));
 
