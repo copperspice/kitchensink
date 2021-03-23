@@ -63,7 +63,7 @@ International::~International()
 
 void International::actionEnglish()
 {
-   if (! m_translator->load("qt_en.qm",qmPath)) {
+   if (! m_translator->load("ks_en.qm",qmPath)) {
       ksMsg(this, tr("International"), tr("Error while loading English international file."));
    }
 
@@ -72,7 +72,7 @@ void International::actionEnglish()
 
 void International::actionFrench()
 {
-   if (! m_translator->load("qt_fr.qm",qmPath)) {
+   if (! m_translator->load("ks_fr.qm",qmPath)) {
       ksMsg(this, tr("International"), tr("Error while loading French international file."));
    }
 
@@ -81,7 +81,7 @@ void International::actionFrench()
 
 void International::actionGerman()
 {
-   if (! m_translator->load("qt_de.qm",qmPath)) {
+   if (! m_translator->load("ks_de.qm",qmPath)) {
       ksMsg(this, tr("International"), tr("Error while loading German international file."));
    }
 

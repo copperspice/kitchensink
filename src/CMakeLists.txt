@@ -67,9 +67,9 @@ list(APPEND KITCHENSINK_SOURCES
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/tablewidget_view.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/xml.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/xmlpatterns.ui
-   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/qt_en.ts
-   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/qt_de.ts
-   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/qt_fr.ts
+   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks_en.ts
+   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks_de.ts
+   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks_fr.ts
    qrc_kitchensink.cpp
 )
 
@@ -82,9 +82,9 @@ include(widgets/widgets.cmake)
 
 # run lrelease to generate translation files
 COPPERSPICE_RESOURCES(
-   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/qt_en.ts
-   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/qt_de.ts
-   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/qt_fr.ts
+   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks_en.ts
+   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks_de.ts
+   ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks_fr.ts
 )
 
 # run rcc to generate qrc output

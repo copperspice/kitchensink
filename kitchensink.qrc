@@ -33,12 +33,12 @@
         <file>resources/pushbutton.png</file>
         <file>resources/pushbutton_hover.png</file>
         <file>resources/pushbutton_pressed.png</file>
-        <file>resources/qt_de.qm</file>
-        <file>resources/qt_de.ts</file>
-        <file>resources/qt_en.qm</file>
-        <file>resources/qt_en.ts</file>
-        <file>resources/qt_fr.qm</file>
-        <file>resources/qt_fr.ts</file>
+        <file>resources/ks_de.qm</file>
+        <file>resources/ks_de.ts</file>
+        <file>resources/ks_en.qm</file>
+        <file>resources/ks_en.ts</file>
+        <file>resources/ks_fr.qm</file>
+        <file>resources/ks_fr.ts</file>
         <file>resources/radiobutton_checked.png</file>
         <file>resources/radiobutton_checked_hover.png</file>
         <file>resources/radiobutton_checked_pressed.png</file>
