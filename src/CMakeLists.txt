@@ -80,6 +80,9 @@ include(network/network.cmake)
 include(views/views.cmake)
 include(widgets/widgets.cmake)
 
+# location for *.qm file, overrides build folder
+set(TS_OUTPUT_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/../resources)
+
 # run lrelease to generate translation files
 COPPERSPICE_RESOURCES(
    ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks_en.ts
