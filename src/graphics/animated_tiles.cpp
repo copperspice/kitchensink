@@ -103,7 +103,7 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
 
    // ui
    View *view = new View(&m_scene, this);
-   view->setWindowTitle(QT_TRANSLATE_NOOP(QGraphicsView, "Animated Tiles"));
+   view->setWindowTitle(QGraphicsView::tr("Animated Tiles"));
    view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
    view->setBackgroundBrush(bgPix);
    view->setCacheMode(QGraphicsView::CacheBackground);
