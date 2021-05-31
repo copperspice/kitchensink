@@ -44,20 +44,12 @@ class Grabber : public QMainWindow
       void setPixmap(const QPixmap &pixmap);
       QSize getSize();
 
-      CS_SLOT_1(Private, void renderIntoPixmap())
-      CS_SLOT_2(renderIntoPixmap)
-
-      CS_SLOT_1(Private, void grabFrameBuffer())
-      CS_SLOT_2(grabFrameBuffer)
-
-      CS_SLOT_1(Private, void clearPixmap())
-      CS_SLOT_2(clearPixmap)
-
-      CS_SLOT_1(Private, void actionClose())
-      CS_SLOT_2(actionClose)
-
-      CS_SLOT_1(Private, void about())
-      CS_SLOT_2(about)
+      // slots
+      void renderIntoPixmap();
+      void grabFrameBuffer();
+      void clearPixmap();
+      void actionClose();
+      void about();
 
       QWidget *centralWidget;
       QScrollArea *glWidgetArea;
@@ -75,8 +67,8 @@ class Grabber : public QMainWindow
       QAction *renderIntoPixmapAct;
       QAction *clearPixmapAct;
       QAction *exitAct;
-      QAction *aboutAct;
-      QAction *aboutQtAct;
+      QAction *aboutGrabber;
+      QAction *aboutGrabber_Cs;
 };
 
 #endif

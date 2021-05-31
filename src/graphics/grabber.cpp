@@ -20,6 +20,7 @@
 #include "glwidget.h"
 #include "grabber.h"
 
+#include <QApplication>
 #include <QGridLayout>
 #include <QImage>
 #include <QInputDialog>
@@ -90,25 +91,25 @@ void Grabber::createActions()
 {
     renderIntoPixmapAct = new QAction(tr("&Render into Pixmap..."), this);
     renderIntoPixmapAct->setShortcut(tr("Ctrl+R"));
-    connect(renderIntoPixmapAct, SIGNAL(triggered()), this, SLOT(renderIntoPixmap()));
+    connect(renderIntoPixmapAct, &QAction::triggered, this, &Grabber::renderIntoPixmap);
 
     grabFrameBufferAct = new QAction(tr("&Grab Frame Buffer"), this);
     grabFrameBufferAct->setShortcut(tr("Ctrl+G"));
-    connect(grabFrameBufferAct, SIGNAL(triggered()), this, SLOT(grabFrameBuffer()));
+    connect(grabFrameBufferAct, &QAction::triggered, this, &Grabber::grabFrameBuffer);
 
     clearPixmapAct = new QAction(tr("&Clear Pixmap"), this);
     clearPixmapAct->setShortcut(tr("Ctrl+L"));
-    connect(clearPixmapAct, SIGNAL(triggered()), this, SLOT(clearPixmap()));
+    connect(clearPixmapAct, &QAction::triggered, this, &Grabber::clearPixmap);
 
     exitAct = new QAction(tr("Close"), this);
     exitAct->setShortcuts(QKeySequence::Quit);
-    connect(exitAct, SIGNAL(triggered()), this, SLOT(actionClose()));
+    connect(exitAct, &QAction::triggered, this, &Grabber::actionClose);
 
-    aboutAct = new QAction(tr("&About"), this);
-    connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
+    aboutGrabber = new QAction(tr("&About"), this);
+    connect(aboutGrabber, &QAction::triggered, this, &Grabber::about);
 
-    aboutQtAct = new QAction(tr("About &CopperSpice"), this);
-    connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+    aboutGrabber_Cs = new QAction(tr("About &CopperSpice"), this);
+    connect(aboutGrabber_Cs, &QAction::triggered, qApp, &QApplication::aboutCs);
 }
 
 void Grabber::createMenus()
@@ -121,8 +122,8 @@ void Grabber::createMenus()
     fileMenu->addAction(exitAct);
 
     helpMenu = menuBar()->addMenu(tr("&Help"));
-    helpMenu->addAction(aboutAct);
-    helpMenu->addAction(aboutQtAct);
+    helpMenu->addAction(aboutGrabber);
+    helpMenu->addAction(aboutGrabber_Cs);
 }
 
 QSlider *Grabber::createSlider(const QString &changedSignal, const QString &setterSlot)
