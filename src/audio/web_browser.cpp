@@ -65,11 +65,11 @@ WebBrowser::WebBrowser(MainWindow *parent, QUrl url)
    QMenu *fileMenu = menuBar()->addMenu(tr("&File"));
 
    QAction* temp1 = new QAction(tr("Page Source"), this);
-   connect(temp1, SIGNAL(triggered()), this, SLOT(getSource()));
+   connect(temp1, &QAction::triggered, this, &WebBrowser::getSource()));
    fileMenu->addAction(temp1);
 
    QAction* temp2 = new QAction(tr("Close Browser"), this);
-   connect(temp2, SIGNAL(triggered()), this, SLOT(actionClose()));
+   connect(temp2, &QAction::triggered, this, &WebBrowser::actionClose()));
    fileMenu->addAction(temp2);
 
    // 2
@@ -91,19 +91,19 @@ WebBrowser::WebBrowser(MainWindow *parent, QUrl url)
    QAction* temp3 = new QAction(tr("Enable Developer Tools"), this);
    temp3->setCheckable(true);
    temp3->setChecked(false);
-   connect(temp3, SIGNAL(triggered(bool)), this, SLOT(actionDevTool( bool)));
+   connect(temp3, &QAction::triggered, this, &WebBrowser::actionDevTool);
    toolsMenu->addAction(temp3);
 
    QAction* temp4 = new QAction(tr("Enable JavaScript"), this);
    temp4->setCheckable(true);
    temp4->setChecked(true);
-   connect(temp4, SIGNAL(triggered(bool)), this, SLOT(actionJavaScript( bool)));
+   connect(temp4, &QAction::triggered, this, &WebBrowser::actionJavaScript);
    toolsMenu->addAction(temp4);
 
    QAction* temp5 = new QAction(tr("Enable Plugins"), this);
    temp5->setCheckable(true);
    temp5->setChecked(true);
-   connect(temp5, SIGNAL(triggered(bool)), this, SLOT(actionPlugins( bool)));
+   connect(temp5, &QAction::triggered, this, &WebBrowser::actionPlugins);
    toolsMenu->addAction(temp5);
 
    // override default of false
@@ -111,17 +111,15 @@ WebBrowser::WebBrowser(MainWindow *parent, QUrl url)
 
    // set up custom context menu
    m_view->setContextMenuPolicy(Qt::CustomContextMenu);
-   connect(m_view,    SIGNAL(customContextMenuRequested(const QPoint &)), this,
-           SLOT(setCustomContextMenu(const QPoint &)) );
+   connect(m_view,    &QWebView::customContextMenuRequested, this, &WebBrowser::setCustomContextMenu);
 
    // signals
-   connect(m_urlEdit, SIGNAL(returnPressed()),     this, SLOT(changeLocation()));
-   connect(m_view,    SIGNAL(loadProgress(int)),   this, SLOT(setProgress(int)));
-   connect(m_view,    SIGNAL(loadFinished(bool)),  this, SLOT(setLocation(bool)));
-   connect(m_view,    SIGNAL(titleChanged(const QString &)), this, SLOT(setTitle()));
+   connect(m_urlEdit, &QWebView::returnPressed, this, &WebBrowser::changeLocation);
+   connect(m_view,    &QWebView::loadProgress,  this, &WebBrowser::setProgress);
+   connect(m_view,    &QWebView::loadFinished,  this, &WebBrowser::setLocation);
+   connect(m_view,    &QWebView::titleChanged,  this, &WebBrowser::setTitle);
 
-   connect(m_view->page(), SIGNAL(linkHovered(const QString &, const QString &, const QString &)), this,
-           SLOT(actionLinkHovered(const QString &, const QString &, const QString &)) );
+   connect(m_view->page(), &QWebPage::linkHovered, this, &WebBrowser::actionLinkHovered );
 
    setCentralWidget(m_view);
 }
@@ -185,7 +183,7 @@ void WebBrowser::getSource()
    QNetworkRequest request(m_view->url());
 
    QNetworkReply* reply = accessManager->get(request);
-   connect(reply, SIGNAL(finished()), this, SLOT(displaySource()));
+   connect(reply, &QNetworkReply::finished, this, &WebBrowser::displaySource);
 }
 
 void WebBrowser::displaySource()
@@ -316,7 +314,7 @@ void WebBrowser::actionDownloadLinkToDisk()
          QNetworkAccessManager *networkManager = m_view->page()->networkAccessManager();
          QNetworkReply *reply = networkManager->get(*newRequest);
 
-         connect(reply, SIGNAL(finished()), this, SLOT(downloadFinished()));
+         connect(reply, &QNetworkReply::finished, this, &WebBrowser::downloadFinished);
       }
    }
 }
