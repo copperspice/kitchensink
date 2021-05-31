@@ -44,7 +44,8 @@ VolumeButton::VolumeButton(QWidget *parent)
     label->setNum(100);
     label->setMinimumWidth(label->sizeHint().width());
 
-    connect(slider, &QAbstractSlider::valueChanged, label, static_cast<void (QLabel::*)(int)>(&QLabel::setNum));
+    // cs_mp_cast is required since this slot is overloaded
+    connect(slider, &QAbstractSlider::valueChanged, label, cs_mp_cast<int>(&QLabel::setNum));
 
     QBoxLayout *popupLayout = new QHBoxLayout(popup);
     popupLayout->setMargin(2);

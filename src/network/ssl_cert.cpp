@@ -31,9 +31,9 @@ Ssl_Cert::Ssl_Cert(QWidget *parent)
 
    connect(ui->closePB, &QPushButton::clicked, this, &Ssl_Cert::accept);
 
-   // static_cast is required since this signal is overloaded
-   connect(ui->certificationPathView, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-                  this, &Ssl_Cert::updateCertificateInfo);
+   // cs_mp_cast is required since this signal is overloaded
+   connect(ui->certificationPathView, cs_mp_cast<int>(&QComboBox::currentIndexChanged),
+            this, &Ssl_Cert::updateCertificateInfo);
 }
 
 Ssl_Cert::~Ssl_Cert()

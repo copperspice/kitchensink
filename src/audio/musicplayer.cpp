@@ -54,8 +54,8 @@ MusicPlayer::MusicPlayer(QWidget *parent)
    connect(&m_mediaPlayer,    &QMediaPlayer::positionChanged, this,  &MusicPlayer::updateTime);
    connect(&m_mediaPlayer,    &QMediaPlayer::durationChanged, this,  &MusicPlayer::updateDuration);
 
-   connect(&m_mediaPlayer, static_cast<void (QMediaPlayer::*)(QMediaPlayer::Error)>(&QMediaPlayer::error),
-                  this, &MusicPlayer::handleError);
+   // cs_mp_cast is required since this signal is overloaded
+   connect(&m_mediaPlayer, cs_mp_cast<QMediaPlayer::Error>(&QMediaPlayer::error), this, &MusicPlayer::handleError);
 }
 
 MusicPlayer::~MusicPlayer()

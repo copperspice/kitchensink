@@ -42,9 +42,8 @@ SysTray::SysTray()
    connect(showMessageButton, &QAbstractButton::clicked,         this,     &SysTray::showMessage);
    connect(showIconCheckBox,  &QAbstractButton::toggled,         trayIcon, &QSystemTrayIcon::setVisible);
 
-   // static_cast is required since this signal is overloaded
-   connect(iconComboBox,      static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-                  this, &SysTray::setIcon);
+   // cs_mp_cast is required since this signal is overloaded
+   connect(iconComboBox,      cs_mp_cast<int>(&QComboBox::currentIndexChanged), this, &SysTray::setIcon);
 
    connect(trayIcon,          &QSystemTrayIcon::messageClicked,  this,     &SysTray::messageClicked);
    connect(trayIcon,          &QSystemTrayIcon::activated,       this,     &SysTray::iconActivated);

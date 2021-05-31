@@ -107,7 +107,8 @@ void Camera::setCamera(const QCameraInfo &cameraInfo)
    connect(imageCapture, &QCameraImageCapture::imageSaved,             this, &Camera::imageSaved);
    connect(imageCapture, &QCameraImageCapture::error,                  this, &Camera::displayCaptureError);
 
-   connect(camera, static_cast<void (QCamera::*)(QCamera::LockStatus, QCamera::LockChangeReason)>(&QCamera::lockStatusChanged),
+   // cs_mp_cast is required since this signal is overloaded
+   connect(camera, cs_mp_cast<QCamera::LockStatus, QCamera::LockChangeReason>(&QCamera::lockStatusChanged),
            this, &Camera::updateLockStatus);
 
    ui->captureWidget->setTabEnabled(0, (camera->isCaptureModeSupported(QCamera::CaptureStillImage)));

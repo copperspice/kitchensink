@@ -93,9 +93,9 @@ void Sliders::createOptionsGroupBox()
    m_optionsLayout->setColumnStretch(2, 1);
    m_optionsGroupBox->setLayout(m_optionsLayout);
 
-   // static_cast is required since this signal is overloaded
-   connect(m_buttonsOrientationComboBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-                  this, &Sliders::buttonsOrientationChanged);
+   // cs_mp_cast is required since this signal is overloaded
+   connect(m_buttonsOrientationComboBox, cs_mp_cast<int>(&QComboBox::currentIndexChanged),
+            this, &Sliders::buttonsOrientationChanged);
 }
 
 void Sliders::createButtons()

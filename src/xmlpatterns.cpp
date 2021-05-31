@@ -49,9 +49,8 @@ XmlPatterns::XmlPatterns()
       ui->defaultQueries->addItem(item);
    }
 
-   // static_cast is required since this signal is overloaded
-   connect(ui->defaultQueries, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-                  this, &XmlPatterns::displayQuery);
+   // cs_mp_cast is required since this signal is overloaded
+   connect(ui->defaultQueries, cs_mp_cast<int>(&QComboBox::currentIndexChanged), this, &XmlPatterns::displayQuery);
 
    displayQuery(0);
 }
