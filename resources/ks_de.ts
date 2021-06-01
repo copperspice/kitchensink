@@ -316,22 +316,22 @@
     <message>
         <location filename="../build/src/ui_camera.h" line="257"/>
         <source>Pause</source>
-        <translation type="unfinished">Anhalten</translation>
+        <translation>Anhalten</translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="258"/>
         <source>Stop</source>
-        <translation type="unfinished">Beenden</translation>
+        <translation>Aufhören</translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="259"/>
         <source>Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Dämpfen</translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="260"/>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="261"/>
@@ -375,7 +375,7 @@
     <message>
         <location filename="../build/src/ui_chat_dialog.h" line="99"/>
         <source>Message:</source>
-        <translation>Botschaft</translation>
+        <translation>Nachricht:</translation>
     </message>
 </context>
 <context>
@@ -529,7 +529,7 @@
     <message>
         <location filename="../src/dialogs.cpp" line="80"/>
         <source>Amount:</source>
-        <translation type="unfinished"></translation>
+        <translation>Summe:</translation>
     </message>
     <message>
         <location filename="../src/dialogs.cpp" line="90"/>
@@ -1891,7 +1891,7 @@
     <message>
         <location filename="../src/graphics/mandelbrot_widget.cpp" line="39"/>
         <source>Mandelbrot</source>
-        <translation type="unfinished"></translation>
+        <translation>Mandelbrot</translation>
     </message>
     <message>
         <location filename="../src/graphics/mandelbrot_widget.cpp" line="58"/>
@@ -1929,7 +1929,7 @@
     <message>
         <location filename="../build/src/ui_musicplayer.h" line="118"/>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei öffnen</translation>
     </message>
     <message>
         <location filename="../build/src/ui_musicplayer.h" line="119"/>
@@ -1944,7 +1944,7 @@
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="40"/>
         <source>Multimedia Music Player</source>
-        <translation type="unfinished"></translation>
+        <translation>Musikspieler</translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="156"/>
@@ -1971,7 +1971,7 @@
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="164"/>
         <source>Stop</source>
-        <translation>Beenden</translation>
+        <translation>Aufhören</translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="165"/>
@@ -2044,17 +2044,17 @@
     <message>
         <location filename="../src/views/tableview.cpp" line="59"/>
         <source>First Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorname</translation>
     </message>
     <message>
         <location filename="../src/views/tableview.cpp" line="60"/>
         <source>Last Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nachname</translation>
     </message>
     <message>
         <location filename="../src/views/tableview.cpp" line="61"/>
         <source>Biography</source>
-        <translation type="unfinished"></translation>
+        <translation>Biografie</translation>
     </message>
 </context>
 <context>
@@ -3182,12 +3182,12 @@ Maybe you can ask another user.</source>
     <message>
         <location filename="../src/views/tableview.cpp" line="39"/>
         <source>Table View Model</source>
-        <translation type="unfinished">Tabellenansichtmodell</translation>
+        <translation>Tabellenansichtmodell</translation>
     </message>
     <message>
         <location filename="../src/views/tableview.cpp" line="95"/>
         <source>Unable to Open Database</source>
-        <translation type="unfinished">Kann Datenbank öffnen</translation>
+        <translation>Datenbank kann nicht geöffnet werden</translation>
     </message>
     <message>
         <location filename="../src/views/tableview.cpp" line="96"/>
@@ -3399,12 +3399,12 @@ Dieses Beispiel erfordert SQLite.</translation>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="57"/>
         <source>Navigation</source>
-        <translation type="unfinished">Steuerung</translation>
+        <translation>Steuerung</translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="65"/>
         <source>&amp;File</source>
-        <translation type="unfinished">&amp;Datei</translation>
+        <translation>&amp;Datei</translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="67"/>
@@ -3434,7 +3434,7 @@ Dieses Beispiel erfordert SQLite.</translation>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="80"/>
         <source>CopperSpice</source>
-        <translation type="unfinished"></translation>
+        <translation>CopperSpice</translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="81"/>
@@ -3469,7 +3469,7 @@ Dieses Beispiel erfordert SQLite.</translation>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="89"/>
         <source>&amp;Tools</source>
-        <translation type="unfinished">&amp;Werkzeuge</translation>
+        <translation>&amp;Werkzeuge</translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="91"/>
@@ -3489,18 +3489,18 @@ Dieses Beispiel erfordert SQLite.</translation>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="244"/>
         <source>Open New Window</source>
-        <translation type="unfinished">In neuem Fenster öffnen</translation>
+        <translation>Neues Fenster öffnen</translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="247"/>
         <source>Open New Tab</source>
-        <translation type="unfinished">Neue Registerkarte öffnen</translation>
+        <translation>Neue Registerkarte öffnen</translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="251"/>
         <location filename="../src/audio/web_browser.cpp" line="306"/>
         <source>Save Link</source>
-        <translation type="unfinished">Link speichern</translation>
+        <translation>Link speichern</translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="306"/>
@@ -3542,12 +3542,12 @@ Dieses Beispiel erfordert SQLite.</translation>
     <message>
         <location filename="../build/src/ui_xmlpatterns.h" line="133"/>
         <source>Input Document</source>
-        <translation type="unfinished">Eingabedokument</translation>
+        <translation>Eingabedokument</translation>
     </message>
     <message>
         <location filename="../build/src/ui_xmlpatterns.h" line="134"/>
         <source>Output Document</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausgabedokument</translation>
     </message>
     <message>
         <location filename="../build/src/ui_xmlpatterns.h" line="135"/>

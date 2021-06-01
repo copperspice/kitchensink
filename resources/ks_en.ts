@@ -6,7 +6,7 @@
     <message>
         <location filename="../src/graphics/analogclock.cpp" line="31"/>
         <source>Analog Clock</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -14,214 +14,214 @@
     <message>
         <location filename="../src/widgets/calendar.cpp" line="33"/>
         <source>Calendar Widget</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="119"/>
         <location filename="../src/widgets/calendar.cpp" line="375"/>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="122"/>
         <location filename="../src/widgets/calendar.cpp" line="376"/>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="125"/>
         <location filename="../src/widgets/calendar.cpp" line="423"/>
         <source>Green</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="172"/>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="192"/>
         <source>General Options</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="226"/>
         <source>&amp;Locale</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="230"/>
         <source>Sunday</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="231"/>
         <source>Monday</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="232"/>
         <source>Tuesday</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="233"/>
         <source>Wednesday</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="234"/>
         <source>Thursday</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="235"/>
         <source>Friday</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="236"/>
         <source>Saturday</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="238"/>
         <source>Wee&amp;k starts on:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="242"/>
         <source>Single selection</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="243"/>
         <location filename="../src/widgets/calendar.cpp" line="251"/>
         <location filename="../src/widgets/calendar.cpp" line="259"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="245"/>
         <source>&amp;Selection mode:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="364"/>
         <source>&amp;Monday to Friday:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="370"/>
         <source>Saturday, Sunday:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="382"/>
         <source>First Friday (blue)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="383"/>
         <source>May first (red)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="267"/>
         <source>&amp;Navigation bar</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="249"/>
         <source>Single letter day names</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="250"/>
         <source>Short day names</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="254"/>
         <source>&amp;Horizontal header:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="258"/>
         <source>ISO week numbers</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="261"/>
         <source>&amp;Vertical header:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="264"/>
         <source>&amp;Show Grid</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="306"/>
         <source>Dates</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="317"/>
         <source>&amp;Minimum Date:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="325"/>
         <source>&amp;Current Date:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="333"/>
         <source>Ma&amp;ximum Date:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="355"/>
         <source>Text Formats</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="362"/>
         <location filename="../src/widgets/calendar.cpp" line="421"/>
         <source>Black</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="368"/>
         <location filename="../src/widgets/calendar.cpp" line="424"/>
         <source>Red</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="377"/>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="379"/>
         <source>&amp;Header text:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="422"/>
         <source>Blue</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="425"/>
         <source>Magenta</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/calendar.cpp" line="426"/>
         <source>Yellow</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -230,118 +230,118 @@
         <location filename="../src/camera/camera.cpp" line="277"/>
         <location filename="../src/camera/camera.cpp" line="278"/>
         <source>Focusing...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/camera/camera.cpp" line="282"/>
         <source>Unlock</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/camera/camera.cpp" line="283"/>
         <source>Focused</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/camera/camera.cpp" line="287"/>
         <location filename="../build/src/ui_camera.h" line="252"/>
         <source>Focus</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/camera/camera.cpp" line="289"/>
         <source>Focus Failed</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/camera/camera.cpp" line="309"/>
         <source>Image Capture Error</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/camera/camera.cpp" line="383"/>
         <source>Capture error</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/camera/camera.cpp" line="388"/>
         <source>Camera error</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="246"/>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="247"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="248"/>
         <source>Start Camera</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="249"/>
         <source>Stop Camera</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="250"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="253"/>
         <source>Capture Photo</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="254"/>
         <source>Exposure Compensation:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="255"/>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="256"/>
         <source>Record</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="257"/>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="258"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="259"/>
         <source>Mute</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="260"/>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="261"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera.h" line="262"/>
         <source>Devices</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -349,33 +349,33 @@
     <message>
         <location filename="../src/network/chat_dialog.cpp" line="82"/>
         <source>Unknown command: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/chat_dialog.cpp" line="101"/>
         <source>* %1 has joined</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/chat_dialog.cpp" line="122"/>
         <source>* %1 has left</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/chat_dialog.cpp" line="129"/>
         <location filename="../build/src/ui_chat_dialog.h" line="98"/>
         <source>Chat Message</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/chat_dialog.cpp" line="129"/>
         <source>In order to use this feature you can start another copy of  KitchenSink on your local network or simply open another chat window.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_chat_dialog.h" line="99"/>
         <source>Message:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -406,12 +406,12 @@
     <message>
         <location filename="../src/network/connection.cpp" line="33"/>
         <source>undefined</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/connection.cpp" line="34"/>
         <source>unknown</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -434,7 +434,7 @@
     <message>
         <location filename="../build/src/ui_dialogs.h" line="270"/>
         <source>QInputDialog  getDouble()</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_dialogs.h" line="271"/>
@@ -975,7 +975,7 @@
     <message>
         <location filename="../src/graphics/fridgemag.cpp" line="35"/>
         <source>Fridge Magnets</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -983,87 +983,87 @@
     <message>
         <location filename="../src/graphics/grabber.cpp" line="79"/>
         <source>About Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="80"/>
         <source>The &lt;b&gt;Grabber&lt;/b&gt; example demonstrates two approaches for rendering OpenGL into a pixmap.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="91"/>
         <source>&amp;Render into Pixmap...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="92"/>
         <source>Ctrl+R</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="95"/>
         <source>&amp;Grab Frame Buffer</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="96"/>
         <source>Ctrl+G</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="99"/>
         <source>&amp;Clear Pixmap</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="100"/>
         <source>Ctrl+L</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="103"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="107"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="110"/>
         <source>About &amp;CopperSpice</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="116"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="123"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="152"/>
         <source>Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="152"/>
         <source>Enter pixmap size:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="153"/>
         <source>%1 x %2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/grabber.cpp" line="158"/>
         <source>([0-9]+) *x *([0-9]+)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1099,93 +1099,93 @@
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="53"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="55"/>
         <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="57"/>
         <source>Open an existing HTML file</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="61"/>
         <source>&amp;Open URL...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="62"/>
         <source>Ctrl+U</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="63"/>
         <source>Open a URL</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="67"/>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="69"/>
         <source>Save the HTML file to disk</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="75"/>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="76"/>
         <source>Exit Viewer</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="84"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="86"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="87"/>
         <source>Show the About box</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="113"/>
         <source>About HTML Viewer</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="114"/>
         <source>The &lt;b&gt;Previewer&lt;/b&gt; example demonstrates how to view HTML documents using a QWebView.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="126"/>
         <location filename="../src/audio/html_viewer.cpp" line="161"/>
         <source>Unable to open file</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="144"/>
         <source>Enter a URL</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/html_viewer.cpp" line="144"/>
         <source>URL:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1193,12 +1193,12 @@
     <message>
         <location filename="../src/camera/imagesettings.cpp" line="35"/>
         <source>Default image format</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/camera/imagesettings.cpp" line="44"/>
         <source>Default Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1206,27 +1206,27 @@
     <message>
         <location filename="../build/src/ui_camera_imagesettings.h" line="108"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_imagesettings.h" line="109"/>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_imagesettings.h" line="110"/>
         <source>Resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_imagesettings.h" line="111"/>
         <source>Image Format:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_imagesettings.h" line="112"/>
         <source>Quality:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1562,7 +1562,7 @@
     <message>
         <location filename="../src/widgets/line_edit.cpp" line="30"/>
         <source>QLineEdit Samples</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1610,280 +1610,280 @@
         <location filename="../src/mainwindow.cpp" line="80"/>
         <location filename="../build/src/ui_mainwindow.h" line="294"/>
         <source>KitchenSink</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="499"/>
         <location filename="../build/src/ui_mainwindow.h" line="341"/>
         <source>About KitchenSink</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="295"/>
         <source>Exit KitchenSink</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="296"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="297"/>
         <source>Tree View Model</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="298"/>
         <source>List View Model</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="299"/>
         <source>LineEdit</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="300"/>
         <source>Sliders</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="301"/>
         <source>Calendar</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="302"/>
         <source>Push Buttons</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="303"/>
         <source>Standard Dialogs</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="304"/>
         <source>Web Browser</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="305"/>
         <source>Font Selector</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="306"/>
         <source>Color Selector</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="307"/>
         <source>Style Sheets</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="308"/>
         <source>HTML Viewer</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="309"/>
         <source>Basic Drawing</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="310"/>
         <source>Table View Model</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="311"/>
         <source>Table View Delegate</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="312"/>
         <source>International</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="313"/>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="314"/>
         <source>Music Player</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="315"/>
         <source>OpenGL</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="316"/>
         <source>System Tray</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="317"/>
         <source>Table Widget / View</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="318"/>
         <source>About CopperSpice</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="319"/>
         <source>XML</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="320"/>
         <location filename="../build/src/ui_mainwindow.h" line="342"/>
         <source>XML Patterns</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="321"/>
         <location filename="../build/src/ui_mainwindow.h" line="323"/>
         <source>Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="325"/>
         <source>SVG View</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="326"/>
         <source>Video Widget</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="327"/>
         <source>JS Script *</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="328"/>
         <source>JS Script</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="329"/>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="330"/>
         <source>Close All Windows</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="331"/>
         <source>Standard Path</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="332"/>
         <source>Analog Clock</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="333"/>
         <source>Lighting (QGraphicsScene)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="334"/>
         <source>Screen Shot</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="335"/>
         <source>Fridge Magnets</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="336"/>
         <source>Animated Tiles (QGraphicsScene)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="337"/>
         <source>Grabber (OpenGL)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="338"/>
         <source>World Clock (Qml) *</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="339"/>
         <source>Mandelbrot (Threads)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="340"/>
         <source>Wiggle Boxes (Qml) *</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="343"/>
         <source>Chat</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="344"/>
         <source>Secure Socket</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="345"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="346"/>
         <source>Views</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="347"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="348"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="349"/>
         <source>Samples</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="350"/>
         <source>Audio/Video</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="351"/>
         <source>Graphics</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_mainwindow.h" line="352"/>
         <source>Network</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1891,17 +1891,17 @@
     <message>
         <location filename="../src/graphics/mandelbrot_widget.cpp" line="39"/>
         <source>Mandelbrot</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/mandelbrot_widget.cpp" line="58"/>
         <source>Rendering initial image, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/mandelbrot_widget.cpp" line="82"/>
         <source>Use mouse wheel or the &apos;+&apos; and &apos;-&apos; keys to zoom. Press and hold left mouse button to scroll.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1929,99 +1929,99 @@
     <message>
         <location filename="../build/src/ui_musicplayer.h" line="118"/>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_musicplayer.h" line="119"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_musicplayer.h" line="120"/>
         <source> About CopperSpice </source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="40"/>
         <source>Multimedia Music Player</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="90"/>
         <source>Select Music Files</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="156"/>
         <location filename="../src/audio/musicplayer.cpp" line="318"/>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="157"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="160"/>
         <location filename="../src/audio/musicplayer.cpp" line="315"/>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="161"/>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="164"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="165"/>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="178"/>
         <source>Seek</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="182"/>
         <source>00:00</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="190"/>
         <source>Adjust volume</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="213"/>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="214"/>
         <source>Artist</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="215"/>
         <source>Album</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="216"/>
         <source>Duration</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/musicplayer.cpp" line="342"/>
         <source>Unknown error #%1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2034,27 +2034,27 @@
     <message>
         <location filename="../src/views/treeview.cpp" line="76"/>
         <source>Food Categories</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/tableview.cpp" line="58"/>
         <source>Id</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/tableview.cpp" line="59"/>
         <source>First Name</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/tableview.cpp" line="60"/>
         <source>Last Name</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/tableview.cpp" line="61"/>
         <source>Biography</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2062,47 +2062,47 @@
     <message>
         <location filename="../src/graphics/screenshot.cpp" line="41"/>
         <source>Screen Shot</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/screenshot.cpp" line="85"/>
         <source>/untitled.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/screenshot.cpp" line="87"/>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/screenshot.cpp" line="88"/>
         <source>%1 Files (*.%2);;All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/screenshot.cpp" line="109"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/screenshot.cpp" line="112"/>
         <source> s</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/screenshot.cpp" line="115"/>
         <source>Screenshot Delay:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/screenshot.cpp" line="126"/>
         <source>New Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/graphics/screenshot.cpp" line="127"/>
         <source>Save Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2148,37 +2148,37 @@
     <message>
         <location filename="../src/widgets/sliders.cpp" line="36"/>
         <source>Slider Widget</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/sliders.cpp" line="53"/>
         <source>Rotable Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/sliders.cpp" line="78"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/sliders.cpp" line="84"/>
         <source>Orientation of buttons:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/sliders.cpp" line="87"/>
         <source>Horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/sliders.cpp" line="88"/>
         <source>Vertical</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/sliders.cpp" line="105"/>
         <source>Rotate &amp;Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2186,92 +2186,92 @@
     <message>
         <location filename="../build/src/ui_ssl_cert.h" line="108"/>
         <source>Display Certificate Information</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_cert.h" line="109"/>
         <source>Certification Path</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_cert.h" line="110"/>
         <source>Certificate Information</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_cert.h" line="111"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="52"/>
         <source>%1%2 (%3)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="52"/>
         <source>Issued by: </source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="68"/>
         <source>Organization: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="69"/>
         <source>Subunit: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="70"/>
         <source>Country: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="71"/>
         <source>Locality: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="72"/>
         <source>State/Province: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="73"/>
         <source>Common Name: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="76"/>
         <source>Issuer Organization: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="77"/>
         <source>Issuer Unit Name: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="78"/>
         <source>Issuer Country: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="79"/>
         <source>Issuer Locality: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="80"/>
         <source>Issuer State/Province: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_cert.cpp" line="81"/>
         <source>Issuer Common Name: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2279,27 +2279,27 @@
     <message>
         <location filename="../build/src/ui_ssl_client.h" line="180"/>
         <source>Secure Socket Client</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_client.h" line="181"/>
         <source>Host name:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_client.h" line="182"/>
         <source>Port:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_client.cpp" line="40"/>
         <source>&amp;lt;not connected&amp;gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_client.cpp" line="72"/>
         <source>Loading, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_client.cpp" line="99"/>
@@ -2307,42 +2307,42 @@
         <location filename="../src/network/ssl_client.cpp" line="174"/>
         <location filename="../build/src/ui_ssl_client.h" line="183"/>
         <source>&lt;none&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_client.cpp" line="131"/>
         <source>Display encryption details.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/network/ssl_client.cpp" line="169"/>
         <source>Connection error</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_client.h" line="184"/>
         <source>Cipher:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_client.h" line="185"/>
         <source>www.google.com</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_client.h" line="186"/>
         <source>Input:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_client.h" line="187"/>
         <source>Connect</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_client.h" line="188"/>
         <source>&amp;Send</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_client.h" line="189"/>
@@ -2351,7 +2351,7 @@
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2359,27 +2359,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../build/src/ui_ssl_error.h" line="117"/>
         <source>Unable To Validate The Connection</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_error.h" line="118"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-weight:600; color:#0000ff;&quot;&gt;Warning&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; color:#0000ff;&quot;&gt;:&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; color:#000000;&quot;&gt; The following errros have occured.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; color:#000000;&quot;&gt;Review the following list and make any corrections necessary. Click &amp;quot;Try Again&amp;quot; to establish a connection or &amp;quot;Cancel&amp;quot; to abort the connection.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_error.h" line="119"/>
         <source>View Certificate Chain</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_error.h" line="120"/>
         <source>Try Again</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_ssl_error.h" line="121"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2392,12 +2392,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../build/src/ui_stdpath.h" line="391"/>
         <source>Standard Paths</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_stdpath.h" line="393"/>
         <source>Directories where files for this Location Type belong:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_stdpath.h" line="394"/>
@@ -2432,7 +2432,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../build/src/ui_stdpath.h" line="400"/>
         <source>Find</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_stdpath.h" line="401"/>
@@ -2457,7 +2457,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../build/src/ui_stdpath.h" line="405"/>
         <source>Locate</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_stdpath.h" line="406"/>
@@ -2692,7 +2692,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../build/src/ui_style_edit.h" line="154"/>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_style_edit.h" line="158"/>
@@ -3159,22 +3159,22 @@ Maybe you can ask another user.</source>
     <message>
         <location filename="../src/widgets/tabdialog.cpp" line="29"/>
         <source>Tab Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/tabdialog.cpp" line="36"/>
         <source>Customer</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/tabdialog.cpp" line="37"/>
         <source>Sandwich Selection</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/widgets/tabdialog.cpp" line="38"/>
         <source>Sides &amp;&amp; Desserts</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3182,12 +3182,12 @@ Maybe you can ask another user.</source>
     <message>
         <location filename="../src/views/tableview.cpp" line="39"/>
         <source>Table View Model</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/tableview.cpp" line="95"/>
         <source>Unable to Open Database</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/tableview.cpp" line="96"/>
@@ -3195,7 +3195,7 @@ Maybe you can ask another user.</source>
 This example requires SQLite.
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3219,25 +3219,25 @@ This example requires SQLite.
         <location filename="../src/views/tablewidget_view.cpp" line="53"/>
         <location filename="../src/views/tablewidget_view.cpp" line="153"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/tablewidget_view.cpp" line="53"/>
         <location filename="../src/views/tablewidget_view.cpp" line="154"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/tablewidget_view.cpp" line="53"/>
         <location filename="../src/views/tablewidget_view.cpp" line="155"/>
         <source>First Aired</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/tablewidget_view.cpp" line="82"/>
         <location filename="../src/views/tablewidget_view.cpp" line="180"/>
         <source>Drama/Legal</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/tablewidget_view.cpp" line="92"/>
@@ -3245,19 +3245,19 @@ This example requires SQLite.
         <location filename="../src/views/tablewidget_view.cpp" line="190"/>
         <location filename="../src/views/tablewidget_view.cpp" line="220"/>
         <source>Science Fiction</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/tablewidget_view.cpp" line="102"/>
         <location filename="../src/views/tablewidget_view.cpp" line="200"/>
         <source>Drama/Medical</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/tablewidget_view.cpp" line="112"/>
         <location filename="../src/views/tablewidget_view.cpp" line="210"/>
         <source>Comedy</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3265,12 +3265,12 @@ This example requires SQLite.
     <message>
         <location filename="../src/views/treeview.cpp" line="39"/>
         <source>Tree View Model</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/treeview.cpp" line="97"/>
         <source>Unable to Open Database</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/views/treeview.cpp" line="98"/>
@@ -3278,7 +3278,7 @@ This example requires SQLite.
 This example requires SQLite.
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3286,32 +3286,32 @@ This example requires SQLite.
     <message>
         <location filename="../src/audio/videoplayer.cpp" line="30"/>
         <source>Video Widget</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/videoplayer.cpp" line="33"/>
         <source>Send Email</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/videoplayer.cpp" line="38"/>
         <source>To:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/videoplayer.cpp" line="44"/>
         <source>Subject:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/videoplayer.cpp" line="50"/>
         <source>Body:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/videoplayer.cpp" line="57"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3319,23 +3319,23 @@ This example requires SQLite.
     <message>
         <location filename="../src/camera/videosettings.cpp" line="35"/>
         <source>Default audio codec</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/camera/videosettings.cpp" line="50"/>
         <source>Default video codec</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/camera/videosettings.cpp" line="59"/>
         <location filename="../src/camera/videosettings.cpp" line="67"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/camera/videosettings.cpp" line="76"/>
         <source>Default container</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3343,53 +3343,53 @@ This example requires SQLite.
     <message>
         <location filename="../build/src/ui_camera_videosettings.h" line="197"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_videosettings.h" line="198"/>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_videosettings.h" line="199"/>
         <source>Audio Codec:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_videosettings.h" line="200"/>
         <source>Sample Rate:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_videosettings.h" line="201"/>
         <location filename="../build/src/ui_camera_videosettings.h" line="206"/>
         <source>Quality:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_videosettings.h" line="202"/>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_videosettings.h" line="203"/>
         <source>Resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_videosettings.h" line="204"/>
         <source>Framerate:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_videosettings.h" line="205"/>
         <source>Video Codec:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../build/src/ui_camera_videosettings.h" line="207"/>
         <source>Container Format:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3397,113 +3397,113 @@ This example requires SQLite.
     <message>
         <location filename="../src/audio/web_browser.cpp" line="57"/>
         <source>Navigation</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="65"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="67"/>
         <source>Page Source</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="71"/>
         <source>Close Browser</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="76"/>
         <source>&amp;Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="78"/>
         <source>Astronomy Picture</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="79"/>
         <source>Cooking for Engineers</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="80"/>
         <source>CopperSpice</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="81"/>
         <source>C++ Reference</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="82"/>
         <source>Google</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="83"/>
         <source>Huffington Post</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="84"/>
         <source>Slashdot</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="85"/>
         <source>Wikipedia</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="86"/>
         <source>You Tube</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="89"/>
         <source>&amp;Tools</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="91"/>
         <source>Enable Developer Tools</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="97"/>
         <source>Enable JavaScript</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="103"/>
         <source>Enable Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="244"/>
         <source>Open New Window</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="247"/>
         <source>Open New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="251"/>
         <location filename="../src/audio/web_browser.cpp" line="306"/>
         <source>Save Link</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/audio/web_browser.cpp" line="306"/>
         <source>All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
