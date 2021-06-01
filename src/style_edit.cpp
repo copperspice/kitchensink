@@ -84,7 +84,7 @@ QString Style_Edit::readStyleSheet(const QString &name)
    QFile file(qsPath + name.toLower() + ".qss");
    file.open(QFile::ReadOnly);
 
-   QString styleSheet = QLatin1String(file.readAll());
+   QString styleSheet = file.readAll();
 
    return styleSheet;
 }

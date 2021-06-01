@@ -172,17 +172,17 @@ void WebBrowser::setTitle()
    }
 }
 
-void WebBrowser::actionLinkHovered(const QString & link, const QString & /* title */, const QString & /* textContent */ )
+void WebBrowser::actionLinkHovered(const QString & link, const QString &, const QString & )
 {
    statusBar()->showMessage(link);
 }
 
 void WebBrowser::getSource()
 {
-   QNetworkAccessManager* accessManager = m_view->page()->networkAccessManager();
+   QNetworkAccessManager *accessManager = m_view->page()->networkAccessManager();
    QNetworkRequest request(m_view->url());
 
-   QNetworkReply* reply = accessManager->get(request);
+   QNetworkReply *reply = accessManager->get(request);
    connect(reply, &QNetworkReply::finished, this, &WebBrowser::displaySource);
 }
 

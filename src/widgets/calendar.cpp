@@ -206,7 +206,7 @@ void Calendar::createGeneralOptionsGroupBox()
       for (int i = 0; i < countries.count(); ++i) {
          QLocale::Country country = countries.at(i);
          QString label = QLocale::languageToString(lang);
-         label += QLatin1Char('/');
+         label += QChar('/');
          label += QLocale::countryToString(country);
 
          QLocale locale(lang, country);

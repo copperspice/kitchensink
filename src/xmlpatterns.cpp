@@ -62,7 +62,7 @@ XmlPatterns::~XmlPatterns()
 
 void XmlPatterns::displayQuery(int index)
 {
-   QFile queryFile(QString(qmPath + "/") + ui->defaultQueries->itemText(index));
+   QFile queryFile(qmPath + "/" + ui->defaultQueries->itemText(index));
    queryFile.open(QIODevice::ReadOnly);
 
    const QString query(QString::fromLatin1(queryFile.readAll()));

@@ -23,6 +23,7 @@
 #include "volumebutton.h"
 #include "util.h"
 
+#include <QApplication>
 #include <QCloseEvent>
 #include <QFileDialog>
 #include <QFileInfo>

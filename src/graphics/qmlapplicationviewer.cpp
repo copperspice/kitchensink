@@ -28,83 +28,80 @@
 
 class QmlApplicationViewerPrivate
 {
-    QString mainQmlFile;
-    friend class QmlApplicationViewer;
-    static QString adjustPath(const QString &path);
+   QString mainQmlFile;
+   friend class QmlApplicationViewer;
+   static QString adjustPath(const QString &path);
 };
 
 QString QmlApplicationViewerPrivate::adjustPath(const QString &path)
 {
 #ifdef Q_OS_MAC
-    if (!QDir::isAbsolutePath(path))
-        return QString("%1/../Resources/%2").formatArg(QCoreApplication::applicationDirPath(), path);
+   if (! QDir::isAbsolutePath(path)) {
+      return QString("%1/../Resources/%2").formatArg(QCoreApplication::applicationDirPath(), path);
+   }
 
-#elif defined(Q_OS_QNX)
-    if (!QDir::isAbsolutePath(path))
-        return QString("app/native/%1").formatArg(path);
+#else
+   QString pathInInstallDir = QString("%1/../%2").formatArg(QCoreApplication::applicationDirPath(), path);
 
-#elif ! defined(Q_OS_ANDROID)
-    QString pathInInstallDir = QString("%1/../%2").formatArg(QCoreApplication::applicationDirPath(), path);
+   if (QFileInfo(pathInInstallDir).exists()) {
+      return pathInInstallDir;
+   }
 
-    if (QFileInfo(pathInInstallDir).exists())
-        return pathInInstallDir;
+   pathInInstallDir = QString("%1/%2").formatArg(QCoreApplication::applicationDirPath(), path);
 
-    pathInInstallDir = QString("%1/%2").formatArg(QCoreApplication::applicationDirPath(), path);
-    if (QFileInfo(pathInInstallDir).exists())
-        return pathInInstallDir;
+   if (QFileInfo(pathInInstallDir).exists()) {
+      return pathInInstallDir;
+   }
 #endif
 
     return path;
 }
 
 QmlApplicationViewer::QmlApplicationViewer(QWidget *parent)
-    : QDeclarativeView(parent), d(new QmlApplicationViewerPrivate())
+   : QDeclarativeView(parent), d(new QmlApplicationViewerPrivate())
 {
-    connect(engine(), SIGNAL(quit()), SLOT(close()));
-    setResizeMode(QDeclarativeView::SizeRootObjectToView);
+   connect(engine(), SIGNAL(quit()), this, SLOT(close()));
+   setResizeMode(QDeclarativeView::SizeRootObjectToView);
 }
 
 QmlApplicationViewer::~QmlApplicationViewer()
 {
-    delete d;
+   delete d;
 }
 
 QmlApplicationViewer *QmlApplicationViewer::create()
 {
-    return new QmlApplicationViewer();
+   return new QmlApplicationViewer();
 }
 
 void QmlApplicationViewer::setMainQmlFile(const QString &file)
 {
-    d->mainQmlFile = QmlApplicationViewerPrivate::adjustPath(file);
-#ifdef Q_OS_ANDROID
-    setSource(QUrl(QLatin1String("assets:/")+d->mainQmlFile));
-#else
-    setSource(QUrl::fromLocalFile(d->mainQmlFile));
-#endif
+   d->mainQmlFile = QmlApplicationViewerPrivate::adjustPath(file);
+   setSource(QUrl::fromLocalFile(d->mainQmlFile));
 }
 
 void QmlApplicationViewer::addImportPath(const QString &path)
 {
-    engine()->addImportPath(QmlApplicationViewerPrivate::adjustPath(path));
+   engine()->addImportPath(QmlApplicationViewerPrivate::adjustPath(path));
 }
 
 void QmlApplicationViewer::setOrientation(ScreenOrientation orientation)
 {
-    Qt::WidgetAttribute attribute;
-    switch (orientation) {
+   Qt::WidgetAttribute attribute;
 
-    case ScreenOrientationLockPortrait:
-        attribute = Qt::WA_LockPortraitOrientation;
-        break;
-    case ScreenOrientationLockLandscape:
-        attribute = Qt::WA_LockLandscapeOrientation;
-        break;
-    default:
-    case ScreenOrientationAuto:
-        attribute = Qt::WA_AutoOrientation;
-        break;
+   switch (orientation) {
+      case ScreenOrientationLockPortrait:
+         attribute = Qt::WA_LockPortraitOrientation;
+         break;
 
+      case ScreenOrientationLockLandscape:
+         attribute = Qt::WA_LockLandscapeOrientation;
+          break;
+
+      case ScreenOrientationAuto:
+      default:
+         attribute = Qt::WA_AutoOrientation;
+         break;
     };
 
     setAttribute(attribute, true);
@@ -112,20 +109,10 @@ void QmlApplicationViewer::setOrientation(ScreenOrientation orientation)
 
 void QmlApplicationViewer::showExpanded()
 {
-#if defined(MEEGO_EDITION_HARMATTAN) || defined(Q_WS_SIMULATOR)
-    showFullScreen();
-#elif defined(Q_WS_MAEMO_5) || defined(Q_OS_QNX)
-    showMaximized();
-#else
-    show();
-#endif
+   show();
 }
 
 QApplication *createApplication(int &argc, char **argv)
 {
-#ifdef HARMATTAN_BOOSTER
-    return MDeclarativeCache::qApplication(argc, argv);
-#else
-    return new QApplication(argc, argv);
-#endif
+   return new QApplication(argc, argv);
 }

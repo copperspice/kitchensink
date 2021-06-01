@@ -77,9 +77,8 @@ void Grabber::actionClose() {
 
 void Grabber::about()
 {
-    QMessageBox::about(this, tr("About Grabber"),
-            tr("The <b>Grabber</b> example demonstrates two approaches for "
-               "rendering OpenGL into a pixmap."));
+   QMessageBox::about(this, tr("About Grabber"),
+      tr("The <b>Grabber</b> example demonstrates two approaches for rendering OpenGL into a pixmap."));
 }
 
 void Grabber::clearPixmap()
