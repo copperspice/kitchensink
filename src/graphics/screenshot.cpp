@@ -88,7 +88,7 @@ void Screenshot::saveScreenshot()
                   tr("%1 Files (*.%2);;All Files (*)").formatArgs(format.toUpper(), format));
 
     if (! fileName.isEmpty()) {
-        originalPixmap.save(fileName, csPrintable(format));
+        originalPixmap.save(fileName, format);
     }
 }
 
