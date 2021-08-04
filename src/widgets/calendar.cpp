@@ -199,18 +199,20 @@ void Calendar::createGeneralOptionsGroupBox()
    int curLocaleIndex = -1;
    int index = 0;
 
-   for (int _lang = QLocale::C; _lang <= QLocale::LastLanguage; ++_lang) {
-      QLocale::Language lang = static_cast<QLocale::Language>(_lang);
-      QList<QLocale::Country> countries = QLocale::countriesForLanguage(lang);
+   for (int langCnt = QLocale::C; langCnt <= QLocale::LastLanguage; ++langCnt) {
 
-      for (int i = 0; i < countries.count(); ++i) {
-         QLocale::Country country = countries.at(i);
-         QString label = QLocale::languageToString(lang);
-         label += QChar('/');
-         label += QLocale::countryToString(country);
+      QLocale::Language langId   = static_cast<QLocale::Language>(langCnt);
+      QList<QLocale> list_locale = QLocale::matchingLocales(langId, QLocale::AnyScript, QLocale::AnyCountry);
 
-         QLocale locale(lang, country);
-         if (this->locale().language() == lang && this->locale().country() == country) {
+      QList<QLocale::Country> list_countries;
+
+      for (auto item : list_locale) {
+         QLocale::Country country = item.country();
+
+         QString label = QLocale::languageToString(langId) + "/" + QLocale::countryToString(country);
+
+         QLocale locale(langId, country);
+         if (this->locale().language() == langId && this->locale().country() == country) {
             curLocaleIndex = index;
          }
 
