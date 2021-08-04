@@ -40,20 +40,20 @@ Dialogs::Dialogs(QWidget *parent)
    ui->native_checkBox->setChecked(true);
 
    // signals
-   connect(ui->integer_pushButton,    SIGNAL(clicked()), this, SLOT(setInteger()));
-   connect(ui->double_pushButton,     SIGNAL(clicked()), this, SLOT(setDouble()));
-   connect(ui->getItem_pushButton,    SIGNAL(clicked()), this, SLOT(setItem()));
-   connect(ui->getText_pushButton,    SIGNAL(clicked()), this, SLOT(setText()));
+   connect(ui->integer_pushButton,    &QPushButton::clicked, this, &Dialogs::setInteger);
+   connect(ui->double_pushButton,     &QPushButton::clicked, this, &Dialogs::setDouble);
+   connect(ui->getItem_pushButton,    &QPushButton::clicked, this, &Dialogs::setItem);
+   connect(ui->getText_pushButton,    &QPushButton::clicked, this, &Dialogs::setText);
 
-   connect(ui->dir_pushButton,        SIGNAL(clicked()), this, SLOT(setExistingDirectory()));
-   connect(ui->openFile_pushButton,   SIGNAL(clicked()), this, SLOT(setOpenFileName()));
-   connect(ui->openFiles_pushButton,  SIGNAL(clicked()), this, SLOT(setOpenFileNames()));
+   connect(ui->dir_pushButton,        &QPushButton::clicked, this, &Dialogs::setExistingDirectory);
+   connect(ui->openFile_pushButton,   &QPushButton::clicked, this, &Dialogs::setOpenFileName);
+   connect(ui->openFiles_pushButton,  &QPushButton::clicked, this, &Dialogs::setOpenFileNames);
 
-   connect(ui->critical_pushButton,   SIGNAL(clicked()), this, SLOT(criticalMessage()));
-   connect(ui->info_pushButton,       SIGNAL(clicked()), this, SLOT(informationMessage()));
-   connect(ui->quest_pushButton,      SIGNAL(clicked()), this, SLOT(questionMessage()));
-   connect(ui->warn_pushButton,       SIGNAL(clicked()), this, SLOT(warningMessage()));
-   connect(ui->error_pushButton,      SIGNAL(clicked()), this, SLOT(errorMessage()));
+   connect(ui->critical_pushButton,   &QPushButton::clicked, this, &Dialogs::criticalMessage);
+   connect(ui->info_pushButton,       &QPushButton::clicked, this, &Dialogs::informationMessage);
+   connect(ui->quest_pushButton,      &QPushButton::clicked, this, &Dialogs::questionMessage);
+   connect(ui->warn_pushButton,       &QPushButton::clicked, this, &Dialogs::warningMessage);
+   connect(ui->error_pushButton,      &QPushButton::clicked, this, &Dialogs::errorMessage);
 }
 
 Dialogs::~Dialogs()
