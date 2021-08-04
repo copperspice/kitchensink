@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>564</width>
-    <height>536</height>
+    <width>612</width>
+    <height>616</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,8 +50,11 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="text">
-         <string>QInputDialog  getInt()</string>
+         <string>QInputDialog::getInt()</string>
         </property>
        </widget>
       </item>
@@ -59,7 +62,7 @@
        <widget class="QLineEdit" name="integer_lineEdit">
         <property name="minimumSize">
          <size>
-          <width>275</width>
+          <width>300</width>
           <height>0</height>
          </size>
         </property>
@@ -72,8 +75,11 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="text">
-         <string>QInputDialog  getDouble()</string>
+         <string>QInputDialog::getDouble()</string>
         </property>
        </widget>
       </item>
@@ -87,8 +93,11 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="text">
-         <string>QInputDialog  getItem()</string>
+         <string>QInputDialog::getItem()</string>
         </property>
        </widget>
       </item>
@@ -102,8 +111,11 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="text">
-         <string>QInputDialog  getText()</string>
+         <string>QInputDialog::getText()</string>
         </property>
        </widget>
       </item>
@@ -117,8 +129,11 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="text">
-         <string>QFileDialog  getExistingDirectory()</string>
+         <string>QFileDialog::getExistingDirectory()</string>
         </property>
        </widget>
       </item>
@@ -129,8 +144,11 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="text">
-         <string>QFileDialog  getOpenFileName()</string>
+         <string>QFileDialog::getOpenFileName()</string>
         </property>
        </widget>
       </item>
@@ -138,7 +156,7 @@
        <widget class="QPushButton" name="openFiles_pushButton">
         <property name="minimumSize">
          <size>
-          <width>225</width>
+          <width>270</width>
           <height>0</height>
          </size>
         </property>
@@ -147,8 +165,11 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="text">
-         <string>QFileDialog  getOpenFileNames()</string>
+         <string>QFileDialog::getOpenFileNames()</string>
         </property>
        </widget>
       </item>
@@ -216,8 +237,11 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="text">
-         <string>QMessageBox  error()</string>
+         <string>QMessageBox::error()</string>
         </property>
        </widget>
       </item>
@@ -228,8 +252,11 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="text">
-         <string>QMessageBox  information()</string>
+         <string>QMessageBox::information()</string>
         </property>
        </widget>
       </item>
@@ -237,7 +264,7 @@
        <widget class="QLineEdit" name="critical_lineEdit">
         <property name="minimumSize">
          <size>
-          <width>275</width>
+          <width>300</width>
           <height>0</height>
          </size>
         </property>
@@ -250,8 +277,11 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="text">
-         <string>QMessageBox  question()</string>
+         <string>QMessageBox::question()</string>
         </property>
        </widget>
       </item>
@@ -267,13 +297,22 @@
       </item>
       <item row="0" column="0">
        <widget class="QPushButton" name="critical_pushButton">
+        <property name="minimumSize">
+         <size>
+          <width>270</width>
+          <height>0</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="text">
-         <string>QMessageBox  critical()</string>
+         <string>QMessageBox::critical()</string>
         </property>
        </widget>
       </item>
@@ -287,8 +326,11 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="text">
-         <string>QMessageBox  warning()</string>
+         <string>QMessageBox::warning()</string>
         </property>
        </widget>
       </item>
