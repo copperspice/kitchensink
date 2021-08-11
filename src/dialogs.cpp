@@ -112,7 +112,7 @@ void Dialogs::setText()
 // 2
 void Dialogs::setExistingDirectory()
 {
-   QFileDialog::Options options = QFileDialog::DontResolveSymlinks | QFileDialog::ShowDirsOnly;
+   QFileDialog::FileDialogOptions options = QFileDialog::DontResolveSymlinks | QFileDialog::ShowDirsOnly;
 
    if (! ui->native_checkBox->isChecked()) {
       options |= QFileDialog::DontUseNativeDialog;
@@ -128,15 +128,14 @@ void Dialogs::setExistingDirectory()
 
 void Dialogs::setOpenFileName()
 {
-   QFileDialog::Options options;
+   QFileDialog::FileDialogOptions options;
 
    if (! ui->native_checkBox->isChecked()) {
       options |= QFileDialog::DontUseNativeDialog;
    }
 
    QString selectedFilter;
-   QString fileName = QFileDialog::getOpenFileName(this,
-         tr("getOpenFileName()"), ui->openFile_lineEdit->text(),
+   QString fileName = QFileDialog::getOpenFileName(this, tr("getOpenFileName()"), ui->openFile_lineEdit->text(),
          tr("All Files (*);;Text Files (*.txt)"), &selectedFilter, options);
 
    if (! fileName.isEmpty()) {
@@ -146,15 +145,14 @@ void Dialogs::setOpenFileName()
 
 void Dialogs::setOpenFileNames()
 {
-   QFileDialog::Options options;
+   QFileDialog::FileDialogOptions options;
 
    if (! ui->native_checkBox->isChecked()) {
       options |= QFileDialog::DontUseNativeDialog;
    }
 
    QString selectedFilter;
-   QStringList files = QFileDialog::getOpenFileNames(
-         this, tr("getOpenFileNames()"), openFilesPath,
+   QStringList files = QFileDialog::getOpenFileNames(this, tr("getOpenFileNames()"), openFilesPath,
          tr("All Files (*);;Text Files (*.txt)"), &selectedFilter, options);
 
    if (files.count()) {
