@@ -62,8 +62,9 @@ void Sliders::createRotableGroupBox()
    m_rotableWidgets.enqueue(new QProgressBar);
 
    int nK = m_rotableWidgets.count();
+
    for (int i = 0; i < nK; ++i) {
-      connect(m_rotableWidgets[i],SIGNAL(valueChanged(int)),
+      connect(m_rotableWidgets[i], SIGNAL(valueChanged(int)),
             m_rotableWidgets[(i + 1) % nK], SLOT(setValue(int)));
    }
 

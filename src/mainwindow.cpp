@@ -460,7 +460,7 @@ void MainWindow::actionWorld_Clock()
 */
 }
 
-//  help
+//  help menu
 void MainWindow::actionAbout_CopperSpice()
 {
 #if ! defined(QT_NO_WEBKIT)

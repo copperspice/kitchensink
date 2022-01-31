@@ -74,7 +74,7 @@ QString Style_Edit::loadStyleSheet(const QString &name)
    QString styleSheet = readStyleSheet(name);
 
    // new style sheet
-   qApp->setStyleSheet(styleSheet);
+   QApplication::instance()->setStyleSheet(styleSheet);
 
    return styleSheet;
 }
@@ -91,7 +91,7 @@ QString Style_Edit::readStyleSheet(const QString &name)
 
 void Style_Edit::on_styleCombo_activated(const QString &styleName)
 {
-   qApp->setStyle(styleName);
+   QApplication::instance()->setStyle(styleName);
    ui->applyPB->setEnabled(false);
 }
 
@@ -113,7 +113,7 @@ void Style_Edit::on_styleTextEdit_textChanged()
 
 void Style_Edit::on_applyPB_clicked()
 {
-   qApp->setStyleSheet(ui->styleTextEdit->toPlainText());
+   QApplication::instance()->setStyleSheet(ui->styleTextEdit->toPlainText());
    ui->applyPB->setEnabled(false);
 }
 
