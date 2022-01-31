@@ -38,35 +38,23 @@ class Calendar : public QWidget
       Calendar();
 
    private:
+      QComboBox *createColorComboBox();
+
       void createCalendarGroupBox();
       void createGeneralOptionsGroupBox();
       void createDatesGroupBox();
       void createTextFormatsGroupBox();
-      QComboBox *createColorComboBox();
 
-      CS_SLOT_1(Private, void localeChanged(int index))
-      CS_SLOT_2(localeChanged)
+      // slot methods
+      void localeChanged(int index);
+      void firstDayChanged(int index);
+      void selectionModeChanged(int index);
+      void horizontalHeaderChanged(int index);
+      void verticalHeaderChanged(int index);
 
-      CS_SLOT_1(Private, void firstDayChanged(int index))
-      CS_SLOT_2(firstDayChanged)
-
-      CS_SLOT_1(Private, void selectionModeChanged(int index))
-      CS_SLOT_2(selectionModeChanged)
-
-      CS_SLOT_1(Private, void horizontalHeaderChanged(int index))
-      CS_SLOT_2(horizontalHeaderChanged)
-
-      CS_SLOT_1(Private, void verticalHeaderChanged(int index))
-      CS_SLOT_2(verticalHeaderChanged)
-
-      CS_SLOT_1(Private, void selectedDateChanged())
-      CS_SLOT_2(selectedDateChanged)
-
-      CS_SLOT_1(Private, void minimumDateChanged(const QDate & date))
-      CS_SLOT_2(minimumDateChanged)
-
-      CS_SLOT_1(Private, void maximumDateChanged(const QDate & date))
-      CS_SLOT_2(maximumDateChanged)
+      void selectedDateChanged();
+      void minimumDateChanged(const QDate &date);
+      void maximumDateChanged(const QDate &date);
 
       CS_SLOT_1(Private, void weekdayFormatChanged())
       CS_SLOT_2(weekdayFormatChanged)
@@ -91,13 +79,16 @@ class Calendar : public QWidget
       QLabel *selectionModeLabel;
       QLabel *horizontalHeaderLabel;
       QLabel *verticalHeaderLabel;
+
       QComboBox *localeCombo;
       QComboBox *firstDayCombo;
       QComboBox *selectionModeCombo;
+
+      QComboBox *horizontalCombo;
+      QComboBox *verticalCombo;
+
       QCheckBox *gridCheckBox;
       QCheckBox *navigationCheckBox;
-      QComboBox *horizontalHeaderCombo;
-      QComboBox *verticalHeaderCombo;
 
       QGroupBox *datesGroupBox;
       QLabel *currentDateLabel;
