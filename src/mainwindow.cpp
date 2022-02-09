@@ -483,13 +483,18 @@ void MainWindow::actionAbout_KitchenSink()
 
 void MainWindow::actionAbout()
 {
-   QString textBody = "<font color='#000080'><table style=margin-right:25>"
-                      "<tr><td><nobr>Developed by Barbara Geller</nobr></td><td>barbara@copperspice.com</td></tr>"
-                      "<tr><td style=padding-right:25><nobr>Developed by Ansel Sermersheim</nobr></td><td>ansel@copperspice.com</td></tr>"
-                      "</table></font>"
-                      "<br>"
-                      "<p><small>Copyright 2012-2022 BG Consulting, released under the 2-Clause BSD license<br>"
-                      "This program is provided AS IS with no warranty of any kind.<br></small></p>";
+   QString textBody =
+      "<font color='#000080'>"
+      "<table style=margin-right:25>"
+      "   <tr><td><nobr>Developed by Barbara Geller</nobr></td>"
+      "       <td>barbara@copperspice.com</td></tr>"
+      "   <tr><td style=padding-right:25><nobr>Developed by Ansel Sermersheim</nobr></td>"
+      "       <td>ansel@copperspice.com</td></tr>"
+      "</table></font>"
+      "<br>"
+
+      "<p><small>Copyright 2012-2022 BG Consulting, released under the 2-Clause BSD license<br>"
+      "This program is provided AS IS with no warranty of any kind.<br></small></p>";
 
    QMessageBox msgB;
    msgB.setIcon(QMessageBox::NoIcon);
