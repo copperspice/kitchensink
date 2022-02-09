@@ -44,14 +44,15 @@ class Dialogs : public QWidget
       void setExistingDirectory();
       void setOpenFileName();
       void setOpenFileNames();
+
       void criticalMessage();
+      void errorMessage();
       void informationMessage();
       void questionMessage();
       void warningMessage();
-      void errorMessage();
 
       Ui::Dialogs *ui;
-      QErrorMessage *errorMessageDialog;
+      QErrorMessage *errorDialog = nullptr;
       QString openFilesPath;
 };
 
