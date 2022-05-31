@@ -33,13 +33,13 @@
 #include <xml.h>
 #include <xmlpatterns.h>
 
-#if ! defined(QT_NO_MULTIMEDIA)
+#ifndef QT_NO_MULTIMEDIA
 #include <camera.h>
 #include <musicplayer.h>
 #include <videoplayer.h>
 #endif
 
-#if ! defined(QT_NO_WEBKIT)
+#ifndef QT_NO_WEBKIT
 #include <aboutcs.h>
 #include <html_viewer.h>
 #include <web_browser.h>
@@ -269,11 +269,12 @@ void MainWindow::actionXmlPatterns()
    addMdiChild(oDw);
 }
 
+
 // audio & visual
 void MainWindow::actionCamera()
 {
 
-#if ! defined(QT_NO_MULTIMEDIA)
+#ifndef QT_NO_MULTIMEDIA
    try {
       Camera *oDw = new Camera();
       addMdiChild(oDw);
@@ -281,7 +282,7 @@ void MainWindow::actionCamera()
       ksMsg(this, "Audio/Video Issue", "No camera or capture device was found.");
    }
 
- #else
+#else
    ksMsg("KS was not built with CsMultimedia library, Camera disabled.");
 #endif
 
@@ -290,7 +291,7 @@ void MainWindow::actionCamera()
 void MainWindow::actionMusicPlayer()
 {
 
-#if ! defined(QT_NO_MULTIMEDIA)
+#ifndef QT_NO_MULTIMEDIA
    MusicPlayer *oDw = new MusicPlayer();
    addMdiChild(oDw);
  #else
@@ -313,22 +314,26 @@ void MainWindow::actionVideoWidget()
 
 void MainWindow::actionHTML_Viewer()
 {
-#if ! defined(QT_NO_WEBKIT)
+
+#ifndef QT_NO_WEBKIT
    Html_Viewer *oDw = new Html_Viewer();
    addMdiChild(oDw);
 #else
    ksMsg("KS was not built with CsWebkit library, Html Viewer disabled.");
 #endif
+
 }
 
 void MainWindow::actionWebBrowser()
 {
-#if ! defined(QT_NO_WEBKIT)
+
+#ifndef QT_NO_WEBKIT
    WebBrowser *oDw = new WebBrowser(this);
    addMdiChild(oDw);
 #else
    ksMsg("KS was not built with CsWebkit library, WebBrowser disabled.");
 #endif
+
 }
 
 // network
@@ -469,22 +474,26 @@ void MainWindow::actionWorld_Clock()
 //  help menu
 void MainWindow::actionAbout_CopperSpice()
 {
-#if ! defined(QT_NO_WEBKIT)
+
+#ifndef QT_NO_WEBKIT
    AboutCS *oDw = new AboutCS("cs");
    addMdiChild(oDw);
 #else
    ksMsg("KitchenSink was not built with CsWebKit library, unable to run About CopperSpice.");
 #endif
+
 }
 
 void MainWindow::actionAbout_KitchenSink()
 {
-#if ! defined(QT_NO_WEBKIT)
+
+#ifndef QT_NO_WEBKIT
    AboutCS *oDw = new AboutCS("ks");
    addMdiChild(oDw);
 #else
    ksMsg("KitchenSink was not built with CsWebkit library, unable to run About KitchenSink.");
 #endif
+
 }
 
 void MainWindow::actionAbout()
