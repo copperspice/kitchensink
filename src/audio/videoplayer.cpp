@@ -17,6 +17,8 @@
 *
 ***********************************************************************/
 
+#ifndef QT_NO_MULTIMEDIA
+
 #include "videoplayer.h"
 #include "videowidget.h"
 #include "util.h"
@@ -168,3 +170,5 @@ bool VideoPlayer::presentImage(const QImage &image)
 void VideoPlayer::actionClose() {
    this->parentWidget()->close();
 }
+
+#endif   // ! QT_NO_MULTIMEDIA

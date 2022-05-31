@@ -20,6 +20,8 @@
 #ifndef VIDEOPLAYER_H
 #define VIDEOPLAYER_H
 
+#ifndef QT_NO_MULTIMEDIA
+
 #include <QAbstractVideoSurface>
 #include <QMovie>
 #include <QWidget>
@@ -47,5 +49,7 @@ class VideoPlayer : public QWidget
       QMovie m_movie;
       QAbstractVideoSurface *m_surface;
 };
+
+#endif   // ! QT_NO_MULTIMEDIA
 
 #endif

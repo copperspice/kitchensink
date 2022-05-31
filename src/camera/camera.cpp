@@ -17,6 +17,8 @@
 *
 ***********************************************************************/
 
+#ifndef QT_NO_MULTIMEDIA
+
 #include <ui_camera.h>
 
 #include <camera.h>
@@ -430,3 +432,5 @@ void Camera::closeEvent(QCloseEvent *event)
       event->accept();
    }
 }
+
+#endif   // ! QT_NO_MULTIMEDIA

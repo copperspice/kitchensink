@@ -20,6 +20,8 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
+#ifndef QT_NO_MULTIMEDIA
+
 #include <QCamera>
 #include <QCameraImageCapture>
 #include <QMainWindow>
@@ -108,5 +110,7 @@ class Camera : public QMainWindow
    void updateRecorderState(QMediaRecorder::State state);
    void updateRecordTime();
 };
+
+#endif   // ! QT_NO_MULTIMEDIA
 
 #endif

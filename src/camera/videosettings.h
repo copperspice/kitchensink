@@ -20,6 +20,8 @@
 #ifndef VIDEOSETTINGS_H
 #define VIDEOSETTINGS_H
 
+#ifndef QT_NO_MULTIMEDIA
+
 #include <QAudioEncoderSettings>
 #include <QDialog>
 #include <QVideoEncoderSettings>
@@ -58,5 +60,7 @@ class VideoSettings : public QDialog
    Ui::VideoSettingsUi *ui;
    QMediaRecorder *mediaRecorder;
 };
+
+#endif   // ! QT_NO_MULTIMEDIA
 
 #endif

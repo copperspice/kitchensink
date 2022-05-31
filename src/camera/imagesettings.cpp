@@ -17,6 +17,7 @@
 *
 ***********************************************************************/
 
+#ifndef QT_NO_MULTIMEDIA
 #include <ui_camera_imagesettings.h>
 
 #include <imagesettings.h>
@@ -105,3 +106,5 @@ void ImageSettings::selectComboBoxItem(QComboBox *box, const QVariant &value)
       }
    }
 }
+
+#endif   // ! QT_NO_MULTIMEDIA

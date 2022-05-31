@@ -20,6 +20,8 @@
 #ifndef VIDEOSURFACE_H
 #define VIDEOSURFACE_H
 
+#ifndef QT_NO_MULTIMEDIA
+
 #include <QAbstractVideoSurface>
 #include <QWidget>
 
@@ -57,5 +59,7 @@ class VideoSurface : public QAbstractVideoSurface
       QRect sourceRect;
       QVideoFrame currentFrame;
 };
+
+#endif   // ! QT_NO_MULTIMEDIA
 
 #endif

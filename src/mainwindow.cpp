@@ -30,13 +30,13 @@
 #include <style_dw.h>
 #include <systray.h>
 #include <svg_view.h>
-#include <videoplayer.h>
 #include <xml.h>
 #include <xmlpatterns.h>
 
 #if ! defined(QT_NO_MULTIMEDIA)
 #include <camera.h>
 #include <musicplayer.h>
+#include <videoplayer.h>
 #endif
 
 #if ! defined(QT_NO_WEBKIT)
@@ -301,8 +301,14 @@ void MainWindow::actionMusicPlayer()
 
 void MainWindow::actionVideoWidget()
 {
+
+#ifndef QT_NO_MULTIMEDIA
    VideoPlayer *oDw = new VideoPlayer();
    addMdiChild(oDw);
+#else
+   ksMsg("KS was not built with CsMultimedia library, Video disabled.");
+#endif
+
 }
 
 void MainWindow::actionHTML_Viewer()

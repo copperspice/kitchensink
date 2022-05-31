@@ -17,7 +17,7 @@
 *
 ***********************************************************************/
 
-#if ! defined(QT_NO_MULTIMEDIA)
+#ifndef QT_NO_MULTIMEDIA
 
 #include "musicplayer.h"
 #include "volumebutton.h"
@@ -351,4 +351,4 @@ QSize MusicPlayer::sizeHint() const
    return QSize(800, 300);
 }
 
-#endif
+#endif   // ! QT_NO_MULTIMEDIA

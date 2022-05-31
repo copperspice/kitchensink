@@ -17,6 +17,8 @@
 *
 ***********************************************************************/
 
+#ifndef QT_NO_MULTIMEDIA
+
 #include "videowidget.h"
 #include "videosurface.h"
 
@@ -76,3 +78,4 @@ void VideoWidget::resizeEvent(QResizeEvent *event)
    surface->updateVideoRect();
 }
 
+#endif   // ! QT_NO_MULTIMEDIA

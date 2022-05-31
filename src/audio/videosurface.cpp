@@ -17,6 +17,8 @@
 *
 ***********************************************************************/
 
+#ifndef QT_NO_MULTIMEDIA
+
 #include "videosurface.h"
 #include "util.h"
 
@@ -145,3 +147,4 @@ void VideoSurface::paint(QPainter *painter)
    }
 }
 
+#endif   // ! QT_NO_MULTIMEDIA

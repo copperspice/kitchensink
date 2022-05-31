@@ -86,6 +86,6 @@ class MusicPlayer : public QWidget
       QAction *m_stopAction;
 };
 
-#endif
+#endif // ! QT_NO_MULTIMEDIA
 
 #endif

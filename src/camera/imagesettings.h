@@ -20,6 +20,8 @@
 #ifndef IMAGESETTINGS_H
 #define IMAGESETTINGS_H
 
+#ifndef QT_NO_MULTIMEDIA
+
 #include <QDialog>
 #include <QAudioEncoderSettings>
 #include <QVideoEncoderSettings>
@@ -58,5 +60,7 @@ class ImageSettings : public QDialog
    Ui::ImageSettingsUi *ui;
    QCameraImageCapture *imagecapture;
 };
+
+#endif   // ! QT_NO_MULTIMEDIA
 
 #endif

@@ -20,6 +20,8 @@
 #ifndef VIDEOWIDGET_H
 #define VIDEOWIDGET_H
 
+#ifndef QT_NO_MULTIMEDIA
+
 #include "videosurface.h"
 
 #include <QAbstractVideoSurface>
@@ -46,5 +48,7 @@ class VideoWidget : public QWidget
    private:
       VideoSurface *surface;
 };
+
+#endif   // ! QT_NO_MULTIMEDIA
 
 #endif
