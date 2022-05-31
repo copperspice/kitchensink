@@ -66,7 +66,6 @@
 #include <sliders.h>
 #include <tabdialog.h>
 
-// #include "script.h"       (QScript)
 // #include "wiggle_boxes.h" (Qml)
 // #include "world_clock.h"  (Qml)
 
@@ -107,7 +106,6 @@ MainWindow::MainWindow()
    connect(m_ui->actionStandardDialog,    &QAction::triggered, this,  &MainWindow::actionStandardDialog);
    connect(m_ui->actionStandardPath,      &QAction::triggered, this,  &MainWindow::actionStandardPath);
    connect(m_ui->actionStyleSheetDialog,  &QAction::triggered, this,  &MainWindow::actionStyleSheetDialog);
-   connect(m_ui->actionScript,            &QAction::triggered, this,  &MainWindow::actionScript);
    connect(m_ui->actionXml,               &QAction::triggered, this,  &MainWindow::actionXml);
    connect(m_ui->actionXmlPatterns,       &QAction::triggered, this,  &MainWindow::actionXmlPatterns);
 
@@ -245,16 +243,6 @@ void MainWindow::actionStyleSheetDialog()
 {
    Style_DW *oDw = new Style_DW(this);
    addMdiChild(oDw);
-}
-
-void MainWindow::actionScript()
-{
-   ksMsg("JS Scripts - CsScript is not available");
-
-/*
-   Script *oDw = new Script();
-   addMdiChild(oDw);
-*/
 }
 
 void MainWindow::actionXml()

@@ -71,8 +71,6 @@ class MainWindow : public QMainWindow
       CS_SLOT_1(Private, void actionStyleSheetDialog())
       CS_SLOT_2(actionStyleSheetDialog)
 
-      CS_SLOT_1(Private, void actionScript())
-      CS_SLOT_2(actionScript)
 
       CS_SLOT_1(Private, void actionXml())
       CS_SLOT_2(actionXml)

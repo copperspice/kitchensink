@@ -82,8 +82,6 @@
     <addaction name="actionStandardPath"/>
     <addaction name="actionStyleSheetDialog"/>
     <addaction name="separator"/>
-    <addaction name="actionScript"/>
-    <addaction name="separator"/>
     <addaction name="actionXml"/>
     <addaction name="actionXmlPatterns"/>
    </widget>
@@ -281,17 +279,6 @@
   <action name="actionVideoWidget">
    <property name="text">
     <string>Video Widget</string>
-   </property>
-  </action>
-  <action name="actionScript">
-   <property name="text">
-    <string>JS Script *</string>
-   </property>
-   <property name="iconText">
-    <string>JS Script</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
    </property>
   </action>
   <action name="actionClose_Window">
