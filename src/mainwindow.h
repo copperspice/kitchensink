@@ -28,10 +28,10 @@ class MainWindow : public QMainWindow
 {
    CS_OBJECT(MainWindow)
 
-   public:
-      explicit MainWindow();
-      ~MainWindow();
-      void addMdiChild(QWidget *);
+ public:
+   explicit MainWindow();
+   ~MainWindow();
+   void addMdiChild(QWidget *);
 
    private:
       CS_SLOT_1(Private, void actionClose_Window())

@@ -31,22 +31,22 @@ class VideoWidget : public QWidget
 {
    CS_OBJECT(VideoWidget)
 
-   public:
-      VideoWidget(QWidget *parent = nullptr);
-      ~VideoWidget();
+ public:
+   VideoWidget(QWidget *parent = nullptr);
+   ~VideoWidget();
 
-      QAbstractVideoSurface *videoSurface() const {
-         return surface;
-      }
+   QAbstractVideoSurface *videoSurface() const {
+      return surface;
+   }
 
-      QSize sizeHint() const;
+   QSize sizeHint() const;
 
-   protected:
-      void paintEvent(QPaintEvent *event);
-      void resizeEvent(QResizeEvent *event);
+ protected:
+   void paintEvent(QPaintEvent *event);
+   void resizeEvent(QResizeEvent *event);
 
-   private:
-      VideoSurface *surface;
+ private:
+   VideoSurface *surface;
 };
 
 #endif   // ! QT_NO_MULTIMEDIA

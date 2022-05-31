@@ -25,39 +25,34 @@
 #include <QAbstractVideoSurface>
 #include <QWidget>
 
-class QImage;
-class QRect;
-class QSize;
-class QVideoFrame;
-
 class VideoSurface : public QAbstractVideoSurface
 {
    CS_OBJECT(VideoSurface)
 
-   public:
-      VideoSurface(QWidget *widget, QObject *parent = nullptr);
+ public:
+   VideoSurface(QWidget *widget, QObject *parent = nullptr);
 
-      QList<QVideoFrame::PixelFormat> supportedPixelFormats(
-            QAbstractVideoBuffer::HandleType handleType = QAbstractVideoBuffer::NoHandle) const;
-      bool isFormatSupported(const QVideoSurfaceFormat &format, QVideoSurfaceFormat *similar) const;
+   QList<QVideoFrame::PixelFormat> supportedPixelFormats(
+      QAbstractVideoBuffer::HandleType handleType = QAbstractVideoBuffer::NoHandle) const;
+   bool isFormatSupported(const QVideoSurfaceFormat &format, QVideoSurfaceFormat *similar) const;
 
-      bool start(const QVideoSurfaceFormat &format);
-      void stop();
+   bool start(const QVideoSurfaceFormat &format);
+   void stop();
 
-      bool present(const QVideoFrame &frame);
+   bool present(const QVideoFrame &frame);
 
-      QRect videoRect() const { return targetRect; }
-      void updateVideoRect();
+   QRect videoRect() const { return targetRect; }
+   void updateVideoRect();
 
-      void paint(QPainter *painter);
+   void paint(QPainter *painter);
 
-   private:
-      QWidget *m_widget;
-      QImage::Format m_imageFormat;
-      QRect targetRect;
-      QSize imageSize;
-      QRect sourceRect;
-      QVideoFrame currentFrame;
+ private:
+   QWidget *m_widget;
+   QImage::Format m_imageFormat;
+   QRect targetRect;
+   QSize imageSize;
+   QRect sourceRect;
+   QVideoFrame currentFrame;
 };
 
 #endif   // ! QT_NO_MULTIMEDIA

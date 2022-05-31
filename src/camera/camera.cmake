@@ -8,5 +8,4 @@ list(APPEND KITCHENSINK_SOURCES
    ${CMAKE_CURRENT_SOURCE_DIR}/camera/camera.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/camera/imagesettings.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/camera/videosettings.cpp
-
 )

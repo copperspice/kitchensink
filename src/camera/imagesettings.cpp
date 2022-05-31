@@ -18,9 +18,9 @@
 ***********************************************************************/
 
 #ifndef QT_NO_MULTIMEDIA
-#include <ui_camera_imagesettings.h>
 
-#include <imagesettings.h>
+#include "ui_camera_imagesettings.h"
+#include "imagesettings.h"
 
 #include <QCameraImageCapture>
 #include <QComboBox>

@@ -30,24 +30,24 @@ class VideoPlayer : public QWidget
 {
    CS_OBJECT(VideoPlayer)
 
-   public:
-      VideoPlayer(QWidget *parent = nullptr);
-      ~VideoPlayer();
+ public:
+   VideoPlayer(QWidget *parent = nullptr);
+   ~VideoPlayer();
 
-   private:
-      bool presentImage(const QImage &image);
+ private:
+   bool presentImage(const QImage &image);
 
-      CS_SLOT_1(Private, void stateChanged(QMovie::MovieState state))
-      CS_SLOT_2(stateChanged)
+   CS_SLOT_1(Private, void stateChanged(QMovie::MovieState state))
+   CS_SLOT_2(stateChanged)
 
-      CS_SLOT_1(Private, void frameChanged(int frame))
-      CS_SLOT_2(frameChanged)
+   CS_SLOT_1(Private, void frameChanged(int frame))
+   CS_SLOT_2(frameChanged)
 
-      CS_SLOT_1(Private, void actionClose())
-      CS_SLOT_2(actionClose)
+   CS_SLOT_1(Private, void actionClose())
+   CS_SLOT_2(actionClose)
 
-      QMovie m_movie;
-      QAbstractVideoSurface *m_surface;
+   QMovie m_movie;
+   QAbstractVideoSurface *m_surface;
 };
 
 #endif   // ! QT_NO_MULTIMEDIA

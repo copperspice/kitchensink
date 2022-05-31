@@ -26,9 +26,6 @@
 #include <QAudioEncoderSettings>
 #include <QVideoEncoderSettings>
 
-class QComboBox;
-class QCameraImageCapture;
-
 namespace Ui {
 class ImageSettingsUi;
 }
