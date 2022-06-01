@@ -36,14 +36,14 @@ class TreeView : public QWidget
       bool createConnection();
       QSqlDatabase m_db;
 
-      struct struCat {
-         int catKey;
-         QString catName;
-         int catParent;
+      struct TreeData {
+         int m_id;
+         QString m_name;
+         int m_parentId;
       };
 
-      QList<struCat> getData();
-      static bool sortMe(const TreeView::struCat &s1, const TreeView::struCat &s2);
+      QList<TreeData> getData();
+      static bool sortMe(const TreeView::TreeData &s1, const TreeView::TreeData &s2);
 };
 
 #endif

@@ -43,7 +43,7 @@ TableView::TableView()
    QSqlTableModel *model = new QSqlTableModel(this, m_db);
 
    QStringList tableList = m_db.tables();
-   model->setTable(tableList.at(0));
+   model->setTable("famousPeople");
 
    QSqlError error = model->lastError();
 
@@ -85,46 +85,43 @@ TableView::~TableView()
 
 bool TableView::createConnection()
 {
-   static int counter = 100;
-   QString tableName = "table" + QString::number(counter++);
-
-   m_db = QSqlDatabase::addDatabase("QSQLITE", tableName);
+   m_db = QSqlDatabase::addDatabase("QSQLITE", "peopleDB");
    m_db.setDatabaseName(":memory:");
 
    if (! m_db.open()) {
-      QMessageBox::critical(nullptr, tr("Unable to Open Database"),
-           tr("Unable to establish a connection to the database.\n"
-              "This example requires SQLite.\n\n"), QMessageBox::Cancel);
+      QMessageBox::critical(nullptr, tr("Error Opening Database"),
+           tr("Unable to establish a connection to the SQLite database."), QMessageBox::Cancel);
+
       return false;
    }
 
    QSqlQuery query(m_db);
-   query.exec("create table person (id int primary key, "
+   query.exec("create table famousPeople (id int primary key, "
               "firstname varchar(20), lastname varchar(20), bio varchar(200))");
 
-   query.exec("insert into person values(1, 'Gordon',  'Lightfoot', "
+   query.exec("insert into famousPeople values(1, 'Gordon',  'Lightfoot', "
         "'Canadian folk singer, wrote ballads which told elaborate stories.')");
 
-   query.exec("insert into person values(2, 'Whoopi',  'Goldberg', "
-        "'Comedian, actress, talk show host, activist. She was on Star Trek NG, which is one of "
-        "here most cherished experiences.')");
+   query.exec("insert into famousPeople values(2, 'George', 'Carlin', "
+        "'Comedian, author, social critic. Known for his opinions about politics, "
+        "language, religion, and taboo subjects.')");
 
-   query.exec("insert into person values(3, 'Paul', 'McCartney', "
-         "'English singer and songwriter, key member of the Beatles')");
+   query.exec("insert into famousPeople values(3, 'Stephen', 'Sondheim', "
+         "'Composer and lyricist of musical theater. Credits include Sweeney Todd, "
+         "Sunday in the Park with George, and Into the Woods.')");
 
-   query.exec("insert into person values(4, 'Dennis',  'Ritchie', "
+   query.exec("insert into famousPeople values(4, 'Dennis',  'Ritchie', "
          "'A key developer of the C programming language.')");
 
-   query.exec("insert into person values(5, 'Robert',  'Heinlein', "
+   query.exec("insert into famousPeople values(5, 'Robert',  'Heinlein', "
          "'Science fiction author.')");
 
-   query.exec("insert into person values(6, 'Shirley', 'Corriher', "
+   query.exec("insert into famousPeople values(6, 'Shirley', 'Corriher', "
          "'Biochemist, cookbook author, James Beard foundation award winner. If you want to understand "
          "the chemistry of baking her books are fantastic.')");
 
-   query.exec("insert into person values(7, 'Vincent', 'Van Gogh', "
+   query.exec("insert into famousPeople values(7, 'Vincent', 'Van Gogh', "
          "'Dutch painter with a very unique and special style, influenced modern art.')");
-
 
    return true;
 }

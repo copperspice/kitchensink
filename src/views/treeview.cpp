@@ -37,45 +37,37 @@ TreeView::TreeView()
    }
 
    setWindowTitle(tr("Tree View Model"));
-   setMinimumSize(200, 350);
-
-   QTreeView *treeView = new QTreeView();
-   QStandardItemModel *model = new QStandardItemModel();
+   setMinimumSize(250, 425);
 
    // get sql data
-   QList<struCat> itemList;
-   itemList = getData();
+   QList<TreeData> data = getData();
 
-   // sort the qlist data
-   std::sort(itemList.begin(), itemList.end(), sortMe);
+   // sort the data
+   std::sort(data.begin(), data.end(), sortMe);
 
-   // put qlist data in the tree
-   QList<struCat>::iterator nK;
+   QStandardItemModel *model = new QStandardItemModel();
+   QStandardItem *rootItem = model->invisibleRootItem();
+   QStandardItem *prevItem = nullptr;
 
-   QStandardItem *parentItem = model->invisibleRootItem();
-   QStandardItem *lastParent = nullptr;
-
-   for (nK = itemList.begin(); nK != itemList.end(); ++nK) {
+   for (auto iter = data.begin(); iter != data.end(); ++iter) {
 
       QStandardItem *item = new QStandardItem;
-      item->setText(nK->catName);
-      item->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable );
+      item->setText(iter->m_name);
+      item->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
 
-      if ( nK->catParent == 0 ) {
-         parentItem->appendRow(item);
+      if (iter->m_parentId == 0) {
+         rootItem->appendRow(item);
+         prevItem = item;
 
-         // save this
-         lastParent = item;
-
-       }  else {
-         lastParent->appendRow(item);
+       } else {
+         prevItem->appendRow(item);
       }
-
    }
 
-   model->setHeaderData(0, Qt::Horizontal, QObject::tr("Food Categories"));
+   model->setHeaderData(0, Qt::Horizontal, QObject::tr("Recipe Categories"));
    model->sort(0);
 
+   QTreeView *treeView = new QTreeView();
    treeView->setModel(model);
    treeView->expandAll();
 
@@ -87,88 +79,87 @@ TreeView::TreeView()
 
 bool TreeView::createConnection()
 {
-   static int counter = 100;
-   QString treeName = "tree" + QString::number(counter++);
-
-   m_db = QSqlDatabase::addDatabase("QSQLITE", treeName);
+   m_db = QSqlDatabase::addDatabase("QSQLITE", "treeViewDb");
    m_db.setDatabaseName(":memory:");
 
    if (! m_db.open()) {
-      QMessageBox::critical(nullptr, tr("Unable to Open Database"),
-           tr("Unable to establish a connection to the database.\n"
-              "This example requires SQLite.\n\n"), QMessageBox::Cancel);
+      QMessageBox::critical(nullptr, tr("Error Opening Database"),
+           tr("Unable to establish a connection to the SQLite database."), QMessageBox::Cancel);
+
       return false;
    }
 
    QSqlQuery query(m_db);
-   query.exec("CREATE TABLE food (catKey int PRIMARY KEY, catName varchar(30), catParent int)");
+   query.exec("CREATE TABLE food (catKey int PRIMARY KEY, catName varchar(30), catParentId int)");
 
-   query.exec("insert into food values(101, 'Salad',        0   )");
-   query.exec("insert into food values(102, 'Bread',        0   )");
-   query.exec("insert into food values(103, 'Cookies',      104 )");
-   query.exec("insert into food values(104, 'Dessert' ,     0   )");
-   query.exec("insert into food values(105, 'Vegetables',   0   )");
-   query.exec("insert into food values(106, 'Seafood',      0   )");
-   query.exec("insert into food values(107, 'Chicken',      0   )");
-   query.exec("insert into food values(108, 'Pastries',     104 )");
-   query.exec("insert into food values(109, 'Muffins',      102 )");
-   query.exec("insert into food values(110, 'Thanksgiving', 0   )");
-   query.exec("insert into food values(111, 'Pasta',        101 )");
-   query.exec("insert into food values(112, 'Greens',       101 )");
+   query.exec("insert into food values(101, 'Salad', 0)");
+   query.exec("insert into food values(102, 'Bread', 0)");
+   query.exec("insert into food values(103, 'KitchenSink Cookies', 104)");
+   query.exec("insert into food values(104, 'Dessert', 0)");
+   query.exec("insert into food values(105, 'Roasted Carrots', 114)");
+   query.exec("insert into food values(106, 'Chicken', 0)");
+   query.exec("insert into food values(107, 'Brownies', 104)");
+   query.exec("insert into food values(108, 'Blueberry Muffins', 102)");
+   query.exec("insert into food values(109, 'Chocolate Ice Cream', 104)");
+   query.exec("insert into food values(110, 'Soup', 0)");
+   query.exec("insert into food values(111, 'Corn Bread', 102)");
+   query.exec("insert into food values(112, 'Thai Curry', 106)");
+   query.exec("insert into food values(113, 'Mixed Greens', 101)");
+   query.exec("insert into food values(114, 'Vegetables', 0)");
+   query.exec("insert into food values(115, 'Pasta', 0)");
+   query.exec("insert into food values(116, 'Greek', 0)");
 
    return true;
 }
 
-QList<TreeView::struCat> TreeView::getData()
+QList<TreeView::TreeData> TreeView::getData()
 {
    QSqlQuery query(m_db);
-   query.prepare("SELECT catKey, catName, catParent FROM food");
+   query.prepare("SELECT catKey, catName, catParentId FROM food");
    query.exec();
 
-   QList<struCat> itemList;
-   struct struCat temp;
+   QList<TreeData> retval;
+   struct TreeData tmp;
 
-   while (query.next())  {
+   while (query.next()) {
+      tmp.m_id       = query.value(0).toInt();
+      tmp.m_name     = query.value(1).toString();
+      tmp.m_parentId = query.value(2).toInt();
 
-      temp.catKey    = query.value(0).toInt();
-      temp.catName   = query.value(1).toString();
-      temp.catParent = query.value(2).toInt();
-
-      itemList.append(temp);
+      retval.append(tmp);
    }
 
-   return itemList;
+   return retval;
 }
 
-bool TreeView::sortMe(const TreeView::struCat &s1, const TreeView::struCat &s2)
+bool TreeView::sortMe(const TreeView::TreeData &s1, const TreeView::TreeData &s2)
 {
    bool retVal;
 
-   if ( s1.catParent == 0 && s2.catParent == 0)  {
-      retVal = s1.catKey < s2.catKey;
+   if (s1.m_parentId == 0 && s2.m_parentId == 0)  {
+      retVal = s1.m_id < s2.m_id;
 
-   } else if ( s1.catParent == 0 && s2.catParent != 0 ) {
+   } else if (s1.m_parentId == 0 && s2.m_parentId != 0) {
 
-      if ( s1.catKey == s2.catParent ) {
+      if ( s1.m_id == s2.m_parentId ) {
          retVal = true;
       } else {
-         retVal = s1.catKey < s2.catParent;
+         retVal = s1.m_id < s2.m_parentId;
       }
 
-   } else if ( s1.catParent != 0 && s2.catParent == 0 ) {
+   } else if (s1.m_parentId != 0 && s2.m_parentId == 0) {
 
-      if ( s1.catParent == s2.catKey ) {
+      if (s1.m_parentId == s2.m_id) {
          retVal = false;
       } else {
-          retVal = s1.catParent < s2.catKey;
+          retVal = s1.m_parentId < s2.m_id;
       }
 
-   } else if ( s1.catParent != 0 && s2.catParent != 0 ) {
-      retVal = s1.catParent < s2.catParent;
+   } else if (s1.m_parentId != 0 && s2.m_parentId != 0)  {
+      retVal = s1.m_parentId < s2.m_parentId;
    }
 
    return retVal;
-
 }
 
 
