@@ -29,6 +29,7 @@ StdPath::StdPath(QWidget *parent)
    m_ui->setupUi(this);
 
    QList<QStandardPaths::StandardLocation> tempList;
+
    tempList.append(QStandardPaths::DesktopLocation);
    tempList.append(QStandardPaths::DocumentsLocation);
    tempList.append(QStandardPaths::FontsLocation);
@@ -45,6 +46,9 @@ StdPath::StdPath(QWidget *parent)
    tempList.append(QStandardPaths::ConfigLocation);
    tempList.append(QStandardPaths::DownloadLocation);
    tempList.append(QStandardPaths::GenericCacheLocation);
+   tempList.append(QStandardPaths::GenericConfigLocation);
+   tempList.append(QStandardPaths::AppDataLocation);
+   tempList.append(QStandardPaths::AppConfigLocation);
 
    for (int k = 0; k < tempList.size(); ++k) {
       QStandardPaths::StandardLocation type = tempList.at(k);
