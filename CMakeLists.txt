@@ -10,8 +10,8 @@ endif()
 project(KitchenSink)
 
 set(BUILD_MAJOR "1")
-set(BUILD_MINOR "7")
-set(BUILD_MICRO "4")
+set(BUILD_MINOR "8")
+set(BUILD_MICRO "0")
 
 set(BUILD_COMPONENTS "KitchenSink")
 
