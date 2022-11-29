@@ -65,11 +65,11 @@ WebBrowser::WebBrowser(MainWindow *parent, QUrl url)
    QMenu *fileMenu = menuBar()->addMenu(tr("&File"));
 
    QAction* temp1 = new QAction(tr("Page Source"), this);
-   connect(temp1, &QAction::triggered, this, &WebBrowser::getSource()));
+   connect(temp1, &QAction::triggered, this, &WebBrowser::getSource);
    fileMenu->addAction(temp1);
 
    QAction* temp2 = new QAction(tr("Close Browser"), this);
-   connect(temp2, &QAction::triggered, this, &WebBrowser::actionClose()));
+   connect(temp2, &QAction::triggered, this, &WebBrowser::actionClose);
    fileMenu->addAction(temp2);
 
    // 2
