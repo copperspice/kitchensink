@@ -1,7 +1,7 @@
 /***********************************************************************
 *
-* Copyright (c) 2012-2022 Barbara Geller
-* Copyright (c) 2012-2022 Ansel Sermersheim
+* Copyright (c) 2012-2023 Barbara Geller
+* Copyright (c) 2012-2023 Ansel Sermersheim
 * Copyright (c) 2015 The Qt Company Ltd.
 *
 * This file is part of KitchenSink.
@@ -9,7 +9,7 @@
 * KitchenSink is free software, released under the BSD 2-Clause license.
 * For license details refer to LICENSE provided with this project.
 *
-* CopperSpice is distributed in the hope that it will be useful,
+* KitchenSink is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 *
@@ -69,39 +69,46 @@ void Ssl_Client::updateEnabledState()
 
 void Ssl_Client::secureConnect()
 {
-    ui->cipherLabel->setText(tr("Loading, please wait..."));
+   if (! QSslSocket::supportsSsl()) {
+      QMessageBox::information(this, "Secure Socket", "The OpenSSL crypto and ssl runtime libraries were not found.\n\n"
+         "Modify your system path or copy the required library files to the deploy folder for this application.");
 
-    if (! socket) {
-        socket = new QSslSocket(this);
+      return;
+   }
 
-        connect(socket, &QSslSocket::stateChanged, this, &Ssl_Client::socketStateChanged);
-        connect(socket, &QSslSocket::encrypted,    this, &Ssl_Client::socketEncrypted);
-        connect(socket, &QSslSocket::error,        this, &Ssl_Client::socketError);
-        connect(socket, &QSslSocket::sslErrors,    this, &Ssl_Client::sslErrors);
-        connect(socket, &QSslSocket::readyRead,    this, &Ssl_Client::socketReadyRead);
-    }
+   ui->cipherLabel->setText(tr("Loading, please wait..."));
 
-    socket->connectToHostEncrypted(ui->hostNameEdit->text(), ui->portBox->value());
-    updateEnabledState();
+   if (! socket) {
+      socket = new QSslSocket(this);
+
+      connect(socket, &QSslSocket::stateChanged, this, &Ssl_Client::socketStateChanged);
+      connect(socket, &QSslSocket::encrypted,    this, &Ssl_Client::socketEncrypted);
+      connect(socket, &QSslSocket::error,        this, &Ssl_Client::socketError);
+      connect(socket, &QSslSocket::sslErrors,    this, &Ssl_Client::sslErrors);
+      connect(socket, &QSslSocket::readyRead,    this, &Ssl_Client::socketReadyRead);
+   }
+
+   socket->connectToHostEncrypted(ui->hostNameEdit->text(), ui->portBox->value());
+   updateEnabledState();
 }
 
 void Ssl_Client::socketStateChanged(QAbstractSocket::SocketState state)
 {
-    if (executingDialog) {
-        return;
-    }
+   if (executingDialog) {
+      return;
+   }
 
-    updateEnabledState();
+   updateEnabledState();
 
-    if (state == QAbstractSocket::UnconnectedState) {
-        ui->hostNameEdit->setPalette(QPalette());
-        ui->hostNameEdit->setFocus();
-        ui->cipherLabel->setText(tr("<none>"));
+   if (state == QAbstractSocket::UnconnectedState) {
+      ui->hostNameEdit->setPalette(QPalette());
+      ui->hostNameEdit->setFocus();
+      ui->cipherLabel->setText(tr("<none>"));
 
-        if (padLock) {
-            padLock->hide();
-        }
-    }
+      if (padLock) {
+         padLock->hide();
+      }
+   }
 }
 
 void Ssl_Client::socketEncrypted()
