@@ -43,18 +43,19 @@ list(APPEND KITCHENSINK_SOURCES
    ${CMAKE_CURRENT_SOURCE_DIR}/xml.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/xmlpatterns.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/xmlsyntaxhighlighter.cpp
+
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/camera.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/camera_imagesettings.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/camera_videosettings.ui
-   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/mainwindow.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/chat_dialog.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/colorpicker.ui
-   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/fontpicker.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/dialogs.ui
+   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/fontpicker.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/html_viewer.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/international.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/line_edit.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/listview.ui
+   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/mainwindow.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/musicplayer.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/ssl_cert.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/ssl_client.ui
@@ -67,9 +68,11 @@ list(APPEND KITCHENSINK_SOURCES
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/tablewidget_view.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/xml.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/xmlpatterns.ui
+
    ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks_en.ts
    ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks_de.ts
    ${CMAKE_CURRENT_SOURCE_DIR}/../resources/ks_fr.ts
+
    qrc_kitchensink.cpp
 )
 
@@ -97,19 +100,18 @@ COPPERSPICE_RESOURCES(
 
 # run uic to generate source
 COPPERSPICE_RESOURCES(
-   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/mainwindow.ui
-
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/camera.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/camera_imagesettings.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/camera_videosettings.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/chat_dialog.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/colorpicker.ui
-   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/fontpicker.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/dialogs.ui
+   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/fontpicker.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/html_viewer.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/international.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/line_edit.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/listview.ui
+   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/mainwindow.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/musicplayer.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/ssl_cert.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/ssl_client.ui
@@ -156,7 +158,7 @@ endif()
 # webkit temporarily removed, pending overflow issue resolution in CsWebKit
 
 # if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
-#   target_link_libraries(KitchenSink CopperSpice::CsWebKit)
+#    target_link_libraries(KitchenSink CopperSpice::CsWebKit)
 # endif()
 
 if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
