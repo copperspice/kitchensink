@@ -77,12 +77,9 @@ void DrawArea::setTransformed(bool transformed)
 
 void DrawArea::paintEvent(QPaintEvent *)
 {
-    static const QPoint points[4] = {
-        QPoint(10, 80),
-        QPoint(20, 10),
-        QPoint(80, 30),
-        QPoint(90, 70)
-    };
+   static const QVector<QPoint> points = {
+      QPoint(10, 80), QPoint(20, 10), QPoint(80, 30), QPoint(90, 70)
+   };
 
    QRect rect(10, 20, 80, 60);
 
@@ -120,13 +117,15 @@ void DrawArea::paintEvent(QPaintEvent *)
                 break;
 
             case Points:
-                painter.drawPoints(points, 4);
+                painter.drawPoints(points.constData(), points.size());
                 break;
+
             case Polyline:
-                painter.drawPolyline(points, 4);
+                painter.drawPolyline(points.constData(), points.size());
                 break;
+
             case Polygon:
-                painter.drawPolygon(points, 4);
+                painter.drawPolygon(points.constData(), points.size());
                 break;
 
             case Rect:
