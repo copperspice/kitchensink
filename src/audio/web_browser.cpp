@@ -114,10 +114,10 @@ WebBrowser::WebBrowser(MainWindow *parent, QUrl url)
    connect(m_view,    &QWebView::customContextMenuRequested, this, &WebBrowser::setCustomContextMenu);
 
    // signals
-   connect(m_urlEdit, &QWebView::returnPressed, this, &WebBrowser::changeLocation);
-   connect(m_view,    &QWebView::loadProgress,  this, &WebBrowser::setProgress);
-   connect(m_view,    &QWebView::loadFinished,  this, &WebBrowser::setLocation);
-   connect(m_view,    &QWebView::titleChanged,  this, &WebBrowser::setTitle);
+   connect(m_urlEdit, &QLineEdit::returnPressed, this, &WebBrowser::changeLocation);
+   connect(m_view,    &QWebView::loadProgress,   this, &WebBrowser::setProgress);
+   connect(m_view,    &QWebView::loadFinished,   this, &WebBrowser::setLocation);
+   connect(m_view,    &QWebView::titleChanged,   this, &WebBrowser::setTitle);
 
    connect(m_view->page(), &QWebPage::linkHovered, this, &WebBrowser::actionLinkHovered );
 

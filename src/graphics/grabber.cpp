@@ -64,6 +64,7 @@ Grabber::Grabber(QWidget *parent)
     centralLayout->addWidget(xSlider, 1, 0, 1, 2);
     centralLayout->addWidget(ySlider, 2, 0, 1, 2);
     centralLayout->addWidget(zSlider, 3, 0, 1, 2);
+
     centralWidget->setLayout(centralLayout);
 
     xSlider->setValue(15 * 16);

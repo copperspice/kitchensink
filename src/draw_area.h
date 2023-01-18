@@ -27,16 +27,16 @@
 
 class DrawArea : public QWidget
 {
-    CS_OBJECT(DrawArea)
+   CS_OBJECT(DrawArea)
 
    public:
-       enum Shape { Line, Points, Polyline, Polygon, Rect, RoundedRect, Ellipse, Arc,
-                    Chord, Pie, Path, Text };
+      enum Shape { Line, Points, Polyline, Polygon, Rect, RoundedRect, Ellipse, Arc,
+             Chord, Pie, Path, Text };
 
-       DrawArea(QWidget *parent = nullptr);
+      DrawArea(QWidget *parent = nullptr);
 
-       QSize minimumSizeHint() const;
-       QSize sizeHint() const;
+      QSize minimumSizeHint() const;
+      QSize sizeHint() const;
 
        CS_SLOT_1(Public, void setShape(Shape shape))
        CS_SLOT_2(setShape)
@@ -55,15 +55,15 @@ class DrawArea : public QWidget
        CS_SLOT_2(setTransformed)
 
    protected:
-       void paintEvent(QPaintEvent *event);
+      void paintEvent(QPaintEvent *event);
 
    private:
-       Shape shape;
-       QPen pen;
-       QBrush brush;
-       bool antialiased;
-       bool transformed;
-       QPixmap pixmap;
+      Shape shape;
+      QPixmap pixmap;
+      QPen pen;
+      QBrush brush;
+      bool antialiased;
+      bool transformed;
 };
 
 #endif

@@ -47,6 +47,7 @@ class Draw : public QWidget
       CS_SLOT_2(brushChanged)
 
       DrawArea *m_renderArea;
+
       QLabel *shapeLabel;
       QLabel *penWidthLabel;
       QLabel *penStyleLabel;
@@ -54,6 +55,7 @@ class Draw : public QWidget
       QLabel *penJoinLabel;
       QLabel *brushStyleLabel;
       QLabel *otherOptionsLabel;
+
       QComboBox *shapeComboBox;
       QSpinBox *penWidthSpinBox;
       QComboBox *penStyleComboBox;
