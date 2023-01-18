@@ -27,7 +27,7 @@
 #include <QTextStream>
 #include <QString>
 
-static const QString qmPath = ":/resources";
+static const QString path = ":/resources";
 
 FridgeMagnet::FridgeMagnet(QWidget *parent)
    : QWidget(parent)
@@ -36,8 +36,7 @@ FridgeMagnet::FridgeMagnet(QWidget *parent)
    setAcceptDrops(true);
 
    //
-   QString fileName;
-   fileName = qmPath + "/words.txt";
+   QString fileName = path + "/words.txt";
 
    QFile dictionaryFile(fileName);
    dictionaryFile.open(QFile::ReadOnly);
