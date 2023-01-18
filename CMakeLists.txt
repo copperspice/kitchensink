@@ -21,6 +21,11 @@ include(CheckIncludeFile)
 include(CheckIncludeFiles)
 include(CheckTypeSize)
 
+# uncomment if CS was built in Package mode
+# find_package(CsLibGuarded)
+# find_package(CsString)
+# find_package(CsSignal)
+
 find_package(CopperSpice REQUIRED)
 
 # file locations for installing
