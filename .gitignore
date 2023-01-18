@@ -1,7 +1,7 @@
-CMakeCache.txt
 KitchenSink-Cs5.*
 kitchensink*.tar.bz2
 kitchensink*.zip
+error.log
 
 /do-*
 /build/
