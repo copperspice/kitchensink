@@ -38,21 +38,11 @@ class DrawArea : public QWidget
       QSize minimumSizeHint() const;
       QSize sizeHint() const;
 
-       CS_SLOT_1(Public, void setShape(Shape shape))
-       CS_SLOT_2(setShape)
-
-       CS_SLOT_1(Public, void setPen(const QPen & pen))
-       CS_SLOT_2(setPen)
-
-       CS_SLOT_1(Public, void setBrush(const QBrush & brush))
-       CS_SLOT_2(setBrush)
-
-       CS_SLOT_1(Public, void setAntialiased(bool antialiased))
-
-       CS_SLOT_2(setAntialiased)
-
-       CS_SLOT_1(Public, void setTransformed(bool transformed))
-       CS_SLOT_2(setTransformed)
+      void setShape(Shape shape);
+      void setPen(const QPen & pen);
+      void setBrush(const QBrush & brush);
+      void setAntialiased(bool antialiased);
+      void setTransformed(bool transformed);
 
    protected:
       void paintEvent(QPaintEvent *event);

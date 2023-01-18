@@ -153,8 +153,8 @@ Draw::Draw()
    connect(penJoinComboBox,         SIGNAL(activated(int)),    this, SLOT(penChanged()));
    connect(brushStyleComboBox,      SIGNAL(activated(int)),    this, SLOT(brushChanged()));
 
-   connect(antialiasingCheckBox,    SIGNAL(toggled(bool)),      m_renderArea, SLOT(setAntialiased(bool)));
-   connect(transformationsCheckBox, SIGNAL(toggled(bool)),      m_renderArea, SLOT(setTransformed(bool)));
+   connect(antialiasingCheckBox,    &QCheckBox::toggled, m_renderArea, &DrawArea::setAntialiased);
+   connect(transformationsCheckBox, &QCheckBox::toggled, m_renderArea, &DrawArea::setTransformed);
 
    shapeChanged();
    penChanged();
