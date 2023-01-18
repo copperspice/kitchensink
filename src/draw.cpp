@@ -110,31 +110,39 @@ Draw::Draw()
    antialiasingCheckBox    = new QCheckBox(tr("&Antialiasing"));
    transformationsCheckBox = new QCheckBox(tr("&Transformations"));
 
+   QFrame *line = new QFrame();
+   line->setFrameShape(QFrame::HLine);
+   line->setFrameShadow(QFrame::Sunken);
+   line->setLineWidth(2);
+
    //
    QGridLayout *mainLayout = new QGridLayout;
-
-   mainLayout->setColumnStretch(5, 1);
-   mainLayout->setHorizontalSpacing(10);
+   mainLayout->setColumnStretch(6, 1);
+   mainLayout->setContentsMargins(15, 20, 15, 15);
+   mainLayout->setHorizontalSpacing(20);
    mainLayout->setVerticalSpacing(10);
-   mainLayout->addWidget(m_renderArea,      0, 0, 1, 6);
 
-   mainLayout->addWidget(shapeLabel,        2, 0);
-   mainLayout->addWidget(shapeComboBox,     2, 1);
-   mainLayout->addWidget(penWidthLabel,     3, 0);
-   mainLayout->addWidget(penWidthSpinBox,   3, 1);
-   mainLayout->addWidget(penStyleLabel,     4, 0);
-   mainLayout->addWidget(penStyleComboBox,  4, 1);
+   mainLayout->addWidget(m_renderArea, 0, 0, 1, 7);
 
-   mainLayout->addWidget(penJoinLabel,      2, 3);
-   mainLayout->addWidget(penJoinComboBox,   2, 4);
-   mainLayout->addWidget(penCapLabel,       3, 3);
-   mainLayout->addWidget(penCapComboBox,    3, 4);
-   mainLayout->addWidget(brushStyleLabel,   4, 3);
-   mainLayout->addWidget(brushStyleComboBox,4, 4);
+   mainLayout->addWidget(shapeLabel,         2, 0);
+   mainLayout->addWidget(shapeComboBox,      2, 1);
+   mainLayout->addWidget(penWidthLabel,      3, 0);
+   mainLayout->addWidget(penWidthSpinBox,    3, 1);
+   mainLayout->addWidget(penStyleLabel,      4, 0);
+   mainLayout->addWidget(penStyleComboBox,   4, 1);
 
-   mainLayout->addWidget(otherOptionsLabel,       5, 0);
-   mainLayout->addWidget(antialiasingCheckBox,    5, 1);
-   mainLayout->addWidget(transformationsCheckBox, 5, 4);
+   mainLayout->addWidget(penJoinLabel,       2, 4);
+   mainLayout->addWidget(penJoinComboBox,    2, 5);
+   mainLayout->addWidget(penCapLabel,        3, 4);
+   mainLayout->addWidget(penCapComboBox,     3, 5);
+   mainLayout->addWidget(brushStyleLabel,    4, 4);
+   mainLayout->addWidget(brushStyleComboBox, 4, 5);
+
+   mainLayout->addWidget(line, 5, 0, 1, 6);
+
+   mainLayout->addWidget(otherOptionsLabel,       6, 0);
+   mainLayout->addWidget(antialiasingCheckBox,    6, 1);
+   mainLayout->addWidget(transformationsCheckBox, 7, 1);
    setLayout(mainLayout);
 
    // signals
