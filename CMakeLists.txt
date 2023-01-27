@@ -11,7 +11,7 @@ project(KitchenSink)
 
 set(BUILD_MAJOR "1")
 set(BUILD_MINOR "8")
-set(BUILD_MICRO "0")
+set(BUILD_MICRO "1")
 
 set(BUILD_COMPONENTS "KitchenSink")
 
