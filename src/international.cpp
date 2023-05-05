@@ -63,29 +63,29 @@ International::~International()
 
 void International::actionEnglish()
 {
-   if (! m_translator->load("ks_en.qm",qmPath)) {
+   if (m_translator->load("ks_en.qm", qmPath)) {
+      qApp->installTranslator(m_translator);
+   } else {
       ksMsg(this, tr("International"), tr("Error while loading English international file."));
    }
-
-   qApp->installTranslator(m_translator);
 }
 
 void International::actionFrench()
 {
-   if (! m_translator->load("ks_fr.qm",qmPath)) {
+   if (m_translator->load("ks_fr.qm", qmPath)) {
+      qApp->installTranslator(m_translator);
+   } else {
       ksMsg(this, tr("International"), tr("Error while loading French international file."));
    }
-
-   qApp->installTranslator(m_translator);
 }
 
 void International::actionGerman()
 {
-   if (! m_translator->load("ks_de.qm",qmPath)) {
+   if (m_translator->load("ks_de.qm", qmPath)) {
+      qApp->installTranslator(m_translator);
+   } else {
       ksMsg(this, tr("International"), tr("Error while loading German international file."));
    }
-
-   qApp->installTranslator(m_translator);
 }
 
 void International::changeEvent(QEvent *event)
@@ -95,7 +95,6 @@ void International::changeEvent(QEvent *event)
       this->getListData();
    }
 
-   // calls parent, will change the title bar
    QWidget::changeEvent(event);
 }
 
