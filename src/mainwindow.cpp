@@ -1,7 +1,7 @@
 /***********************************************************************
 *
-* Copyright (c) 2012-2023 Barbara Geller
-* Copyright (c) 2012-2023 Ansel Sermersheim
+* Copyright (c) 2012-2024 Barbara Geller
+* Copyright (c) 2012-2024 Ansel Sermersheim
 * Copyright (c) 2015 The Qt Company Ltd.
 *
 * This file is part of KitchenSink.
@@ -496,7 +496,7 @@ void MainWindow::actionAbout()
       "</table></font>"
       "<br>"
 
-      "<p><small>Copyright 2012-2023 BG Consulting, released under the 2-Clause BSD license<br>"
+      "<p><small>Copyright 2012-2024 BG Consulting, released under the 2-Clause BSD license<br>"
       "This program is provided AS IS with no warranty of any kind.<br></small></p>";
 
    QMessageBox msgB;
