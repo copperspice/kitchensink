@@ -66,9 +66,6 @@
 #include <sliders.h>
 #include <tabdialog.h>
 
-// #include "wiggle_boxes.h" (Qml)
-// #include "world_clock.h"  (Qml)
-
 #include <QMdiSubWindow>
 
 MainWindow::MainWindow()
@@ -78,14 +75,6 @@ MainWindow::MainWindow()
 
    setWindowTitle(tr("KitchenSink"));
    setWindowIcon(QIcon("://resources/ks.ico"));
-
-/*
-   // future usage
-
-   m_ui->menuWidgets->setToolTipsVisible(true);
-   // m_ui->menuWidgets->setToolTipDuration(60000);  // 60 secs
-   m_ui->actionTabs->setToolTip("Source File: widgets/tabdialog.cpp");
-*/
 
 #if defined(QT_NO_WEBKIT)
    // webkit temporarily removed, pending overflow issue resolution in CsWebKit
@@ -135,8 +124,6 @@ MainWindow::MainWindow()
    connect(m_ui->actionLighting,          &QAction::triggered, this,  &MainWindow::actionLighting);
    connect(m_ui->actionMandelbrot,        &QAction::triggered, this,  &MainWindow::actionMandelbrot);
    connect(m_ui->actionScreen_Shot,       &QAction::triggered, this,  &MainWindow::actionScreen_Shot);
-   connect(m_ui->actionWiggle_Boxes,      &QAction::triggered, this,  &MainWindow::actionWiggle_Boxes);
-   connect(m_ui->actionWorld_Clock,       &QAction::triggered, this,  &MainWindow::actionWorld_Clock);
 
    connect(m_ui->actionAbout_CopperSpice, &QAction::triggered, this,  &MainWindow::actionAbout_CopperSpice);
    connect(m_ui->actionAbout_KitchenSink, &QAction::triggered, this,  &MainWindow::actionAbout_KitchenSink);
@@ -435,26 +422,6 @@ void MainWindow::actionScreen_Shot()
 {
    Screenshot *oDw = new Screenshot();
    addMdiChild(oDw);
-}
-
-void MainWindow::actionWiggle_Boxes()
-{
-   ksMsg("Wiggle Boxes - CsDeclarative is not available");
-
-/*
-   Wiggle_Boxes *oDw = new Wiggle_Boxes();
-   addMdiChild(oDw);
-*/
-}
-
-void MainWindow::actionWorld_Clock()
-{
-   ksMsg("World Clock - CsDeclarative is not available");
-
-/*
-   World_Clock *oDw = new World_Clock();
-   addMdiChild(oDw);
-*/
 }
 
 //  help menu

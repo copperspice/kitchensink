@@ -123,12 +123,6 @@ class MainWindow : public QMainWindow
    CS_SLOT_1(Private, void actionScreen_Shot())
    CS_SLOT_2(actionScreen_Shot)
 
-   CS_SLOT_1(Private, void actionWiggle_Boxes())
-   CS_SLOT_2(actionWiggle_Boxes)
-
-   CS_SLOT_1(Private, void actionWorld_Clock())
-   CS_SLOT_2(actionWorld_Clock)
-
    //
    CS_SLOT_1(Private, void actionAbout_CopperSpice())
    CS_SLOT_2(actionAbout_CopperSpice)

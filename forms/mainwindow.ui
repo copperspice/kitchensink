@@ -2,16 +2,16 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
+  <property name="windowTitle" stdset="0">
+   <string>KitchenSink</string>
+  </property>
+  <property name="geometry" stdset="0">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>1298</width>
     <height>863</height>
    </rect>
-  </property>
-  <property name="windowTitle">
-   <string>KitchenSink</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -21,16 +21,16 @@
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
+   <property name="geometry" stdset="0">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>1298</width>
-     <height>27</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
-    <property name="title">
+    <property name="title" stdset="0">
      <string>File</string>
     </property>
     <addaction name="actionClose_Window"/>
@@ -39,7 +39,7 @@
     <addaction name="actionExit_Program"/>
    </widget>
    <widget class="QMenu" name="menuLayouts">
-    <property name="title">
+    <property name="title" stdset="0">
      <string>Views</string>
     </property>
     <addaction name="actionTableView"/>
@@ -49,7 +49,7 @@
     <addaction name="actionTableWidget_View"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
-    <property name="title">
+    <property name="title" stdset="0">
      <string>Help</string>
     </property>
     <addaction name="actionAbout_CopperSpice"/>
@@ -58,7 +58,7 @@
     <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuWidgets">
-    <property name="title">
+    <property name="title" stdset="0">
      <string>Widgets</string>
     </property>
     <addaction name="actionCalendar"/>
@@ -67,7 +67,7 @@
     <addaction name="actionTabs"/>
    </widget>
    <widget class="QMenu" name="menuWindows">
-    <property name="title">
+    <property name="title" stdset="0">
      <string>Samples</string>
     </property>
     <addaction name="actionColorPicker"/>
@@ -86,7 +86,7 @@
     <addaction name="actionXmlPatterns"/>
    </widget>
    <widget class="QMenu" name="menuAudio">
-    <property name="title">
+    <property name="title" stdset="0">
      <string>Audio/Video</string>
     </property>
     <addaction name="actionCamera"/>
@@ -97,7 +97,7 @@
     <addaction name="actionHTML_Viewer"/>
    </widget>
    <widget class="QMenu" name="menuGraphics">
-    <property name="title">
+    <property name="title" stdset="0">
      <string>Graphics</string>
     </property>
     <addaction name="actionAnalog_Clock"/>
@@ -107,11 +107,9 @@
     <addaction name="actionLighting"/>
     <addaction name="actionMandelbrot"/>
     <addaction name="actionScreen_Shot"/>
-    <addaction name="actionWiggle_Boxes"/>
-    <addaction name="actionWorld_Clock"/>
    </widget>
    <widget class="QMenu" name="menuNetwork">
-    <property name="title">
+    <property name="title" stdset="0">
      <string>Network</string>
     </property>
     <addaction name="actionChat"/>
@@ -128,248 +126,232 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionExit_Program">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Exit KitchenSink</string>
    </property>
   </action>
   <action name="actionAbout">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>About</string>
    </property>
-   <property name="menuRole">
+   <property name="menuRole" stdset="0">
     <enum>QAction::AboutRole</enum>
    </property>
   </action>
   <action name="actionTreeView">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Tree View Model</string>
    </property>
   </action>
   <action name="actionListView">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>List View Model</string>
    </property>
   </action>
   <action name="actionLineEdit">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>LineEdit</string>
    </property>
   </action>
   <action name="actionSliders">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Sliders</string>
    </property>
   </action>
   <action name="actionCalendar">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Calendar</string>
    </property>
   </action>
   <action name="actionPushButtons">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Push Buttons</string>
    </property>
   </action>
   <action name="actionStandardDialog">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Standard Dialogs</string>
    </property>
   </action>
   <action name="actionWebBrowser">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Web Browser</string>
    </property>
   </action>
   <action name="actionFonts">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Font Selector</string>
    </property>
   </action>
   <action name="actionColorPicker">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Color Selector</string>
    </property>
   </action>
   <action name="actionStyleSheetDialog">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Style Sheets</string>
    </property>
   </action>
   <action name="actionHTML_Viewer">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>HTML Viewer</string>
    </property>
   </action>
   <action name="actionDraw">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Basic Drawing</string>
    </property>
   </action>
   <action name="actionTableView">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Table View Model</string>
    </property>
   </action>
   <action name="actionTableView_Delegate">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Table View Delegate</string>
    </property>
   </action>
   <action name="actionInternational">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>International</string>
    </property>
   </action>
   <action name="actionCamera">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Camera</string>
    </property>
   </action>
   <action name="actionMusicPlayer">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Music Player</string>
    </property>
   </action>
   <action name="actionOpenGL">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>OpenGL</string>
    </property>
   </action>
   <action name="actionSystemTray">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>System Tray</string>
    </property>
   </action>
   <action name="actionTableWidget_View">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Table Widget / View</string>
    </property>
   </action>
   <action name="actionAbout_CopperSpice">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>About CopperSpice</string>
    </property>
-   <property name="menuRole">
+   <property name="menuRole" stdset="0">
     <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionXml">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>XML</string>
    </property>
   </action>
   <action name="actionXml_Patterns">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>XML Patterns</string>
    </property>
   </action>
   <action name="actionTabs">
-   <property name="text">
+   <property name="toolTip" stdset="0">
     <string>Tabs</string>
    </property>
-   <property name="toolTip">
+   <property name="text" stdset="0">
     <string>Tabs</string>
    </property>
   </action>
   <action name="actionSvgView">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>SVG View</string>
    </property>
   </action>
   <action name="actionVideoWidget">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Video Widget</string>
    </property>
   </action>
   <action name="actionClose_Window">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Close Window</string>
    </property>
-   <property name="menuRole">
+   <property name="menuRole" stdset="0">
     <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionCloseAll_Windows">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Close All Windows</string>
    </property>
-   <property name="menuRole">
+   <property name="menuRole" stdset="0">
     <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionStandardPath">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Standard Path</string>
    </property>
   </action>
   <action name="actionAnalog_Clock">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Analog Clock</string>
    </property>
   </action>
   <action name="actionLighting">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Lighting (QGraphicsScene)</string>
    </property>
   </action>
   <action name="actionScreen_Shot">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Screen Shot</string>
    </property>
   </action>
   <action name="actionFridge_Magnets">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Fridge Magnets</string>
    </property>
   </action>
   <action name="actionAnimated_Tiles">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Animated Tiles (QGraphicsScene)</string>
    </property>
   </action>
   <action name="actionGrabber">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Grabber (OpenGL)</string>
    </property>
   </action>
-  <action name="actionWorld_Clock">
-   <property name="text">
-    <string>World Clock (Qml) *</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
   <action name="actionMandelbrot">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Mandelbrot (Threads)</string>
    </property>
   </action>
-  <action name="actionWiggle_Boxes">
-   <property name="text">
-    <string>Wiggle Boxes (Qml) *</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
   <action name="actionAbout_KitchenSink">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>About KitchenSink</string>
    </property>
   </action>
   <action name="actionXmlPatterns">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>XML Patterns</string>
    </property>
   </action>
   <action name="actionChat">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Chat</string>
    </property>
   </action>
   <action name="actionSsl">
-   <property name="text">
+   <property name="text" stdset="0">
     <string>Secure Socket</string>
    </property>
   </action>

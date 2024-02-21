@@ -1821,18 +1821,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_mainwindow.h" line="338"/>
-        <source>World Clock (Qml) *</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../build/src/ui_mainwindow.h" line="339"/>
         <source>Mandelbrot (Threads)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_mainwindow.h" line="340"/>
-        <source>Wiggle Boxes (Qml) *</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
