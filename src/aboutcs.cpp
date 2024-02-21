@@ -74,12 +74,14 @@ AboutCS::AboutCS(QString route)
    connect(closePB, &QPushButton::clicked, this, &AboutCS::actionClose);
 }
 
-void AboutCS::actionHome() {
+void AboutCS::actionHome()
+{
    QUrl url("https://www.copperspice.com/documentation-kitchensink.html");
    m_viewer->setUrl(url);
 }
 
-void AboutCS::actionClose() {
+void AboutCS::actionClose()
+{
    this->parentWidget()->close();
 }
 

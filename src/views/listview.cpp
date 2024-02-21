@@ -59,12 +59,12 @@ ListView::~ListView()
 
 QStringList ListView::getData()
 {
-   QStringList data;
+   QStringList strList;
 
-   data << "gallon" << "ounce" << "pinch" << "pound" << "cup"
-        << "pint" << "quart" << "tsp" << "Tbsp" << "bunch" << "jigger" ;
+   strList << "gallon" << "ounce" << "pinch" << "pound" << "cup"
+           << "pint" << "quart" << "tsp" << "Tbsp" << "bunch" << "jigger" ;
 
-   return data;
+   return strList;
 }
 
 void ListView::addRow()
@@ -74,11 +74,10 @@ void ListView::addRow()
    m_proxyModel->sort(-1);
 
    int row = ui->listView->currentIndex().row();
-   m_proxyModel->insertRows(row,1);
+   m_proxyModel->insertRows(row, 1);
 
    // get index
    QModelIndex index = m_proxyModel->index(row, 0);
-   //    m_proxyModel->setData(index, QVariant("NEW"), Qt::EditRole);
 
    // select and edit
    ui->listView->setCurrentIndex(index);
@@ -93,6 +92,3 @@ void ListView::delRow()
 {
    m_proxyModel->removeRows(ui->listView->currentIndex().row(), 1);
 }
-
-
-

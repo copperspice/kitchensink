@@ -40,4 +40,3 @@ void SvgTextObject::drawObject(QPainter *painter, const QRectF &rect, QTextDocum
    QImage bufferedImage = format.property(Svg_View::SvgData).value<QImage>();
    painter->drawImage(rect, bufferedImage);
 }
-

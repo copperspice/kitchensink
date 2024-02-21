@@ -55,7 +55,7 @@ bool VideoSurface::isFormatSupported(const QVideoSurfaceFormat &format, QVideoSu
    const QSize size = format.frameSize();
 
    bool retval = (temp != QImage::Format_Invalid) && ! size.isEmpty()
-                 && format.handleType() == QAbstractVideoBuffer::NoHandle;
+         && format.handleType() == QAbstractVideoBuffer::NoHandle;
 
    return retval;
 }
@@ -97,7 +97,7 @@ void VideoSurface::stop()
 bool VideoSurface::present(const QVideoFrame &frame)
 {
    if (surfaceFormat().pixelFormat() != frame.pixelFormat()
-       || surfaceFormat().frameSize() != frame.size()) {
+         || surfaceFormat().frameSize() != frame.size()) {
 
       setError(IncorrectFormatError);
       stop();
@@ -129,15 +129,11 @@ void VideoSurface::paint(QPainter *painter)
 
       if (surfaceFormat().scanLineDirection() == QVideoSurfaceFormat::BottomToTop) {
          painter->scale(1, -1);
-         painter->translate(0, 0-m_widget->height());
+         painter->translate(0, 0 - m_widget->height());
       }
 
-      QImage image(
-               currentFrame.bits(),
-               currentFrame.width(),
-               currentFrame.height(),
-               currentFrame.bytesPerLine(),
-               m_imageFormat);
+      QImage image(currentFrame.bits(), currentFrame.width(), currentFrame.height(),
+            currentFrame.bytesPerLine(), m_imageFormat);
 
       painter->drawImage(targetRect, image, sourceRect);
 

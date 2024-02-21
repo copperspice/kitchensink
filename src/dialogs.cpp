@@ -88,11 +88,11 @@ void Dialogs::setItem()
 
    bool ok;
 
-   QString data = QInputDialog::getItem(this, tr("getItem()"),
+   QString text = QInputDialog::getItem(this, tr("getItem()"),
          tr("Select a Season:"), itemList, 0, false, &ok);
 
-   if (ok && ! data.isEmpty()) {
-      ui->getItem_lineEdit->setText(data);
+   if (ok && ! text.isEmpty()) {
+      ui->getItem_lineEdit->setText(text);
    }
 }
 
@@ -100,11 +100,11 @@ void Dialogs::setText()
 {
    bool ok;
 
-   QString data = QInputDialog::getText(this, tr("getText()"),
+   QString text = QInputDialog::getText(this, tr("getText()"),
          tr("User name:"), QLineEdit::Normal, QDir::home().dirName(), &ok);
 
-   if (ok && ! data.isEmpty()) {
-      ui->getText_lineEdit->setText(data);
+   if (ok && ! text.isEmpty()) {
+      ui->getText_lineEdit->setText(text);
    }
 }
 
@@ -118,7 +118,7 @@ void Dialogs::setExistingDirectory()
    }
 
    QString directory = QFileDialog::getExistingDirectory(this,
-         tr("getExistingDirectory()"),ui->dir_lineEdit->text(),options);
+         tr("getExistingDirectory()"), ui->dir_lineEdit->text(), options);
 
    if (! directory.isEmpty()) {
       ui->dir_lineEdit->setText(directory);
@@ -233,7 +233,7 @@ void Dialogs::errorMessage()
 
    errorDialog->showMessage(
          tr("If the checkbox remains checked, this message box will be displayed again. \n"
-            "If unchecked, this message box will not appear again for the same error message."));
+         "If unchecked, this message box will not appear again for the same error message."));
 
    ui->error_lineEdit->setText(tr("Message displayed"));
 }

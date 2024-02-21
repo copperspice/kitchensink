@@ -96,14 +96,14 @@ void Sliders::createOptionsGroupBox()
 
    // cs_mp_cast is required since this signal is overloaded
    connect(m_buttonsOrientationComboBox, cs_mp_cast<int>(&QComboBox::currentIndexChanged),
-            this, &Sliders::buttonsOrientationChanged);
+         this, &Sliders::buttonsOrientationChanged);
 }
 
 void Sliders::createButtons()
 {
    m_buttonBox = new QDialogButtonBox;
    m_buttonBox->setCenterButtons(true);
-   m_rotateWidgetsButton = m_buttonBox->addButton(tr("Rotate &Widgets"),QDialogButtonBox::ActionRole);
+   m_rotateWidgetsButton = m_buttonBox->addButton(tr("Rotate &Widgets"), QDialogButtonBox::ActionRole);
 
    connect(m_rotateWidgetsButton, &QPushButton::clicked, this, &Sliders::rotateWidgets);
 }
@@ -150,6 +150,7 @@ void Sliders::rotateWidgets()
    m_rotableWidgets.enqueue(m_rotableWidgets.dequeue());
 
    const int n = m_rotableWidgets.count();
+
    for (int i = 0; i < n / 2; ++i) {
       m_rotableLayout->addWidget(m_rotableWidgets[n - i - 1], 0, i);
       m_rotableLayout->addWidget(m_rotableWidgets[i], 1, i);

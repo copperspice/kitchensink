@@ -92,16 +92,16 @@ void Html_Viewer::createActions()
 void Html_Viewer::setStartupText()
 {
    QString string = "<html><body>"
-                    "\n\n"
-                    "<h1>HTML Previewer</h1>"
-                    "\n\n"
-                    "<p>This example shows how to use "
-                    "\n"
-                    "<b><font color='#0000FF'>QWebView</font></b>"
-                    "\n"
-                    " to preview HTML data written in a QPlainTextEdit.</p>"
-                    "\n\n"
-                    "</body></html>";
+         "\n\n"
+         "<h1>HTML Previewer</h1>"
+         "\n\n"
+         "<p>This example shows how to use "
+         "\n"
+         "<b><font color='#0000FF'>QWebView</font></b>"
+         "\n"
+         " to preview HTML data written in a QPlainTextEdit.</p>"
+         "\n\n"
+         "</body></html>";
 
    ui->plainTextEdit->setPlainText(string);
    ui->webView->setHtml(string);
@@ -111,18 +111,18 @@ void Html_Viewer::setStartupText()
 void Html_Viewer::about()
 {
    QMessageBox::about(this, tr("About HTML Viewer"),
-      tr("The <b>Previewer</b> example demonstrates how to view HTML documents using a QWebView."));
+         tr("The <b>Previewer</b> example demonstrates how to view HTML documents using a QWebView."));
 }
 
 void Html_Viewer::open()
 {
    QString fileName = QFileDialog::getOpenFileName(this);
 
-   if (!fileName.isEmpty()) {
+   if (! fileName.isEmpty()) {
       // read from file
       QFile file(fileName);
 
-      if (!file.open(QIODevice::ReadOnly)) {
+      if (! file.open(QIODevice::ReadOnly)) {
          QMessageBox::information(this, tr("Unable to open file"), file.errorString());
          return;
       }
@@ -136,7 +136,6 @@ void Html_Viewer::open()
       m_baseUrl = QUrl::fromLocalFile(fileName);
    }
 }
-
 
 void Html_Viewer::openUrl()
 {
@@ -153,12 +152,12 @@ void Html_Viewer::save()
    QString content  = ui->plainTextEdit->toPlainText();
    QString fileName = QFileDialog::getSaveFileName(this);
 
-   if (!fileName.isEmpty()) {
+   if (! fileName.isEmpty()) {
       // save to file
       QFile file(fileName);
 
-      if (!file.open(QIODevice::WriteOnly)) {
-         QMessageBox::information(this, tr("Unable to open file"),file.errorString());
+      if (! file.open(QIODevice::WriteOnly)) {
+         QMessageBox::information(this, tr("Unable to open file"), file.errorString());
          return;
       }
 
@@ -174,15 +173,16 @@ void Html_Viewer::updateTextEdit()
    ui->plainTextEdit->setPlainText(frameText);
 }
 
-void Html_Viewer::actionClose() {
+void Html_Viewer::actionClose()
+{
    this->parentWidget()->close();
 }
 
 void Html_Viewer::actionPreview()
 {
-    // Update the contents in web viewer
-    QString text = ui->plainTextEdit->toPlainText();
-    ui->webView->setHtml(text, m_baseUrl);
+   // Update the contents in web viewer
+   QString text = ui->plainTextEdit->toPlainText();
+   ui->webView->setHtml(text, m_baseUrl);
 }
 
 #endif

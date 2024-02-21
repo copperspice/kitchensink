@@ -117,7 +117,8 @@ void Style_Edit::on_applyPB_clicked()
    ui->applyPB->setEnabled(false);
 }
 
-void Style_Edit::actionClose() {
+void Style_Edit::actionClose()
+{
    this->parentWidget()->close();
 }
 
@@ -137,5 +138,3 @@ void Style_Edit::closeEvent(QCloseEvent *event)
       event->ignore();
    }
 }
-
-

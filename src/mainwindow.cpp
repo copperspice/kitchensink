@@ -189,7 +189,6 @@ void MainWindow::actionExit_Program()
    close();
 }
 
-
 // samples
 void MainWindow::actionColorPicker()
 {
@@ -257,12 +256,12 @@ void MainWindow::actionXmlPatterns()
    addMdiChild(oDw);
 }
 
-
 // audio & visual
 void MainWindow::actionCamera()
 {
 
 #ifndef QT_NO_MULTIMEDIA
+
    try {
       Camera *oDw = new Camera();
       addMdiChild(oDw);
@@ -282,7 +281,7 @@ void MainWindow::actionMusicPlayer()
 #ifndef QT_NO_MULTIMEDIA
    MusicPlayer *oDw = new MusicPlayer();
    addMdiChild(oDw);
- #else
+#else
    ksMsg("KS was not built with CsMultimedia library, MusicPlayer disabled.");
 #endif
 
@@ -369,7 +368,6 @@ void MainWindow::actionTableWidget_View()
    TableWidget_View *oDw = new TableWidget_View();
    addMdiChild(oDw);
 }
-
 
 // widgets
 void MainWindow::actionCalendar()
@@ -487,17 +485,17 @@ void MainWindow::actionAbout_KitchenSink()
 void MainWindow::actionAbout()
 {
    QString textBody =
-      "<font color='#000080'>"
-      "<table style=margin-right:25>"
-      "   <tr><td><nobr>Developed by Barbara Geller</nobr></td>"
-      "       <td>barbara@copperspice.com</td></tr>"
-      "   <tr><td style=padding-right:25><nobr>Developed by Ansel Sermersheim</nobr></td>"
-      "       <td>ansel@copperspice.com</td></tr>"
-      "</table></font>"
-      "<br>"
+         "<font color='#000080'>"
+         "<table style=margin-right:25>"
+         "   <tr><td><nobr>Developed by Barbara Geller</nobr></td>"
+         "       <td>barbara@copperspice.com</td></tr>"
+         "   <tr><td style=padding-right:25><nobr>Developed by Ansel Sermersheim</nobr></td>"
+         "       <td>ansel@copperspice.com</td></tr>"
+         "</table></font>"
+         "<br>"
 
-      "<p><small>Copyright 2012-2024 BG Consulting, released under the 2-Clause BSD license<br>"
-      "This program is provided AS IS with no warranty of any kind.<br></small></p>";
+         "<p><small>Copyright 2012-2024 BG Consulting, released under the 2-Clause BSD license<br>"
+         "This program is provided AS IS with no warranty of any kind.<br></small></p>";
 
    QMessageBox msgB;
    msgB.setIcon(QMessageBox::NoIcon);
@@ -507,7 +505,7 @@ void MainWindow::actionAbout()
    msgB.setWindowTitle(tr("About KitchenSink"));
 
    msgB.setText(QString("<p style=margin-right:25><center><h5>Version: %1<br>Build # %2</h5></center></p>")
-                .formatArgs(QString::fromLatin1(versionString), QString::fromLatin1(buildDate)));
+         .formatArgs(QString::fromLatin1(versionString), QString::fromLatin1(buildDate)));
 
    msgB.setInformativeText(textBody);
 

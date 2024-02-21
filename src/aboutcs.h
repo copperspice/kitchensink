@@ -28,16 +28,16 @@ class AboutCS : public QWidget
 {
    CS_OBJECT(AboutCS)
 
-   public:
-      AboutCS(QString route);
-      QSize sizeHint() const override;
+ public:
+   AboutCS(QString route);
+   QSize sizeHint() const override;
 
-   private:
-      // slot declarations
-      void actionClose();
-      void actionHome();
+ private:
+   // slot declarations
+   void actionClose();
+   void actionHome();
 
-      QWebView *m_viewer;
+   QWebView *m_viewer;
 };
 
 #endif

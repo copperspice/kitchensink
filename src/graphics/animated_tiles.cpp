@@ -39,9 +39,10 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
    QPixmap bgPix(qmPath + "/background.jpg");
 
    QList<Pixmap *> items;
+
    for (int i = 0; i < 64; ++i) {
       Pixmap *item = new Pixmap(spicePix);
-      item->setOffset(-spicePix.width()/2, -spicePix.height()/2);
+      item->setOffset(-spicePix.width() / 2, -spicePix.height() / 2);
       item->setZValue(i);
       items << item;
       m_scene.addItem(item);
@@ -82,20 +83,20 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
 
       // Ellipse
       ellipseState->assignProperty(item, "pos",
-               QPointF(cos((i / 63.0) * 6.28) * scale, sin((i / 63.0) * 6.28) * scale));
+            QPointF(cos((i / 63.0) * 6.28) * scale, sin((i / 63.0) * 6.28) * scale));
 
       // Figure 8
       figure8State->assignProperty(item, "pos",
-               QPointF(sin((i / 63.0) * 6.28) * scale, sin(((i * 2)/63.0) * 6.28) * scale));
+            QPointF(sin((i / 63.0) * 6.28) * scale, sin(((i * 2) / 63.0) * 6.28) * scale));
 
       // Random
       randomState->assignProperty(item, "pos",
-               QPointF(-scale + qrand() % (scale * 2), -scale + qrand() % (scale * 2)));
+            QPointF(-scale + qrand() % (scale * 2), -scale + qrand() % (scale * 2)));
 
       // Tiled
       tiledState->assignProperty(item, "pos",
-               QPointF(((i % 8) - 4) * spicePix.width() + spicePix.width() / 2,
-               ((i / 8) - 4) * spicePix.height() + spicePix.height() / 2));
+            QPointF(((i % 8) - 4) * spicePix.width() + spicePix.width() / 2,
+                  ((i / 8) - 4) * spicePix.height() + spicePix.height() / 2));
 
       // Centered
       centeredState->assignProperty(item, "pos", QPointF());
@@ -112,7 +113,7 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
    // layout
    QGridLayout *m_mainLayout = new QGridLayout;
    m_mainLayout->addWidget(view, 0, 0);
-   m_mainLayout->setContentsMargins(0,0,0,0);
+   m_mainLayout->setContentsMargins(0, 0, 0, 0);
    setLayout(m_mainLayout);
 
    view->show();
@@ -123,6 +124,7 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
    rootState->setInitialState(centeredState);
 
    QParallelAnimationGroup *group = new QParallelAnimationGroup;
+
    for (int i = 0; i < items.count(); ++i) {
       QPropertyAnimation *anim = new QPropertyAnimation(items[i], "pos");
       anim->setDuration(750 + i * 25);
@@ -153,4 +155,3 @@ AnimatedTiles::AnimatedTiles(QWidget *parent)
 
    m_stateMachine.start();
 }
-

@@ -59,7 +59,7 @@ TreeView::TreeView()
          rootItem->appendRow(item);
          prevItem = item;
 
-       } else {
+      } else {
          prevItem->appendRow(item);
       }
    }
@@ -84,7 +84,7 @@ bool TreeView::createConnection()
 
    if (! m_db.open()) {
       QMessageBox::critical(nullptr, tr("Error Opening Database"),
-           tr("Unable to establish a connection to the SQLite database."), QMessageBox::Cancel);
+            tr("Unable to establish a connection to the SQLite database."), QMessageBox::Cancel);
 
       return false;
    }
@@ -152,7 +152,7 @@ bool TreeView::sortMe(const TreeView::TreeData &s1, const TreeView::TreeData &s2
       if (s1.m_parentId == s2.m_id) {
          retVal = false;
       } else {
-          retVal = s1.m_parentId < s2.m_id;
+         retVal = s1.m_parentId < s2.m_id;
       }
 
    } else if (s1.m_parentId != 0 && s2.m_parentId != 0)  {
@@ -161,5 +161,3 @@ bool TreeView::sortMe(const TreeView::TreeData &s1, const TreeView::TreeData &s2
 
    return retVal;
 }
-
-

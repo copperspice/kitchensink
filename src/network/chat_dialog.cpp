@@ -27,27 +27,27 @@
 #include <QWidget>
 
 Chat_Dialog::Chat_Dialog(QWidget *parent)
-    : QDialog(parent), ui(new Ui::Chat_Dialog)
+   : QDialog(parent), ui(new Ui::Chat_Dialog)
 {
-    ui->setupUi(this);
+   ui->setupUi(this);
 
-    ui->lineEdit->setFocusPolicy(Qt::StrongFocus);
-    ui->textEdit->setFocusPolicy(Qt::NoFocus);
-    ui->textEdit->setReadOnly(true);
-    ui->listWidget->setFocusPolicy(Qt::NoFocus);
+   ui->lineEdit->setFocusPolicy(Qt::StrongFocus);
+   ui->textEdit->setFocusPolicy(Qt::NoFocus);
+   ui->textEdit->setReadOnly(true);
+   ui->listWidget->setFocusPolicy(Qt::NoFocus);
 
-    connect(ui->lineEdit, &QLineEdit::returnPressed,  this, &Chat_Dialog::returnPressed);
-    connect(ui->lineEdit, &QLineEdit::returnPressed,  this, &Chat_Dialog::returnPressed);
+   connect(ui->lineEdit, &QLineEdit::returnPressed,  this, &Chat_Dialog::returnPressed);
+   connect(ui->lineEdit, &QLineEdit::returnPressed,  this, &Chat_Dialog::returnPressed);
 
-    connect(&client, &Client::newMessage,      this, &Chat_Dialog::appendMessage);
-    connect(&client, &Client::newParticipant,  this, &Chat_Dialog::newParticipant);
-    connect(&client, &Client::participantLeft, this, &Chat_Dialog::participantLeft);
+   connect(&client, &Client::newMessage,      this, &Chat_Dialog::appendMessage);
+   connect(&client, &Client::newParticipant,  this, &Chat_Dialog::newParticipant);
+   connect(&client, &Client::participantLeft, this, &Chat_Dialog::participantLeft);
 
-    myNickName = client.nickName();
-    newParticipant(myNickName);
-    tableFormat.setBorder(0);
+   myNickName = client.nickName();
+   newParticipant(myNickName);
+   tableFormat.setBorder(0);
 
-    QTimer::singleShot(10 * 1000, this, SLOT(showInformation()));
+   QTimer::singleShot(10 * 1000, this, SLOT(showInformation()));
 }
 
 void Chat_Dialog::appendMessage(const QString &from, const QString &message)
@@ -69,66 +69,64 @@ void Chat_Dialog::appendMessage(const QString &from, const QString &message)
 
 void Chat_Dialog::returnPressed()
 {
-    QString text = ui->lineEdit->text();
+   QString text = ui->lineEdit->text();
 
-    if (text.isEmpty()) {
-        return;
-    }
+   if (text.isEmpty()) {
+      return;
+   }
 
-    if (text.startsWith(QChar('/'))) {
-        QColor color = ui->textEdit->textColor();
+   if (text.startsWith(QChar('/'))) {
+      QColor color = ui->textEdit->textColor();
 
-        ui->textEdit->setTextColor(Qt::red);
-        ui->textEdit->append(tr("Unknown command: %1").formatArg(text.left(text.indexOf(' '))));
-        ui->textEdit->setTextColor(color);
+      ui->textEdit->setTextColor(Qt::red);
+      ui->textEdit->append(tr("Unknown command: %1").formatArg(text.left(text.indexOf(' '))));
+      ui->textEdit->setTextColor(color);
 
-    } else {
-        client.sendMessage(text);
-        appendMessage(myNickName, text);
-    }
+   } else {
+      client.sendMessage(text);
+      appendMessage(myNickName, text);
+   }
 
-    ui->lineEdit->clear();
+   ui->lineEdit->clear();
 }
 
 void Chat_Dialog::newParticipant(const QString &nick)
 {
-    if (nick.isEmpty()) {
-        return;
-    }
+   if (nick.isEmpty()) {
+      return;
+   }
 
-    QColor color = ui->textEdit->textColor();
-    ui->textEdit->setTextColor(Qt::gray);
-    ui->textEdit->append(tr("* %1 has joined").formatArg(nick));
-    ui->textEdit->setTextColor(color);
-    ui->listWidget->addItem(nick);
+   QColor color = ui->textEdit->textColor();
+   ui->textEdit->setTextColor(Qt::gray);
+   ui->textEdit->append(tr("* %1 has joined").formatArg(nick));
+   ui->textEdit->setTextColor(color);
+   ui->listWidget->addItem(nick);
 }
 
 void Chat_Dialog::participantLeft(const QString &nick)
 {
-    if (nick.isEmpty()) {
-        return;
-    }
+   if (nick.isEmpty()) {
+      return;
+   }
 
-    QList<QListWidgetItem *> items = ui->listWidget->findItems(nick, Qt::MatchExactly);
+   QList<QListWidgetItem *> items = ui->listWidget->findItems(nick, Qt::MatchExactly);
 
-    if (items.isEmpty()) {
-        return;
-    }
+   if (items.isEmpty()) {
+      return;
+   }
 
-    delete items.at(0);
+   delete items.at(0);
 
-    QColor color = ui->textEdit->textColor();
-    ui->textEdit->setTextColor(Qt::gray);
-    ui->textEdit->append(tr("* %1 has left").formatArg(nick));
-    ui->textEdit->setTextColor(color);
+   QColor color = ui->textEdit->textColor();
+   ui->textEdit->setTextColor(Qt::gray);
+   ui->textEdit->append(tr("* %1 has left").formatArg(nick));
+   ui->textEdit->setTextColor(color);
 }
 
 void Chat_Dialog::showInformation()
 {
    if (ui->listWidget->count() == 1) {
-       QMessageBox::information(this, tr("Chat Message"), tr("In order to use this feature you can start another copy of "
+      QMessageBox::information(this, tr("Chat Message"), tr("In order to use this feature you can start another copy of "
             " KitchenSink on your local network or simply open another chat window."));
    }
 }
-
-

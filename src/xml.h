@@ -32,23 +32,23 @@ class Xml : public QWidget
 {
    CS_OBJECT(Xml)
 
-   public:
-      explicit Xml();
-      ~Xml();
+ public:
+   explicit Xml();
+   ~Xml();
 
-   private:
-      Ui::Xml *ui;
-      QString m_fileName;
-      QStandardItemModel *m_model;
+ private:
+   Ui::Xml *ui;
+   QString m_fileName;
+   QStandardItemModel *m_model;
 
-      void processXml();
-      void parseElement(QStandardItem *parentItem, QDomElement element);
-      void parseMealElement(QStandardItem *parentItem, QDomElement element);
-      QStandardItem *addElement(QStandardItem *parentItem, QString text);
+   void processXml();
+   void parseElement(QStandardItem *parentItem, QDomElement element);
+   void parseMealElement(QStandardItem *parentItem, QDomElement element);
+   QStandardItem *addElement(QStandardItem *parentItem, QString text);
 
-      // slot declarations
-      void actionOpenXml();
-      void actionClose();
+   // slot declarations
+   void actionOpenXml();
+   void actionClose();
 };
 
 #endif

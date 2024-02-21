@@ -47,7 +47,7 @@ Xml::~Xml()
 void Xml::actionOpenXml()
 {
    m_fileName = QFileDialog::getOpenFileName(this, tr("Open XML File"),
-            QDir::currentPath(), tr("XML Files (*.xml)"));
+         QDir::currentPath(), tr("XML Files (*.xml)"));
 
    if (! m_fileName.isEmpty()) {
       processXml();
@@ -57,6 +57,7 @@ void Xml::actionOpenXml()
 void Xml::processXml()
 {
    QFile file(m_fileName);
+
    if (! file.open(QFile::ReadOnly | QFile::Text)) {
 
       const QString msg = "Unable to open file " + m_fileName + " : " + file.errorString();
@@ -74,13 +75,13 @@ void Xml::processXml()
    int errorColumn;
 
    if (! doc.setContent(&file, false, &errorMsg, &errorLine, &errorColumn)) {
-     file.close();
+      file.close();
 
-     const QString msg = "Set content failed.   \n\nError:" + errorMsg + "\n" +
-         "Line: " + QString::number(errorLine) + "  Column: " + QString::number(errorColumn);
+      const QString msg = "Set content failed.   \n\nError:" + errorMsg + "\n" +
+            "Line: " + QString::number(errorLine) + "  Column: " + QString::number(errorColumn);
 
-     QMessageBox::warning( this, "XML", msg );
-     return;
+      QMessageBox::warning( this, "XML", msg );
+      return;
    }
 
    // display only, xml file saved in a textEdit
@@ -113,7 +114,7 @@ void Xml::processXml()
 void Xml::parseElement(QStandardItem *rootItem, QDomElement element)
 {
    QString rootName = element.tagName();
-   rootName = element.tagName().mid(0,1).toUpper() + element.tagName().mid(1);
+   rootName = element.tagName().mid(0, 1).toUpper() + element.tagName().mid(1);
 
    QStandardItem *parentItem;
    parentItem = addElement(rootItem, rootName);
@@ -122,7 +123,7 @@ void Xml::parseElement(QStandardItem *rootItem, QDomElement element)
    QStandardItem *childItem;
    QDomNode node = element.firstChild();
 
-   while(! node.isNull()) {
+   while (! node.isNull()) {
 
       // convert the node to an element
       QDomElement nextElem = node.toElement();
@@ -184,7 +185,7 @@ QStandardItem *Xml::addElement(QStandardItem *parentItem, QString text)
    return item;
 }
 
-void Xml::actionClose() {
+void Xml::actionClose()
+{
    this->parentWidget()->close();
 }
-

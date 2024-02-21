@@ -30,18 +30,18 @@ class ListView : public QWidget
 {
    CS_OBJECT(ListView)
 
-   public:
-      explicit ListView(QWidget *parent = nullptr);
-      ~ListView();
+ public:
+   explicit ListView(QWidget *parent = nullptr);
+   ~ListView();
 
-   private:
-      Ui::ListView *ui;
-      QSortFilterProxyModel *m_proxyModel;
-      QStringList getData();
+ private:
+   Ui::ListView *ui;
+   QSortFilterProxyModel *m_proxyModel;
+   QStringList getData();
 
-      // slot declarations
-      void delRow();
-      void addRow();
+   // slot declarations
+   void delRow();
+   void addRow();
 };
 
 #endif

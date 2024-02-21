@@ -30,32 +30,33 @@ class Mandelbrot_Thread : public QThread
 {
    CS_OBJECT(Mandelbrot_Thread)
 
-   public:
-      Mandelbrot_Thread(QObject *parent = nullptr);
-      ~Mandelbrot_Thread();
+ public:
+   Mandelbrot_Thread(QObject *parent = nullptr);
+   ~Mandelbrot_Thread();
 
-      void render(double centerX, double centerY, double scaleFactor, QSize resultSize);
+   void render(double centerX, double centerY, double scaleFactor, QSize resultSize);
 
-      CS_SIGNAL_1(Public, void renderedImage(const QImage &image, double scaleFactor))
-      CS_SIGNAL_2(renderedImage,image,scaleFactor)
+   CS_SIGNAL_1(Public, void renderedImage(const QImage &image, double scaleFactor))
+   CS_SIGNAL_2(renderedImage, image, scaleFactor)
 
    protected:
       void run();
 
-   private:
-      uint rgbFromWaveLength(double wave);
+ private:
+   static constexpr const int ColormapSize = 512;
 
-      QMutex mutex;
-      QWaitCondition condition;
-      double centerX;
-      double centerY;
-      double scaleFactor;
-      QSize resultSize;
-      bool restart;
-      bool abort;
+   uint rgbFromWaveLength(double wave);
 
-      enum { ColormapSize = 512 };
-      uint colormap[ColormapSize];
+   QMutex m_mutex;
+   QWaitCondition m_condition;
+   double m_centerX;
+   double m_centerY;
+   double m_scaleFactor;
+   QSize m_resultSize;
+   bool m_restart;
+   bool m_abort;
+
+   uint colormap[ColormapSize];
 };
 
 #endif

@@ -20,35 +20,35 @@
 #include "xmlsyntaxhighlighter.h"
 
 XmlSyntaxHighlighter::XmlSyntaxHighlighter(QTextDocument *parent)
-    : QSyntaxHighlighter(parent)
+   : QSyntaxHighlighter(parent)
 {
-    HighlightingRule rule;
+   HighlightingRule rule;
 
-    // tag format
-    tagFormat.setForeground(Qt::darkBlue);
-    tagFormat.setFontWeight(QFont::Bold);
+   // tag format
+   tagFormat.setForeground(Qt::darkBlue);
+   tagFormat.setFontWeight(QFont::Bold);
 
-    rule.pattern = QRegularExpression("(<[a-zA-Z:]+\\b|<\\?[a-zA-Z:]+\\b|\\?>|>|/>|</[a-zA-Z:]+>)");
-    rule.format  = tagFormat;
-    highlightingRules.append(rule);
+   rule.pattern = QRegularExpression("(<[a-zA-Z:]+\\b|<\\?[a-zA-Z:]+\\b|\\?>|>|/>|</[a-zA-Z:]+>)");
+   rule.format  = tagFormat;
+   highlightingRules.append(rule);
 
-    // attribute format
-    attributeFormat.setForeground(Qt::darkGreen);
-    rule.pattern = QRegularExpression("[a-zA-Z:]+=");
-    rule.format  = attributeFormat;
-    highlightingRules.append(rule);
+   // attribute format
+   attributeFormat.setForeground(Qt::darkGreen);
+   rule.pattern = QRegularExpression("[a-zA-Z:]+=");
+   rule.format  = attributeFormat;
+   highlightingRules.append(rule);
 
-    // attribute content format
-    attributeContentFormat.setForeground(Qt::red);
-    rule.pattern = QRegularExpression("(\"[^\"]*\"|'[^']*')");
-    rule.format  = attributeContentFormat;
-    highlightingRules.append(rule);
+   // attribute content format
+   attributeContentFormat.setForeground(Qt::red);
+   rule.pattern = QRegularExpression("(\"[^\"]*\"|'[^']*')");
+   rule.format  = attributeContentFormat;
+   highlightingRules.append(rule);
 
-    commentFormat.setForeground(Qt::lightGray);
-    commentFormat.setFontItalic(true);
+   commentFormat.setForeground(Qt::lightGray);
+   commentFormat.setFontItalic(true);
 
-    commentStartExpression = QRegularExpression("<!--");
-    commentEndExpression   = QRegularExpression("-->");
+   commentStartExpression = QRegularExpression("<!--");
+   commentEndExpression   = QRegularExpression("-->");
 }
 
 void XmlSyntaxHighlighter::highlightBlock(const QString &text)
@@ -74,7 +74,7 @@ void XmlSyntaxHighlighter::highlightBlock(const QString &text)
       auto iter = text.indexOfFast(commentStartExpression);
 
       if (iter != text.end()) {
-        startIndex = iter - text.begin();
+         startIndex = iter - text.begin();
       }
    }
 

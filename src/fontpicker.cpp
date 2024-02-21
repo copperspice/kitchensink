@@ -46,18 +46,19 @@ FontPicker::~FontPicker()
 
 void FontPicker::setFont()
 {
-    bool ok;
-    QFont font = QFontDialog::getFont(&ok, QFont(ui->fontEdit->text()), this);
+   bool ok;
+   QFont font = QFontDialog::getFont(&ok, QFont(ui->fontEdit->text()), this);
 
-    if (ok) {
-        ui->label->setText("Sample Text Displayed in " + font.family());
+   if (ok) {
+      ui->label->setText("Sample Text Displayed in " + font.family());
 
-        ui->fontEdit->setFont(font);
-        ui->fontEdit->setFocus();
-        ui->fontEdit->setSelection(0,0);
-    }
+      ui->fontEdit->setFont(font);
+      ui->fontEdit->setFocus();
+      ui->fontEdit->setSelection(0, 0);
+   }
 }
 
-void FontPicker::actionClose() {
+void FontPicker::actionClose()
+{
    this->parentWidget()->close();
 }

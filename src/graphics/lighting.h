@@ -29,23 +29,23 @@ class Lighting: public QGraphicsView
 {
    CS_OBJECT(Lighting)
 
-   public:
-       Lighting(QWidget *parent = nullptr);
        QSize sizeHint() const;
+ public:
+   Lighting(QWidget *parent = nullptr);
 
    protected:
        void resizeEvent(QResizeEvent *event);
 
-   private:
-       void setupScene();
+ private:
+   void setupScene();
 
-       CS_SLOT_1(Private, void animate())
-       CS_SLOT_2(animate)
+   CS_SLOT_1(Private, void animate())
+   CS_SLOT_2(animate)
 
-       qreal angle;
-       QGraphicsScene m_scene;
-       QGraphicsItem *m_lightSource;
-       QList<QGraphicsItem*> m_items;
+   qreal angle;
+   QGraphicsScene m_scene;
+   QGraphicsItem *m_lightSource;
+   QList<QGraphicsItem *> m_items;
 };
 
 #endif

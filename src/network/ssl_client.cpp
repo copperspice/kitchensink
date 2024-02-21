@@ -21,7 +21,6 @@
 
 #include "ssl_cert.h"
 #include "ssl_client.h"
-
 #include "ui_ssl_error.h"
 
 #include <QLineEdit>
@@ -32,16 +31,16 @@
 #include <QToolButton>
 
 Ssl_Client::Ssl_Client(QWidget *parent)
-    : QWidget(parent), ui(new Ui::Ssl_Client), socket(0), padLock(0), executingDialog(false)
+   : QWidget(parent), ui(new Ui::Ssl_Client), socket(nullptr), padLock(nullptr), executingDialog(false)
 {
-    ui->setupUi(this);
+   ui->setupUi(this);
 
-    ui->hostNameEdit->setSelection(0, ui->hostNameEdit->text().size());
-    ui->sessionOutput->setHtml(tr("&lt;not connected&gt;"));
+   ui->hostNameEdit->setSelection(0, ui->hostNameEdit->text().size());
+   ui->sessionOutput->setHtml(tr("&lt;not connected&gt;"));
 
-    connect(ui->hostNameEdit,  &QLineEdit::textChanged, this, &Ssl_Client::updateEnabledState);
-    connect(ui->connectButton, &QPushButton::clicked,   this, &Ssl_Client::secureConnect);
-    connect(ui->sendButton,    &QPushButton::clicked,   this, &Ssl_Client::sendData);
+   connect(ui->hostNameEdit,  &QLineEdit::textChanged, this, &Ssl_Client::updateEnabledState);
+   connect(ui->connectButton, &QPushButton::clicked,   this, &Ssl_Client::secureConnect);
+   connect(ui->sendButton,    &QPushButton::clicked,   this, &Ssl_Client::sendData);
 }
 
 Ssl_Client::~Ssl_Client()
@@ -50,28 +49,28 @@ Ssl_Client::~Ssl_Client()
 
 void Ssl_Client::updateEnabledState()
 {
-    bool unconnected = !socket || socket->state() == QAbstractSocket::UnconnectedState;
+   bool unconnected = !socket || socket->state() == QAbstractSocket::UnconnectedState;
 
-    ui->hostNameEdit->setReadOnly(!unconnected);
-    ui->hostNameEdit->setFocusPolicy(unconnected ? Qt::StrongFocus : Qt::NoFocus);
+   ui->hostNameEdit->setReadOnly(! unconnected);
+   ui->hostNameEdit->setFocusPolicy(unconnected ? Qt::StrongFocus : Qt::NoFocus);
 
-    ui->hostNameLabel->setEnabled(unconnected);
-    ui->portBox->setEnabled(unconnected);
-    ui->portLabel->setEnabled(unconnected);
-    ui->connectButton->setEnabled(unconnected && !ui->hostNameEdit->text().isEmpty());
+   ui->hostNameLabel->setEnabled(unconnected);
+   ui->portBox->setEnabled(unconnected);
+   ui->portLabel->setEnabled(unconnected);
+   ui->connectButton->setEnabled(unconnected && !ui->hostNameEdit->text().isEmpty());
 
-    bool connected = socket && socket->state() == QAbstractSocket::ConnectedState;
-    ui->sessionOutput->setEnabled(connected);
-    ui->sessionInput->setEnabled(connected);
-    ui->sessionInputLabel->setEnabled(connected);
-    ui->sendButton->setEnabled(connected);
+   bool connected = socket && socket->state() == QAbstractSocket::ConnectedState;
+   ui->sessionOutput->setEnabled(connected);
+   ui->sessionInput->setEnabled(connected);
+   ui->sessionInputLabel->setEnabled(connected);
+   ui->sendButton->setEnabled(connected);
 }
 
 void Ssl_Client::secureConnect()
 {
    if (! QSslSocket::supportsSsl()) {
       QMessageBox::information(this, "Secure Socket", "The OpenSSL crypto and ssl runtime libraries were not found.\n\n"
-         "Modify your system path or copy the required library files to the deploy folder for this application.");
+            "Modify your system path or copy the required library files to the deploy folder for this application.");
 
       return;
    }
@@ -113,113 +112,114 @@ void Ssl_Client::socketStateChanged(QAbstractSocket::SocketState state)
 
 void Ssl_Client::socketEncrypted()
 {
-    if (! socket)  {
-        return;                 // might have disconnected already
-    }
+   if (! socket)  {
+      return;                 // might have disconnected already
+   }
 
-    ui->sessionOutput->clear();
-    ui->sessionInput->setFocus();
+   ui->sessionOutput->clear();
+   ui->sessionInput->setFocus();
 
-    QPalette palette;
-    palette.setColor(QPalette::Base, QColor(255, 255, 192));
-    ui->hostNameEdit->setPalette(palette);
+   QPalette palette;
+   palette.setColor(QPalette::Base, QColor(255, 255, 192));
+   ui->hostNameEdit->setPalette(palette);
 
-    QSslCipher ciph = socket->sessionCipher();
-    QString cipher = QString("%1, %2 (%3/%4)").formatArg(ciph.authenticationMethod())
-                     .formatArg (ciph.name()).formatArg(ciph.usedBits()).formatArg(ciph.supportedBits());;
+   QSslCipher ciph = socket->sessionCipher();
+   QString cipher = QString("%1, %2 (%3/%4)").formatArg(ciph.authenticationMethod())
+         .formatArg (ciph.name()).formatArg(ciph.usedBits()).formatArg(ciph.supportedBits());;
 
-    ui->cipherLabel->setText(cipher);
+   ui->cipherLabel->setText(cipher);
 
-    if (! padLock) {
-        padLock = new QToolButton;
-        padLock->setIcon(QIcon(":/resources/network/encrypted.png"));
+   if (! padLock) {
+      padLock = new QToolButton;
+      padLock->setIcon(QIcon(":/resources/network/encrypted.png"));
 
-        padLock->setCursor(Qt::ArrowCursor);
-        padLock->setToolTip(tr("Display encryption details."));
+      padLock->setCursor(Qt::ArrowCursor);
+      padLock->setToolTip(tr("Display encryption details."));
 
-        int extent = ui->hostNameEdit->height() - 2;
-        padLock->resize(extent, extent);
-        padLock->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Ignored);
+      int extent = ui->hostNameEdit->height() - 2;
+      padLock->resize(extent, extent);
+      padLock->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Ignored);
 
-        QHBoxLayout *layout = new QHBoxLayout(ui->hostNameEdit);
-        layout->setMargin(ui->hostNameEdit->style()->pixelMetric(QStyle::PM_DefaultFrameWidth));
-        layout->setSpacing(0);
-        layout->addStretch();
-        layout->addWidget(padLock);
+      QHBoxLayout *layout = new QHBoxLayout(ui->hostNameEdit);
+      layout->setMargin(ui->hostNameEdit->style()->pixelMetric(QStyle::PM_DefaultFrameWidth));
+      layout->setSpacing(0);
+      layout->addStretch();
+      layout->addWidget(padLock);
 
-        ui->hostNameEdit->setLayout(layout);
+      ui->hostNameEdit->setLayout(layout);
 
-        connect(padLock, &QToolButton::clicked, this, &Ssl_Client::displayCertificateInfo);
+      connect(padLock, &QToolButton::clicked, this, &Ssl_Client::displayCertificateInfo);
 
-    } else {
-        padLock->show();
-    }
+   } else {
+      padLock->show();
+   }
 }
 
 void Ssl_Client::socketReadyRead()
 {
-    appendString(QString::fromUtf8(socket->readAll()));
+   appendString(QString::fromUtf8(socket->readAll()));
 }
 
 void Ssl_Client::sendData()
 {
-    QString input = ui->sessionInput->text();
-    appendString(input + '\n');
-    socket->write(input.toUtf8() + "\r\n");
+   QString input = ui->sessionInput->text();
+   appendString(input + '\n');
+   socket->write(input.toUtf8() + "\r\n");
 
-    ui->sessionInput->clear();
+   ui->sessionInput->clear();
 }
 
 void Ssl_Client::socketError(QAbstractSocket::SocketError)
 {
-    ui->cipherLabel->setText(tr("<none>"));
-    QMessageBox::critical(this, tr("Connection error"), socket->errorString());
+   ui->cipherLabel->setText(tr("<none>"));
+   QMessageBox::critical(this, tr("Connection error"), socket->errorString());
 }
 
 void Ssl_Client::sslErrors(const QList<QSslError> &errors)
 {
-    ui->cipherLabel->setText(tr("<none>"));
+   ui->cipherLabel->setText(tr("<none>"));
 
-    QDialog errorDialog(this);
+   QDialog errorDialog(this);
 
-    Ui::Ssl_Error ui_error;
-    ui_error.setupUi(&errorDialog);
+   Ui::Ssl_Error ui_error;
+   ui_error.setupUi(&errorDialog);
 
-    connect(ui_error.certificateChainButton, &QPushButton::clicked, this, &Ssl_Client::displayCertificateInfo);
+   connect(ui_error.certificateChainButton, &QPushButton::clicked, this, &Ssl_Client::displayCertificateInfo);
 
-    for (const QSslError &error : errors) {
-        ui_error.sslErrorList->addItem(error.errorString());
-    }
+   for (const QSslError &error : errors) {
+      ui_error.sslErrorList->addItem(error.errorString());
+   }
 
-    executingDialog = true;
-    if (errorDialog.exec() == QDialog::Accepted) {
-        socket->ignoreSslErrors();
-    }
+   executingDialog = true;
 
-    executingDialog = false;
+   if (errorDialog.exec() == QDialog::Accepted) {
+      socket->ignoreSslErrors();
+   }
 
-    // did the socket state change?
-    if (socket->state() != QAbstractSocket::ConnectedState) {
-        socketStateChanged(socket->state());
-    }
+   executingDialog = false;
+
+   // did the socket state change?
+   if (socket->state() != QAbstractSocket::ConnectedState) {
+      socketStateChanged(socket->state());
+   }
 }
 
 void Ssl_Client::displayCertificateInfo()
 {
-    Ssl_Cert *info = new Ssl_Cert(this);
+   Ssl_Cert *info = new Ssl_Cert(this);
 
-    info->setCertificateChain(socket->peerCertificateChain());
-    info->exec();
-    info->deleteLater();
+   info->setCertificateChain(socket->peerCertificateChain());
+   info->exec();
+   info->deleteLater();
 }
 
 void Ssl_Client::appendString(const QString &line)
 {
-    QTextCursor cursor(ui->sessionOutput->textCursor());
-    cursor.movePosition(QTextCursor::End);
-    cursor.insertText(line);
+   QTextCursor cursor(ui->sessionOutput->textCursor());
+   cursor.movePosition(QTextCursor::End);
+   cursor.insertText(line);
 
-    ui->sessionOutput->verticalScrollBar()->setValue(ui->sessionOutput->verticalScrollBar()->maximum());
+   ui->sessionOutput->verticalScrollBar()->setValue(ui->sessionOutput->verticalScrollBar()->maximum());
 }
 
 #endif

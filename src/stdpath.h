@@ -29,27 +29,27 @@ class StdPath : public QWidget
 {
    CS_OBJECT(StdPath)
 
-   public:
-       StdPath(QWidget *parent = nullptr);
-       ~StdPath();
+ public:
+   StdPath(QWidget *parent = nullptr);
+   ~StdPath();
 
-   private:
-       CS_SLOT_1(Private, void standardLocations(int index))
-       CS_SLOT_2(standardLocations)
+ private:
+   CS_SLOT_1(Private, void standardLocations(int index))
+   CS_SLOT_2(standardLocations)
 
-       CS_SLOT_1(Private, void writeableLocation(int index))
-       CS_SLOT_2(writeableLocation)
+   CS_SLOT_1(Private, void writeableLocation(int index))
+   CS_SLOT_2(writeableLocation)
 
-       CS_SLOT_1(Private, void find())
-       CS_SLOT_2(find)
+   CS_SLOT_1(Private, void find())
+   CS_SLOT_2(find)
 
-       CS_SLOT_1(Private, void locate())
-       CS_SLOT_2(locate)
+   CS_SLOT_1(Private, void locate())
+   CS_SLOT_2(locate)
 
-       CS_SLOT_1(Private, void locateAll())
-       CS_SLOT_2(locateAll)
+   CS_SLOT_1(Private, void locateAll())
+   CS_SLOT_2(locateAll)
 
-       Ui::StdPath *m_ui;
+   Ui::StdPath *m_ui;
 };
 
 #endif

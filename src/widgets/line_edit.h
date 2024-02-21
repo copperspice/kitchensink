@@ -28,28 +28,27 @@ class LineEdit : public QWidget
 {
    CS_OBJECT(LineEdit)
 
-   public:
-       LineEdit();
-       ~LineEdit();
+ public:
+   LineEdit();
+   ~LineEdit();
 
-   private:
-       CS_SLOT_1(Private, void alignChanged(int data))
-       CS_SLOT_2(alignChanged)
+ private:
+   CS_SLOT_1(Private, void alignChanged(int data))
+   CS_SLOT_2(alignChanged)
 
-       CS_SLOT_1(Private, void maskChanged(int data))
-       CS_SLOT_2(maskChanged)
+   CS_SLOT_1(Private, void maskChanged(int data))
+   CS_SLOT_2(maskChanged)
 
-       CS_SLOT_1(Private, void passwordChanged(int data))
-       CS_SLOT_2(passwordChanged)
+   CS_SLOT_1(Private, void passwordChanged(int data))
+   CS_SLOT_2(passwordChanged)
 
-       CS_SLOT_1(Private, void validChanged(int data))
-       CS_SLOT_2(validChanged)
+   CS_SLOT_1(Private, void validChanged(int data))
+   CS_SLOT_2(validChanged)
 
-       CS_SLOT_1(Private, void readonlyChanged(int data))
-       CS_SLOT_2(readonlyChanged)
+   CS_SLOT_1(Private, void readonlyChanged(int data))
+   CS_SLOT_2(readonlyChanged)
 
-       Ui::LineEdit *ui;
+   Ui::LineEdit *ui;
 };
-
 
 #endif

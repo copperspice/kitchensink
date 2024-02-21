@@ -29,18 +29,18 @@ class XmlPatterns : public QWidget
 {
    CS_OBJECT(XmlPatterns)
 
-   public:
-      XmlPatterns();
-      ~XmlPatterns();
+ public:
+   XmlPatterns();
+   ~XmlPatterns();
 
-   private:
-      Ui::XmlPatterns *ui;
+ private:
+   Ui::XmlPatterns *ui;
 
-      void evaluate(const QString &str);
-      void loadInputFile();
+   void evaluate(const QString &str);
+   void loadInputFile();
 
-      // slot declarations
-      void displayQuery(int index);
+   // slot declarations
+   void displayQuery(int index);
 };
 
 #endif

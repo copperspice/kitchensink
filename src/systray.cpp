@@ -88,13 +88,13 @@ void SysTray::createMessageGroupBox()
    typeComboBox = new QComboBox;
    typeComboBox->addItem(tr("None"), QSystemTrayIcon::NoIcon);
    typeComboBox->addItem(style()->standardIcon(
-          QStyle::SP_MessageBoxInformation), tr("Information"),QSystemTrayIcon::Information);
+         QStyle::SP_MessageBoxInformation), tr("Information"), QSystemTrayIcon::Information);
 
    typeComboBox->addItem(style()->standardIcon(
-          QStyle::SP_MessageBoxWarning), tr("Warning"), QSystemTrayIcon::Warning);
+         QStyle::SP_MessageBoxWarning), tr("Warning"), QSystemTrayIcon::Warning);
 
    typeComboBox->addItem(style()->standardIcon(
-          QStyle::SP_MessageBoxCritical), tr("Critical"), QSystemTrayIcon::Critical);
+         QStyle::SP_MessageBoxCritical), tr("Critical"), QSystemTrayIcon::Critical);
 
    typeComboBox->setCurrentIndex(1);
 
@@ -168,7 +168,7 @@ void SysTray::createActions()
 void SysTray::setVisible(bool visible)
 {
    minimizeAction->setEnabled(visible);
-   maximizeAction->setEnabled(!isMaximized());
+   maximizeAction->setEnabled(! isMaximized());
    restoreAction->setEnabled(isMaximized() || ! visible);
 
    QDialog::setVisible(visible);
@@ -189,8 +189,7 @@ void SysTray::iconActivated(QSystemTrayIcon::ActivationReason reason)
       case QSystemTrayIcon::Trigger:
 
       case QSystemTrayIcon::DoubleClick:
-         iconComboBox->setCurrentIndex((iconComboBox->currentIndex() + 1)
-                 % iconComboBox->count());
+         iconComboBox->setCurrentIndex((iconComboBox->currentIndex() + 1) % iconComboBox->count());
          break;
 
       case QSystemTrayIcon::MiddleClick:
@@ -205,34 +204,33 @@ void SysTray::iconActivated(QSystemTrayIcon::ActivationReason reason)
 void SysTray::showMessage()
 {
    QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::MessageIcon(
-          typeComboBox->itemData(typeComboBox->currentIndex()).toInt());
+               typeComboBox->itemData(typeComboBox->currentIndex()).toInt());
 
    trayIcon->showMessage(titleEdit->text(), bodyEdit->toPlainText(), icon,
-          durationSpinBox->value() * 1000);
+         durationSpinBox->value() * 1000);
 }
 
 void SysTray::messageClicked()
 {
    QMessageBox::information(nullptr, tr("Systray"),
-           tr("We already provided the best known support.\nMaybe you can ask another user."));
+         tr("We already provided the best known support.\nMaybe you can ask another user."));
 }
 
 void SysTray::closeEvent(QCloseEvent *event)
 {
    if (! m_quitNow) {
       QMessageBox::information(this, tr("System Tray"),
-           tr("The System Tray sample will continue to run. To terminate choose "
-              "<b>Quit</b> in the context menu of the system tray."));
+            tr("The System Tray sample will continue to run. To terminate choose "
+            "<b>Quit</b> in the context menu of the system tray."));
 
       this->parentWidget()->hide();
       event->ignore();
    }
 }
 
-void SysTray::actionQuit() {
+void SysTray::actionQuit()
+{
    // called from the sys tray menu
    m_quitNow = true;
    this->parentWidget()->close();
 }
-
-

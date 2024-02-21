@@ -41,7 +41,9 @@ class VideoSurface : public QAbstractVideoSurface
 
    bool present(const QVideoFrame &frame);
 
-   QRect videoRect() const { return targetRect; }
+   QRect videoRect() const {
+      return targetRect;
+   }
    void updateVideoRect();
 
    void paint(QPainter *painter);

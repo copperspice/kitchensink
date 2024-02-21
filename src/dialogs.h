@@ -31,29 +31,29 @@ class Dialogs : public QWidget
 {
    CS_OBJECT(Dialogs)
 
-   public:
-      Dialogs(QWidget *parent = nullptr);
-      ~Dialogs();
+ public:
+   Dialogs(QWidget *parent = nullptr);
+   ~Dialogs();
 
-   private:
-      // slot declarations
-      void setInteger();
-      void setDouble();
-      void setItem();
-      void setText();
-      void setExistingDirectory();
-      void setOpenFileName();
-      void setOpenFileNames();
+ private:
+   // slot declarations
+   void setInteger();
+   void setDouble();
+   void setItem();
+   void setText();
+   void setExistingDirectory();
+   void setOpenFileName();
+   void setOpenFileNames();
 
-      void criticalMessage();
-      void errorMessage();
-      void informationMessage();
-      void questionMessage();
-      void warningMessage();
+   void criticalMessage();
+   void errorMessage();
+   void informationMessage();
+   void questionMessage();
+   void warningMessage();
 
-      Ui::Dialogs *ui;
-      QErrorMessage *errorDialog = nullptr;
-      QString openFilesPath;
+   Ui::Dialogs *ui;
+   QErrorMessage *errorDialog = nullptr;
+   QString openFilesPath;
 };
 
 #endif

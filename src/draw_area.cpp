@@ -25,14 +25,14 @@
 #include <QSize>
 
 DrawArea::DrawArea(QWidget *parent)
-    : QWidget(parent)
+   : QWidget(parent)
 {
     shape       = Polygon;
     antialiased = false;
     transformed = false;
 
-    setBackgroundRole(QPalette::Base);
-    setAutoFillBackground(true);
+   setBackgroundRole(QPalette::Base);
+   setAutoFillBackground(true);
 }
 
 QSize DrawArea::minimumSizeHint() const
@@ -48,31 +48,31 @@ QSize DrawArea::sizeHint() const
 void DrawArea::setShape(Shape shape)
 {
     this->shape = shape;
-    update();
+   update();
 }
 
 void DrawArea::setPen(const QPen &pen)
 {
     this->pen = pen;
-    update();
+   update();
 }
 
 void DrawArea::setBrush(const QBrush &brush)
 {
     this->brush = brush;
-    update();
+   update();
 }
 
 void DrawArea::setAntialiased(bool antialiased)
 {
     this->antialiased = antialiased;
-    update();
+   update();
 }
 
 void DrawArea::setTransformed(bool transformed)
 {
     this->transformed = transformed;
-    update();
+   update();
 }
 
 void DrawArea::paintEvent(QPaintEvent *)
@@ -113,61 +113,61 @@ void DrawArea::paintEvent(QPaintEvent *)
 
          switch (shape) {
             case Line:
-                painter.drawLine(rect.bottomLeft(), rect.topRight());
-                break;
+               painter.drawLine(rect.bottomLeft(), rect.topRight());
+               break;
 
             case Points:
-                painter.drawPoints(points.constData(), points.size());
-                break;
+               painter.drawPoints(points.constData(), points.size());
+               break;
 
             case Polyline:
-                painter.drawPolyline(points.constData(), points.size());
-                break;
+               painter.drawPolyline(points.constData(), points.size());
+               break;
 
             case Polygon:
-                painter.drawPolygon(points.constData(), points.size());
-                break;
+               painter.drawPolygon(points.constData(), points.size());
+               break;
 
             case Rect:
-                painter.drawRect(rect);
-                break;
+               painter.drawRect(rect);
+               break;
 
             case RoundedRect:
-                painter.drawRoundedRect(rect, 25, 25, Qt::RelativeSize);
-                break;
+               painter.drawRoundedRect(rect, 25, 25, Qt::RelativeSize);
+               break;
 
             case Ellipse:
-                painter.drawEllipse(rect);
-                break;
+               painter.drawEllipse(rect);
+               break;
 
             case Arc:
-                painter.drawArc(rect, startAngle, arcLength);
-                break;
+               painter.drawArc(rect, startAngle, arcLength);
+               break;
 
             case Chord:
-                painter.drawChord(rect, startAngle, arcLength);
-                break;
+               painter.drawChord(rect, startAngle, arcLength);
+               break;
 
             case Pie:
-                painter.drawPie(rect, startAngle, arcLength);
-                break;
+               painter.drawPie(rect, startAngle, arcLength);
+               break;
 
             case Path:
-                painter.drawPath(path);
-                break;
+               painter.drawPath(path);
+               break;
 
             case Text:
-                painter.drawText(rect, Qt::AlignCenter, tr("Drawing Sample"));
-                break;
+               painter.drawText(rect, Qt::AlignCenter, tr("Drawing Sample"));
+               break;
          }
 
          painter.restore();
       }
-    }
+   }
 
-    painter.setRenderHint(QPainter::Antialiasing, false);
-    painter.setPen(palette().dark().color());
-    painter.setBrush(Qt::NoBrush);
+   painter.setRenderHint(QPainter::Antialiasing, false);
+   painter.setPen(palette().dark().color());
+   painter.setBrush(Qt::NoBrush);
 
-    painter.drawRect(QRect(0, 0, width() - 1, height() - 1));
+   painter.drawRect(QRect(0, 0, width() - 1, height() - 1));
 }

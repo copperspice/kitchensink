@@ -39,13 +39,13 @@ XmlPatterns::XmlPatterns()
    ui->setupUi(this);
    setWindowTitle("XML Patterns");
 
-   new XmlSyntaxHighlighter(this->findChild<QTextEdit*>("inputTextEdit")->document());
-   new XmlSyntaxHighlighter(this->findChild<QTextEdit*>("outputTextEdit")->document());
+   new XmlSyntaxHighlighter(this->findChild<QTextEdit *>("inputTextEdit")->document());
+   new XmlSyntaxHighlighter(this->findChild<QTextEdit *>("outputTextEdit")->document());
 
    loadInputFile();
    const QStringList queries(QDir(qmPath + "/", "*.xq").entryList());
 
-   for(const QString &item : queries)  {
+   for (const QString &item : queries) {
       ui->defaultQueries->addItem(item);
    }
 
@@ -66,7 +66,7 @@ void XmlPatterns::displayQuery(int index)
    queryFile.open(QIODevice::ReadOnly);
 
    const QString query(QString::fromLatin1(queryFile.readAll()));
-   this->findChild<QTextEdit*>("queryTextEdit")->setPlainText(query);
+   this->findChild<QTextEdit *>("queryTextEdit")->setPlainText(query);
 
    evaluate(query);
 }
@@ -77,13 +77,13 @@ void XmlPatterns::loadInputFile()
    forView.setFileName(qmPath + "/cookbook.xml");
 
    if (! forView.open(QIODevice::ReadOnly)) {
-     ksMsg(tr("Unable to Open File") + forView.errorString());
-     return;
+      ksMsg(tr("Unable to Open File") + forView.errorString());
+      return;
    }
 
    QTextStream in(&forView);
    QString inputDocument = in.readAll();
-   this->findChild<QTextEdit*>("inputTextEdit")->setPlainText(inputDocument);
+   this->findChild<QTextEdit *>("inputTextEdit")->setPlainText(inputDocument);
 }
 
 void XmlPatterns::evaluate(const QString &str)
@@ -101,14 +101,15 @@ void XmlPatterns::evaluate(const QString &str)
    query.setQuery(str);
 
    if (! query.isValid()) {
-     return;
+      return;
    }
 
    QXmlFormatter formatter(query, &buffer);
+
    if (! query.evaluateTo(&formatter)) {
       return;
    }
 
    buffer.close();
-   this->findChild<QTextEdit*>("outputTextEdit")->setPlainText(QString::fromUtf8(outArray.constData()));
+   this->findChild<QTextEdit *>("outputTextEdit")->setPlainText(QString::fromUtf8(outArray.constData()));
 }

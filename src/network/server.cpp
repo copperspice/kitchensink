@@ -21,9 +21,9 @@
 #include "server.h"
 
 Server::Server(QObject *parent)
-    : QTcpServer(parent)
+   : QTcpServer(parent)
 {
-    listen(QHostAddress::Any);
+   listen(QHostAddress::Any);
 }
 
 void Server::incomingConnection(qintptr socketDescriptor)

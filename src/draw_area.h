@@ -29,23 +29,36 @@ class DrawArea : public QWidget
 {
    CS_OBJECT(DrawArea)
 
-   public:
-      enum Shape { Line, Points, Polyline, Polygon, Rect, RoundedRect, Ellipse, Arc,
-             Chord, Pie, Path, Text };
-
-      DrawArea(QWidget *parent = nullptr);
-
       QSize minimumSizeHint() const;
       QSize sizeHint() const;
 
-      void setShape(Shape shape);
-      void setPen(const QPen & pen);
-      void setBrush(const QBrush & brush);
-      void setAntialiased(bool antialiased);
-      void setTransformed(bool transformed);
-
    protected:
       void paintEvent(QPaintEvent *event);
+ public:
+   enum Shape {
+      Line,
+      Points,
+      Polyline,
+      Polygon,
+      Rect,
+      RoundedRect,
+      Ellipse,
+      Arc,
+      Chord,
+      Pie,
+      Path,
+      Text
+   };
+
+   DrawArea(QWidget *parent = nullptr);
+
+
+   void setShape(Shape shape);
+   void setPen(const QPen &pen);
+   void setBrush(const QBrush &brush);
+   void setAntialiased(bool antialiased);
+   void setTransformed(bool transformed);
+
 
    private:
       Shape shape;

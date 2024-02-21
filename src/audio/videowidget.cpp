@@ -53,7 +53,7 @@ void VideoWidget::paintEvent(QPaintEvent *event)
    if (surface->isActive()) {
       const QRect videoRect = surface->videoRect();
 
-      if (!videoRect.contains(event->rect())) {
+      if (! videoRect.contains(event->rect())) {
          QRegion region = event->region();
          region.subtracted(videoRect);
 

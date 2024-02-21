@@ -33,42 +33,42 @@ class Grabber : public QMainWindow
 {
    CS_OBJECT(Grabber)
 
-   public:
-      Grabber(QWidget *parent = nullptr);
       QSize sizeHint() const;
+ public:
+   Grabber(QWidget *parent = nullptr);
 
-   private:
-      void createActions();
-      void createMenus();
-      QSlider *createSlider(const QString &changedSignal, const QString &setterSlot);
-      void setPixmap(const QPixmap &pixmap);
-      QSize getSize();
+ private:
+   void createActions();
+   void createMenus();
+   QSlider *createSlider(const QString &changedSignal, const QString &setterSlot);
+   void setPixmap(const QPixmap &pixmap);
+   QSize getSize();
 
-      // slots
-      void renderIntoPixmap();
-      void grabFrameBuffer();
-      void clearPixmap();
-      void actionClose();
-      void about();
+   // slots
+   void renderIntoPixmap();
+   void grabFrameBuffer();
+   void clearPixmap();
+   void actionClose();
+   void about();
 
-      QWidget *centralWidget;
-      QScrollArea *glWidgetArea;
-      QScrollArea *pixmapLabelArea;
-      GLWidget *glWidget;
-      QLabel *pixmapLabel;
-      QSlider *xSlider;
-      QSlider *ySlider;
-      QSlider *zSlider;
+   QWidget *centralWidget;
+   QScrollArea *glWidgetArea;
+   QScrollArea *pixmapLabelArea;
+   GLWidget *glWidget;
+   QLabel *pixmapLabel;
+   QSlider *xSlider;
+   QSlider *ySlider;
+   QSlider *zSlider;
 
-      QMenu *fileMenu;
-      QMenu *helpMenu;
+   QMenu *fileMenu;
+   QMenu *helpMenu;
 
-      QAction *grabFrameBufferAct;
-      QAction *renderIntoPixmapAct;
-      QAction *clearPixmapAct;
-      QAction *exitAct;
-      QAction *aboutGrabber;
-      QAction *aboutGrabber_Cs;
+   QAction *grabFrameBufferAct;
+   QAction *renderIntoPixmapAct;
+   QAction *clearPixmapAct;
+   QAction *exitAct;
+   QAction *aboutGrabber;
+   QAction *aboutGrabber_Cs;
 };
 
 #endif

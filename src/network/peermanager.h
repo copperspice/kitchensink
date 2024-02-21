@@ -33,29 +33,29 @@ class PeerManager : public QObject
 {
    CS_OBJECT(PeerManager)
 
-   public:
-      PeerManager(Client *client);
+ public:
+   PeerManager(Client *client);
 
-      void setServerPort(int port);
-      QByteArray userName() const;
-      void startBroadcasting();
-      bool isLocalHostAddress(const QHostAddress &address);
+   void setServerPort(int port);
+   QByteArray userName() const;
+   void startBroadcasting();
+   bool isLocalHostAddress(const QHostAddress &address);
 
-      CS_SIGNAL_1(Public, void newConnection(Connection *connection))
-      CS_SIGNAL_2(newConnection, connection)
+   CS_SIGNAL_1(Public, void newConnection(Connection *connection))
+   CS_SIGNAL_2(newConnection, connection)
 
-   private:
-      void updateAddresses();
-      void sendBroadcastDatagram();
-      void readBroadcastDatagram();
+ private:
+   void updateAddresses();
+   void sendBroadcastDatagram();
+   void readBroadcastDatagram();
 
-      Client *client;
-      QList<QHostAddress> broadcastAddresses;
-      QList<QHostAddress> ipAddresses;
-      QUdpSocket broadcastSocket;
-      QTimer broadcastTimer;
-      QByteArray username;
-      int serverPort;
+   Client *m_client;
+   QList<QHostAddress> broadcastAddresses;
+   QList<QHostAddress> ipAddresses;
+   QUdpSocket broadcastSocket;
+   QTimer broadcastTimer;
+   QByteArray username;
+   int serverPort;
 };
 
 #endif

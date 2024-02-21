@@ -21,38 +21,45 @@
 #define GLWIDGET_H
 
 #include <QGLWidget>
-
 class QPoint;
 
 class GLWidget : public QGLWidget
 {
    CS_OBJECT(GLWidget)
 
-   public:
-      GLWidget(QWidget *parent = nullptr);
-      ~GLWidget();
+ public:
+   GLWidget(QWidget *parent = nullptr);
+   ~GLWidget();
 
-      int xRotation() const { return xRot; }
-      int yRotation() const { return yRot; }
-      int zRotation() const { return zRot; }
+   int xRotation() const {
+      return xRot;
+   }
 
-      CS_SLOT_1(Public, void setXRotation(int angle))
-      CS_SLOT_2(setXRotation)
+   int yRotation() const {
+      return yRot;
+   }
 
-      CS_SLOT_1(Public, void setYRotation(int angle))
-      CS_SLOT_2(setYRotation)
+   int zRotation() const {
+      return zRot;
+   }
 
-      CS_SLOT_1(Public, void setZRotation(int angle))
-      CS_SLOT_2(setZRotation)
+   CS_SLOT_1(Public, void setXRotation(int angle))
+   CS_SLOT_2(setXRotation)
 
-      CS_SIGNAL_1(Public, void xRotationChanged(int angle))
-      CS_SIGNAL_2(xRotationChanged,angle)
+   CS_SLOT_1(Public, void setYRotation(int angle))
+   CS_SLOT_2(setYRotation)
 
-      CS_SIGNAL_1(Public, void yRotationChanged(int angle))
-      CS_SIGNAL_2(yRotationChanged,angle)
+   CS_SLOT_1(Public, void setZRotation(int angle))
+   CS_SLOT_2(setZRotation)
 
-      CS_SIGNAL_1(Public, void zRotationChanged(int angle))
-      CS_SIGNAL_2(zRotationChanged,angle)
+   CS_SIGNAL_1(Public, void xRotationChanged(int angle))
+   CS_SIGNAL_2(xRotationChanged, angle)
+
+   CS_SIGNAL_1(Public, void yRotationChanged(int angle))
+   CS_SIGNAL_2(yRotationChanged, angle)
+
+   CS_SIGNAL_1(Public, void zRotationChanged(int angle))
+   CS_SIGNAL_2(zRotationChanged, angle)
 
    protected:
       void initializeGL();
@@ -61,26 +68,26 @@ class GLWidget : public QGLWidget
       void mousePressEvent(QMouseEvent *event);
       void mouseMoveEvent(QMouseEvent *event);
 
-   private:
-      GLuint makeGear(const GLfloat *reflectance, GLdouble innerRadius,
-                    GLdouble outerRadius, GLdouble thickness,
-                    GLdouble toothSize, GLint toothCount);
+ private:
+   GLuint makeGear(const GLfloat *reflectance, GLdouble innerRadius,
+         GLdouble outerRadius, GLdouble thickness,
+         GLdouble toothSize, GLint toothCount);
 
-      void drawGear(GLuint gear, GLdouble dx, GLdouble dy, GLdouble dz,GLdouble angle);
-      void normalizeAngle(int *angle);
+   void drawGear(GLuint gear, GLdouble dx, GLdouble dy, GLdouble dz, GLdouble angle);
+   void normalizeAngle(int *angle);
 
-      CS_SLOT_1(Private, void advanceGears())
-      CS_SLOT_2(advanceGears)
+   CS_SLOT_1(Private, void advanceGears())
+   CS_SLOT_2(advanceGears)
 
-      GLuint gear1;
-      GLuint gear2;
-      GLuint gear3;
-      int xRot;
-      int yRot;
-      int zRot;
-      int gear1Rot;
+   GLuint gear1;
+   GLuint gear2;
+   GLuint gear3;
+   int xRot;
+   int yRot;
+   int zRot;
+   int gear1Rot;
 
-      QPoint lastPos;
+   QPoint lastPos;
 };
 
 #endif

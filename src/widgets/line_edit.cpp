@@ -28,7 +28,7 @@ LineEdit::LineEdit()
    ui->setupUi(this);
 
    setWindowTitle(tr("QLineEdit Samples"));
-   setMinimumSize(100,100);
+   setMinimumSize(100, 100);
 
    ui->align_lineEdit->setText("Sample menu availabe on line.");
    ui->align_lineEdit->setClearButtonEnabled(true);
@@ -55,9 +55,11 @@ void LineEdit::alignChanged(int index)
       case 0:
          ui->align_lineEdit->setAlignment(Qt::AlignLeft);
          break;
+
       case 1:
          ui->align_lineEdit->setAlignment(Qt::AlignCenter);
          break;
+
       case 2:
          ui->align_lineEdit->setAlignment(Qt::AlignRight);
          break;
@@ -73,15 +75,19 @@ void LineEdit::maskChanged(int index)
       case 0:
          ui->mask_lineEdit->setInputMask("");
          break;
+
       case 1:
          ui->mask_lineEdit->setInputMask("000.000.000.000;_");
          break;
+
       case 2:
          ui->mask_lineEdit->setInputMask(">NNNNN-NNNNN-NNNNN-NNNNN-NNNNN;#");
          break;
+
       case 3:
          ui->mask_lineEdit->setInputMask("(999) 999-9999");
          break;
+
       case 4:
          ui->mask_lineEdit->setInputMask("+99 9999 9999");
          break;
@@ -98,12 +104,15 @@ void LineEdit::passwordChanged(int index)
       case 0:
          ui->password_lineEdit->setEchoMode(QLineEdit::Normal);
          break;
+
       case 1:
          ui->password_lineEdit->setEchoMode(QLineEdit::Password);
          break;
+
       case 2:
          ui->password_lineEdit->setEchoMode(QLineEdit::NoEcho);
          break;
+
       case 3:
          ui->password_lineEdit->setEchoMode(QLineEdit::PasswordEchoOnEdit);
          break;
@@ -125,7 +134,8 @@ void LineEdit::validChanged(int index)
          ui->valid_lineEdit->setText("2012-01-01");
          ui->valid_lineEdit->setCursorPosition(0);
 
-         {  // validation yyyy-mm-dd
+         {
+            // validation yyyy-mm-dd
             QRegularExpression regExp("([0-9]{4})-(1[0-2]|0[1-9])-(3[0-1]|0[1-9]|[1-2][0-9])");
 
             QValidator *validator = new QRegularExpressionValidator(regExp, this);
@@ -161,4 +171,3 @@ void LineEdit::readonlyChanged(int index)
          break;
    }
 }
-

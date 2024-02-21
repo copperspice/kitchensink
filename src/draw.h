@@ -32,38 +32,38 @@ class Draw : public QWidget
 {
    CS_OBJECT(Draw)
 
-   public:
-      Draw();
+ public:
+   Draw();
 
-   private:
-      // slot declarations
-      CS_SLOT_1(Private, void shapeChanged())
-      CS_SLOT_2(shapeChanged)
+ private:
+   // slot declarations
+   CS_SLOT_1(Private, void shapeChanged())
+   CS_SLOT_2(shapeChanged)
 
-      CS_SLOT_1(Private, void penChanged())
-      CS_SLOT_2(penChanged)
+   CS_SLOT_1(Private, void penChanged())
+   CS_SLOT_2(penChanged)
 
-      CS_SLOT_1(Private, void brushChanged())
-      CS_SLOT_2(brushChanged)
+   CS_SLOT_1(Private, void brushChanged())
+   CS_SLOT_2(brushChanged)
 
-      DrawArea *m_renderArea;
+   DrawArea *m_renderArea;
 
-      QLabel *shapeLabel;
-      QLabel *penWidthLabel;
-      QLabel *penStyleLabel;
-      QLabel *penCapLabel;
-      QLabel *penJoinLabel;
-      QLabel *brushStyleLabel;
-      QLabel *otherOptionsLabel;
+   QLabel *shapeLabel;
+   QLabel *penWidthLabel;
+   QLabel *penStyleLabel;
+   QLabel *penCapLabel;
+   QLabel *penJoinLabel;
+   QLabel *brushStyleLabel;
+   QLabel *otherOptionsLabel;
 
-      QComboBox *shapeComboBox;
-      QSpinBox *penWidthSpinBox;
-      QComboBox *penStyleComboBox;
-      QComboBox *penCapComboBox;
-      QComboBox *penJoinComboBox;
-      QComboBox *brushStyleComboBox;
-      QCheckBox *antialiasingCheckBox;
-      QCheckBox *transformationsCheckBox;
+   QComboBox *shapeComboBox;
+   QSpinBox *penWidthSpinBox;
+   QComboBox *penStyleComboBox;
+   QComboBox *penCapComboBox;
+   QComboBox *penJoinComboBox;
+   QComboBox *brushStyleComboBox;
+   QCheckBox *antialiasingCheckBox;
+   QCheckBox *transformationsCheckBox;
 };
 
 #endif

@@ -28,8 +28,8 @@ class AnalogClock : public QWidget
 {
    CS_OBJECT(AnalogClock)
 
-   public:
-      AnalogClock(QWidget *parent = nullptr);
+ public:
+   AnalogClock(QWidget *parent = nullptr);
 
    protected:
       void paintEvent(QPaintEvent *event);

@@ -31,24 +31,24 @@ class International : public QWidget
 {
    CS_OBJECT(International)
 
-   public:
-      International();
-      ~International();
-
-   private:
-      void retranslateUi();
       void changeEvent(QEvent *event);
-      void getListData();
+ public:
+   International();
+   ~International();
 
-      Ui::International *ui;
-      QStringListModel *m_model;
-      static QTranslator *m_translator;
+ private:
+   void retranslateUi();
+   void getListData();
 
-      // slot declarations
-      void actionEnglish();
-      void actionFrench();
-      void actionGerman();
-      void actionClose();
+   Ui::International *ui;
+   QStringListModel *m_model;
+   static QTranslator *m_translator;
+
+   // slot declarations
+   void actionEnglish();
+   void actionFrench();
+   void actionGerman();
+   void actionClose();
 };
 
 #endif

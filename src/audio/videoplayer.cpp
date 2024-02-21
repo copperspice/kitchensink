@@ -64,10 +64,10 @@ VideoPlayer::VideoPlayer(QWidget *parent)
    m_surface = videoWidget->videoSurface();
 
    QGridLayout *gLayout = new QGridLayout;
-   gLayout->addWidget(labelTo,0,0);
-   gLayout->addWidget(e_to,0,1);
-   gLayout->addWidget(labelSubject,1,0);
-   gLayout->addWidget(e_subject,1,1);
+   gLayout->addWidget(labelTo, 0, 0);
+   gLayout->addWidget(e_to, 0, 1);
+   gLayout->addWidget(labelSubject, 1, 0);
+   gLayout->addWidget(e_subject, 1, 1);
    gLayout->addWidget(labelBody, 2, 0);
    gLayout->addWidget(e_body, 2, 1, 1, 2);
    gLayout->addWidget(videoWidget, 0, 2, 2, 1);
@@ -83,7 +83,7 @@ VideoPlayer::VideoPlayer(QWidget *parent)
    mainLayout->addSpacing(8);
    mainLayout->addLayout(bottomLayout2);
 
-   mainLayout->setContentsMargins(14,14,14,9);
+   mainLayout->setContentsMargins(14, 14, 14, 9);
    setLayout(mainLayout);
 
    // load data from resource file
@@ -116,7 +116,7 @@ VideoPlayer::~VideoPlayer()
 void VideoPlayer::stateChanged(QMovie::MovieState state)
 {
    // not used in this example, left here for reference
-   switch(state) {
+   switch (state) {
       case QMovie::NotRunning:
          break;
 
@@ -124,7 +124,6 @@ void VideoPlayer::stateChanged(QMovie::MovieState state)
          break;
 
       case QMovie::Running:
-
          break;
    }
 }
@@ -167,7 +166,8 @@ bool VideoPlayer::presentImage(const QImage &image)
    }
 }
 
-void VideoPlayer::actionClose() {
+void VideoPlayer::actionClose()
+{
    this->parentWidget()->close();
 }
 

@@ -60,88 +60,88 @@ Screenshot::Screenshot()
 
 void Screenshot::resizeEvent(QResizeEvent *)
 {
-    QSize scaledSize = originalPixmap.size();
-    scaledSize.scale(screenshotLabel->size(), Qt::KeepAspectRatio);
+   QSize scaledSize = originalPixmap.size();
+   scaledSize.scale(screenshotLabel->size(), Qt::KeepAspectRatio);
 
-    if (! screenshotLabel->pixmap() || scaledSize != screenshotLabel->pixmap()->size())  {
-        updateScreenshotLabel();
-    }
+   if (! screenshotLabel->pixmap() || scaledSize != screenshotLabel->pixmap()->size())  {
+      updateScreenshotLabel();
+   }
 }
 
 QSize Screenshot::sizeHint() const
 {
-   return QSize(500,400);
+   return QSize(500, 400);
 }
 
 void Screenshot::newScreenshot()
 {
-    newScreenshotButton->setDisabled(true);
-    QTimer::singleShot(delaySpinBox->value() * 1000, this, SLOT(captureScreen()));
+   newScreenshotButton->setDisabled(true);
+   QTimer::singleShot(delaySpinBox->value() * 1000, this, SLOT(captureScreen()));
 }
 
 void Screenshot::saveScreenshot()
 {
-    QString format = "png";
-    QString initialPath = QDir::currentPath() + tr("/untitled.") + format;
+   QString format = "png";
+   QString initialPath = QDir::currentPath() + tr("/untitled.") + format;
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save As"), initialPath,
-                  tr("%1 Files (*.%2);;All Files (*)").formatArgs(format.toUpper(), format));
+   QString fileName = QFileDialog::getSaveFileName(this, tr("Save As"), initialPath,
+         tr("%1 Files (*.%2);;All Files (*)").formatArgs(format.toUpper(), format));
 
-    if (! fileName.isEmpty()) {
-        originalPixmap.save(fileName, format);
-    }
+   if (! fileName.isEmpty()) {
+      originalPixmap.save(fileName, format);
+   }
 }
 
 void Screenshot::captureScreen()
 {
-    if (delaySpinBox->value() != 0) {
-        qApp->beep();
-    }
+   if (delaySpinBox->value() != 0) {
+      qApp->beep();
+   }
 
-    originalPixmap = QGuiApplication::primaryScreen()->grabWindow(QApplication::desktop()->winId());
-    updateScreenshotLabel();
+   originalPixmap = QGuiApplication::primaryScreen()->grabWindow(QApplication::desktop()->winId());
+   updateScreenshotLabel();
 
-    newScreenshotButton->setDisabled(false);
+   newScreenshotButton->setDisabled(false);
 }
 
 void Screenshot::createOptionsGroupBox()
 {
-    optionsGroupBox = new QGroupBox(tr("Options"));
+   optionsGroupBox = new QGroupBox(tr("Options"));
 
-    delaySpinBox = new QSpinBox;
-    delaySpinBox->setSuffix(tr(" s"));
-    delaySpinBox->setMaximum(60);
+   delaySpinBox = new QSpinBox;
+   delaySpinBox->setSuffix(tr(" s"));
+   delaySpinBox->setMaximum(60);
 
-    delaySpinBoxLabel = new QLabel(tr("Screenshot Delay:"));
+   delaySpinBoxLabel = new QLabel(tr("Screenshot Delay:"));
 
-    optionsGroupBoxLayout = new QGridLayout;
-    optionsGroupBoxLayout->addWidget(delaySpinBoxLabel, 0, 0);
-    optionsGroupBoxLayout->addWidget(delaySpinBox, 0, 1);
+   optionsGroupBoxLayout = new QGridLayout;
+   optionsGroupBoxLayout->addWidget(delaySpinBoxLabel, 0, 0);
+   optionsGroupBoxLayout->addWidget(delaySpinBox, 0, 1);
 
-    optionsGroupBox->setLayout(optionsGroupBoxLayout);
+   optionsGroupBox->setLayout(optionsGroupBoxLayout);
 }
 
 void Screenshot::createButtonsLayout()
 {
-    newScreenshotButton  = createButton(tr("New Screenshot"),  this, SLOT(newScreenshot()));
-    saveScreenshotButton = createButton(tr("Save Screenshot"), this, SLOT(saveScreenshot()));
+   newScreenshotButton  = createButton(tr("New Screenshot"),  this, SLOT(newScreenshot()));
+   saveScreenshotButton = createButton(tr("Save Screenshot"), this, SLOT(saveScreenshot()));
 
-    buttonsLayout = new QHBoxLayout;
-    buttonsLayout->addStretch();
-    buttonsLayout->addWidget(newScreenshotButton);
-    buttonsLayout->addWidget(saveScreenshotButton);
-    buttonsLayout->addStretch();
+   buttonsLayout = new QHBoxLayout;
+   buttonsLayout->addStretch();
+   buttonsLayout->addWidget(newScreenshotButton);
+   buttonsLayout->addWidget(saveScreenshotButton);
+   buttonsLayout->addStretch();
 }
 
 QPushButton *Screenshot::createButton(const QString &text, QWidget *receiver, const QString &member)
 {
-    QPushButton *button = new QPushButton(text);
-    button->connect(button, SIGNAL(clicked()), receiver, member);
-    return button;
+   QPushButton *button = new QPushButton(text);
+   button->connect(button, SIGNAL(clicked()), receiver, member);
+   return button;
 }
 
 void Screenshot::updateScreenshotLabel()
 {
-    screenshotLabel->setPixmap(originalPixmap.scaled(screenshotLabel->size(),
-            Qt::KeepAspectRatio, Qt::SmoothTransformation));
+   screenshotLabel->setPixmap(originalPixmap.scaled(screenshotLabel->size(),
+         Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }

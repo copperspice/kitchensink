@@ -27,13 +27,13 @@ class TableView : public QWidget
 {
    CS_OBJECT(TableView)
 
-   public:
-      TableView();
-      ~TableView();
-      QSqlDatabase m_db;
+ public:
+   TableView();
+   ~TableView();
+   QSqlDatabase m_db;
 
-   private:
-      bool createConnection();
+ private:
+   bool createConnection();
 };
 
 #endif

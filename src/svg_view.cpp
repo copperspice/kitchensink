@@ -49,7 +49,7 @@ void Svg_View::insertTextObject()
    QString fileName = m_fileNameCombo->currentText();
    QFile file(fileName);
 
-   if (!file.open(QIODevice::ReadOnly)) {
+   if (! file.open(QIODevice::ReadOnly)) {
       QMessageBox::warning(this, tr("Error Opening File"), tr("Could not open '%1'").formatArg(fileName));
    }
 
@@ -125,14 +125,14 @@ void Svg_View::setupGui()
    mainLayout->addSpacing(5);
    mainLayout->addLayout(bottomLayout2);
 
-   mainLayout->setContentsMargins(14,14,14,9);
+   mainLayout->setContentsMargins(14, 14, 14, 9);
    setLayout(mainLayout);
 
    connect(m_insertSVG_PB, &QPushButton::clicked, this, &Svg_View::insertTextObject);
    connect(close_PB,       &QPushButton::clicked, this, &Svg_View::actionClose);
 }
 
-void Svg_View::actionClose() {
+void Svg_View::actionClose()
+{
    this->parentWidget()->close();
 }
-

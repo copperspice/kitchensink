@@ -35,29 +35,29 @@ class Ssl_Client : public QWidget
 {
    CS_OBJECT(Ssl_Client)
 
-   public:
-      Ssl_Client(QWidget *parent = nullptr);
-      ~Ssl_Client();
+ public:
+   Ssl_Client(QWidget *parent = nullptr);
+   ~Ssl_Client();
 
-   private:
-       void appendString(const QString &line);
+ private:
+   void appendString(const QString &line);
 
-      // slot declarations
-      void updateEnabledState();
-      void secureConnect();
-      void socketStateChanged(QAbstractSocket::SocketState state);
-      void socketEncrypted();
-      void socketReadyRead();
-      void sendData();
-      void socketError(QAbstractSocket::SocketError error);
-      void sslErrors(const QList<QSslError> &errors);
-      void displayCertificateInfo();
+   // slot declarations
+   void updateEnabledState();
+   void secureConnect();
+   void socketStateChanged(QAbstractSocket::SocketState state);
+   void socketEncrypted();
+   void socketReadyRead();
+   void sendData();
+   void socketError(QAbstractSocket::SocketError error);
+   void sslErrors(const QList<QSslError> &errors);
+   void displayCertificateInfo();
 
-      Ui::Ssl_Client *ui;
+   Ui::Ssl_Client *ui;
 
-      QSslSocket  *socket;
-      QToolButton *padLock;
-      bool executingDialog;
+   QSslSocket  *socket;
+   QToolButton *padLock;
+   bool executingDialog;
 };
 
 #endif

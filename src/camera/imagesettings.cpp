@@ -47,7 +47,7 @@ ImageSettings::ImageSettings(QCameraImageCapture *imageCapture, QWidget *parent)
 
    for (const QSize &resolution : supportedResolutions) {
       ui->imageResolutionBox->addItem(QString("%1x%2").formatArg(resolution.width())
-                                      .formatArg(resolution.height()), QVariant(resolution));
+            .formatArg(resolution.height()), QVariant(resolution));
    }
 }
 
@@ -90,6 +90,7 @@ void ImageSettings::setImageSettings(const QImageEncoderSettings &imageSettings)
 QVariant ImageSettings::boxValue(const QComboBox *box) const
 {
    int idx = box->currentIndex();
+
    if (idx == -1) {
       return QVariant();
    }

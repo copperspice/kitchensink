@@ -92,7 +92,8 @@ void Script::jsScript(QString contents)
    if (result.isError()) {
       int temp = result.property("lineNumber").toInt32();
 
-      QMessageBox::critical(nullptr,"Script", QString("%0:%1:\n%2").formatArgs(m_fileName, QString::number(temp), result.toString()));
+      QMessageBox::critical(nullptr, "Script", QString("%0:%1:\n%2")
+            .formatArgs(m_fileName, QString::number(temp), result.toString()));
 
    } else {
 
@@ -110,7 +111,7 @@ void Script::jsScript(QString contents)
 void Script::actionOpenScript()
 {
    m_fileName = QFileDialog::getOpenFileName(this, tr("Open Script File"),
-            QDir::currentPath(), tr("Script Files (*.js)"));
+         QDir::currentPath(), tr("Script Files (*.js)"));
 
    if (! m_fileName.isEmpty()) {
       displayScript();
@@ -129,7 +130,7 @@ void Script::actionRunScript()
    jsScript(contents);
 }
 
-void Script::actionClose() {
+void Script::actionClose()
+{
    this->parentWidget()->close();
 }
-

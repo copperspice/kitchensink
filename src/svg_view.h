@@ -32,24 +32,24 @@ class Svg_View : public QWidget
 {
    CS_OBJECT(Svg_View)
 
-   public:
+ public:
       enum { SvgTextFormat = QTextFormat::UserObject + 1 };
       enum SvgProperties { SvgData = 1 };
 
-      Svg_View();
+   Svg_View();
 
-   private:
-      void setupTextObject();
-      void setupGui();
+ private:
+   void setupTextObject();
+   void setupGui();
 
-      // slot declarations
-      void insertTextObject();
-      void actionClose();
+   // slot declarations
+   void insertTextObject();
+   void actionClose();
 
-      QTextEdit   *m_textEdit;
-      QLabel      *m_fileNameLabel;
-      QComboBox   *m_fileNameCombo;
-      QPushButton *m_insertSVG_PB;
+   QTextEdit   *m_textEdit;
+   QLabel      *m_fileNameLabel;
+   QComboBox   *m_fileNameCombo;
+   QPushButton *m_insertSVG_PB;
 };
 
 #endif

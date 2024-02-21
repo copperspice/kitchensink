@@ -51,10 +51,10 @@ void ColorPicker::setColor()
    QColor color;
 
    if (ui->native_checkBox->isChecked())  {
-     color = QColorDialog::getColor(Qt::green, this);
+      color = QColorDialog::getColor(Qt::green, this);
 
    } else  {
-     color = QColorDialog::getColor(Qt::green, this, "Select Color", QColorDialog::DontUseNativeDialog);
+      color = QColorDialog::getColor(Qt::green, this, "Select Color", QColorDialog::DontUseNativeDialog);
 
    }
 
@@ -67,6 +67,7 @@ void ColorPicker::setColor()
    }
 }
 
-void ColorPicker::actionClose() {
+void ColorPicker::actionClose()
+{
    this->parentWidget()->close();
 }

@@ -26,134 +26,138 @@
 #include <QProcess>
 #include <QStringList>
 
-static const qint32 BroadcastInterval = 2000;
-static const unsigned broadcastPort   = 45000;
+static constexpr const qint32 BroadcastInterval = 2000;
+static constexpr const unsigned broadcastPort   = 45000;
 
 PeerManager::PeerManager(Client *client)
-    : QObject(client)
+   : QObject(client)
 {
-    this->client = client;
+   m_client = client;
 
-    QStringList envVariables;
-    envVariables << "USERNAME.*" << "USER.*" << "USERDOMAIN.*"
-                 << "HOSTNAME.*" << "DOMAINNAME.*";
+   QStringList envVariables;
+   envVariables << "USERNAME.*" << "USER.*" << "USERDOMAIN.*"
+         << "HOSTNAME.*" << "DOMAINNAME.*";
 
-    QStringList environment = QProcess::systemEnvironment();
+   QStringList environment = QProcess::systemEnvironment();
 
-    for (QString string : envVariables) {
-        int index = environment.indexOf(QRegularExpression(string));
+   for (const QString &string : envVariables) {
+      int index = environment.indexOf(QRegularExpression(string));
 
-        if (index != -1) {
-            QStringList stringList = environment.at(index).split('=');
+      if (index != -1) {
+         QStringList stringList = environment.at(index).split('=');
 
-            if (stringList.size() == 2) {
-                username = stringList.at(1).toUtf8();
-                break;
-            }
-        }
-    }
+         if (stringList.size() == 2) {
+            username = stringList.at(1).toUtf8();
+            break;
+         }
+      }
+   }
 
-    if (username.isEmpty()) {
-        username = "unknown";
-    }
+   if (username.isEmpty()) {
+      username = "unknown";
+   }
 
-    updateAddresses();
-    serverPort = 0;
+   updateAddresses();
+   serverPort = 0;
 
-    broadcastSocket.bind(QHostAddress::Any, broadcastPort, QUdpSocket::ShareAddress | QUdpSocket::ReuseAddressHint);
-    connect(&broadcastSocket, &QUdpSocket::readyRead, this, &PeerManager::readBroadcastDatagram);
+   broadcastSocket.bind(QHostAddress::Any, broadcastPort, QUdpSocket::ShareAddress | QUdpSocket::ReuseAddressHint);
+   connect(&broadcastSocket, &QUdpSocket::readyRead, this, &PeerManager::readBroadcastDatagram);
 
-    broadcastTimer.setInterval(BroadcastInterval);
-    connect(&broadcastTimer, &QTimer::timeout,        this, &PeerManager::sendBroadcastDatagram);
+   broadcastTimer.setInterval(BroadcastInterval);
+   connect(&broadcastTimer, &QTimer::timeout,        this, &PeerManager::sendBroadcastDatagram);
 }
 
 void PeerManager::setServerPort(int port)
 {
-    serverPort = port;
+   serverPort = port;
 }
 
 QByteArray PeerManager::userName() const
 {
-    return username;
+   return username;
 }
 
 void PeerManager::startBroadcasting()
 {
-    broadcastTimer.start();
+   broadcastTimer.start();
 }
 
 bool PeerManager::isLocalHostAddress(const QHostAddress &address)
 {
-    for (QHostAddress localAddress : ipAddresses) {
-        if (address == localAddress) {
-            return true;
-        }
-    }
-    return false;
+   for (QHostAddress localAddress : ipAddresses) {
+      if (address == localAddress) {
+         return true;
+      }
+   }
+
+   return false;
 }
 
 void PeerManager::sendBroadcastDatagram()
 {
-    QByteArray datagram(username);
-    datagram.append('@');
-    datagram.append(QByteArray::number(serverPort));
+   QByteArray datagram(username);
+   datagram.append('@');
+   datagram.append(QByteArray::number(serverPort));
 
-    bool validBroadcastAddresses = true;
-    for (QHostAddress address : broadcastAddresses) {
-        if (broadcastSocket.writeDatagram(datagram, address, broadcastPort) == -1) {
-            validBroadcastAddresses = false;
-       }
-    }
+   bool validBroadcastAddresses = true;
 
-    if (! validBroadcastAddresses) {
-        updateAddresses();
-    }
+   for (QHostAddress address : broadcastAddresses) {
+      if (broadcastSocket.writeDatagram(datagram, address, broadcastPort) == -1) {
+         validBroadcastAddresses = false;
+      }
+   }
+
+   if (! validBroadcastAddresses) {
+      updateAddresses();
+   }
 }
 
 void PeerManager::readBroadcastDatagram()
 {
-    while (broadcastSocket.hasPendingDatagrams()) {
-        QHostAddress senderIp;
-        quint16 senderPort;
+   while (broadcastSocket.hasPendingDatagrams()) {
+      QHostAddress senderIp;
+      quint16 senderPort;
 
-        QByteArray datagram;
-        datagram.resize(broadcastSocket.pendingDatagramSize());
+      QByteArray datagram;
+      datagram.resize(broadcastSocket.pendingDatagramSize());
 
-        if (broadcastSocket.readDatagram(datagram.data(), datagram.size(), &senderIp, &senderPort) == -1) {
-            continue;
-        }
+      if (broadcastSocket.readDatagram(datagram.data(), datagram.size(), &senderIp, &senderPort) == -1) {
+         continue;
+      }
 
-        QList<QByteArray> list = datagram.split('@');
-        if (list.size() != 2)  {
-            continue;
-        }
+      QList<QByteArray> list = datagram.split('@');
 
-        int senderServerPort = list.at(1).toInt();
-        if (isLocalHostAddress(senderIp) && senderServerPort == serverPort) {
-            continue;
-        }
+      if (list.size() != 2)  {
+         continue;
+      }
 
-        if (! client->hasConnection(senderIp)) {
-            Connection *connection = new Connection(this);
-            emit newConnection(connection);
-            connection->connectToHost(senderIp, senderServerPort);
-        }
-    }
+      int senderServerPort = list.at(1).toInt();
+
+      if (isLocalHostAddress(senderIp) && senderServerPort == serverPort) {
+         continue;
+      }
+
+      if (! m_client->hasConnection(senderIp)) {
+         Connection *connection = new Connection(this);
+         emit newConnection(connection);
+         connection->connectToHost(senderIp, senderServerPort);
+      }
+   }
 }
 
 void PeerManager::updateAddresses()
 {
-    broadcastAddresses.clear();
-    ipAddresses.clear();
+   broadcastAddresses.clear();
+   ipAddresses.clear();
 
-    for (QNetworkInterface interface : QNetworkInterface::allInterfaces()) {
-        for (QNetworkAddressEntry entry : interface.addressEntries()) {
-            QHostAddress broadcastAddress = entry.broadcast();
+   for (QNetworkInterface interface : QNetworkInterface::allInterfaces()) {
+      for (QNetworkAddressEntry entry : interface.addressEntries()) {
+         QHostAddress broadcastAddress = entry.broadcast();
 
-            if (broadcastAddress != QHostAddress::Null && entry.ip() != QHostAddress::LocalHost) {
-                broadcastAddresses << broadcastAddress;
-                ipAddresses << entry.ip();
-            }
-        }
-    }
+         if (broadcastAddress != QHostAddress::Null && entry.ip() != QHostAddress::LocalHost) {
+            broadcastAddresses << broadcastAddress;
+            ipAddresses << entry.ip();
+         }
+      }
+   }
 }

@@ -50,9 +50,8 @@ StdPath::StdPath(QWidget *parent)
    tempList.append(QStandardPaths::AppDataLocation);
    tempList.append(QStandardPaths::AppConfigLocation);
 
-   for (int k = 0; k < tempList.size(); ++k) {
-      QStandardPaths::StandardLocation type = tempList.at(k);
-      m_ui->locationComboBox->addItem(QStandardPaths::displayName(type), QVariant::fromValue(type));
+   for (const auto &item : tempList) {
+      m_ui->locationComboBox->addItem(QStandardPaths::displayName(item), QVariant::fromValue(item));
    }
 
    //
@@ -79,8 +78,8 @@ void StdPath::standardLocations(int index)
    QStandardPaths::StandardLocation type = data.value<QStandardPaths::StandardLocation>();
    QStringList paths = QStandardPaths::standardLocations(type);
 
-   for(int k = 0; k < paths.size(); ++k)    {
-      m_ui->belongLocations->append(paths.at(k));
+   for (const auto &item : paths) {
+      m_ui->belongLocations->append(item);
    }
 }
 
@@ -114,9 +113,9 @@ void StdPath::locate()
 {
    m_ui->locateOne->clear();
 
-   int location     = m_ui->locationComboBox->currentIndex();
+   int location = m_ui->locationComboBox->currentIndex();
    QVariant data    = m_ui->locationComboBox->itemData(location);
-   QString fileName = m_ui->fileName->text();
+   QString fileName      = m_ui->fileName->text();
 
    if (fileName.isEmpty()) {
       return;
@@ -141,9 +140,9 @@ void StdPath::locateAll()
 {
    m_ui->locateAll->clear();
 
-   int location     = m_ui->locationComboBox->currentIndex();
+   int location = m_ui->locationComboBox->currentIndex();
    QVariant data    = m_ui->locationComboBox->itemData(location);
-   QString fileName = m_ui->fileName->text();
+   QString fileName      = m_ui->fileName->text();
 
    if (fileName.isEmpty()) {
       return;
@@ -160,9 +159,9 @@ void StdPath::locateAll()
 
    }
 
-   QStringList locationList = QStandardPaths::locateAll(type, fileName, option);
+   QStringList pathList = QStandardPaths::locateAll(type, fileName, option);
 
-   for(int k = 0; k < locationList.size(); ++k)    {
-      m_ui->locateAll->append(locationList.at(k));
+   for (const auto item : pathList) {
+      m_ui->locateAll->append(item);
    }
 }

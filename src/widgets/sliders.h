@@ -30,36 +30,35 @@ class QGroupBox;
 class QLabel;
 class QPushButton;
 
-
 class Sliders : public QWidget
 {
    CS_OBJECT(Sliders)
 
-   public:
-      Sliders();
+ public:
+   Sliders();
 
-   private:
-      void createRotableGroupBox();
-      void createOptionsGroupBox();
-      void createButtons();
+ private:
+   void createRotableGroupBox();
+   void createOptionsGroupBox();
+   void createButtons();
 
-      QGroupBox *m_rotableGroupBox;
-      QQueue<QWidget *> m_rotableWidgets;
+   QGroupBox *m_rotableGroupBox;
+   QQueue<QWidget *> m_rotableWidgets;
 
-      QGroupBox *m_optionsGroupBox;
-      QLabel *m_buttonsOrientationLabel;
-      QComboBox *m_buttonsOrientationComboBox;
+   QGroupBox *m_optionsGroupBox;
+   QLabel *m_buttonsOrientationLabel;
+   QComboBox *m_buttonsOrientationComboBox;
 
-      QDialogButtonBox *m_buttonBox;
-      QPushButton *m_rotateWidgetsButton;
+   QDialogButtonBox *m_buttonBox;
+   QPushButton *m_rotateWidgetsButton;
 
-      QGridLayout *m_mainLayout;
-      QGridLayout *m_rotableLayout;
-      QGridLayout *m_optionsLayout;
+   QGridLayout *m_mainLayout;
+   QGridLayout *m_rotableLayout;
+   QGridLayout *m_optionsLayout;
 
-      // slot declarations
-      void buttonsOrientationChanged(int index);
-      void rotateWidgets();
+   // slot declarations
+   void buttonsOrientationChanged(int index);
+   void rotateWidgets();
 };
 
 #endif

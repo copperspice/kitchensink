@@ -64,9 +64,9 @@ Style_DW::~Style_DW()
 void Style_DW::actionAbout()
 {
    QMessageBox::about(this, tr("About Style Sheets"),
-          tr("The <b>Style Sheet</b> example shows how widgets can be styled "
-             "using Qt Style Sheets. Click <b>Edit/Select Style</b> to pop up the "
-             "style editor and choose an existing style sheet or design your own."));
+         tr("The <b>Style Sheet</b> example shows how widgets can be styled "
+         "using Qt Style Sheets. Click <b>Edit/Select Style</b> to pop up the "
+         "style editor and choose an existing style sheet or design your own."));
 }
 
 void Style_DW::actionEdit()
@@ -75,7 +75,8 @@ void Style_DW::actionEdit()
    m_parent->addMdiChild(m_style);
 }
 
-void Style_DW::actionClose() {
+void Style_DW::actionClose()
+{
 
    // close child window if open
    if (m_style != nullptr) {
@@ -96,4 +97,3 @@ void Style_DW::closeEvent(QCloseEvent *event)
    actionClose();
    QWidget::closeEvent(event);
 }
-

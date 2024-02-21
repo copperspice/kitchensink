@@ -41,49 +41,49 @@ class MusicPlayer : public QWidget
 {
    CS_OBJECT(MusicPlayer)
 
-   public:
-      MusicPlayer(QWidget *parent = nullptr);
-      ~MusicPlayer();
-
-      QSize sizeHint() const override;
-
-   private:
       void closeEvent(QCloseEvent *event);
-      void setupActions();
-      void setupUi();
+ public:
+   MusicPlayer(QWidget *parent = nullptr);
+   ~MusicPlayer();
 
-      // slots
-      void openFile();
-      void aboutCs();
-      void close();
-      void tableClicked(const QModelIndex &index);
+   QSize sizeHint() const override;
 
-      void togglePlayer();
-      void stopPlayer();
-      void playUrl(const QUrl &url);
-      void setSlider(int position);
-      void updateTime(qint64 position);
-      void updateDuration(qint64 duration);
-      void updateState(QMediaPlayer::State state);
-      void handleError();
+ private:
+   void setupActions();
+   void setupUi();
 
-      Ui::MusicPlayer *m_ui;
-      QStandardItemModel *m_model;
-      QString m_dir;
-      int m_current_row;
+   // slots
+   void openFile();
+   void aboutCs();
+   void close();
+   void tableClicked(const QModelIndex &index);
 
-      QMediaPlayer m_mediaPlayer;
+   void togglePlayer();
+   void stopPlayer();
+   void playUrl(const QUrl &url);
+   void setSlider(int position);
+   void updateTime(qint64 position);
+   void updateDuration(qint64 duration);
+   void updateState(QMediaPlayer::State state);
+   void handleError();
 
-      VolumeButton *m_volumeButton = nullptr;
-      QSlider *m_slider            = nullptr;
-      QLabel  *m_labelTime         = nullptr;
-      QLabel  *m_status            = nullptr;
+   Ui::MusicPlayer *m_ui;
+   QStandardItemModel *m_model;
+   QString m_dir;
+   int m_current_row;
 
-      QList<QUrl> m_sources;
+   QMediaPlayer m_mediaPlayer;
 
-      QAction *m_playAction;
-      QAction *m_pauseAction;
-      QAction *m_stopAction;
+   VolumeButton *m_volumeButton = nullptr;
+   QSlider *m_slider            = nullptr;
+   QLabel  *m_labelTime         = nullptr;
+   QLabel  *m_status            = nullptr;
+
+   QList<QUrl> m_sources;
+
+   QAction *m_playAction;
+   QAction *m_pauseAction;
+   QAction *m_stopAction;
 };
 
 #endif // ! QT_NO_MULTIMEDIA

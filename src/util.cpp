@@ -57,4 +57,3 @@ void ksMsg(QWidget *parent, const QString &title, const QString &msg)
    msgB.setText(msg);
    msgB.exec();
 }
-

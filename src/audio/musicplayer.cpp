@@ -69,7 +69,8 @@ void MusicPlayer::aboutCs()
    QApplication::aboutCs();
 }
 
-void MusicPlayer::close() {
+void MusicPlayer::close()
+{
    this->parentWidget()->close();
 }
 
@@ -120,26 +121,26 @@ void MusicPlayer::openFile()
       // if you want to capture m_model in the lambda use a generalized capture: model = m_model
 
       connect(tmpPlayer.get(), &QMediaPlayer::metaDataAvailableChanged, this,
-                  [ tmpPlayer, url, itemTitle, itemArtist, itemAlbum, itemDuration]( )
-         {
+            [ tmpPlayer, url, itemTitle, itemArtist, itemAlbum, itemDuration]( )
+      {
 
-            QString title    = url.fileName();
-            QString artist   = "Not Available";
-            QString album    = "Not Available";
-            QString duration = "00:00";
+         QString title    = url.fileName();
+         QString artist   = "Not Available";
+         QString album    = "Not Available";
+         QString duration = "00:00";
 
-            if (tmpPlayer->isMetaDataAvailable()) {
-               title    = tmpPlayer->metaData("Title").toString();
-               artist   = tmpPlayer->metaData("Author").toString();
-               album    = tmpPlayer->metaData("AlbumTitle").toString();
-               duration = formatTime(tmpPlayer->duration());
-            }
+         if (tmpPlayer->isMetaDataAvailable()) {
+            title    = tmpPlayer->metaData("Title").toString();
+            artist   = tmpPlayer->metaData("Author").toString();
+            album    = tmpPlayer->metaData("AlbumTitle").toString();
+            duration = formatTime(tmpPlayer->duration());
+         }
 
-            itemTitle->setText(title);
-            itemArtist->setText(artist);
-            itemAlbum->setText(album);
-            itemDuration->setText(duration);
-         });
+         itemTitle->setText(title);
+         itemArtist->setText(artist);
+         itemAlbum->setText(album);
+         itemDuration->setText(duration);
+      });
 
       // wait until the connect is configured
       tmpPlayer->setMedia(url);
@@ -313,10 +314,10 @@ void MusicPlayer::updateDuration(qint64 duration)
 void MusicPlayer::updateState(QMediaPlayer::State state)
 {
    if (state == QMediaPlayer::PlayingState) {
-     m_playAction->setToolTip(tr("Pause"));
+      m_playAction->setToolTip(tr("Pause"));
 
    } else {
-     m_playAction->setToolTip(tr("Play"));
+      m_playAction->setToolTip(tr("Play"));
 
    }
 }

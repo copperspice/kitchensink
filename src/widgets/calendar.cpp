@@ -219,6 +219,7 @@ void Calendar::createGeneralOptionsGroupBox()
          QString label = QLocale::languageToString(langId) + "/" + QLocale::countryToString(country);
 
          QLocale locale(langId, country);
+
          if (this->locale().language() == langId && this->locale().country() == country) {
             curLocaleIndex = index;
          }
@@ -252,7 +253,7 @@ void Calendar::createGeneralOptionsGroupBox()
    horizontalCombo->setCurrentIndex(1);
 
    verticalCombo = new QComboBox;
-   verticalCombo->addItem(tr("Week Number"),QCalendarWidget::ISOWeekNumbers);
+   verticalCombo->addItem(tr("Week Number"), QCalendarWidget::ISOWeekNumbers);
    verticalCombo->addItem(tr("None"), QCalendarWidget::NoVerticalHeader);
 
    localeLabel->setBuddy(localeCombo);
@@ -267,6 +268,7 @@ void Calendar::createGeneralOptionsGroupBox()
    navigationCheckBox = new QCheckBox(tr("&Navigation bar"));
    navigationCheckBox->setChecked(true);
 
+   // cs_mp_cast is required since this signal is overloaded
    connect(localeCombo,        cs_mp_cast<int>(&QComboBox::currentIndexChanged), this, &Calendar::localeChanged);
    connect(firstDayCombo,      cs_mp_cast<int>(&QComboBox::currentIndexChanged), this, &Calendar::firstDayChanged);
    connect(selectionModeCombo, cs_mp_cast<int>(&QComboBox::currentIndexChanged), this, &Calendar::selectionModeChanged);
@@ -319,17 +321,17 @@ void Calendar::createDatesGroupBox()
 
    minimumDateEdit = new QDateEdit;
    minimumDateEdit->setDisplayFormat("MMM d yyyy");
-   minimumDateEdit->setDateRange(m_calendar->minimumDate(),m_calendar->maximumDate());
+   minimumDateEdit->setDateRange(m_calendar->minimumDate(), m_calendar->maximumDate());
    minimumDateEdit->setDate(m_calendar->minimumDate());
 
    maximumDateEdit = new QDateEdit;
    maximumDateEdit->setDisplayFormat("MMM d yyyy");
-   maximumDateEdit->setDateRange(m_calendar->minimumDate(),m_calendar->maximumDate());
+   maximumDateEdit->setDateRange(m_calendar->minimumDate(), m_calendar->maximumDate());
    maximumDateEdit->setDate(m_calendar->maximumDate());
 
    currentDateEdit = new QDateEdit;
    currentDateEdit->setDisplayFormat("MMM d yyyy");
-   currentDateEdit->setDateRange(m_calendar->minimumDate(),m_calendar->maximumDate());
+   currentDateEdit->setDateRange(m_calendar->minimumDate(), m_calendar->maximumDate());
    currentDateEdit->setDate(m_calendar->selectedDate());
 
    minimumDateLabel->setBuddy(minimumDateEdit);

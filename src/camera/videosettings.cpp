@@ -62,7 +62,7 @@ VideoSettings::VideoSettings(QMediaRecorder *mediaRecorder, QWidget *parent)
 
    for (const QSize &resolution : supportedResolutions) {
       ui->videoResolutionBox->addItem(QString("%1x%2").formatArg(resolution.width()).
-                  formatArg(resolution.height()), QVariant(resolution));
+            formatArg(resolution.height()), QVariant(resolution));
    }
 
    ui->videoFramerateBox->addItem(tr("Default"));
@@ -106,6 +106,7 @@ QAudioEncoderSettings VideoSettings::audioSettings() const
    settings.setCodec(boxValue(ui->audioCodecBox).toString());
    settings.setQuality(QMultimedia::EncodingQuality(ui->audioQualitySlider->value()));
    settings.setSampleRate(boxValue(ui->audioSampleRateBox).toInt());
+
    return settings;
 }
 
@@ -157,6 +158,7 @@ void VideoSettings::setFormat(const QString &format)
 QVariant VideoSettings::boxValue(const QComboBox *box) const
 {
    int idx = box->currentIndex();
+
    if (idx == -1) {
       return QVariant();
    }

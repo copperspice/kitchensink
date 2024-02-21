@@ -28,18 +28,18 @@ class TabDialog : public QWidget
 {
    CS_OBJECT(TabDialog)
 
-   public:
-      TabDialog(QWidget *parent = nullptr);
-      ~TabDialog();
+ public:
+   TabDialog(QWidget *parent = nullptr);
+   ~TabDialog();
 
-   private:
-      CS_SLOT_1(Private, void actionRollYourOwn())
-      CS_SLOT_2(actionRollYourOwn)
+ private:
+   CS_SLOT_1(Private, void actionRollYourOwn())
+   CS_SLOT_2(actionRollYourOwn)
 
-      CS_SLOT_1(Private, void actionClose())
-      CS_SLOT_2(actionClose)
+   CS_SLOT_1(Private, void actionClose())
+   CS_SLOT_2(actionClose)
 
-      Ui::TabDialog *ui;
+   Ui::TabDialog *ui;
 };
 
 #endif

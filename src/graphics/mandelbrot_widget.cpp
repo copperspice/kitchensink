@@ -25,13 +25,14 @@
 
 #include <math.h>
 
-const double DefaultCenterX = -0.637011f;
-const double DefaultCenterY = -0.0395159f;
-const double DefaultScale = 0.00403897f;
+static constexpr const double DefaultCenterX = -0.637011f;
+static constexpr const double DefaultCenterY = -0.0395159f;
+static constexpr const double DefaultScale   = 0.00403897f;
 
-const double ZoomInFactor = 0.8f;
-const double ZoomOutFactor = 1 / ZoomInFactor;
-const int ScrollStep = 20;
+static constexpr const double ZoomInFactor   = 0.8f;
+static constexpr const double ZoomOutFactor  = 1 / ZoomInFactor;
+
+static constexpr const int ScrollStep        = 20;
 
 Mandelbrot_Widget::Mandelbrot_Widget(QWidget *parent)
    : QWidget(parent)
@@ -55,7 +56,7 @@ void Mandelbrot_Widget::paintEvent(QPaintEvent *)
 
    if (pixmap.isNull()) {
       painter.setPen(Qt::white);
-      painter.drawText(rect(), Qt::AlignCenter,tr("Rendering initial image, please wait..."));
+      painter.drawText(rect(), Qt::AlignCenter, tr("Rendering initial image, please wait..."));
 
       return;
    }
@@ -80,7 +81,8 @@ void Mandelbrot_Widget::paintEvent(QPaintEvent *)
    }
 
    QString text = tr("Use mouse wheel or the '+' and '-' keys to zoom. "
-                     "Press and hold left mouse button to scroll.");
+               "Press and hold left mouse button to scroll.");
+
    QFontMetrics metrics = painter.fontMetrics();
    int textWidth = metrics.width(text);
 
@@ -89,7 +91,6 @@ void Mandelbrot_Widget::paintEvent(QPaintEvent *)
    painter.drawRect((width() - textWidth) / 2 - 5, 0, textWidth + 10, metrics.lineSpacing() + 5);
    painter.setPen(Qt::white);
    painter.drawText((width() - textWidth) / 2, metrics.leading() + metrics.ascent(), text);
-
 }
 
 void Mandelbrot_Widget::resizeEvent(QResizeEvent *)
@@ -103,21 +104,27 @@ void Mandelbrot_Widget::keyPressEvent(QKeyEvent *event)
       case Qt::Key_Plus:
          zoom(ZoomInFactor);
          break;
+
       case Qt::Key_Minus:
          zoom(ZoomOutFactor);
          break;
+
       case Qt::Key_Left:
          scroll(-ScrollStep, 0);
          break;
+
       case Qt::Key_Right:
          scroll(+ScrollStep, 0);
          break;
+
       case Qt::Key_Down:
          scroll(0, -ScrollStep);
          break;
+
       case Qt::Key_Up:
          scroll(0, +ScrollStep);
          break;
+
       default:
          QWidget::keyPressEvent(event);
    }
@@ -125,8 +132,9 @@ void Mandelbrot_Widget::keyPressEvent(QKeyEvent *event)
 
 void Mandelbrot_Widget::mousePressEvent(QMouseEvent *event)
 {
-   if (event->button() == Qt::LeftButton)
+   if (event->button() == Qt::LeftButton) {
       lastDragPos = event->pos();
+   }
 }
 
 void Mandelbrot_Widget::mouseMoveEvent(QMouseEvent *event)
@@ -160,7 +168,7 @@ void Mandelbrot_Widget::scroll(int deltaX, int deltaY)
 
 QSize Mandelbrot_Widget::sizeHint() const
 {
-   return QSize(400,300);
+   return QSize(400, 300);
 }
 
 void Mandelbrot_Widget::updatePixmap(const QImage &image, double scaleFactor)
@@ -171,14 +179,15 @@ void Mandelbrot_Widget::updatePixmap(const QImage &image, double scaleFactor)
 
    pixmap = QPixmap::fromImage(image);
    pixmapOffset = QPoint();
-   lastDragPos = QPoint();
-   pixmapScale = scaleFactor;
+   lastDragPos  = QPoint();
+   pixmapScale  = scaleFactor;
+
    update();
 }
 
 void Mandelbrot_Widget::wheelEvent(QWheelEvent *event)
 {
-   int numDegrees = event->delta() / 8;
+   int numDegrees  = event->delta() / 8;
    double numSteps = numDegrees / 15.0f;
    zoom(pow(ZoomInFactor, numSteps));
 }
@@ -187,6 +196,6 @@ void Mandelbrot_Widget::zoom(double zoomFactor)
 {
    curScale *= zoomFactor;
    update();
+
    thread.render(centerX, centerY, curScale, size());
 }
-

@@ -183,30 +183,30 @@ void Draw::brushChanged()
    Qt::BrushStyle style = brushStyleComboBox->itemData(brushStyleComboBox->currentIndex(), IdRole).value<Qt::BrushStyle>();
 
    if (style == Qt::LinearGradientPattern) {
-     QLinearGradient linearGradient(0, 0, 100, 100);
-     linearGradient.setColorAt(0.0, Qt::white);
-     linearGradient.setColorAt(0.2, Qt::green);
-     linearGradient.setColorAt(1.0, Qt::black);
-     m_renderArea->setBrush(linearGradient);
+      QLinearGradient linearGradient(0, 0, 100, 100);
+      linearGradient.setColorAt(0.0, Qt::white);
+      linearGradient.setColorAt(0.2, Qt::green);
+      linearGradient.setColorAt(1.0, Qt::black);
+      m_renderArea->setBrush(linearGradient);
 
    } else if (style == Qt::RadialGradientPattern) {
-     QRadialGradient radialGradient(50, 50, 50, 70, 70);
-     radialGradient.setColorAt(0.0, Qt::white);
-     radialGradient.setColorAt(0.2, Qt::green);
-     radialGradient.setColorAt(1.0, Qt::black);
-     m_renderArea->setBrush(radialGradient);
+      QRadialGradient radialGradient(50, 50, 50, 70, 70);
+      radialGradient.setColorAt(0.0, Qt::white);
+      radialGradient.setColorAt(0.2, Qt::green);
+      radialGradient.setColorAt(1.0, Qt::black);
+      m_renderArea->setBrush(radialGradient);
 
    } else if (style == Qt::ConicalGradientPattern) {
-     QConicalGradient conicalGradient(50, 50, 150);
-     conicalGradient.setColorAt(0.0, Qt::white);
-     conicalGradient.setColorAt(0.2, Qt::green);
-     conicalGradient.setColorAt(1.0, Qt::black);
-     m_renderArea->setBrush(conicalGradient);
+      QConicalGradient conicalGradient(50, 50, 150);
+      conicalGradient.setColorAt(0.0, Qt::white);
+      conicalGradient.setColorAt(0.2, Qt::green);
+      conicalGradient.setColorAt(1.0, Qt::black);
+      m_renderArea->setBrush(conicalGradient);
 
    } else if (style == Qt::TexturePattern) {
-     m_renderArea->setBrush(QBrush(QPixmap(":/resources/brick.png")));
+      m_renderArea->setBrush(QBrush(QPixmap(":/resources/brick.png")));
 
    } else {
-     m_renderArea->setBrush(QBrush(Qt::green, style));
+      m_renderArea->setBrush(QBrush(Qt::green, style));
    }
 }

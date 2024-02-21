@@ -37,7 +37,7 @@ TabDialog::TabDialog(QWidget *parent)
    ui->tabWidget->setTabText(1, tr("Sandwich Selection"));
    ui->tabWidget->setTabText(2, tr("Sides && Desserts"));
 
-   // forces the six rb on tab2 to be exclusive  
+   // forces the six rb on tab2 to be exclusive
    QButtonGroup *temp = new QButtonGroup;
    temp->addButton(ui->coriander_RB);
    temp->addButton(ui->juniper_RB);
@@ -160,9 +160,9 @@ void TabDialog::actionRollYourOwn()
       ui->provolone_CB->setChecked(true);
       ui->swiss_CB->setChecked(true);
    }
-
 }
 
-void TabDialog::actionClose() {
+void TabDialog::actionClose()
+{
    this->parentWidget()->close();
 }

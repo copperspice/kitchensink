@@ -31,24 +31,24 @@ class Script : public QWidget
 {
    CS_OBJECT(Script)
 
-   public:
-      explicit Script();
-      ~Script();
+ public:
+   explicit Script();
+   ~Script();
 
-   private:
-      CS_SLOT_1(Private, void actionOpenScript())
-      CS_SLOT_2(actionOpenScript)
+ private:
+   CS_SLOT_1(Private, void actionOpenScript())
+   CS_SLOT_2(actionOpenScript)
 
-      CS_SLOT_1(Private, void actionRunScript())
-      CS_SLOT_2(actionRunScript)
+   CS_SLOT_1(Private, void actionRunScript())
+   CS_SLOT_2(actionRunScript)
 
-      CS_SLOT_1(Private, void actionClose())
-      CS_SLOT_2(actionClose)
+   CS_SLOT_1(Private, void actionClose())
+   CS_SLOT_2(actionClose)
 
-      Ui::Script *ui;
-      QString m_fileName;
-      void displayScript();
-      void jsScript(QString contents);
+   Ui::Script *ui;
+   QString m_fileName;
+   void displayScript();
+   void jsScript(QString contents);
 };
 
 #endif

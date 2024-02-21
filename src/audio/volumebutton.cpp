@@ -29,55 +29,53 @@
 VolumeButton::VolumeButton(QWidget *parent)
    : QToolButton(parent)
 {
-    setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
-    setPopupMode(QToolButton::InstantPopup);
+   setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
+   setPopupMode(QToolButton::InstantPopup);
 
-    QWidget *popup = new QWidget(this);
+   QWidget *popup = new QWidget(this);
 
-    slider = new QSlider(Qt::Horizontal, popup);
-    slider->setRange(0, 100);
-    slider->setStyle(QStyleFactory::create("Fusion"));
-    connect(slider, &QAbstractSlider::valueChanged, this, &VolumeButton::volumeChanged);
+   slider = new QSlider(Qt::Horizontal, popup);
+   slider->setRange(0, 100);
+   slider->setStyle(QStyleFactory::create("Fusion"));
+   connect(slider, &QAbstractSlider::valueChanged, this, &VolumeButton::volumeChanged);
 
-    label = new QLabel(popup);
-    label->setAlignment(Qt::AlignCenter);
-    label->setNum(100);
-    label->setMinimumWidth(label->sizeHint().width());
+   label = new QLabel(popup);
+   label->setAlignment(Qt::AlignCenter);
+   label->setNum(100);
+   label->setMinimumWidth(label->sizeHint().width());
 
-    // cs_mp_cast is required since this slot is overloaded
-    connect(slider, &QAbstractSlider::valueChanged, label, cs_mp_cast<int>(&QLabel::setNum));
+   // cs_mp_cast is required since this slot is overloaded
+   connect(slider, &QAbstractSlider::valueChanged, label, cs_mp_cast<int>(&QLabel::setNum));
 
-    QBoxLayout *popupLayout = new QHBoxLayout(popup);
-    popupLayout->setMargin(2);
-    popupLayout->addWidget(slider);
-    popupLayout->addWidget(label);
+   QBoxLayout *popupLayout = new QHBoxLayout(popup);
+   popupLayout->setMargin(2);
+   popupLayout->addWidget(slider);
+   popupLayout->addWidget(label);
 
-    QWidgetAction *action = new QWidgetAction(this);
-    action->setDefaultWidget(popup);
+   QWidgetAction *action = new QWidgetAction(this);
+   action->setDefaultWidget(popup);
 
-    menu = new QMenu(this);
-    menu->addAction(action);
-    setMenu(menu);
+   menu = new QMenu(this);
+   menu->addAction(action);
+   setMenu(menu);
 }
 
 void VolumeButton::increaseVolume()
 {
-    slider->triggerAction(QSlider::SliderPageStepAdd);
+   slider->triggerAction(QSlider::SliderPageStepAdd);
 }
 
 void VolumeButton::descreaseVolume()
 {
-    slider->triggerAction(QSlider::SliderPageStepSub);
+   slider->triggerAction(QSlider::SliderPageStepSub);
 }
 
 int VolumeButton::volume() const
 {
-    return slider->value();
+   return slider->value();
 }
 
 void VolumeButton::setVolume(int volume)
 {
-    slider->setValue(volume);
+   slider->setValue(volume);
 }
-
-

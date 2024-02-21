@@ -134,8 +134,9 @@ void FridgeMagnet::dropEvent(QDropEvent *event)
       QStringList pieces = event->mimeData()->text().split(QRegularExpression("\\s+"), QStringParser::SkipEmptyParts);
       QPoint position = event->pos();
 
-      for (QString piece : pieces) {
-         DragLabel *newLabel = new DragLabel(piece, this);
+      for (const QString &item : pieces) {
+         DragLabel *newLabel = new DragLabel(item, this);
+
          newLabel->move(position);
          newLabel->show();
          newLabel->setAttribute(Qt::WA_DeleteOnClose);
@@ -153,7 +154,7 @@ void FridgeMagnet::dropEvent(QDropEvent *event)
 
 void FridgeMagnet::mousePressEvent(QMouseEvent *event)
 {
-   DragLabel *child = dynamic_cast<DragLabel*>(childAt(event->pos()));
+   DragLabel *child = dynamic_cast<DragLabel *>(childAt(event->pos()));
 
    if (! child) {
       return;
@@ -187,5 +188,5 @@ void FridgeMagnet::mousePressEvent(QMouseEvent *event)
 
 QSize FridgeMagnet::sizeHint() const
 {
-   return QSize(400,400);
+   return QSize(400, 400);
 }

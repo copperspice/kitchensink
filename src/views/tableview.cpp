@@ -90,21 +90,21 @@ bool TableView::createConnection()
 
    if (! m_db.open()) {
       QMessageBox::critical(nullptr, tr("Error Opening Database"),
-           tr("Unable to establish a connection to the SQLite database."), QMessageBox::Cancel);
+            tr("Unable to establish a connection to the SQLite database."), QMessageBox::Cancel);
 
       return false;
    }
 
    QSqlQuery query(m_db);
    query.exec("create table famousPeople (id int primary key, "
-              "firstname varchar(20), lastname varchar(20), bio varchar(200))");
+         "firstname varchar(20), lastname varchar(20), bio varchar(200))");
 
    query.exec("insert into famousPeople values(1, 'Gordon',  'Lightfoot', "
-        "'Canadian folk singer, wrote ballads which told elaborate stories.')");
+         "'Canadian folk singer, wrote ballads which told elaborate stories.')");
 
    query.exec("insert into famousPeople values(2, 'George', 'Carlin', "
-        "'Comedian, author, social critic. Known for his opinions about politics, "
-        "language, religion, and taboo subjects.')");
+         "'Comedian, author, social critic. Known for his opinions about politics, "
+         "language, religion, and taboo subjects.')");
 
    query.exec("insert into famousPeople values(3, 'Stephen', 'Sondheim', "
          "'Composer and lyricist of musical theater. Credits include Sweeney Todd, "
@@ -125,7 +125,6 @@ bool TableView::createConnection()
 
    return true;
 }
-
 
 /*
    QTableWidget            This class provides an "item based" table view with a default model.

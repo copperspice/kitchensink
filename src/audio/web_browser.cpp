@@ -43,6 +43,7 @@ WebBrowser::WebBrowser(MainWindow *parent, QUrl url)
    if (url.isEmpty()) {
       url = QUrl("http://www.google.com");
    }
+
    m_view->load(url);
 
    //
@@ -50,7 +51,7 @@ WebBrowser::WebBrowser(MainWindow *parent, QUrl url)
    m_urlEdit->setSizePolicy(QSizePolicy::Expanding, m_urlEdit->sizePolicy().verticalPolicy());
 
    QFont font = m_urlEdit->font();
-   font.setPointSize(font.pointSize()+2);
+   font.setPointSize(font.pointSize() + 2);
    m_urlEdit->setFont(font);
 
    //
@@ -64,11 +65,11 @@ WebBrowser::WebBrowser(MainWindow *parent, QUrl url)
    // 1
    QMenu *fileMenu = menuBar()->addMenu(tr("&File"));
 
-   QAction* temp1 = new QAction(tr("Page Source"), this);
+   QAction *temp1 = new QAction(tr("Page Source"), this);
    connect(temp1, &QAction::triggered, this, &WebBrowser::getSource);
    fileMenu->addAction(temp1);
 
-   QAction* temp2 = new QAction(tr("Close Browser"), this);
+   QAction *temp2 = new QAction(tr("Close Browser"), this);
    connect(temp2, &QAction::triggered, this, &WebBrowser::actionClose);
    fileMenu->addAction(temp2);
 
@@ -88,19 +89,19 @@ WebBrowser::WebBrowser(MainWindow *parent, QUrl url)
    // 3
    QMenu *toolsMenu = menuBar()->addMenu(tr("&Tools"));
 
-   QAction* temp3 = new QAction(tr("Enable Developer Tools"), this);
+   QAction *temp3 = new QAction(tr("Enable Developer Tools"), this);
    temp3->setCheckable(true);
    temp3->setChecked(false);
    connect(temp3, &QAction::triggered, this, &WebBrowser::actionDevTool);
    toolsMenu->addAction(temp3);
 
-   QAction* temp4 = new QAction(tr("Enable JavaScript"), this);
+   QAction *temp4 = new QAction(tr("Enable JavaScript"), this);
    temp4->setCheckable(true);
    temp4->setChecked(true);
    connect(temp4, &QAction::triggered, this, &WebBrowser::actionJavaScript);
    toolsMenu->addAction(temp4);
 
-   QAction* temp5 = new QAction(tr("Enable Plugins"), this);
+   QAction *temp5 = new QAction(tr("Enable Plugins"), this);
    temp5->setCheckable(true);
    temp5->setChecked(true);
    connect(temp5, &QAction::triggered, this, &WebBrowser::actionPlugins);
@@ -130,6 +131,7 @@ void WebBrowser::changeLocation()
    QUrl url = QUrl(urlString);
 
    QString temp = url.scheme();
+
    if ( temp.isEmpty() ) {
       urlString = "http://" + urlString;
 
@@ -148,7 +150,8 @@ void WebBrowser::setLocation(bool ok)
    } else {
 
 #ifdef QT_SSL
-      QMessageBox::information(this, "Web Browser", "Loading web site failed.");
+      QMessageBox::information(this, "Web Browser",
+            "Loading web site failed.");
 #else
       QMessageBox::information(this, "Web Browser",
             "Loading web site failed, support for SSL (https) is not available which may be the issue.");
@@ -172,7 +175,7 @@ void WebBrowser::setTitle()
    }
 }
 
-void WebBrowser::actionLinkHovered(const QString & link, const QString &, const QString & )
+void WebBrowser::actionLinkHovered(const QString &link, const QString &, const QString & )
 {
    statusBar()->showMessage(link);
 }
@@ -188,12 +191,12 @@ void WebBrowser::getSource()
 
 void WebBrowser::displaySource()
 {
-   QNetworkReply* reply = qobject_cast<QNetworkReply*>(const_cast<QObject*>(sender()));
+   QNetworkReply *reply = qobject_cast<QNetworkReply *>(const_cast<QObject *>(sender()));
 
    QMainWindow *temp = new QMainWindow();
    temp->setWindowTitle("Page Source");
 
-   QTextEdit* textEdit  = new QTextEdit(temp);
+   QTextEdit *textEdit = new QTextEdit(temp);
    textEdit->setAttribute(Qt::WA_DeleteOnClose);
    textEdit->setPlainText(reply->readAll());
    textEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -201,7 +204,6 @@ void WebBrowser::displaySource()
    temp->setCentralWidget(textEdit);
    m_parent->addMdiChild(temp);
 
-   //
    reply->deleteLater();
 }
 
@@ -222,7 +224,6 @@ void WebBrowser::actionPlugins(bool checked)
    // enabled by default
    m_view->page()->settings()->setAttribute(QWebSettings::PluginsEnabled, checked);
 }
-
 
 //  context menu
 void WebBrowser::setCustomContextMenu(const QPoint &pos)
@@ -253,6 +254,7 @@ void WebBrowser::setCustomContextMenu(const QPoint &pos)
 
       //
       menu->addSeparator();
+
       if (m_view->page()->settings()->testAttribute(QWebSettings::DeveloperExtrasEnabled)) {
          menu->addAction(m_view->pageAction(QWebPage::InspectElement));
       }
@@ -265,7 +267,6 @@ void WebBrowser::actionOpenNewWindow()
 {
    // need url
 
-   // next two lines of code are sadly not good C++ code
    // CopperSpice provides a way to pass a parameter to the Slot
 
    QObject *p = sender();
@@ -289,7 +290,6 @@ void WebBrowser::actionDownloadLinkToDisk()
 {
    // retrieve url
 
-   // next two lines of code are not good C++ code
    // CopperSpice provides a way to pass a parameter to the Slot
 
    QObject *p = sender();
@@ -301,7 +301,7 @@ void WebBrowser::actionDownloadLinkToDisk()
       QFileInfo temp = QFileInfo(url.toString());
       QString defaultFileName = temp.fileName();
 
-      QString fileName = QFileDialog::getSaveFileName(this, tr("Save Link"),defaultFileName, tr("All Files (*.*)")  );
+      QString fileName = QFileDialog::getSaveFileName(this, tr("Save Link"), defaultFileName, tr("All Files (*.*)")  );
 
       if (! fileName.isEmpty()) {
          // some of the following code was adapted from http://www.linuxjournal.com
@@ -327,8 +327,8 @@ void WebBrowser::downloadFinished()
    //
    QNetworkRequest request = reply->request();
 
-   QVariant temp = request.attribute(QNetworkRequest::User);
-   QString fileName = temp.toString();
+   QVariant requestData = request.attribute(QNetworkRequest::User);
+   QString fileName     = requestData.toString();
 
    QFile file(fileName);
 
@@ -336,7 +336,6 @@ void WebBrowser::downloadFinished()
       file.write(reply->readAll());
    }
 }
-
 
 // bookmarks
 void WebBrowser::goNasa()
@@ -346,7 +345,7 @@ void WebBrowser::goNasa()
    m_view->load(url);
    m_view->setFocus();
 #else
-      QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
+   QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
 #endif
 
 }
@@ -386,7 +385,7 @@ void WebBrowser::goHuffPo()
    m_view->load(url);
    m_view->setFocus();
 #else
-      QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
+   QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
 #endif
 
 }
@@ -399,7 +398,7 @@ void WebBrowser::goSlash()
    m_view->load(url);
    m_view->setFocus();
 #else
-      QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
+   QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
 #endif
 
 }
@@ -411,7 +410,7 @@ void WebBrowser::goWiki()
    m_view->load(url);
    m_view->setFocus();
 #else
-      QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
+   QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
 #endif
 }
 
@@ -422,11 +421,12 @@ void WebBrowser::goYouTube()
    m_view->load(url);
    m_view->setFocus();
 #else
-      QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
+   QMessageBox::information(this, "Web Browser", "Support for SSL (https) is not available.");
 #endif
 }
 
-void WebBrowser::actionClose() {
+void WebBrowser::actionClose()
+{
    this->parentWidget()->close();
 }
 

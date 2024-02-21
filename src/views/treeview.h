@@ -29,21 +29,21 @@ class TreeView : public QWidget
 {
    CS_OBJECT(TreeView)
 
-   public:
-      TreeView();
+ public:
+   TreeView();
 
-   private:
-      bool createConnection();
-      QSqlDatabase m_db;
+ private:
+   bool createConnection();
+   QSqlDatabase m_db;
 
-      struct TreeData {
-         int m_id;
-         QString m_name;
-         int m_parentId;
-      };
+   struct TreeData {
+      int m_id;
+      QString m_name;
+      int m_parentId;
+   };
 
-      QList<TreeData> getData();
-      static bool sortMe(const TreeView::TreeData &s1, const TreeView::TreeData &s2);
+   QList<TreeData> getData();
+   static bool sortMe(const TreeView::TreeData &s1, const TreeView::TreeData &s2);
 };
 
 #endif

@@ -30,9 +30,9 @@ class FridgeMagnet : public QWidget
 {
    CS_OBJECT(FridgeMagnet)
 
-   public:
-      FridgeMagnet(QWidget *parent = nullptr);
       QSize sizeHint() const;
+ public:
+   FridgeMagnet(QWidget *parent = nullptr);
 
    protected:
       void dragEnterEvent(QDragEnterEvent *event);

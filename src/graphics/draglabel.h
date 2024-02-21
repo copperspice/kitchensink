@@ -26,12 +26,12 @@
 
 class DragLabel : public QLabel
 {
-   public:
-      DragLabel(const QString &text, QWidget *parent);
-      QString labelText() const;
+ public:
+   DragLabel(const QString &text, QWidget *parent);
+   QString labelText() const;
 
-   private:
-      QString m_labelText;
+ private:
+   QString m_labelText;
 };
 
 #endif

@@ -31,37 +31,37 @@ class Html_Viewer : public QMainWindow
 {
    CS_OBJECT(Html_Viewer)
 
-   public:
-      Html_Viewer();
-      ~Html_Viewer();
+ public:
+   Html_Viewer();
+   ~Html_Viewer();
 
-   private:
-      void createActions();
-      void setStartupText();
+ private:
+   void createActions();
+   void setStartupText();
 
-      CS_SLOT_1(Private, void about())
-      CS_SLOT_2(about)
+   CS_SLOT_1(Private, void about())
+   CS_SLOT_2(about)
 
-      CS_SLOT_1(Private, void open())
-      CS_SLOT_2(open)
+   CS_SLOT_1(Private, void open())
+   CS_SLOT_2(open)
 
-      CS_SLOT_1(Private, void openUrl())
-      CS_SLOT_2(openUrl)
+   CS_SLOT_1(Private, void openUrl())
+   CS_SLOT_2(openUrl)
 
-      CS_SLOT_1(Private, void save())
-      CS_SLOT_2(save)
+   CS_SLOT_1(Private, void save())
+   CS_SLOT_2(save)
 
-      CS_SLOT_1(Private, void updateTextEdit())
-      CS_SLOT_2(updateTextEdit)
+   CS_SLOT_1(Private, void updateTextEdit())
+   CS_SLOT_2(updateTextEdit)
 
-      CS_SLOT_1(Private, void actionClose())
-      CS_SLOT_2(actionClose)
+   CS_SLOT_1(Private, void actionClose())
+   CS_SLOT_2(actionClose)
 
-      CS_SLOT_1(Private, void actionPreview())
-      CS_SLOT_2(actionPreview)
+   CS_SLOT_1(Private, void actionPreview())
+   CS_SLOT_2(actionPreview)
 
-      Ui::Html_Form *ui;
-      QUrl m_baseUrl;
+   Ui::Html_Form *ui;
+   QUrl m_baseUrl;
 };
 
 #endif

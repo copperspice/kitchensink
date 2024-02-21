@@ -142,7 +142,6 @@ void TableWidget_View::setUpWidget()
    // QObject::connect() QTableWidget::itemChanged(QTableWidgetItem * )
    // Unable to connect to receiver in TableWidget_View (../tablewidget_view.cpp:xxx)
    // Signal Index: 9 Slot Index: -1
-
 }
 
 void TableWidget_View::setUpView()
@@ -239,7 +238,7 @@ void TableWidget_View::tableClicked_W(int row, int column)
          "Row: " + QString::number(row) + "  Column:" + QString::number(column));
 }
 
-void TableWidget_View::tableClicked_V(const QModelIndex & index)
+void TableWidget_View::tableClicked_V(const QModelIndex &index)
 {
    int row    = index.row();
    int column = index.column();

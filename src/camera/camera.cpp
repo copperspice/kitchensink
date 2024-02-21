@@ -109,7 +109,7 @@ void Camera::setCamera(const QCameraInfo &cameraInfo)
 
    // cs_mp_cast is required since this signal is overloaded
    connect(camera, cs_mp_cast<QCamera::LockStatus, QCamera::LockChangeReason>(&QCamera::lockStatusChanged),
-           this, &Camera::updateLockStatus);
+         this, &Camera::updateLockStatus);
 
    ui->captureWidget->setTabEnabled(0, (camera->isCaptureModeSupported(QCamera::CaptureStillImage)));
    ui->captureWidget->setTabEnabled(1, (camera->isCaptureModeSupported(QCamera::CaptureVideo)));
@@ -216,10 +216,7 @@ void Camera::configureVideoSettings()
       videoSettings = settingsDialog.videoSettings();
       videoContainerFormat = settingsDialog.format();
 
-      mediaRecorder->setEncodingSettings(
-         audioSettings,
-         videoSettings,
-         videoContainerFormat);
+      mediaRecorder->setEncodingSettings(audioSettings, videoSettings, videoContainerFormat);
    }
 }
 
@@ -263,6 +260,7 @@ void Camera::toggleLock()
       case QCamera::Locked:
          camera->unlock();
          break;
+
       case QCamera::Unlocked:
          camera->searchAndLock();
    }
@@ -278,14 +276,17 @@ void Camera::updateLockStatus(QCamera::LockStatus status, QCamera::LockChangeRea
          ui->statusbar->showMessage(tr("Focusing..."));
          ui->lockButton->setText(tr("Focusing..."));
          break;
+
       case QCamera::Locked:
          indicationColor = Qt::darkGreen;
          ui->lockButton->setText(tr("Unlock"));
          ui->statusbar->showMessage(tr("Focused"), 2000);
          break;
+
       case QCamera::Unlocked:
          indicationColor = reason == QCamera::LockFailed ? Qt::red : Qt::black;
          ui->lockButton->setText(tr("Focus"));
+
          if (reason == QCamera::LockFailed) {
             ui->statusbar->showMessage(tr("Focus Failed"), 2000);
          }
@@ -411,10 +412,11 @@ void Camera::readyForCapture(bool ready)
 
 void Camera::imageSaved(int id, const QString &fileName)
 {
-   Q_UNUSED(id);
-   Q_UNUSED(fileName);
+   (void) id;
+   (void) fileName;
 
    isCapturingImage = false;
+
    if (applicationExiting) {
       close();
    }

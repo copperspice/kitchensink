@@ -31,20 +31,20 @@ class TableWidget_View : public QWidget
 {
    CS_OBJECT(TableWidget_View)
 
-   public:
-      explicit TableWidget_View(QWidget *parent = nullptr);
-      ~TableWidget_View();
+ public:
+   explicit TableWidget_View(QWidget *parent = nullptr);
+   ~TableWidget_View();
 
-   private:
-      void setUpWidget();
-      void setUpView();
+ private:
+   void setUpWidget();
+   void setUpView();
 
-      // slot methods
-      void tableClicked_W(int row,int col);
-      void tableClicked_V(const QModelIndex & index);
+   // slot methods
+   void tableClicked_W(int row, int col);
+   void tableClicked_V(const QModelIndex &index);
 
-      Ui::TableWidget_View *ui;
-      QStandardItemModel *m_model;
+   Ui::TableWidget_View *ui;
+   QStandardItemModel *m_model;
 };
 
 #endif

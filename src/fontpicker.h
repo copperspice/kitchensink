@@ -28,16 +28,16 @@ class FontPicker : public QWidget
 {
    CS_OBJECT(FontPicker)
 
-   public:
-      explicit FontPicker(QWidget *parent = nullptr);
-      ~FontPicker();
+ public:
+   explicit FontPicker(QWidget *parent = nullptr);
+   ~FontPicker();
 
-   private:
-      Ui::FontPicker *ui;
+ private:
+   Ui::FontPicker *ui;
 
-      // slot declarations
-      void setFont();
-      void actionClose();
+   // slot declarations
+   void setFont();
+   void actionClose();
 };
 
 #endif

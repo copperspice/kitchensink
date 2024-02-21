@@ -37,52 +37,52 @@ class SysTray : public QDialog
 {
    CS_OBJECT(SysTray)
 
-   public:
-      SysTray();
       void setVisible(bool visible);
+ public:
+   SysTray();
 
    protected:
       void closeEvent(QCloseEvent *event);
 
-   private:
-      void createIconGroupBox();
-      void createMessageGroupBox();
-      void createActions();
-      void createTrayIcon();
+ private:
+   void createIconGroupBox();
+   void createMessageGroupBox();
+   void createActions();
+   void createTrayIcon();
 
-      void iconActivated(QSystemTrayIcon::ActivationReason reason);
-      void messageClicked();
-      void showMessage();
-      void setIcon(int index);
+   void iconActivated(QSystemTrayIcon::ActivationReason reason);
+   void messageClicked();
+   void showMessage();
+   void setIcon(int index);
 
-      // slot declarations
-      void actionQuit();
+   // slot declarations
+   void actionQuit();
 
-      QGroupBox *iconGroupBox;
-      QLabel *iconLabel;
-      QComboBox *iconComboBox;
-      QCheckBox *showIconCheckBox;
+   QGroupBox *iconGroupBox;
+   QLabel *iconLabel;
+   QComboBox *iconComboBox;
+   QCheckBox *showIconCheckBox;
 
-      QGroupBox *messageGroupBox;
-      QLabel *typeLabel;
-      QLabel *durationLabel;
-      QLabel *durationWarningLabel;
-      QLabel *titleLabel;
-      QLabel *bodyLabel;
-      QComboBox *typeComboBox;
-      QSpinBox *durationSpinBox;
-      QLineEdit *titleEdit;
-      QTextEdit *bodyEdit;
-      QPushButton *showMessageButton;
+   QGroupBox *messageGroupBox;
+   QLabel *typeLabel;
+   QLabel *durationLabel;
+   QLabel *durationWarningLabel;
+   QLabel *titleLabel;
+   QLabel *bodyLabel;
+   QComboBox *typeComboBox;
+   QSpinBox *durationSpinBox;
+   QLineEdit *titleEdit;
+   QTextEdit *bodyEdit;
+   QPushButton *showMessageButton;
 
-      QAction *minimizeAction;
-      QAction *maximizeAction;
-      QAction *restoreAction;
-      QAction *quitAction;
-      bool m_quitNow;
+   QAction *minimizeAction;
+   QAction *maximizeAction;
+   QAction *restoreAction;
+   QAction *quitAction;
+   bool m_quitNow;
 
-      QSystemTrayIcon *trayIcon;
-      QMenu *trayIconMenu;
+   QSystemTrayIcon *trayIcon;
+   QMenu *trayIconMenu;
 };
 
 #endif

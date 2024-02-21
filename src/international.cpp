@@ -115,5 +115,3 @@ void International::actionClose()
 {
    this->parentWidget()->close();
 }
-
-

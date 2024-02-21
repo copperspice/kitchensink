@@ -28,7 +28,7 @@
 #include <QMediaRecorder>
 
 namespace Ui {
-   class Camera;
+class Camera;
 }
 
 class Camera : public QMainWindow

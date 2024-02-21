@@ -28,16 +28,16 @@ class ColorPicker : public QWidget
 {
    CS_OBJECT(ColorPicker)
 
-   public:
-      explicit ColorPicker(QWidget *parent = nullptr);
-      ~ColorPicker();
+ public:
+   explicit ColorPicker(QWidget *parent = nullptr);
+   ~ColorPicker();
 
-   private:
-      Ui::ColorPicker *ui;
+ private:
+   Ui::ColorPicker *ui;
 
-      // slot declarations
-      void setColor();
-      void actionClose();
+   // slot declarations
+   void setColor();
+   void actionClose();
 };
 
 #endif
