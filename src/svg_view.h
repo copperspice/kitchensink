@@ -33,8 +33,8 @@ class Svg_View : public QWidget
    CS_OBJECT(Svg_View)
 
  public:
-      enum { SvgTextFormat = QTextFormat::UserObject + 1 };
-      enum SvgProperties { SvgData = 1 };
+   static constexpr const int SvgTextFormat = QTextFormat::UserObject + 1;
+   static constexpr const int SvgImageId = 1;
 
    Svg_View();
 

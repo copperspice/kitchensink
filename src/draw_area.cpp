@@ -27,9 +27,9 @@
 DrawArea::DrawArea(QWidget *parent)
    : QWidget(parent)
 {
-    shape       = Polygon;
-    antialiased = false;
-    transformed = false;
+   m_shape       = Polygon;
+   m_antialiased = false;
+   m_transformed = false;
 
    setBackgroundRole(QPalette::Base);
    setAutoFillBackground(true);
@@ -47,31 +47,31 @@ QSize DrawArea::sizeHint() const
 
 void DrawArea::setShape(Shape shape)
 {
-    this->shape = shape;
+   m_shape = shape;
    update();
 }
 
 void DrawArea::setPen(const QPen &pen)
 {
-    this->pen = pen;
+   m_pen = pen;
    update();
 }
 
 void DrawArea::setBrush(const QBrush &brush)
 {
-    this->brush = brush;
+   m_brush = brush;
    update();
 }
 
 void DrawArea::setAntialiased(bool antialiased)
 {
-    this->antialiased = antialiased;
+   m_antialiased = antialiased;
    update();
 }
 
 void DrawArea::setTransformed(bool transformed)
 {
-    this->transformed = transformed;
+   m_transformed = transformed;
    update();
 }
 
@@ -92,10 +92,10 @@ void DrawArea::paintEvent(QPaintEvent *)
    int arcLength  = 120 * 16;
 
    QPainter painter(this);
-   painter.setPen(pen);
-   painter.setBrush(brush);
+   painter.setPen(m_pen);
+   painter.setBrush(m_brush);
 
-   if (antialiased) {
+   if (m_antialiased) {
       painter.setRenderHint(QPainter::Antialiasing, true);
    }
 
@@ -104,14 +104,14 @@ void DrawArea::paintEvent(QPaintEvent *)
          painter.save();
          painter.translate(x, y);
 
-         if (transformed) {
+         if (m_transformed) {
             painter.translate(50, 50);
             painter.rotate(60.0);
             painter.scale(0.6, 0.9);
             painter.translate(-50, -50);
          }
 
-         switch (shape) {
+         switch (m_shape) {
             case Line:
                painter.drawLine(rect.bottomLeft(), rect.topRight());
                break;

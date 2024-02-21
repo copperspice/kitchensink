@@ -73,9 +73,9 @@ void StdPath::standardLocations(int index)
 {
    m_ui->belongLocations->clear();
 
-   QVariant data = m_ui->locationComboBox->itemData(index);
+   QVariant locationData = m_ui->locationComboBox->itemData(index);
 
-   QStandardPaths::StandardLocation type = data.value<QStandardPaths::StandardLocation>();
+   QStandardPaths::StandardLocation type = locationData.value<QStandardPaths::StandardLocation>();
    QStringList paths = QStandardPaths::standardLocations(type);
 
    for (const auto &item : paths) {
@@ -87,9 +87,9 @@ void StdPath::writeableLocation(int index)
 {
    m_ui->writeLocation->clear();
 
-   QVariant data = m_ui->locationComboBox->itemData(index);
+   QVariant locationData = m_ui->locationComboBox->itemData(index);
 
-   QStandardPaths::StandardLocation type = data.value<QStandardPaths::StandardLocation>();
+   QStandardPaths::StandardLocation type = locationData.value<QStandardPaths::StandardLocation>();
    QString path = QStandardPaths::writableLocation(type);
 
    m_ui->writeLocation->setText(path);
@@ -114,14 +114,15 @@ void StdPath::locate()
    m_ui->locateOne->clear();
 
    int location = m_ui->locationComboBox->currentIndex();
-   QVariant data    = m_ui->locationComboBox->itemData(location);
+
+   QVariant locationData = m_ui->locationComboBox->itemData(location);
    QString fileName      = m_ui->fileName->text();
 
    if (fileName.isEmpty()) {
       return;
    }
 
-   QStandardPaths::StandardLocation type = data.value<QStandardPaths::StandardLocation>();
+   QStandardPaths::StandardLocation type = locationData.value<QStandardPaths::StandardLocation>();
    QStandardPaths::LocateOptions option;
 
    if (m_ui->fileRadioButton->isChecked()) {
@@ -141,14 +142,15 @@ void StdPath::locateAll()
    m_ui->locateAll->clear();
 
    int location = m_ui->locationComboBox->currentIndex();
-   QVariant data    = m_ui->locationComboBox->itemData(location);
+
+   QVariant locationData = m_ui->locationComboBox->itemData(location);
    QString fileName      = m_ui->fileName->text();
 
    if (fileName.isEmpty()) {
       return;
    }
 
-   QStandardPaths::StandardLocation type = data.value<QStandardPaths::StandardLocation>();
+   QStandardPaths::StandardLocation type = locationData.value<QStandardPaths::StandardLocation>();
    QStandardPaths::LocateOptions option;
 
    if (m_ui->fileRadioButton->isChecked()) {

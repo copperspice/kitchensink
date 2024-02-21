@@ -60,13 +60,13 @@ class DrawArea : public QWidget
    void setTransformed(bool transformed);
 
 
-   private:
-      Shape shape;
-      QPixmap pixmap;
-      QPen pen;
-      QBrush brush;
-      bool antialiased;
-      bool transformed;
+ private:
+   Shape m_shape;
+   QPixmap m_pixmap;
+   QPen m_pen;
+   QBrush m_brush;
+   bool m_antialiased;
+   bool m_transformed;
 };
 
 #endif

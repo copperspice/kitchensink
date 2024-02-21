@@ -27,7 +27,7 @@
 
 QSizeF SvgTextObject::intrinsicSize(QTextDocument *, int, const QTextFormat &format)
 {
-   QImage bufferedImage = format.property(Svg_View::SvgData).value<QImage>();
+   QImage bufferedImage = format.property(Svg_View::SvgImageId).value<QImage>();
 
    QSize size = bufferedImage.size();
    size *= 150.0 / (double) size.height();
@@ -37,6 +37,6 @@ QSizeF SvgTextObject::intrinsicSize(QTextDocument *, int, const QTextFormat &for
 
 void SvgTextObject::drawObject(QPainter *painter, const QRectF &rect, QTextDocument *, int, const QTextFormat &format)
 {
-   QImage bufferedImage = format.property(Svg_View::SvgData).value<QImage>();
+   QImage bufferedImage = format.property(Svg_View::SvgImageId).value<QImage>();
    painter->drawImage(rect, bufferedImage);
 }

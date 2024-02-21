@@ -63,7 +63,7 @@ void Svg_View::insertTextObject()
    QPainter painter(&svgBufferImage);
    renderer.render(&painter, svgBufferImage.rect());
 
-   svgCharFormat.setProperty(SvgData, svgBufferImage);
+   svgCharFormat.setProperty(Svg_View::SvgImageId, svgBufferImage);
 
    QTextCursor cursor = m_textEdit->textCursor();
    cursor.insertText(QString(QChar::ObjectReplacementCharacter), svgCharFormat);

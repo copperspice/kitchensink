@@ -38,7 +38,7 @@ class VideoSettings : public QDialog
    CS_OBJECT(VideoSettings)
 
  public:
-   VideoSettings(QMediaRecorder *mediaRecorder, QWidget *parent = nullptr);
+   VideoSettings(QMediaRecorder *media, QWidget *parent = nullptr);
    ~VideoSettings();
 
    QAudioEncoderSettings audioSettings() const;
@@ -58,7 +58,7 @@ class VideoSettings : public QDialog
    void selectComboBoxItem(QComboBox *box, const QVariant &value);
 
    Ui::VideoSettingsUi *ui;
-   QMediaRecorder *mediaRecorder;
+   QMediaRecorder *m_mediaRecorder;
 };
 
 #endif   // ! QT_NO_MULTIMEDIA

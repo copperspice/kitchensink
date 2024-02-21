@@ -27,21 +27,21 @@
 #include <QMediaRecorder>
 #include <QMediaService>
 
-VideoSettings::VideoSettings(QMediaRecorder *mediaRecorder, QWidget *parent)
-   : QDialog(parent), ui(new Ui::VideoSettingsUi), mediaRecorder(mediaRecorder)
+VideoSettings::VideoSettings(QMediaRecorder *media, QWidget *parent)
+   : QDialog(parent), ui(new Ui::VideoSettingsUi), m_mediaRecorder(media)
 {
    ui->setupUi(this);
 
    // audio codecs
    ui->audioCodecBox->addItem(tr("Default audio codec"), QVariant(QString()));
 
-   for (const QString &codecName : mediaRecorder->supportedAudioCodecs()) {
-      QString description = mediaRecorder->audioCodecDescription(codecName);
+   for (const QString &codecName : m_mediaRecorder->supportedAudioCodecs()) {
+      QString description = m_mediaRecorder->audioCodecDescription(codecName);
       ui->audioCodecBox->addItem(codecName + ": " + description, QVariant(codecName));
    }
 
    // sample rate
-   for (int sampleRate : mediaRecorder->supportedAudioSampleRates()) {
+   for (int sampleRate : m_mediaRecorder->supportedAudioSampleRates()) {
       ui->audioSampleRateBox->addItem(QString::number(sampleRate), QVariant(sampleRate));
    }
 
@@ -50,15 +50,15 @@ VideoSettings::VideoSettings(QMediaRecorder *mediaRecorder, QWidget *parent)
    // video codecs
    ui->videoCodecBox->addItem(tr("Default video codec"), QVariant(QString()));
 
-   for (const QString &codecName : mediaRecorder->supportedVideoCodecs()) {
-      QString description = mediaRecorder->videoCodecDescription(codecName);
+   for (const QString &codecName : m_mediaRecorder->supportedVideoCodecs()) {
+      QString description = m_mediaRecorder->videoCodecDescription(codecName);
       ui->videoCodecBox->addItem(codecName + ": " + description, QVariant(codecName));
    }
 
    ui->videoQualitySlider->setRange(0, int(QMultimedia::VeryHighQuality));
 
    ui->videoResolutionBox->addItem(tr("Default"));
-   QList<QSize> supportedResolutions = mediaRecorder->supportedResolutions();
+   QList<QSize> supportedResolutions = m_mediaRecorder->supportedResolutions();
 
    for (const QSize &resolution : supportedResolutions) {
       ui->videoResolutionBox->addItem(QString("%1x%2").formatArg(resolution.width()).
@@ -66,7 +66,7 @@ VideoSettings::VideoSettings(QMediaRecorder *mediaRecorder, QWidget *parent)
    }
 
    ui->videoFramerateBox->addItem(tr("Default"));
-   QList<qreal> supportedFrameRates = mediaRecorder->supportedFrameRates();
+   QList<qreal> supportedFrameRates = m_mediaRecorder->supportedFrameRates();
 
    for (double rate : supportedFrameRates) {
       QString rateString = QString("%1").formatArg(rate, 0, 'f', 2);
@@ -76,8 +76,8 @@ VideoSettings::VideoSettings(QMediaRecorder *mediaRecorder, QWidget *parent)
    // containers
    ui->containerFormatBox->addItem(tr("Default container"), QVariant(QString()));
 
-   for (const QString &format : mediaRecorder->supportedContainers()) {
-      ui->containerFormatBox->addItem(format + ":" + mediaRecorder->containerDescription(format), QVariant(format));
+   for (const QString &format : m_mediaRecorder->supportedContainers()) {
+      ui->containerFormatBox->addItem(format + ":" + m_mediaRecorder->containerDescription(format), QVariant(format));
    }
 }
 
@@ -102,7 +102,7 @@ void VideoSettings::changeEvent(QEvent *e)
 
 QAudioEncoderSettings VideoSettings::audioSettings() const
 {
-   QAudioEncoderSettings settings = mediaRecorder->audioSettings();
+   QAudioEncoderSettings settings = m_mediaRecorder->audioSettings();
    settings.setCodec(boxValue(ui->audioCodecBox).toString());
    settings.setQuality(QMultimedia::EncodingQuality(ui->audioQualitySlider->value()));
    settings.setSampleRate(boxValue(ui->audioSampleRateBox).toInt());
@@ -119,7 +119,7 @@ void VideoSettings::setAudioSettings(const QAudioEncoderSettings &audioSettings)
 
 QVideoEncoderSettings VideoSettings::videoSettings() const
 {
-   QVideoEncoderSettings settings = mediaRecorder->videoSettings();
+   QVideoEncoderSettings settings = m_mediaRecorder->videoSettings();
    settings.setCodec(boxValue(ui->videoCodecBox).toString());
    settings.setQuality(QMultimedia::EncodingQuality(ui->videoQualitySlider->value()));
    settings.setResolution(boxValue(ui->videoResolutionBox).toSize());

@@ -40,16 +40,16 @@ TreeView::TreeView()
    setMinimumSize(250, 425);
 
    // get sql data
-   QList<TreeData> data = getData();
+   QList<TreeData> treeList = getData();
 
    // sort the data
-   std::sort(data.begin(), data.end(), sortMe);
+   std::sort(treeList.begin(), treeList.end(), sortMe);
 
    QStandardItemModel *model = new QStandardItemModel();
    QStandardItem *rootItem = model->invisibleRootItem();
    QStandardItem *prevItem = nullptr;
 
-   for (auto iter = data.begin(); iter != data.end(); ++iter) {
+   for (auto iter = treeList.begin(); iter != treeList.end(); ++iter) {
 
       QStandardItem *item = new QStandardItem;
       item->setText(iter->m_name);
