@@ -24,16 +24,15 @@
 
 #include "ui_musicplayer.h"
 
-#include <QAction>
-#include <QLabel>
 #include <QList>
 #include <QMediaPlayer>
 #include <QStandardItemModel>
-#include <QSlider>
 #include <QUrl>
 #include <QWidget>
 
-#include <qstringfwd.h>
+class QAction;
+class QLabel;
+class QSlider;
 
 class VolumeButton;
 

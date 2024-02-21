@@ -25,10 +25,11 @@
 #include "ui_ssl_client.h"
 
 #include <QAbstractSocket>
+#include <QList>
+#include <QSslError>
 #include <QSslSocket>
 #include <QWidget>
 
-class QSslSocket;
 class QToolButton;
 
 class Ssl_Client : public QWidget

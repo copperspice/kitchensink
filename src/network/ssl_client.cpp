@@ -25,9 +25,9 @@
 
 #include <QLineEdit>
 #include <QMessageBox>
-#include <QStyle>
-#include <QSslCipher>
 #include <QScrollBar>
+#include <QSslCipher>
+#include <QStyle>
 #include <QToolButton>
 
 Ssl_Client::Ssl_Client(QWidget *parent)

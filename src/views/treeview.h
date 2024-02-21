@@ -20,10 +20,10 @@
 #ifndef TREEVIEW_H
 #define TREEVIEW_H
 
+#include <QList>
 #include <QSqlDatabase>
+#include <QString>
 #include <QWidget>
-#include <qcontainerfwd.h>
-#include <qstringfwd.h>
 
 class TreeView : public QWidget
 {

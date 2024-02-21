@@ -21,9 +21,9 @@
 #include "util.h"
 
 #include <QGridLayout>
-#include <QStandardItemModel>
-#include <QSqlTableModel>
 #include <QSqlQuery>
+#include <QSqlTableModel>
+#include <QStandardItemModel>
 #include <QTreeView>
 
 #include <algorithm>

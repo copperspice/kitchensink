@@ -23,7 +23,6 @@
 #include "ui_html_viewer.h"
 
 #include <QMainWindow>
-#include <QMenu>
 
 class QUrl;
 

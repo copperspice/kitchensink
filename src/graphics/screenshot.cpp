@@ -19,22 +19,21 @@
 
 #include "screenshot.h"
 
+#include <QApplication>
 #include <QCheckBox>
+#include <QDesktopWidget>
 #include <QDir>
 #include <QFileDialog>
 #include <QGridLayout>
 #include <QGroupBox>
+#include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
 #include <QScreen>
-#include <QSize>
-#include <QString>
 #include <QSpinBox>
+#include <QString>
 #include <QTimer>
 #include <QVBoxLayout>
-
-#include <QApplication>
-#include <QDesktopWidget>
 
 Screenshot::Screenshot()
 {

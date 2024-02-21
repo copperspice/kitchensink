@@ -22,12 +22,15 @@
 
 #include "glwidget.h"
 
-#include <QAction>
-#include <QLabel>
 #include <QMainWindow>
 #include <QMenu>
-#include <QScrollArea>
-#include <QSlider>
+#include <QSize>
+
+class QAction;
+class QLabel;
+class QPixmap;
+class QScrollArea;
+class QSlider;
 
 class Grabber : public QMainWindow
 {

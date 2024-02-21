@@ -21,6 +21,7 @@
 #define SCREENSHOT_H
 
 #include <QPixmap>
+#include <QSize>
 #include <QWidget>
 
 class QCheckBox;

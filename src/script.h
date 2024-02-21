@@ -22,8 +22,8 @@
 
 #include "ui_script.h"
 
+#include <QString>
 #include <QWidget>
-#include <qstringfwd.h>
 
 class QStandardItemModel;
 

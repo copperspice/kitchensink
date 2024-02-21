@@ -19,11 +19,12 @@
 
 #include "chat_dialog.h"
 
+#include <QLineEdit>
 #include <QMessageBox>
-#include <QTimer>
-#include <QTextTable>
 #include <QScrollBar>
 #include <QString>
+#include <QTextTable>
+#include <QTimer>
 #include <QWidget>
 
 Chat_Dialog::Chat_Dialog(QWidget *parent)

@@ -20,8 +20,8 @@
 #ifndef STYLE_DW_H
 #define STYLE_DW_H
 
-#include "ui_style_dw.h"
 #include "style_edit.h"
+#include "ui_style_dw.h"
 
 #include <QMainWindow>
 

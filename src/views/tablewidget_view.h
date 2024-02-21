@@ -22,10 +22,10 @@
 
 #include "ui_tablewidget_view.h"
 
-#include <QStandardItemModel>
 #include <QWidget>
 
 class QModelIndex;
+class QStandardItemModel;
 
 class TableWidget_View : public QWidget
 {

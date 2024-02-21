@@ -22,7 +22,6 @@
 
 #include "ui_stdpath.h"
 
-#include <QStandardPaths>
 #include <QWidget>
 
 class StdPath : public QWidget

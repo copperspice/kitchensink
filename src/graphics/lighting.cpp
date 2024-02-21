@@ -19,9 +19,8 @@
 
 #include "lighting.h"
 
-#include <QGraphicsEffect>
 #include <QGraphicsDropShadowEffect>
-#include <QGraphicsItem>
+#include <QLinearGradient>
 #include <QRadialGradient>
 #include <QTimer>
 

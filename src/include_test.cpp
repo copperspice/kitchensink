@@ -25,6 +25,10 @@
 #include <QtSvg>
 #include <QtXmlPatterns>
 
+#if ! defined(QT_NO_MULTIMEDIA)
+#include <QtMultimedia>
+#endif
+
 #if ! defined(QT_NO_WEBKIT)
 #include <QtWebKit>
 #endif

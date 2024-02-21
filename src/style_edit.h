@@ -23,7 +23,7 @@
 #include "ui_style_edit.h"
 
 #include <QDialog>
-#include <qstringfwd.h>
+#include <QString>
 
 class QWidget;
 

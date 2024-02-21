@@ -22,8 +22,6 @@
 #include "peermanager.h"
 
 #include <QAbstractSocket>
-#include <QList>
-#include <QString>
 
 Client::Client()
 {

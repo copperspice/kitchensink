@@ -20,8 +20,10 @@
 #include "animated_tiles.h"
 
 #include <QGridLayout>
-#include <QPropertyAnimation>
+#include <QList>
 #include <QParallelAnimationGroup>
+#include <QPixmap>
+#include <QPropertyAnimation>
 #include <QSignalTransition>
 #include <QState>
 

@@ -19,17 +19,16 @@
 
 #ifndef QT_NO_MULTIMEDIA
 
-#include "ui_camera.h"
 #include "camera.h"
 #include "imagesettings.h"
+#include "ui_camera.h"
 #include "videosettings.h"
 
-#include <QCameraViewfinder>
 #include <QCameraInfo>
+#include <QCameraViewfinder>
 #include <QKeyEvent>
-#include <QMediaService>
-#include <QMediaRecorder>
 #include <QMediaMetaData>
+#include <QMediaService>
 #include <QMessageBox>
 #include <QPalette>
 #include <QTimer>

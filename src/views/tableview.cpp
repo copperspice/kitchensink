@@ -20,12 +20,12 @@
 #include "tableview.h"
 #include "util.h"
 
-#include <QHeaderView>
 #include <QHBoxLayout>
+#include <QHeaderView>
 #include <QMessageBox>
+#include <QSqlError>
 #include <QSqlQuery>
 #include <QSqlTableModel>
-#include <QSqlError>
 #include <QTableView>
 
 TableView::TableView()

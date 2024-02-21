@@ -22,8 +22,8 @@
 
 #ifndef QT_NO_MULTIMEDIA
 
-#include <QDialog>
 #include <QAudioEncoderSettings>
+#include <QDialog>
 #include <QVideoEncoderSettings>
 
 class QComboBox;

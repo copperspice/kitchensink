@@ -20,8 +20,11 @@
 #ifndef LIGHTING_H
 #define LIGHTING_H
 
+#include <QGraphicsItem>
 #include <QGraphicsScene>
 #include <QGraphicsView>
+#include <QList>
+#include <QSize>
 
 class QResizeEvent;
 

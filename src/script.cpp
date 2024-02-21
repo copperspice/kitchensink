@@ -17,13 +17,14 @@
 *
 ***********************************************************************/
 
-#include "util.h"
 #include "script.h"
+#include "util.h"
 
 #include <QFileDialog>
 #include <QLabel>
+#include <QScriptEngine>
+#include <QScriptValue>
 #include <QStandardItemModel>
-#include <QtScript>
 
 Script::Script()
    : QWidget(), ui(new Ui::Script)

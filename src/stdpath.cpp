@@ -21,6 +21,7 @@
 #include "util.h"
 
 #include <QList>
+#include <QStandardPaths>
 #include <QStringList>
 
 StdPath::StdPath(QWidget *parent)

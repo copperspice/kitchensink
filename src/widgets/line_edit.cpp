@@ -21,6 +21,7 @@
 #include "ui_line_edit.h"
 
 #include <QDoubleValidator>
+#include <QRegularExpression>
 
 LineEdit::LineEdit()
    : QWidget(), ui(new Ui::LineEdit)

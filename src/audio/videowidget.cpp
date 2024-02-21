@@ -19,10 +19,11 @@
 
 #ifndef QT_NO_MULTIMEDIA
 
-#include "videowidget.h"
 #include "videosurface.h"
+#include "videowidget.h"
 
-#include <QtMultimedia>
+#include <QPainter>
+#include <QPaintEvent>
 
 VideoWidget::VideoWidget(QWidget *parent)
    : QWidget(parent), surface(nullptr)

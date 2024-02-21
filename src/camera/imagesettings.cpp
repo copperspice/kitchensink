@@ -19,13 +19,11 @@
 
 #ifndef QT_NO_MULTIMEDIA
 
-#include "ui_camera_imagesettings.h"
 #include "imagesettings.h"
+#include "ui_camera_imagesettings.h"
 
 #include <QCameraImageCapture>
 #include <QComboBox>
-#include <QDebug>
-#include <QMediaService>
 
 ImageSettings::ImageSettings(QCameraImageCapture *imageCapture, QWidget *parent)
    : QDialog(parent), ui(new Ui::ImageSettingsUi), imagecapture(imageCapture)

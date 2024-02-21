@@ -23,8 +23,8 @@
 #include "web_browser.h"
 
 #include <QAction>
-#include <QFont>
 #include <QFileDialog>
+#include <QFont>
 #include <QLineEdit>
 #include <QTextEdit>
 #include <QToolBar>

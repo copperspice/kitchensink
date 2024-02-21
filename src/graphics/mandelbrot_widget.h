@@ -24,7 +24,10 @@
 
 #include <QPixmap>
 #include <QPoint>
+#include <QSize>
 #include <QWidget>
+
+class QImage;
 
 class Mandelbrot_Widget : public QWidget
 {

@@ -21,14 +21,15 @@
 #define CALENDAR_H
 
 #include <QCalendarWidget>
-#include <QCheckBox>
-#include <QComboBox>
 #include <QDate>
 #include <QDateEdit>
-#include <QLabel>
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QWidget>
+
+class QCheckBox;
+class QComboBox;
+class QLabel;
 
 class Calendar : public QWidget
 {

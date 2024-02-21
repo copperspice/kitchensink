@@ -17,8 +17,8 @@
 *
 ***********************************************************************/
 
-#include "util.h"
 #include "international.h"
+#include "util.h"
 
 #include <QStringListModel>
 #include <QTranslator>

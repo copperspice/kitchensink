@@ -21,8 +21,8 @@
 
 #include "html_viewer.h"
 
-#include <QtGui>
-#include <QtWebKit>
+#include <QMenu>
+#include <QWebFrame>
 
 Html_Viewer::Html_Viewer()
    : QMainWindow(), ui(new Ui::Html_Form)

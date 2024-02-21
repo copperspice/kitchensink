@@ -22,10 +22,10 @@
 #include "aboutcs.h"
 #include "util.h"
 
-#include <QPushButton>
 #include <QHBoxLayout>
-#include <QVBoxLayout>
+#include <QPushButton>
 #include <QSize>
+#include <QVBoxLayout>
 #include <QWebView>
 
 AboutCS::AboutCS(QString route)

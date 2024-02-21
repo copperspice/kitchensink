@@ -22,10 +22,13 @@
 
 #include <QByteArray>
 #include <QDrag>
+#include <QDragEnterEvent>
+#include <QDropEvent>
+#include <QFile>
 #include <QMimeData>
 #include <QPoint>
-#include <QTextStream>
 #include <QString>
+#include <QTextStream>
 
 static const QString path = ":/resources";
 

@@ -23,9 +23,7 @@
 #include "videosettings.h"
 
 #include <QComboBox>
-#include <QDebug>
 #include <QMediaRecorder>
-#include <QMediaService>
 
 VideoSettings::VideoSettings(QMediaRecorder *media, QWidget *parent)
    : QDialog(parent), ui(new Ui::VideoSettingsUi), m_mediaRecorder(media)

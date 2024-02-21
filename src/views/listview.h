@@ -23,8 +23,9 @@
 #include "ui_listview.h"
 
 #include <QStringList>
-#include <QSortFilterProxyModel>
 #include <QWidget>
+
+class QSortFilterProxyModel;
 
 class ListView : public QWidget
 {

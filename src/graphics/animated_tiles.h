@@ -20,12 +20,12 @@
 #ifndef ANIMATED_TILES_H
 #define ANIMATED_TILES_H
 
-#include <QGraphicsScene>
-#include <QStyleOptionGraphicsItem>
 #include <QGraphicsPixmapItem>
+#include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGraphicsWidget>
 #include <QStateMachine>
+#include <QStyleOptionGraphicsItem>
 #include <QTimer>
 #include <QWidget>
 

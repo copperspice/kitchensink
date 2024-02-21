@@ -24,7 +24,6 @@
 
 #include <QHostAddress>
 #include <QMultiHash>
-#include <qstringfwd.h>
 
 class QAbstractSocket;
 class PeerManager;

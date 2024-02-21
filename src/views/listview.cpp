@@ -19,9 +19,9 @@
 
 #include "listview.h"
 
-#include <QAbstractItemModel>
 #include <QListView>
 #include <QModelIndex>
+#include <QSortFilterProxyModel>
 #include <QStringListModel>
 
 ListView::ListView(QWidget *parent)

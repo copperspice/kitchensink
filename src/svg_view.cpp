@@ -23,8 +23,8 @@
 
 #include <QByteArray>
 #include <QComboBox>
-#include <QHBoxLayout>
 #include <QFile>
+#include <QHBoxLayout>
 #include <QImage>
 #include <QLabel>
 #include <QPainter>

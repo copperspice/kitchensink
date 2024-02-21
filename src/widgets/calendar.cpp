@@ -20,6 +20,9 @@
 #include "calendar.h"
 #include "util.h"
 
+#include <QCheckBox>
+#include <QComboBox>
+#include <QLabel>
 #include <QTextCharFormat>
 
 Calendar::Calendar()

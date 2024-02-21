@@ -17,8 +17,8 @@
 *
 ***********************************************************************/
 
-#include "draw_area.h"
 #include "draw.h"
+#include "draw_area.h"
 
 #include <QGridLayout>
 

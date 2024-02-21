@@ -20,12 +20,18 @@
 #include "glwidget.h"
 #include "grabber.h"
 
+#include <QAction>
 #include <QApplication>
 #include <QGridLayout>
 #include <QImage>
 #include <QInputDialog>
+#include <QLabel>
 #include <QMenuBar>
 #include <QMessageBox>
+#include <QPixmap>
+#include <QRegularExpression>
+#include <QScrollArea>
+#include <QSlider>
 
 Grabber::Grabber(QWidget *parent)
    : QMainWindow(parent)

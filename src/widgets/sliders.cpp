@@ -22,9 +22,9 @@
 #include <QComboBox>
 #include <QDial>
 #include <QDialogButtonBox>
-#include <QLabel>
 #include <QGridLayout>
 #include <QGroupBox>
+#include <QLabel>
 #include <QProgressBar>
 #include <QPushButton>
 #include <QSlider>

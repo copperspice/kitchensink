@@ -20,10 +20,11 @@
 #ifndef FRIDGEMAG_H
 #define FRIDGEMAG_H
 
-#include <QDragEnterEvent>
-#include <QDropEvent>
 #include <QWidget>
 
+class QDragEnterEvent;
+class QDropEvent;
+class QMouseEvent;
 class QSize;
 
 class FridgeMagnet : public QWidget

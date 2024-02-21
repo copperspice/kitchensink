@@ -23,8 +23,15 @@
 #include "videowidget.h"
 #include "util.h"
 
+#include <QFont>
+#include <QGridLayout>
 #include <QGroupBox>
-#include <QtMultimedia>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QMovie>
+#include <QPushButton>
+#include <QTextEdit>
 
 VideoPlayer::VideoPlayer(QWidget *parent)
    : QWidget(parent), m_surface(nullptr)

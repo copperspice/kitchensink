@@ -17,19 +17,36 @@
 *
 ***********************************************************************/
 
-#include <ks_build_info.h>
 #include <mainwindow.h>
-#include <util.h>
 
+#include <analogclock.h>
+#include <animated_tiles.h>
+#include <calendar.h>
+#include <chat_dialog.h>
 #include <colorpicker.h>
 #include <dialogs.h>
 #include <draw.h>
 #include <fontpicker.h>
+#include <fridgemag.h>
+#include <grabber.h>
 #include <international.h>
+#include <ks_build_info.h>
+#include <lighting.h>
+#include <line_edit.h>
+#include <listview.h>
+#include <mandelbrot_widget.h>
+#include <screenshot.h>
+#include <sliders.h>
+#include <ssl_client.h>
 #include <stdpath.h>
 #include <style_dw.h>
-#include <systray.h>
 #include <svg_view.h>
+#include <systray.h>
+#include <tabdialog.h>
+#include <tableview.h>
+#include <tablewidget_view.h>
+#include <treeview.h>
+#include <util.h>
 #include <xml.h>
 #include <xmlpatterns.h>
 
@@ -44,27 +61,6 @@
 #include <html_viewer.h>
 #include <web_browser.h>
 #endif
-
-#include <analogclock.h>
-#include <animated_tiles.h>
-#include <fridgemag.h>
-#include <grabber.h>
-#include <lighting.h>
-#include <mandelbrot_widget.h>
-#include <screenshot.h>
-
-#include <chat_dialog.h>
-#include <ssl_client.h>
-
-#include <listview.h>
-#include <tableview.h>
-#include <tablewidget_view.h>
-#include <treeview.h>
-
-#include <calendar.h>
-#include <line_edit.h>
-#include <sliders.h>
-#include <tabdialog.h>
 
 #include <QMdiSubWindow>
 

@@ -21,7 +21,7 @@
 #define GLWIDGET_H
 
 #include <QGLWidget>
-class QPoint;
+#include <QPoint>
 
 class GLWidget : public QGLWidget
 {

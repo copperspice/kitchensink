@@ -22,8 +22,8 @@
 
 #include "ui_dialogs.h"
 
+#include <QString>
 #include <QWidget>
-#include <qstringfwd.h>
 
 class QErrorMessage;
 

@@ -17,8 +17,8 @@
 *
 ***********************************************************************/
 
-#include "util.h"
 #include "fontpicker.h"
+#include "util.h"
 
 #include <QFont>
 #include <QFontDialog>

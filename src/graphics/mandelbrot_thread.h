@@ -20,11 +20,12 @@
 #ifndef MANDELBROT_THREAD_H
 #define MANDELBROT_THREAD_H
 
-#include <QImage>
 #include <QMutex>
 #include <QSize>
 #include <QThread>
 #include <QWaitCondition>
+
+class QImage;
 
 class Mandelbrot_Thread : public QThread
 {

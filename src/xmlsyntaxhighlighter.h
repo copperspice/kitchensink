@@ -20,10 +20,11 @@
 #ifndef XMLSYNTAXHIGHLIGHTER_H
 #define XMLSYNTAXHIGHLIGHTER_H
 
+#include <QString>
+#include <QTextDocument>
 #include <QSyntaxHighlighter>
-#include <qcontainerfwd.h>
-#include <qstringfwd.h>
-#include <qregularexpression.h>
+#include <QRegularExpression>
+#include <QVector>
 
 class QTextCharFormat;
 

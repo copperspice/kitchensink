@@ -27,9 +27,10 @@
 #include <QCloseEvent>
 #include <QFileDialog>
 #include <QFileInfo>
-#include <QToolBar>
 #include <QStandardPaths>
 #include <QStyleFactory>
+#include <QToolBar>
+#include <QUrl>
 
 static QString formatTime(qint64 timeMilliSeconds);
 

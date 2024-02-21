@@ -22,7 +22,7 @@
 #include "videosurface.h"
 #include "util.h"
 
-#include <QtMultimedia>
+#include <QPainter>
 
 VideoSurface::VideoSurface(QWidget *widget, QObject *parent)
    : QAbstractVideoSurface(parent)

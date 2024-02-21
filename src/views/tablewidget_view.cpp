@@ -20,7 +20,9 @@
 #include "tablewidget_view.h"
 #include "util.h"
 
+#include <QModelIndex>
 #include <QSize>
+#include <QStandardItemModel>
 #include <QStringList>
 #include <QTableWidget>
 

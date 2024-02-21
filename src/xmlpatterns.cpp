@@ -17,16 +17,16 @@
 *
 ***********************************************************************/
 
+#include "util.h"
 #include "xmlpatterns.h"
 #include "xmlsyntaxhighlighter.h"
-#include "util.h"
 
-#include <QByteArray>
 #include <QBuffer>
+#include <QByteArray>
 #include <QDir>
 #include <QFile>
-#include <QStringList>
 #include <QSize>
+#include <QStringList>
 #include <QTextStream>
 #include <QXmlFormatter>
 #include <QXmlQuery>

@@ -23,14 +23,14 @@
 #include <QAction>
 #include <QCheckBox>
 #include <QComboBox>
+#include <QDialog>
 #include <QGroupBox>
 #include <QLabel>
-#include <QDialog>
-#include <QSystemTrayIcon>
 #include <QLineEdit>
 #include <QMenu>
 #include <QPushButton>
 #include <QSpinBox>
+#include <QSystemTrayIcon>
 #include <QTextEdit>
 
 class SysTray : public QDialog
