@@ -184,7 +184,7 @@ void Calendar::createCalendarGroupBox()
    m_calendar->setMaximumDate(QDate(2300, 1, 1));
    m_calendar->setGridVisible(true);
 
-   connect(m_calendar, SIGNAL(currentPageChanged(int,int)), this, SLOT(reformatCalendarPage()));
+   connect(m_calendar, &QCalendarWidget::currentPageChanged, this, &Calendar::reformatCalendarPage);
 
    calendarLayout = new QGridLayout;
    calendarLayout->addWidget(m_calendar, 0, 0, Qt::AlignCenter);
@@ -389,11 +389,18 @@ void Calendar::createTextFormatsGroupBox()
    firstFridayCheckBox = new QCheckBox(tr("First Friday (blue)"));
    mayFirstCheckBox    = new QCheckBox(tr("May first (red)"));
 
-   connect(weekdayColorCombo,    SIGNAL(currentIndexChanged(int)), this, SLOT(weekdayFormatChanged()));
-   connect(weekendColorCombo,    SIGNAL(currentIndexChanged(int)), this, SLOT(weekendFormatChanged()));
-   connect(headerTextFormatCombo,SIGNAL(currentIndexChanged(const QString &)), this, SLOT(reformatHeaders()));
-   connect(firstFridayCheckBox,  SIGNAL(toggled(bool)), this, SLOT(reformatCalendarPage()));
-   connect(mayFirstCheckBox,     SIGNAL(toggled(bool)), this, SLOT(reformatCalendarPage()));
+   // cs_mp_cast is required since this signal is overloaded
+   connect(weekdayColorCombo,     cs_mp_cast<int>(&QComboBox::currentIndexChanged),
+         this, &Calendar::weekdayFormatChanged);
+
+   connect(weekendColorCombo,     cs_mp_cast<int>(&QComboBox::currentIndexChanged),
+         this, &Calendar::weekendFormatChanged);
+
+   connect(headerTextFormatCombo, cs_mp_cast<const QString &>(&QComboBox::currentIndexChanged),
+         this, &Calendar::reformatHeaders);
+
+   connect(firstFridayCheckBox,   &QCheckBox::toggled, this, &Calendar::reformatCalendarPage);
+   connect(mayFirstCheckBox,      &QCheckBox::toggled, this, &Calendar::reformatCalendarPage);
 
    //
    QHBoxLayout *checkBoxLayout = new QHBoxLayout;

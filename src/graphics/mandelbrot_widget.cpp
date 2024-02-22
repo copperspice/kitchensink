@@ -44,7 +44,7 @@ Mandelbrot_Widget::Mandelbrot_Widget(QWidget *parent)
    pixmapScale = DefaultScale;
    curScale    = DefaultScale;
 
-   connect(&thread, SIGNAL(renderedImage(const QImage &,double)),this, SLOT(updatePixmap(const QImage &,double)));
+   connect(&thread, &Mandelbrot_Thread::renderedImage, this, &Mandelbrot_Widget::updatePixmap);
 
    setCursor(Qt::CrossCursor);
 }

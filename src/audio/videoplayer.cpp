@@ -111,9 +111,9 @@ VideoPlayer::VideoPlayer(QWidget *parent)
    }
 
    // signals
-   connect(&m_movie, SIGNAL(stateChanged(QMovie::MovieState)), this, SLOT(stateChanged(QMovie::MovieState)));
-   connect(&m_movie, SIGNAL(frameChanged(int)), this, SLOT(frameChanged(int)));
-   connect(close_PB, SIGNAL(clicked()), this, SLOT(actionClose()));
+   connect(&m_movie, &QMovie::stateChanged, this, &VideoPlayer::stateChanged);
+   connect(&m_movie, &QMovie::frameChanged, this, &VideoPlayer::frameChanged);
+   connect(close_PB, &QPushButton::clicked, this, &VideoPlayer::actionClose);
 }
 
 VideoPlayer::~VideoPlayer()

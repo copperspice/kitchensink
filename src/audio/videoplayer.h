@@ -37,14 +37,10 @@ class VideoPlayer : public QWidget
  private:
    bool presentImage(const QImage &image);
 
-   CS_SLOT_1(Private, void stateChanged(QMovie::MovieState state))
-   CS_SLOT_2(stateChanged)
-
-   CS_SLOT_1(Private, void frameChanged(int frame))
-   CS_SLOT_2(frameChanged)
-
-   CS_SLOT_1(Private, void actionClose())
-   CS_SLOT_2(actionClose)
+   // slot declarations
+   void stateChanged(QMovie::MovieState state);
+   void frameChanged(int frame);
+   void actionClose();
 
    QMovie m_movie;
    QAbstractVideoSurface *m_surface;

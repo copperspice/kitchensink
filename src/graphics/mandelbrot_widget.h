@@ -49,8 +49,8 @@ class Mandelbrot_Widget : public QWidget
  private:
    void scroll(int deltaX, int deltaY);
 
-      CS_SLOT_1(Private, void updatePixmap(const QImage &image,double scaleFactor))
-      CS_SLOT_2(updatePixmap)
+   // slot
+   void updatePixmap(const QImage &image, double scaleFactor);
 
    void zoom(double zoomFactor);
 

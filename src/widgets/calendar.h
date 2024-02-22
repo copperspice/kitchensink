@@ -35,17 +35,6 @@ class Calendar : public QWidget
 {
    CS_OBJECT(Calendar)
 
-      CS_SLOT_1(Private, void weekdayFormatChanged())
-      CS_SLOT_2(weekdayFormatChanged)
-
-      CS_SLOT_1(Private, void weekendFormatChanged())
-      CS_SLOT_2(weekendFormatChanged)
-
-      CS_SLOT_1(Private, void reformatHeaders())
-      CS_SLOT_2(reformatHeaders)
-
-      CS_SLOT_1(Private, void reformatCalendarPage())
-      CS_SLOT_2(reformatCalendarPage)
  public:
    Calendar();
 
@@ -67,6 +56,11 @@ class Calendar : public QWidget
    void selectedDateChanged();
    void minimumDateChanged(const QDate &date);
    void maximumDateChanged(const QDate &date);
+
+   void weekdayFormatChanged();
+   void weekendFormatChanged();
+   void reformatHeaders();
+   void reformatCalendarPage();
 
    QGroupBox *calendarGroupBox;
    QGridLayout *calendarLayout;
