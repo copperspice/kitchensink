@@ -164,7 +164,7 @@ void StdPath::locateAll()
 
    QStringList pathList = QStandardPaths::locateAll(type, fileName, option);
 
-   for (const auto item : pathList) {
+   for (const auto &item : pathList) {
       m_ui->locateAll->append(item);
    }
 }

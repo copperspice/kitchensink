@@ -61,12 +61,12 @@ class GLWidget : public QGLWidget
    CS_SIGNAL_1(Public, void zRotationChanged(int angle))
    CS_SIGNAL_2(zRotationChanged, angle)
 
-   protected:
-      void initializeGL();
-      void paintGL();
-      void resizeGL(int width, int height);
-      void mousePressEvent(QMouseEvent *event);
-      void mouseMoveEvent(QMouseEvent *event);
+ protected:
+   void initializeGL() override;
+   void paintGL() override;
+   void resizeGL(int width, int height) override;
+   void mousePressEvent(QMouseEvent *event) override;
+   void mouseMoveEvent(QMouseEvent *event) override;
 
  private:
    GLuint makeGear(const GLfloat *reflectance, GLdouble innerRadius,

@@ -42,6 +42,7 @@ class Style_Edit : public QDialog
    CS_SLOT_2(actionClose)
 
  protected:
+   void closeEvent(QCloseEvent *event) override;
 
  private:
    CS_SLOT_1(Private, void on_styleCombo_activated(const QString &styleName))
@@ -53,7 +54,6 @@ class Style_Edit : public QDialog
    CS_SLOT_1(Private, void on_styleTextEdit_textChanged())
    CS_SLOT_2(on_styleTextEdit_textChanged)
 
-      void closeEvent(QCloseEvent *event);
    CS_SLOT_1(Private, void on_applyPB_clicked())
    CS_SLOT_2(on_applyPB_clicked)
 

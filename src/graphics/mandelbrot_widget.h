@@ -33,18 +33,19 @@ class Mandelbrot_Widget : public QWidget
 {
    CS_OBJECT(Mandelbrot_Widget)
 
-      QSize sizeHint() const;
  public:
    Mandelbrot_Widget(QWidget *parent = nullptr);
 
-   protected:
-      void paintEvent(QPaintEvent *event);
-      void resizeEvent(QResizeEvent *event);
-      void keyPressEvent(QKeyEvent *event);
-      void wheelEvent(QWheelEvent *event);
-      void mousePressEvent(QMouseEvent *event);
-      void mouseMoveEvent(QMouseEvent *event);
-      void mouseReleaseEvent(QMouseEvent *event);
+ protected:
+   void keyPressEvent(QKeyEvent *event) override;
+   void mouseMoveEvent(QMouseEvent *event) override;
+   void mousePressEvent(QMouseEvent *event) override;
+   void mouseReleaseEvent(QMouseEvent *event) override;
+   void paintEvent(QPaintEvent *event) override;
+   void resizeEvent(QResizeEvent *event) override;
+   void wheelEvent(QWheelEvent *event) override;
+
+   QSize sizeHint() const override;
 
  private:
    void scroll(int deltaX, int deltaY);

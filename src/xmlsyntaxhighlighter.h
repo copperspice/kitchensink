@@ -33,8 +33,8 @@ class XmlSyntaxHighlighter : public QSyntaxHighlighter
  public:
    XmlSyntaxHighlighter(QTextDocument *parent = nullptr);
 
-   protected:
-      virtual void highlightBlock(const QString &text);
+ protected:
+   void highlightBlock(const QString &text) override;
 
  private:
    struct HighlightingRule

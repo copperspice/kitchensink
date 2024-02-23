@@ -36,9 +36,11 @@ class Grabber : public QMainWindow
 {
    CS_OBJECT(Grabber)
 
-      QSize sizeHint() const;
  public:
    Grabber(QWidget *parent = nullptr);
+
+ protected:
+   QSize sizeHint() const override;
 
  private:
    void createActions();

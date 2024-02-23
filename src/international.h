@@ -31,10 +31,12 @@ class International : public QWidget
 {
    CS_OBJECT(International)
 
-      void changeEvent(QEvent *event);
  public:
    International();
    ~International();
+
+ protected:
+   void changeEvent(QEvent *event) override;
 
  private:
    void retranslateUi();

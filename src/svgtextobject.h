@@ -28,10 +28,10 @@ class SvgTextObject : public QObject, public QTextObjectInterface
    CS_OBJECT(SvgTextObject)
    CS_INTERFACES(QTextObjectInterface)
 
-   public:
-      QSizeF intrinsicSize(QTextDocument *doc, int posInDocument, const QTextFormat &format);
-      void drawObject(QPainter *painter, const QRectF &rect,
-                  QTextDocument *doc, int posInDocument, const QTextFormat &format);
+ public:
+   QSizeF intrinsicSize(QTextDocument *doc, int posInDocument, const QTextFormat &format) override;
+   void drawObject(QPainter *painter, const QRectF &rect,
+         QTextDocument *doc, int posInDocument, const QTextFormat &format) override;
 };
 
 #endif

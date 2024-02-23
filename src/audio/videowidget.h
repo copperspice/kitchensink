@@ -39,11 +39,10 @@ class VideoWidget : public QWidget
       return surface;
    }
 
-   QSize sizeHint() const;
-
  protected:
-   void paintEvent(QPaintEvent *event);
-   void resizeEvent(QResizeEvent *event);
+   void paintEvent(QPaintEvent *event) override;
+   void resizeEvent(QResizeEvent *event) override;
+   QSize sizeHint() const override;
 
  private:
    VideoSurface *surface;

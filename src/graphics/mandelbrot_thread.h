@@ -40,8 +40,8 @@ class Mandelbrot_Thread : public QThread
    CS_SIGNAL_1(Public, void renderedImage(const QImage &image, double scaleFactor))
    CS_SIGNAL_2(renderedImage, image, scaleFactor)
 
-   protected:
-      void run();
+ protected:
+   void run() override;
 
  private:
    static constexpr const int ColormapSize = 512;

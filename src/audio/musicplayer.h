@@ -40,11 +40,12 @@ class MusicPlayer : public QWidget
 {
    CS_OBJECT(MusicPlayer)
 
-      void closeEvent(QCloseEvent *event);
  public:
    MusicPlayer(QWidget *parent = nullptr);
    ~MusicPlayer();
 
+ protected:
+   void closeEvent(QCloseEvent *event) override;
    QSize sizeHint() const override;
 
  private:

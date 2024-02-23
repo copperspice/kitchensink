@@ -31,15 +31,15 @@ class FridgeMagnet : public QWidget
 {
    CS_OBJECT(FridgeMagnet)
 
-      QSize sizeHint() const;
  public:
    FridgeMagnet(QWidget *parent = nullptr);
 
-   protected:
-      void dragEnterEvent(QDragEnterEvent *event);
-      void dragMoveEvent(QDragMoveEvent *event);
-      void dropEvent(QDropEvent *event);
-      void mousePressEvent(QMouseEvent *event);
+ protected:
+   void dragEnterEvent(QDragEnterEvent *event) override;
+   void dragMoveEvent(QDragMoveEvent *event) override;
+   void dropEvent(QDropEvent *event) override;
+   void mousePressEvent(QMouseEvent *event) override;
+   QSize sizeHint() const override;
 };
 
 #endif

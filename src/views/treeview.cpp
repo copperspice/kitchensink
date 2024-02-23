@@ -134,30 +134,30 @@ QList<TreeView::TreeData> TreeView::getData()
 
 bool TreeView::sortMe(const TreeView::TreeData &s1, const TreeView::TreeData &s2)
 {
-   bool retVal;
+   bool retval = false;
 
    if (s1.m_parentId == 0 && s2.m_parentId == 0)  {
-      retVal = s1.m_id < s2.m_id;
+      retval = s1.m_id < s2.m_id;
 
    } else if (s1.m_parentId == 0 && s2.m_parentId != 0) {
 
       if ( s1.m_id == s2.m_parentId ) {
-         retVal = true;
+         retval = true;
       } else {
-         retVal = s1.m_id < s2.m_parentId;
+         retval = s1.m_id < s2.m_parentId;
       }
 
    } else if (s1.m_parentId != 0 && s2.m_parentId == 0) {
 
       if (s1.m_parentId == s2.m_id) {
-         retVal = false;
+         retval = false;
       } else {
-         retVal = s1.m_parentId < s2.m_id;
+         retval = s1.m_parentId < s2.m_id;
       }
 
    } else if (s1.m_parentId != 0 && s2.m_parentId != 0)  {
-      retVal = s1.m_parentId < s2.m_parentId;
+      retval = s1.m_parentId < s2.m_parentId;
    }
 
-   return retVal;
+   return retval;
 }

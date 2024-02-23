@@ -32,12 +32,12 @@ class Lighting: public QGraphicsView
 {
    CS_OBJECT(Lighting)
 
-       QSize sizeHint() const;
  public:
    Lighting(QWidget *parent = nullptr);
 
-   protected:
-       void resizeEvent(QResizeEvent *event);
+ protected:
+   void resizeEvent(QResizeEvent *event) override;
+   QSize sizeHint() const override;
 
  private:
    void setupScene();

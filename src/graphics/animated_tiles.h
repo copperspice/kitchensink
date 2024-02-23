@@ -78,20 +78,17 @@ class Button : public QGraphicsWidget
       setCacheMode(DeviceCoordinateCache);
    }
 
-      QRectF boundingRect() const
-      {
-         return QRectF(-65, -65, 130, 130);
-      }
+   QRectF boundingRect() const override {
+      return QRectF(-65, -65, 130, 130);
+   }
 
-      QPainterPath shape() const
-      {
-         QPainterPath path;
-         path.addEllipse(boundingRect());
-         return path;
-      }
+   QPainterPath shape() const override {
+      QPainterPath path;
+      path.addEllipse(boundingRect());
+      return path;
+   }
 
-      void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *)
-      {
+   void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *) override {
       bool down = option->state & QStyle::State_Sunken;
       QRectF r = boundingRect();
 
@@ -118,17 +115,16 @@ class Button : public QGraphicsWidget
 
    CS_SIGNAL_1(Public, void pressed())
    CS_SIGNAL_2(pressed)
-   protected:
-      void mousePressEvent(QGraphicsSceneMouseEvent *)
-      {
-         emit pressed();
-         update();
-      }
 
-      void mouseReleaseEvent(QGraphicsSceneMouseEvent *)
-      {
-         update();
-      }
+ protected:
+   void mousePressEvent(QGraphicsSceneMouseEvent *) override {
+      emit pressed();
+      update();
+   }
+
+   void mouseReleaseEvent(QGraphicsSceneMouseEvent *) override {
+      update();
+   }
 
  private:
    QPixmap _pix;
@@ -136,17 +132,16 @@ class Button : public QGraphicsWidget
 
 class View : public QGraphicsView
 {
-   protected:
-      void resizeEvent(QResizeEvent *event)
-      {
-         QGraphicsView::resizeEvent(event);
-         fitInView(sceneRect(), Qt::KeepAspectRatio);
-      }
  public:
    View(QGraphicsScene *scene, QWidget *parent)
       : QGraphicsView(scene, parent)
    { }
 
+ protected:
+   void resizeEvent(QResizeEvent *event) override {
+      QGraphicsView::resizeEvent(event);
+      fitInView(sceneRect(), Qt::KeepAspectRatio);
+   }
 };
 
 #endif

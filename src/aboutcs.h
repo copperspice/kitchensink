@@ -30,6 +30,8 @@ class AboutCS : public QWidget
 
  public:
    AboutCS(QString route);
+
+ protected:
    QSize sizeHint() const override;
 
  private:

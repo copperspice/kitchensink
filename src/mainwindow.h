@@ -33,6 +33,9 @@ class MainWindow : public QMainWindow
    ~MainWindow();
    void addMdiChild(QWidget *);
 
+ protected:
+   void changeEvent(QEvent *event) override;
+
  private:
    // slot methods can be declared as standard methods when using method pointers in connect()
 
@@ -84,7 +87,6 @@ class MainWindow : public QMainWindow
    void actionAbout();
 
    Ui::MainWindow *m_ui;
-   void changeEvent(QEvent *event);
 };
 
 #endif

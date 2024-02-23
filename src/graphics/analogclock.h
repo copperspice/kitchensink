@@ -31,8 +31,8 @@ class AnalogClock : public QWidget
  public:
    AnalogClock(QWidget *parent = nullptr);
 
-   protected:
-      void paintEvent(QPaintEvent *event);
+ protected:
+   void paintEvent(QPaintEvent *event) override;
 };
 
 #endif

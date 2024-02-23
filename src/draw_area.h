@@ -29,11 +29,6 @@ class DrawArea : public QWidget
 {
    CS_OBJECT(DrawArea)
 
-      QSize minimumSizeHint() const;
-      QSize sizeHint() const;
-
-   protected:
-      void paintEvent(QPaintEvent *event);
  public:
    enum Shape {
       Line,
@@ -52,13 +47,17 @@ class DrawArea : public QWidget
 
    DrawArea(QWidget *parent = nullptr);
 
-
    void setShape(Shape shape);
    void setPen(const QPen &pen);
    void setBrush(const QBrush &brush);
    void setAntialiased(bool antialiased);
    void setTransformed(bool transformed);
 
+   QSize minimumSizeHint() const override;
+
+ protected:
+   void paintEvent(QPaintEvent *event) override;
+   QSize sizeHint() const override;
 
  private:
    Shape m_shape;

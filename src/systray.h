@@ -37,12 +37,12 @@ class SysTray : public QDialog
 {
    CS_OBJECT(SysTray)
 
-      void setVisible(bool visible);
  public:
    SysTray();
+   void setVisible(bool visible) override;
 
-   protected:
-      void closeEvent(QCloseEvent *event);
+ protected:
+   void closeEvent(QCloseEvent *event) override;
 
  private:
    void createIconGroupBox();

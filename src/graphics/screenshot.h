@@ -37,12 +37,12 @@ class Screenshot : public QWidget
 {
    CS_OBJECT(Screenshot)
 
-       QSize sizeHint() const;
  public:
    Screenshot();
 
-   protected:
-       void resizeEvent(QResizeEvent *event);
+ protected:
+   void resizeEvent(QResizeEvent *event) override;
+   QSize sizeHint() const override;
 
  private:
    void createOptionsGroupBox();
