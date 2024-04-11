@@ -172,12 +172,26 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "(Linux|OpenBSD|FreeBSD|NetBSD|DragonFly)")
    set_target_properties(KitchenSink PROPERTIES OUTPUT_NAME kitchensink)
 
 elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")
-   # disable console on windows
    target_link_libraries(KitchenSink
       netapi32
       mpr
-      -mwindows
    )
+
+   if (MSVC)
+      # disables the console window
+      target_link_options(KitchenSink
+         PRIVATE
+         /subsystem:windows
+         /entry:mainCRTStartup
+      )
+
+   else()
+      # disables the console window
+      target_link_libraries(KitchenSink
+         -mwindows
+      )
+
+   endif()
 
 endif()
 
