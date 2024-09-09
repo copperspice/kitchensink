@@ -33,6 +33,7 @@ GLWidget::GLWidget(QWidget *parent)
    xRot  = 0;
    yRot  = 0;
    zRot  = 0;
+
    gear1Rot = 0;
 
    QTimer *timer = new QTimer(this);
@@ -175,7 +176,8 @@ GLuint GLWidget::makeGear(const GLfloat *reflectance, GLdouble innerRadius,
    GLdouble delta = (2.0 * Pi / toothCount) / 4.0;
    GLdouble z = thickness / 2.0;
 
-   int i, j;
+   int i;
+   int j;
 
    glShadeModel(GL_FLAT);
 
@@ -249,7 +251,6 @@ GLuint GLWidget::makeGear(const GLfloat *reflectance, GLdouble innerRadius,
    }
 
    glEnd();
-
    glEndList();
 
    return list;

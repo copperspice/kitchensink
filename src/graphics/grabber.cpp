@@ -65,6 +65,7 @@ Grabber::Grabber(QWidget *parent)
    createMenus();
 
    QGridLayout *centralLayout = new QGridLayout;
+
    centralLayout->addWidget(glWidgetArea, 0, 0);
    centralLayout->addWidget(pixmapLabelArea, 0, 1);
    centralLayout->addWidget(xSlider, 1, 0, 1, 2);
@@ -133,7 +134,7 @@ void Grabber::createMenus()
    helpMenu->addAction(aboutGrabber_Cs);
 }
 
-QSlider *Grabber::createSlider(const QString &changedSignal, const QString &setterSlot)
+QSlider *Grabber::createSlider(const QString &changedSignal, const QString &adjustSlider)
 {
    QSlider *slider = new QSlider(Qt::Horizontal);
    slider->setRange(0, 360 * 16);
@@ -142,7 +143,7 @@ QSlider *Grabber::createSlider(const QString &changedSignal, const QString &sett
    slider->setTickInterval(15 * 16);
    slider->setTickPosition(QSlider::TicksRight);
 
-   connect(slider, SIGNAL(valueChanged(int)), glWidget, setterSlot);
+   connect(slider, SIGNAL(valueChanged(int)), glWidget, adjustSlider);
    connect(glWidget, changedSignal, slider, SLOT(setValue(int)));
 
    return slider;
@@ -156,7 +157,7 @@ void Grabber::grabFrameBuffer()
 
 QSize Grabber::getSize()
 {
-   bool ok;
+   bool ok = false;
 
    QString text = QInputDialog::getText(this, tr("Grabber"), tr("Enter pixmap size:"),
          QLineEdit::Normal, tr("%1 x %2").formatArg(glWidget->width()).formatArg(glWidget->height()), &ok);

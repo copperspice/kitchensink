@@ -70,8 +70,7 @@ class GLWidget : public QGLWidget
 
  private:
    GLuint makeGear(const GLfloat *reflectance, GLdouble innerRadius,
-         GLdouble outerRadius, GLdouble thickness,
-         GLdouble toothSize, GLint toothCount);
+         GLdouble outerRadius, GLdouble thickness, GLdouble toothSize, GLint toothCount);
 
    void drawGear(GLuint gear, GLdouble dx, GLdouble dy, GLdouble dz, GLdouble angle);
    void normalizeAngle(int *angle);
@@ -82,6 +81,7 @@ class GLWidget : public QGLWidget
    GLuint gear1;
    GLuint gear2;
    GLuint gear3;
+
    int xRot;
    int yRot;
    int zRot;
