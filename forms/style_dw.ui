@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Style_DW</class>
  <widget class="QMainWindow" name="Style_DW">
+  <property name="windowTitle">
+   <string>Style Sheets</string>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -9,9 +12,6 @@
     <width>461</width>
     <height>399</height>
    </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Style Sheets</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout">
@@ -50,27 +50,27 @@
        </property>
        <item row="1" column="2" colspan="2">
         <widget class="QRadioButton" name="femaleRadioButton">
-         <property name="toolTip">
-          <string>Check this if you are female</string>
-         </property>
          <property name="text">
           <string>&amp;Female</string>
+         </property>
+         <property name="toolTip">
+          <string>Check this if you are female</string>
          </property>
         </widget>
        </item>
        <item row="4" column="1" colspan="4">
         <widget class="QListWidget" name="professionList">
+         <property name="currentRow">
+          <number>-1</number>
+         </property>
+         <property name="whatsThis">
+          <string>Specify your name here</string>
+         </property>
          <property name="toolTip">
           <string>Select your profession</string>
          </property>
          <property name="statusTip">
           <string>Specify your name here</string>
-         </property>
-         <property name="whatsThis">
-          <string>Specify your name here</string>
-         </property>
-         <property name="currentRow">
-          <number>-1</number>
          </property>
          <item>
           <property name="text">
@@ -106,14 +106,14 @@
        </item>
        <item row="1" column="4">
         <spacer name="horizontalSpacer_4">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>100</width>
            <height>20</height>
           </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
         </spacer>
        </item>
@@ -145,9 +145,6 @@
        </item>
        <item row="5" column="1">
         <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
@@ -157,21 +154,24 @@
            <height>8</height>
           </size>
          </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
         </spacer>
        </item>
        <item row="2" column="1">
         <widget class="QSpinBox" name="ageSpinBox">
+         <property name="value">
+          <number>22</number>
+         </property>
+         <property name="minimum">
+          <number>12</number>
+         </property>
          <property name="toolTip">
           <string>Specify your age</string>
          </property>
          <property name="statusTip">
           <string>Specify your age</string>
-         </property>
-         <property name="minimum">
-          <number>12</number>
-         </property>
-         <property name="value">
-          <number>22</number>
          </property>
         </widget>
        </item>
@@ -213,24 +213,24 @@
        </item>
        <item row="1" column="1">
         <widget class="QRadioButton" name="maleRadioButton">
-         <property name="toolTip">
-          <string>Check this if you are male</string>
-         </property>
          <property name="text">
           <string>&amp;Male</string>
+         </property>
+         <property name="toolTip">
+          <string>Check this if you are male</string>
          </property>
         </widget>
        </item>
        <item row="4" column="5">
         <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>40</width>
            <height>20</height>
           </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
         </spacer>
        </item>
@@ -238,34 +238,31 @@
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <spacer name="horizontalSpacer_6">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
            <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
              <height>20</height>
             </size>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
           </spacer>
          </item>
          <item>
           <widget class="QPushButton" name="aboutPB">
+           <property name="text">
+            <string>About</string>
+           </property>
            <property name="font">
             <font>
              <pointsize>10</pointsize>
             </font>
-           </property>
-           <property name="text">
-            <string>About</string>
            </property>
           </widget>
          </item>
          <item>
           <spacer name="horizontalSpacer_1">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
            <property name="sizeType">
             <enum>QSizePolicy::Fixed</enum>
            </property>
@@ -274,26 +271,26 @@
              <width>10</width>
              <height>20</height>
             </size>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
           </spacer>
          </item>
          <item>
           <widget class="QPushButton" name="editPB">
+           <property name="text">
+            <string> Edit/Select Style </string>
+           </property>
            <property name="font">
             <font>
              <pointsize>10</pointsize>
             </font>
            </property>
-           <property name="text">
-            <string> Edit/Select Style </string>
-           </property>
           </widget>
          </item>
          <item>
           <spacer name="horizontalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
            <property name="sizeType">
             <enum>QSizePolicy::Fixed</enum>
            </property>
@@ -303,30 +300,33 @@
              <height>20</height>
             </size>
            </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
           </spacer>
          </item>
          <item>
           <widget class="QPushButton" name="closePB">
+           <property name="text">
+            <string>Close</string>
+           </property>
            <property name="font">
             <font>
              <pointsize>10</pointsize>
             </font>
            </property>
-           <property name="text">
-            <string>Close</string>
-           </property>
           </widget>
          </item>
          <item>
           <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
            <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
              <height>20</height>
             </size>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
           </spacer>
          </item>
@@ -334,14 +334,14 @@
        </item>
        <item row="3" column="1" colspan="3">
         <widget class="QComboBox" name="countryCombo">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
          <property name="toolTip">
           <string>Specify country of origin</string>
          </property>
          <property name="statusTip">
           <string>Specify country of origin</string>
-         </property>
-         <property name="currentIndex">
-          <number>0</number>
          </property>
          <item>
           <property name="text">
@@ -382,24 +382,24 @@
        </item>
        <item row="0" column="1" colspan="3">
         <widget class="QComboBox" name="nameCB">
-         <property name="toolTip">
-          <string>Specify your name</string>
-         </property>
          <property name="editable">
           <bool>true</bool>
+         </property>
+         <property name="toolTip">
+          <string>Specify your name</string>
          </property>
         </widget>
        </item>
        <item row="2" column="4">
         <spacer name="horizontalSpacer_5">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>61</width>
            <height>20</height>
           </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
         </spacer>
        </item>

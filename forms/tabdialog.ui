@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>TabDialog</class>
  <widget class="QWidget" name="TabDialog">
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,33 +13,30 @@
     <height>436</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">
     <spacer name="horizontalSpacer_1">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
      <property name="sizeHint" stdset="0">
       <size>
        <width>125</width>
        <height>20</height>
       </size>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
     </spacer>
    </item>
    <item row="1" column="2">
     <spacer name="horizontalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
      <property name="sizeHint" stdset="0">
       <size>
        <width>125</width>
        <height>20</height>
       </size>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
     </spacer>
    </item>
@@ -57,6 +57,9 @@
        <string>Tab 1</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_3">
+       <property name="verticalSpacing">
+        <number>14</number>
+       </property>
        <property name="leftMargin">
         <number>14</number>
        </property>
@@ -64,9 +67,6 @@
         <number>14</number>
        </property>
        <property name="rightMargin">
-        <number>14</number>
-       </property>
-       <property name="verticalSpacing">
         <number>14</number>
        </property>
        <item row="0" column="1">
@@ -86,13 +86,13 @@
        </item>
        <item row="5" column="0" rowspan="3" colspan="3">
         <widget class="QGroupBox" name="groupBox_1">
+         <property name="title">
+          <string>Customer Information</string>
+         </property>
          <property name="font">
           <font>
            <pointsize>10</pointsize>
           </font>
-         </property>
-         <property name="title">
-          <string>Customer Information</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
           <property name="bottomMargin">
@@ -100,13 +100,13 @@
           </property>
           <item row="1" column="0">
            <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Phone #:</string>
+            </property>
             <property name="font">
              <font>
               <pointsize>10</pointsize>
              </font>
-            </property>
-            <property name="text">
-             <string>Phone #:</string>
             </property>
            </widget>
           </item>
@@ -125,13 +125,13 @@
           </item>
           <item row="0" column="0">
            <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Name:</string>
+            </property>
             <property name="font">
              <font>
               <pointsize>10</pointsize>
              </font>
-            </property>
-            <property name="text">
-             <string>Name:</string>
             </property>
            </widget>
           </item>
@@ -140,50 +140,50 @@
        </item>
        <item row="2" column="4">
         <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Order Time:</string>
+         </property>
          <property name="font">
           <font>
            <pointsize>10</pointsize>
           </font>
          </property>
-         <property name="text">
-          <string>Order Time:</string>
-         </property>
         </widget>
        </item>
        <item row="8" column="2">
         <spacer name="verticalSpacer_1">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>95</height>
           </size>
          </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
         </spacer>
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="label_1">
+         <property name="text">
+          <string>Order Ticket #:</string>
+         </property>
          <property name="font">
           <font>
            <pointsize>10</pointsize>
           </font>
          </property>
-         <property name="text">
-          <string>Order Ticket #:</string>
-         </property>
         </widget>
        </item>
        <item row="0" column="4">
         <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Order Date:</string>
+         </property>
          <property name="font">
           <font>
            <pointsize>9</pointsize>
           </font>
-         </property>
-         <property name="text">
-          <string>Order Date:</string>
          </property>
         </widget>
        </item>
@@ -214,26 +214,26 @@
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>Build Your Own Sandwich</string>
+         </property>
          <property name="font">
           <font>
            <pointsize>10</pointsize>
           </font>
          </property>
-         <property name="title">
-          <string>Build Your Own Sandwich</string>
-         </property>
          <layout class="QGridLayout" name="gridLayout_5">
+          <property name="verticalSpacing">
+           <number>4</number>
+          </property>
+          <property name="horizontalSpacing">
+           <number>14</number>
+          </property>
           <property name="leftMargin">
            <number>14</number>
           </property>
           <property name="rightMargin">
            <number>14</number>
-          </property>
-          <property name="horizontalSpacing">
-           <number>14</number>
-          </property>
-          <property name="verticalSpacing">
-           <number>4</number>
           </property>
           <item row="0" column="1">
            <widget class="QCheckBox" name="avocado_CB">
@@ -401,14 +401,14 @@
        </item>
        <item>
         <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>10</height>
           </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
          </property>
         </spacer>
        </item>
@@ -419,99 +419,99 @@
          </property>
          <item row="0" column="3">
           <widget class="QRadioButton" name="salt_RB">
+           <property name="text">
+            <string>The Salt</string>
+           </property>
            <property name="font">
             <font>
              <pointsize>10</pointsize>
             </font>
-           </property>
-           <property name="text">
-            <string>The Salt</string>
            </property>
           </widget>
          </item>
          <item row="1" column="3">
           <widget class="QRadioButton" name="kitchenSink_RB">
+           <property name="text">
+            <string>The Kitchen Sink</string>
+           </property>
            <property name="font">
             <font>
              <pointsize>10</pointsize>
             </font>
-           </property>
-           <property name="text">
-            <string>The Kitchen Sink</string>
            </property>
           </widget>
          </item>
          <item row="0" column="2">
           <widget class="QRadioButton" name="poultryS_RB">
+           <property name="text">
+            <string>The Poultry Seasoning</string>
+           </property>
            <property name="font">
             <font>
              <pointsize>10</pointsize>
             </font>
-           </property>
-           <property name="text">
-            <string>The Poultry Seasoning</string>
            </property>
           </widget>
          </item>
          <item row="1" column="1">
           <widget class="QRadioButton" name="juniper_RB">
+           <property name="text">
+            <string>The Juniper</string>
+           </property>
            <property name="font">
             <font>
              <pointsize>10</pointsize>
             </font>
-           </property>
-           <property name="text">
-            <string>The Juniper</string>
            </property>
           </widget>
          </item>
          <item row="1" column="2">
           <widget class="QRadioButton" name="rosemary_RB">
+           <property name="text">
+            <string>The Rosemary</string>
+           </property>
            <property name="font">
             <font>
              <pointsize>10</pointsize>
             </font>
-           </property>
-           <property name="text">
-            <string>The Rosemary</string>
            </property>
           </widget>
          </item>
          <item row="0" column="0">
           <spacer name="horizontalSpacer_5">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
            <property name="sizeHint" stdset="0">
             <size>
              <width>15</width>
              <height>20</height>
             </size>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
           </spacer>
          </item>
          <item row="0" column="1">
           <widget class="QRadioButton" name="coriander_RB">
+           <property name="text">
+            <string>The Coriander</string>
+           </property>
            <property name="font">
             <font>
              <pointsize>10</pointsize>
             </font>
            </property>
-           <property name="text">
-            <string>The Coriander</string>
-           </property>
           </widget>
          </item>
          <item row="0" column="4">
           <spacer name="horizontalSpacer_6">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
            <property name="sizeHint" stdset="0">
             <size>
              <width>15</width>
              <height>20</height>
             </size>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
           </spacer>
          </item>
@@ -519,14 +519,14 @@
        </item>
        <item>
         <spacer name="verticalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>20</height>
           </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
          </property>
         </spacer>
        </item>
@@ -548,13 +548,13 @@
        </property>
        <item row="0" column="4">
         <widget class="QGroupBox" name="groupBox_12">
+         <property name="title">
+          <string>Desserts</string>
+         </property>
          <property name="font">
           <font>
            <pointsize>10</pointsize>
           </font>
-         </property>
-         <property name="title">
-          <string>Desserts</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <property name="leftMargin">
@@ -583,14 +583,14 @@
           </item>
           <item>
            <spacer name="verticalSpacer_5">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>20</width>
               <height>18</height>
              </size>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
             </property>
            </spacer>
           </item>
@@ -599,6 +599,9 @@
        </item>
        <item row="0" column="2">
         <widget class="QGroupBox" name="groupBox_11">
+         <property name="title">
+          <string>Salads</string>
+         </property>
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -609,9 +612,6 @@
           <font>
            <pointsize>10</pointsize>
           </font>
-         </property>
-         <property name="title">
-          <string>Salads</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <property name="leftMargin">
@@ -643,14 +643,14 @@
           </item>
           <item>
            <spacer name="verticalSpacer_6">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>20</width>
               <height>40</height>
              </size>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
             </property>
            </spacer>
           </item>
@@ -659,9 +659,6 @@
        </item>
        <item row="0" column="3">
         <spacer name="horizontalSpacer_9">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
          <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
@@ -670,14 +667,14 @@
            <width>10</width>
            <height>20</height>
           </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
         </spacer>
        </item>
        <item row="0" column="1">
         <spacer name="horizontalSpacer_8">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
          <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
@@ -687,10 +684,16 @@
            <height>20</height>
           </size>
          </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
         </spacer>
        </item>
        <item row="0" column="0">
         <widget class="QGroupBox" name="groupBox_10">
+         <property name="title">
+          <string>Chips</string>
+         </property>
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -701,9 +704,6 @@
           <font>
            <pointsize>10</pointsize>
           </font>
-         </property>
-         <property name="title">
-          <string>Chips</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <property name="leftMargin">
@@ -745,14 +745,14 @@
        </item>
        <item row="1" column="4">
         <spacer name="verticalSpacer_4">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>18</height>
           </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
          </property>
         </spacer>
        </item>

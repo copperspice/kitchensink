@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>ListView</class>
  <widget class="QWidget" name="ListView">
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,30 +13,24 @@
     <height>295</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QLabel" name="label_1">
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
      <property name="text">
       <string>List View Model</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
     </widget>
    </item>
    <item row="1" column="0">
     <spacer name="verticalSpacer_1">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
      <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>
      </property>
@@ -43,6 +40,9 @@
        <height>8</height>
       </size>
      </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
     </spacer>
    </item>
    <item row="2" column="0">
@@ -50,9 +50,6 @@
    </item>
    <item row="3" column="0">
     <spacer name="verticalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
      <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>
      </property>
@@ -61,6 +58,9 @@
        <width>20</width>
        <height>10</height>
       </size>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
     </spacer>
    </item>
@@ -71,28 +71,24 @@
      </property>
      <item>
       <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
        <property name="sizeHint" stdset="0">
         <size>
          <width>100</width>
          <height>20</height>
         </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </spacer>
      </item>
      <item>
       <widget class="QToolButton" name="insert_PB">
-       <property name="toolTip">
-        <string>Insert</string>
-       </property>
        <property name="text">
         <string>...</string>
        </property>
-       <property name="icon">
-        <iconset resource="kitchensink.qrc">
-         <normaloff>:/resources/plus.png</normaloff>:/resources/plus.png</iconset>
+       <property name="shortcut">
+        <string>Alt+I</string>
        </property>
        <property name="iconSize">
         <size>
@@ -100,22 +96,23 @@
          <height>16</height>
         </size>
        </property>
-       <property name="shortcut">
-        <string>Alt+I</string>
+       <property name="icon">
+        <iconset>
+         <normaloff>:/resources/plus.png</normaloff>
+        </iconset>
+       </property>
+       <property name="toolTip">
+        <string>Insert</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QToolButton" name="delete_PB">
-       <property name="toolTip">
-        <string>Delete</string>
-       </property>
        <property name="text">
         <string>...</string>
        </property>
-       <property name="icon">
-        <iconset resource="kitchensink.qrc">
-         <normaloff>:/resources/minus.png</normaloff>:/resources/minus.png</iconset>
+       <property name="shortcut">
+        <string>Alt+D</string>
        </property>
        <property name="iconSize">
         <size>
@@ -123,21 +120,26 @@
          <height>16</height>
         </size>
        </property>
-       <property name="shortcut">
-        <string>Alt+D</string>
+       <property name="icon">
+        <iconset>
+         <normaloff>:/resources/minus.png</normaloff>
+        </iconset>
+       </property>
+       <property name="toolTip">
+        <string>Delete</string>
        </property>
       </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
        <property name="sizeHint" stdset="0">
         <size>
          <width>100</width>
          <height>20</height>
         </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </spacer>
      </item>

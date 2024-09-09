@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>StdPath</class>
  <widget class="QWidget" name="StdPath">
+  <property name="windowTitle">
+   <string>Standard Paths</string>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -9,9 +12,6 @@
     <width>530</width>
     <height>590</height>
    </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Standard Paths</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -25,28 +25,25 @@
    </property>
    <item row="9" column="0">
     <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Locate 'File Name' in selected Standard Location:</string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
-     </property>
-     <property name="text">
-      <string>Locate 'File Name' in selected Standard Location:</string>
      </property>
     </widget>
    </item>
    <item row="12" column="0">
     <widget class="QTextEdit" name="locateAll">
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>100</height>
-      </size>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
      <property name="palette">
       <palette>
        <active>
-        <colorrole role="Text">
+        <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
            <red>0</red>
@@ -57,7 +54,7 @@
         </colorrole>
        </active>
        <inactive>
-        <colorrole role="Text">
+        <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
            <red>0</red>
@@ -68,7 +65,7 @@
         </colorrole>
        </inactive>
        <disabled>
-        <colorrole role="Text">
+        <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
            <red>106</red>
@@ -80,22 +77,28 @@
        </disabled>
       </palette>
      </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>100</height>
+      </size>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
      </property>
     </widget>
    </item>
    <item row="6" column="0">
     <widget class="QLineEdit" name="writeLocation">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
      <property name="palette">
       <palette>
        <active>
-        <colorrole role="Text">
+        <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
            <red>0</red>
@@ -106,7 +109,7 @@
         </colorrole>
        </active>
        <inactive>
-        <colorrole role="Text">
+        <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
            <red>0</red>
@@ -117,7 +120,7 @@
         </colorrole>
        </inactive>
        <disabled>
-        <colorrole role="Text">
+        <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
            <red>106</red>
@@ -134,83 +137,77 @@
        <pointsize>10</pointsize>
       </font>
      </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
     </widget>
    </item>
    <item row="4" column="0" colspan="2">
     <widget class="QTextEdit" name="belongLocations">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="PlaceholderText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="PlaceholderText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="PlaceholderText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>106</red>
+           <green>104</green>
+           <blue>100</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
      <property name="maximumSize">
       <size>
        <width>16777215</width>
        <height>100</height>
       </size>
      </property>
-     <property name="palette">
-      <palette>
-       <active>
-        <colorrole role="Text">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>255</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </active>
-       <inactive>
-        <colorrole role="Text">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>255</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </inactive>
-       <disabled>
-        <colorrole role="Text">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>106</red>
-           <green>104</green>
-           <blue>100</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </disabled>
-      </palette>
-     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
      </property>
     </widget>
    </item>
    <item row="2" column="0">
     <widget class="QLabel" name="label_1">
+     <property name="text">
+      <string>Directories where files for this Location Type belong:</string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
      </property>
-     <property name="text">
-      <string>Directories where files for this Location Type belong:</string>
-     </property>
     </widget>
    </item>
    <item row="7" column="0">
     <spacer name="verticalSpacer_1">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
      <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>
      </property>
@@ -220,14 +217,20 @@
        <height>3</height>
       </size>
      </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
     </spacer>
    </item>
    <item row="10" column="0">
     <widget class="QLineEdit" name="locateOne">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
      <property name="palette">
       <palette>
        <active>
-        <colorrole role="Text">
+        <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
            <red>0</red>
@@ -238,7 +241,7 @@
         </colorrole>
        </active>
        <inactive>
-        <colorrole role="Text">
+        <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
            <red>0</red>
@@ -249,7 +252,7 @@
         </colorrole>
        </inactive>
        <disabled>
-        <colorrole role="Text">
+        <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
            <red>106</red>
@@ -266,47 +269,44 @@
        <pointsize>10</pointsize>
       </font>
      </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
     </widget>
    </item>
    <item row="8" column="0">
     <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="lineWidth">
+      <number>2</number>
+     </property>
      <property name="font">
       <font>
        <pointsize>8</pointsize>
       </font>
      </property>
-     <property name="lineWidth">
-      <number>2</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
     </widget>
    </item>
    <item row="11" column="0">
     <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Locate all file/directories called 'File Name' in selected Standard Location:</string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
-     </property>
-     <property name="text">
-      <string>Locate all file/directories called 'File Name' in selected Standard Location:</string>
      </property>
     </widget>
    </item>
    <item row="5" column="0">
     <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Directory where files for this Location Type should be written to:</string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
-     </property>
-     <property name="text">
-      <string>Directory where files for this Location Type should be written to:</string>
      </property>
     </widget>
    </item>
@@ -322,13 +322,13 @@
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="1" column="0">
         <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>Location Types:</string>
+         </property>
          <property name="font">
           <font>
            <pointsize>10</pointsize>
           </font>
-         </property>
-         <property name="text">
-          <string>Location Types:</string>
          </property>
          <property name="buddy">
           <cstring>locationComboBox</cstring>
@@ -337,22 +337,19 @@
        </item>
        <item row="2" column="1">
         <spacer name="verticalSpacer_10">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>10</height>
           </size>
          </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
         </spacer>
        </item>
        <item row="0" column="1">
         <spacer name="verticalSpacer_11">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
@@ -361,6 +358,9 @@
            <width>20</width>
            <height>15</height>
           </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
          </property>
         </spacer>
        </item>
@@ -381,14 +381,14 @@
        </item>
        <item row="1" column="2">
         <spacer name="horizontalSpacer_10">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>40</width>
            <height>20</height>
           </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
         </spacer>
        </item>
@@ -401,22 +401,19 @@
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="1" column="3">
         <spacer name="horizontalSpacer_20">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>160</width>
            <height>20</height>
           </size>
          </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
         </spacer>
        </item>
        <item row="2" column="0">
         <spacer name="verticalSpacer_21">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
@@ -425,6 +422,9 @@
            <width>20</width>
            <height>15</height>
           </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
          </property>
         </spacer>
        </item>
@@ -445,9 +445,6 @@
        </item>
        <item row="0" column="1">
         <spacer name="verticalSpacer_20">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
@@ -457,18 +454,21 @@
            <height>15</height>
           </size>
          </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
         </spacer>
        </item>
        <item row="4" column="0">
         <spacer name="verticalSpacer_22">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>10</height>
           </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
          </property>
         </spacer>
        </item>
@@ -485,28 +485,25 @@
          </property>
          <item>
           <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Find Absolute Path of 'Executable Name':</string>
+           </property>
            <property name="font">
             <font>
              <pointsize>10</pointsize>
             </font>
            </property>
-           <property name="text">
-            <string>Find Absolute Path of 'Executable Name':</string>
-           </property>
           </widget>
          </item>
          <item>
           <widget class="QLineEdit" name="findPath">
-           <property name="minimumSize">
-            <size>
-             <width>200</width>
-             <height>0</height>
-            </size>
+           <property name="readOnly">
+            <bool>true</bool>
            </property>
            <property name="palette">
             <palette>
              <active>
-              <colorrole role="Text">
+              <colorrole role="PlaceholderText">
                <brush brushstyle="SolidPattern">
                 <color alpha="255">
                  <red>0</red>
@@ -517,7 +514,7 @@
               </colorrole>
              </active>
              <inactive>
-              <colorrole role="Text">
+              <colorrole role="PlaceholderText">
                <brush brushstyle="SolidPattern">
                 <color alpha="255">
                  <red>0</red>
@@ -528,7 +525,7 @@
               </colorrole>
              </inactive>
              <disabled>
-              <colorrole role="Text">
+              <colorrole role="PlaceholderText">
                <brush brushstyle="SolidPattern">
                 <color alpha="255">
                  <red>106</red>
@@ -540,13 +537,16 @@
              </disabled>
             </palette>
            </property>
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>10</pointsize>
             </font>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -554,13 +554,13 @@
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_20">
+         <property name="text">
+          <string>&amp;Executable Name:</string>
+         </property>
          <property name="font">
           <font>
            <pointsize>10</pointsize>
           </font>
-         </property>
-         <property name="text">
-          <string>&amp;Executable Name:</string>
          </property>
          <property name="buddy">
           <cstring>executableName</cstring>
@@ -569,13 +569,13 @@
        </item>
        <item row="1" column="2">
         <widget class="QToolButton" name="findTB">
+         <property name="text">
+          <string>Find</string>
+         </property>
          <property name="font">
           <font>
            <pointsize>11</pointsize>
           </font>
-         </property>
-         <property name="text">
-          <string>Find</string>
          </property>
         </widget>
        </item>
@@ -603,9 +603,6 @@
        </item>
        <item row="2" column="1">
         <spacer name="verticalSpacer_31">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
@@ -615,62 +612,65 @@
            <height>10</height>
           </size>
          </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
         </spacer>
        </item>
        <item row="1" column="3">
         <spacer name="horizontalSpacer_30">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>40</width>
            <height>20</height>
           </size>
          </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
         </spacer>
        </item>
        <item row="3" column="0" colspan="2">
         <widget class="QGroupBox" name="groupBox_30">
+         <property name="title">
+          <string>Locate Options</string>
+         </property>
          <property name="font">
           <font>
            <pointsize>10</pointsize>
           </font>
          </property>
-         <property name="title">
-          <string>Locate Options</string>
-         </property>
          <layout class="QGridLayout" name="gridLayout_5">
-          <property name="bottomMargin">
-           <number>7</number>
-          </property>
           <property name="verticalSpacing">
            <number>3</number>
           </property>
+          <property name="bottomMargin">
+           <number>7</number>
+          </property>
           <item row="0" column="0">
            <widget class="QRadioButton" name="fileRadioButton">
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Return only Files</string>
             </property>
             <property name="checked">
              <bool>true</bool>
             </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QRadioButton" name="directoryRadioButton">
             <property name="font">
              <font>
               <pointsize>10</pointsize>
              </font>
             </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="directoryRadioButton">
             <property name="text">
              <string>Return only Directories</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
             </property>
            </widget>
           </item>
@@ -679,21 +679,18 @@
        </item>
        <item row="1" column="2">
         <widget class="QToolButton" name="locateTB">
+         <property name="text">
+          <string>Locate</string>
+         </property>
          <property name="font">
           <font>
            <pointsize>11</pointsize>
           </font>
          </property>
-         <property name="text">
-          <string>Locate</string>
-         </property>
         </widget>
        </item>
        <item row="0" column="1">
         <spacer name="verticalSpacer_30">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeType">
           <enum>QSizePolicy::Fixed</enum>
          </property>
@@ -703,17 +700,20 @@
            <height>15</height>
           </size>
          </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
         </spacer>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_30">
+         <property name="text">
+          <string>File &amp;Name:</string>
+         </property>
          <property name="font">
           <font>
            <pointsize>10</pointsize>
           </font>
-         </property>
-         <property name="text">
-          <string>File &amp;Name:</string>
          </property>
          <property name="buddy">
           <cstring>fileName</cstring>
@@ -722,9 +722,6 @@
        </item>
        <item row="4" column="1">
         <spacer name="verticalSpacer_32">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
          <property name="sizeType">
           <enum>QSizePolicy::Expanding</enum>
          </property>
@@ -734,6 +731,9 @@
            <height>1</height>
           </size>
          </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
         </spacer>
        </item>
       </layout>
@@ -742,9 +742,6 @@
    </item>
    <item row="1" column="0">
     <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
      <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>
      </property>
@@ -753,6 +750,9 @@
        <width>20</width>
        <height>3</height>
       </size>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
     </spacer>
    </item>

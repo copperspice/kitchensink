@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Html_Form</class>
  <widget class="QWidget" name="Html_Form">
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,11 +13,17 @@
     <height>666</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
   <layout class="QHBoxLayout" name="horizontalLayout_4">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>14</number>
+   </property>
+   <property name="topMargin">
+    <number>14</number>
+   </property>
+   <property name="rightMargin">
+    <number>14</number>
+   </property>
+   <property name="bottomMargin">
     <number>14</number>
    </property>
    <item>
@@ -23,6 +32,9 @@
       <enum>Qt::Horizontal</enum>
      </property>
      <widget class="QGroupBox" name="editorBox">
+      <property name="title">
+       <string>HTML Editor</string>
+      </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>3</horstretch>
@@ -33,9 +45,6 @@
        <font>
         <pointsize>10</pointsize>
        </font>
-      </property>
-      <property name="title">
-       <string>HTML Editor</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
@@ -50,14 +59,14 @@
            </property>
            <item>
             <spacer name="horizontalSpacer_1">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
              <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
                <height>20</height>
               </size>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
              </property>
             </spacer>
            </item>
@@ -77,14 +86,14 @@
            </item>
            <item>
             <spacer name="horizontalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
              <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
                <height>20</height>
               </size>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
              </property>
             </spacer>
            </item>
@@ -95,6 +104,9 @@
       </layout>
      </widget>
      <widget class="QGroupBox" name="previewerBox">
+      <property name="title">
+       <string>HTML Preview</string>
+      </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>2</horstretch>
@@ -106,13 +118,10 @@
         <pointsize>10</pointsize>
        </font>
       </property>
-      <property name="title">
-       <string>HTML Preview</string>
-      </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QWebView" name="webView">
-         <property name="url">
+        <widget class="QWebView" name="webView" native="true">
+         <property name="url" stdset="0">
           <url>
            <string>about:blank</string>
           </url>

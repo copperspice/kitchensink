@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>International</class>
  <widget class="QWidget" name="International">
+  <property name="windowTitle">
+   <string>International</string>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,10 +13,13 @@
     <height>443</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>International</string>
-  </property>
   <layout class="QGridLayout" name="gridLayout_3">
+   <property name="verticalSpacing">
+    <number>6</number>
+   </property>
+   <property name="horizontalSpacing">
+    <number>14</number>
+   </property>
    <property name="leftMargin">
     <number>14</number>
    </property>
@@ -23,21 +29,15 @@
    <property name="bottomMargin">
     <number>14</number>
    </property>
-   <property name="horizontalSpacing">
-    <number>14</number>
-   </property>
-   <property name="verticalSpacing">
-    <number>6</number>
-   </property>
    <item row="0" column="0" rowspan="2">
     <widget class="QGroupBox" name="groupBox_1">
+     <property name="title">
+      <string>Sample Text</string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
-     </property>
-     <property name="title">
-      <string>Sample Text</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
@@ -65,34 +65,34 @@
       </item>
       <item row="1" column="1">
        <widget class="QRadioButton" name="maleRadioButton">
-        <property name="toolTip">
-         <string>Check this if you are male</string>
-        </property>
         <property name="text">
          <string>&amp;Male</string>
+        </property>
+        <property name="toolTip">
+         <string>Check this if you are male</string>
         </property>
        </widget>
       </item>
       <item row="1" column="2" colspan="2">
        <widget class="QRadioButton" name="femaleRadioButton">
-        <property name="toolTip">
-         <string>Check this if you are female</string>
-        </property>
         <property name="text">
          <string>&amp;Female</string>
+        </property>
+        <property name="toolTip">
+         <string>Check this if you are female</string>
         </property>
        </widget>
       </item>
       <item row="1" column="4">
        <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
         <property name="sizeHint" stdset="0">
          <size>
           <width>122</width>
           <height>20</height>
          </size>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
        </spacer>
       </item>
@@ -111,17 +111,17 @@
       </item>
       <item row="2" column="1">
        <widget class="QSpinBox" name="ageSpinBox">
+        <property name="value">
+         <number>22</number>
+        </property>
+        <property name="minimum">
+         <number>12</number>
+        </property>
         <property name="toolTip">
          <string>Specify your age</string>
         </property>
         <property name="statusTip">
          <string>Specify your age</string>
-        </property>
-        <property name="minimum">
-         <number>12</number>
-        </property>
-        <property name="value">
-         <number>22</number>
         </property>
        </widget>
       </item>
@@ -140,14 +140,14 @@
       </item>
       <item row="3" column="1" colspan="2">
        <widget class="QComboBox" name="countryCombo">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
         <property name="toolTip">
          <string>Specify country of origin</string>
         </property>
         <property name="statusTip">
          <string>Specify country of origin</string>
-        </property>
-        <property name="currentIndex">
-         <number>0</number>
         </property>
         <item>
          <property name="text">
@@ -198,9 +198,6 @@
       </item>
       <item row="6" column="3" colspan="2">
        <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
         <property name="sizeType">
          <enum>QSizePolicy::Fixed</enum>
         </property>
@@ -209,6 +206,9 @@
           <width>20</width>
           <height>12</height>
          </size>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
         </property>
        </spacer>
       </item>
@@ -219,14 +219,14 @@
         </property>
         <item>
          <spacer name="horizontalSpacer_1">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>40</width>
             <height>20</height>
            </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </spacer>
         </item>
@@ -246,14 +246,14 @@
         </item>
         <item>
          <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>40</width>
             <height>20</height>
            </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </spacer>
         </item>
@@ -261,11 +261,11 @@
       </item>
       <item row="0" column="1" colspan="3">
        <widget class="QComboBox" name="nameCB">
-        <property name="toolTip">
-         <string>Specify your name</string>
-        </property>
         <property name="editable">
          <bool>true</bool>
+        </property>
+        <property name="toolTip">
+         <string>Specify your name</string>
         </property>
        </widget>
       </item>
@@ -288,37 +288,37 @@
         </property>
         <item>
          <widget class="QRadioButton" name="englishRB">
+          <property name="text">
+           <string>English</string>
+          </property>
           <property name="font">
            <font>
             <pointsize>10</pointsize>
            </font>
-          </property>
-          <property name="text">
-           <string>English</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QRadioButton" name="frenchRB">
+          <property name="text">
+           <string>French</string>
+          </property>
           <property name="font">
            <font>
             <pointsize>10</pointsize>
            </font>
-          </property>
-          <property name="text">
-           <string>French</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QRadioButton" name="germanRB">
+          <property name="text">
+           <string>German</string>
+          </property>
           <property name="font">
            <font>
             <pointsize>10</pointsize>
            </font>
-          </property>
-          <property name="text">
-           <string>German</string>
           </property>
          </widget>
         </item>
@@ -326,24 +326,21 @@
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label_1">
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
         <property name="text">
          <string>Select a Language</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
        </widget>
       </item>
       <item row="1" column="0">
        <spacer name="verticalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
         <property name="sizeType">
          <enum>QSizePolicy::Fixed</enum>
         </property>
@@ -353,18 +350,21 @@
           <height>15</height>
          </size>
         </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
        </spacer>
       </item>
       <item row="3" column="0">
        <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
         <property name="sizeHint" stdset="0">
          <size>
           <width>20</width>
           <height>40</height>
          </size>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
         </property>
        </spacer>
       </item>

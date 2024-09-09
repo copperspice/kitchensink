@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Camera</class>
  <widget class="QMainWindow" name="Camera">
+  <property name="windowTitle">
+   <string>Camera</string>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,13 +13,13 @@
     <height>422</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Camera</string>
-  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0" rowspan="3">
      <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>1</horstretch>
@@ -35,7 +38,7 @@
            </color>
           </brush>
          </colorrole>
-         <colorrole role="Window">
+         <colorrole role="Background">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>145</red>
@@ -55,7 +58,7 @@
            </color>
           </brush>
          </colorrole>
-         <colorrole role="Window">
+         <colorrole role="Background">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>145</red>
@@ -75,7 +78,7 @@
            </color>
           </brush>
          </colorrole>
-         <colorrole role="Window">
+         <colorrole role="Background">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>145</red>
@@ -86,9 +89,6 @@
          </colorrole>
         </disabled>
        </palette>
-      </property>
-      <property name="currentIndex">
-       <number>0</number>
       </property>
       <widget class="QWidget" name="viewfinderPage">
        <layout class="QGridLayout" name="gridLayout_5">
@@ -101,17 +101,17 @@
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
          <widget class="QLabel" name="lastImagePreviewLabel">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::Box</enum>
-          </property>
-          <property name="text">
-           <string/>
           </property>
          </widget>
         </item>
@@ -138,24 +138,24 @@
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
          <widget class="QPushButton" name="takeImageButton">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
           <property name="text">
            <string>Capture Photo</string>
+          </property>
+          <property name="enabled">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
         <item row="1" column="0">
          <spacer name="verticalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
             <height>161</height>
            </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
          </spacer>
         </item>
@@ -168,11 +168,8 @@
         </item>
         <item row="3" column="0">
          <widget class="QSlider" name="exposureCompensation">
-          <property name="minimum">
-           <number>-4</number>
-          </property>
-          <property name="maximum">
-           <number>4</number>
+          <property name="tickPosition">
+           <enum>QSlider::TicksAbove</enum>
           </property>
           <property name="pageStep">
            <number>2</number>
@@ -180,8 +177,11 @@
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
-          <property name="tickPosition">
-           <enum>QSlider::TicksAbove</enum>
+          <property name="minimum">
+           <number>-4</number>
+          </property>
+          <property name="maximum">
+           <number>4</number>
           </property>
          </widget>
         </item>
@@ -215,14 +215,14 @@
         </item>
         <item row="3" column="0">
          <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
             <height>76</height>
            </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
          </spacer>
         </item>
@@ -248,7 +248,7 @@
      <x>0</x>
      <y>0</y>
      <width>668</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

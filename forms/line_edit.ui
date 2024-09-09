@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>LineEdit</class>
  <widget class="QWidget" name="LineEdit">
+  <property name="windowTitle">
+   <string>QLineEdit</string>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,22 +13,19 @@
     <height>312</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>QLineEdit</string>
-  </property>
   <layout class="QGridLayout" name="gridLayout_6">
    <property name="bottomMargin">
     <number>12</number>
    </property>
    <item row="0" column="3">
     <widget class="QGroupBox" name="groupBox_4">
+     <property name="title">
+      <string>Validation</string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
-     </property>
-     <property name="title">
-      <string>Validation</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_5">
       <property name="leftMargin">
@@ -39,14 +39,14 @@
       </property>
       <item row="0" column="0">
        <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Option:</string>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
-        </property>
-        <property name="text">
-         <string>Option:</string>
         </property>
        </widget>
       </item>
@@ -89,13 +89,13 @@
    </item>
    <item row="1" column="0">
     <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Input Mask</string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
-     </property>
-     <property name="title">
-      <string>Input Mask</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <property name="leftMargin">
@@ -109,14 +109,14 @@
       </property>
       <item row="0" column="0">
        <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Option:</string>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
-        </property>
-        <property name="text">
-         <string>Option:</string>
         </property>
        </widget>
       </item>
@@ -157,13 +157,13 @@
    </item>
    <item row="1" column="3">
     <widget class="QGroupBox" name="groupBox_5">
+     <property name="title">
+      <string>Read Only</string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
-     </property>
-     <property name="title">
-      <string>Read Only</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
       <property name="leftMargin">
@@ -197,14 +197,14 @@
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Option:</string>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
-        </property>
-        <property name="text">
-         <string>Option:</string>
         </property>
        </widget>
       </item>
@@ -223,13 +223,13 @@
    </item>
    <item row="5" column="0">
     <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string>Password</string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
-     </property>
-     <property name="title">
-      <string>Password</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <property name="leftMargin">
@@ -243,14 +243,14 @@
       </property>
       <item row="0" column="0">
        <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Option:</string>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
-        </property>
-        <property name="text">
-         <string>Option:</string>
         </property>
        </widget>
       </item>
@@ -293,9 +293,6 @@
    </item>
    <item row="0" column="1">
     <spacer name="horizontalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
      <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>
      </property>
@@ -305,17 +302,20 @@
        <height>20</height>
       </size>
      </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
     </spacer>
    </item>
    <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox_1">
+     <property name="title">
+      <string>Alignment</string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
-     </property>
-     <property name="title">
-      <string>Alignment</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <property name="leftMargin">
@@ -329,14 +329,14 @@
       </property>
       <item row="0" column="0">
        <widget class="QLabel" name="label_1">
+        <property name="text">
+         <string>Option:</string>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
-        </property>
-        <property name="text">
-         <string>Option:</string>
         </property>
        </widget>
       </item>
@@ -367,9 +367,6 @@
    </item>
    <item row="1" column="1">
     <spacer name="horizontalSpacer_1">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
      <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>
      </property>
@@ -378,14 +375,14 @@
        <width>15</width>
        <height>20</height>
       </size>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
     </spacer>
    </item>
    <item row="5" column="1">
     <spacer name="horizontalSpacer_3">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
      <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>
      </property>
@@ -395,19 +392,25 @@
        <height>20</height>
       </size>
      </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
     </spacer>
    </item>
    <item row="5" column="3">
     <widget class="QGroupBox" name="groupBox_6">
+     <property name="title">
+      <string>Place Holder </string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
      </property>
-     <property name="title">
-      <string>Place Holder </string>
-     </property>
      <widget class="QLineEdit" name="valid_placeHolder">
+      <property name="placeholderText">
+       <string>Enter Your Name Here</string>
+      </property>
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -415,9 +418,6 @@
         <width>251</width>
         <height>20</height>
        </rect>
-      </property>
-      <property name="placeholderText">
-       <string>Enter Your Name Here</string>
       </property>
      </widget>
     </widget>

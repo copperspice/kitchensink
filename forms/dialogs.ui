@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Dialogs</class>
  <widget class="QWidget" name="Dialogs">
+  <property name="windowTitle">
+   <string>Dialog Samples</string>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,21 +13,24 @@
     <height>616</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Dialog Samples</string>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox_1">
+     <property name="title">
+      <string>Dialogs</string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
      </property>
-     <property name="title">
-      <string>Dialogs</string>
-     </property>
      <layout class="QGridLayout" name="gridLayout_1">
+      <property name="verticalSpacing">
+       <number>9</number>
+      </property>
+      <property name="horizontalSpacing">
+       <number>14</number>
+      </property>
       <property name="leftMargin">
        <number>14</number>
       </property>
@@ -37,24 +43,18 @@
       <property name="bottomMargin">
        <number>14</number>
       </property>
-      <property name="horizontalSpacing">
-       <number>14</number>
-      </property>
-      <property name="verticalSpacing">
-       <number>9</number>
-      </property>
       <item row="0" column="0">
        <widget class="QPushButton" name="integer_pushButton">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
+        <property name="text">
+         <string>QInputDialog::getInt()</string>
         </property>
         <property name="styleSheet">
          <string notr="true">Text-align:left</string>
         </property>
-        <property name="text">
-         <string>QInputDialog::getInt()</string>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
        </widget>
       </item>
@@ -70,16 +70,16 @@
       </item>
       <item row="1" column="0">
        <widget class="QPushButton" name="double_pushButton">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
+        <property name="text">
+         <string>QInputDialog::getDouble()</string>
         </property>
         <property name="styleSheet">
          <string notr="true">Text-align:left</string>
         </property>
-        <property name="text">
-         <string>QInputDialog::getDouble()</string>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
        </widget>
       </item>
@@ -88,16 +88,16 @@
       </item>
       <item row="2" column="0">
        <widget class="QPushButton" name="getItem_pushButton">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
+        <property name="text">
+         <string>QInputDialog::getItem()</string>
         </property>
         <property name="styleSheet">
          <string notr="true">Text-align:left</string>
         </property>
-        <property name="text">
-         <string>QInputDialog::getItem()</string>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
        </widget>
       </item>
@@ -106,16 +106,16 @@
       </item>
       <item row="3" column="0">
        <widget class="QPushButton" name="getText_pushButton">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
+        <property name="text">
+         <string>QInputDialog::getText()</string>
         </property>
         <property name="styleSheet">
          <string notr="true">Text-align:left</string>
         </property>
-        <property name="text">
-         <string>QInputDialog::getText()</string>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
        </widget>
       </item>
@@ -124,36 +124,42 @@
       </item>
       <item row="4" column="0">
        <widget class="QPushButton" name="dir_pushButton">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
+        <property name="text">
+         <string>QFileDialog::getExistingDirectory()</string>
         </property>
         <property name="styleSheet">
          <string notr="true">Text-align:left</string>
         </property>
-        <property name="text">
-         <string>QFileDialog::getExistingDirectory()</string>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
        </widget>
       </item>
       <item row="5" column="0">
        <widget class="QPushButton" name="openFile_pushButton">
+        <property name="text">
+         <string>QFileDialog::getOpenFileName()</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="font">
          <font>
           <pointsize>10</pointsize>
          </font>
         </property>
-        <property name="styleSheet">
-         <string notr="true">Text-align:left</string>
-        </property>
-        <property name="text">
-         <string>QFileDialog::getOpenFileName()</string>
-        </property>
        </widget>
       </item>
       <item row="6" column="0">
        <widget class="QPushButton" name="openFiles_pushButton">
+        <property name="text">
+         <string>QFileDialog::getOpenFileNames()</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="minimumSize">
          <size>
           <width>270</width>
@@ -164,12 +170,6 @@
          <font>
           <pointsize>10</pointsize>
          </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">Text-align:left</string>
-        </property>
-        <property name="text">
-         <string>QFileDialog::getOpenFileNames()</string>
         </property>
        </widget>
       </item>
@@ -194,15 +194,21 @@
    </item>
    <item row="1" column="0">
     <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Messages</string>
+     </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
      </property>
-     <property name="title">
-      <string>Messages</string>
-     </property>
      <layout class="QGridLayout" name="gridLayout_2">
+      <property name="verticalSpacing">
+       <number>9</number>
+      </property>
+      <property name="horizontalSpacing">
+       <number>14</number>
+      </property>
       <property name="leftMargin">
        <number>14</number>
       </property>
@@ -212,14 +218,14 @@
       <property name="bottomMargin">
        <number>14</number>
       </property>
-      <property name="horizontalSpacing">
-       <number>14</number>
-      </property>
-      <property name="verticalSpacing">
-       <number>9</number>
-      </property>
       <item row="10" column="0">
        <widget class="QPushButton" name="error_pushButton">
+        <property name="text">
+         <string>QErrorMessage</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="minimumSize">
          <size>
           <width>225</width>
@@ -230,12 +236,6 @@
          <font>
           <pointsize>10</pointsize>
          </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">Text-align:left</string>
-        </property>
-        <property name="text">
-         <string>QErrorMessage</string>
         </property>
        </widget>
       </item>
@@ -251,16 +251,16 @@
       </item>
       <item row="4" column="0">
        <widget class="QPushButton" name="info_pushButton">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
+        <property name="text">
+         <string>QMessageBox::information()</string>
         </property>
         <property name="styleSheet">
          <string notr="true">Text-align:left</string>
         </property>
-        <property name="text">
-         <string>QMessageBox::information()</string>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
        </widget>
       </item>
@@ -282,6 +282,12 @@
       </item>
       <item row="11" column="0">
        <widget class="QPushButton" name="critical_pushButton">
+        <property name="text">
+         <string>QMessageBox::critical()</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Text-align:left</string>
+        </property>
         <property name="minimumSize">
          <size>
           <width>270</width>
@@ -293,41 +299,35 @@
           <pointsize>10</pointsize>
          </font>
         </property>
-        <property name="styleSheet">
-         <string notr="true">Text-align:left</string>
-        </property>
-        <property name="text">
-         <string>QMessageBox::critical()</string>
-        </property>
        </widget>
       </item>
       <item row="8" column="0">
        <widget class="QPushButton" name="warn_pushButton">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
+        <property name="text">
+         <string>QMessageBox::warning()</string>
         </property>
         <property name="styleSheet">
          <string notr="true">Text-align:left</string>
         </property>
-        <property name="text">
-         <string>QMessageBox::warning()</string>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
        </widget>
       </item>
       <item row="5" column="0">
        <widget class="QPushButton" name="quest_pushButton">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
+        <property name="text">
+         <string>QMessageBox::question()</string>
         </property>
         <property name="styleSheet">
          <string notr="true">Text-align:left</string>
         </property>
-        <property name="text">
-         <string>QMessageBox::question()</string>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
        </widget>
       </item>

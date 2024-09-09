@@ -2,13 +2,8 @@
 <ui version="4.0">
  <class>Ssl_Client</class>
  <widget class="QWidget" name="Ssl_Client">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>500</width>
-    <height>360</height>
-   </rect>
+  <property name="windowTitle">
+   <string>Secure Socket Client</string>
   </property>
   <property name="minimumSize">
    <size>
@@ -16,8 +11,13 @@
     <height>0</height>
    </size>
   </property>
-  <property name="windowTitle">
-   <string>Secure Socket Client</string>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>360</height>
+   </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -36,88 +36,86 @@
     <layout class="QGridLayout" columnstretch="0,1,0">
      <item row="0" column="0">
       <widget class="QLabel" name="hostNameLabel">
+       <property name="text">
+        <string>Host name:</string>
+       </property>
        <property name="font">
         <font>
          <pointsize>10</pointsize>
         </font>
-       </property>
-       <property name="text">
-        <string>Host name:</string>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="portLabel">
+       <property name="text">
+        <string>Port:</string>
+       </property>
        <property name="font">
         <font>
          <pointsize>10</pointsize>
         </font>
-       </property>
-       <property name="text">
-        <string>Port:</string>
        </property>
       </widget>
      </item>
      <item row="2" column="1" colspan="2">
       <widget class="QLabel" name="cipherLabel">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
        <property name="text">
         <string>&lt;none&gt;</string>
        </property>
-       <property name="wordWrap">
-        <bool>true</bool>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
        </property>
       </widget>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="cipherText">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
        <property name="text">
         <string>Cipher:</string>
        </property>
-       <property name="wordWrap">
-        <bool>true</bool>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
        </property>
       </widget>
      </item>
      <item row="0" column="1" colspan="2">
       <widget class="QLineEdit" name="hostNameEdit">
+       <property name="text">
+        <string>www.google.com</string>
+       </property>
        <property name="font">
         <font>
          <pointsize>10</pointsize>
         </font>
-       </property>
-       <property name="text">
-        <string>www.google.com</string>
        </property>
       </widget>
      </item>
      <item row="3" column="1" colspan="2">
       <widget class="QLineEdit" name="sessionInput">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
        <property name="font">
         <font>
          <pointsize>10</pointsize>
         </font>
+       </property>
+       <property name="enabled">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
      <item row="1" column="1" colspan="2">
       <widget class="QSpinBox" name="portBox">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
+       <property name="value">
+        <number>443</number>
        </property>
        <property name="minimum">
         <number>1</number>
@@ -125,20 +123,22 @@
        <property name="maximum">
         <number>65535</number>
        </property>
-       <property name="value">
-        <number>443</number>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="sessionInputLabel">
        <property name="font">
         <font>
          <pointsize>10</pointsize>
         </font>
        </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="sessionInputLabel">
        <property name="text">
         <string>Input:</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
        </property>
       </widget>
      </item>
@@ -148,21 +148,24 @@
     <layout class="QHBoxLayout">
      <item>
       <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
        <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
         </size>
        </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
       </spacer>
      </item>
      <item>
       <widget class="QPushButton" name="connectButton">
-       <property name="enabled">
+       <property name="default">
         <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Connect</string>
        </property>
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -175,19 +178,13 @@
          <pointsize>10</pointsize>
         </font>
        </property>
-       <property name="text">
-        <string>Connect</string>
-       </property>
-       <property name="default">
+       <property name="enabled">
         <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
        <property name="sizeType">
         <enum>QSizePolicy::Fixed</enum>
        </property>
@@ -197,12 +194,18 @@
          <height>20</height>
         </size>
        </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
       </spacer>
      </item>
      <item>
       <widget class="QPushButton" name="sendButton">
-       <property name="enabled">
-        <bool>false</bool>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>&amp;Send</string>
        </property>
        <property name="font">
         <font>
@@ -212,24 +215,21 @@
        <property name="focusPolicy">
         <enum>Qt::TabFocus</enum>
        </property>
-       <property name="text">
-        <string>&amp;Send</string>
-       </property>
-       <property name="default">
-        <bool>true</bool>
+       <property name="enabled">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
        <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
         </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </spacer>
      </item>
@@ -237,17 +237,6 @@
    </item>
    <item row="2" column="0" colspan="2">
     <widget class="QTextEdit" name="sessionOutput">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::StrongFocus</enum>
-     </property>
      <property name="readOnly">
       <bool>true</bool>
      </property>
@@ -258,13 +247,21 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::StrongFocus</enum>
+     </property>
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
     </widget>
    </item>
    <item row="3" column="0">
     <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
      <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>
      </property>
@@ -273,6 +270,9 @@ p, li { white-space: pre-wrap; }
        <width>20</width>
        <height>10</height>
       </size>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
     </spacer>
    </item>
