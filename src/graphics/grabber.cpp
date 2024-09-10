@@ -151,7 +151,9 @@ QSlider *Grabber::createSlider(const QString &changedSignal, const QString &adju
 
 void Grabber::grabFrameBuffer()
 {
-   QImage image = glWidget->grabFrameBuffer();
+   QImage image = glWidget->grabFramebuffer();
+   image.setDevicePixelRatio(devicePixelRatioF());
+
    setPixmap(QPixmap::fromImage(image));
 }
 
@@ -194,7 +196,7 @@ void Grabber::renderIntoPixmap()
 void Grabber::setPixmap(const QPixmap &pixmap)
 {
    pixmapLabel->setPixmap(pixmap);
-   QSize size = pixmap.size();
+   QSize size = pixmap.size() / pixmap.devicePixelRatio();
 
    if (size - QSize(1, 0) == pixmapLabelArea->maximumViewportSize()) {
       size -= QSize(1, 0);

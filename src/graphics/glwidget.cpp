@@ -18,6 +18,7 @@
 ***********************************************************************/
 
 #include "glwidget.h"
+#include "util.h"
 
 #include <QMouseEvent>
 #include <QTimer>
@@ -25,7 +26,7 @@
 #include <math.h>
 
 GLWidget::GLWidget(QWidget *parent)
-   : QGLWidget(parent)
+   : QOpenGLWidget(parent)
 {
    gear1 = 0;
    gear2 = 0;
@@ -56,7 +57,7 @@ void GLWidget::setXRotation(int angle)
    if (angle != xRot) {
       xRot = angle;
       emit xRotationChanged(angle);
-      updateGL();
+      update();
    }
 }
 
@@ -67,7 +68,7 @@ void GLWidget::setYRotation(int angle)
    if (angle != yRot) {
       yRot = angle;
       emit yRotationChanged(angle);
-      updateGL();
+      update();
    }
 }
 
@@ -78,7 +79,7 @@ void GLWidget::setZRotation(int angle)
    if (angle != zRot) {
       zRot = angle;
       emit zRotationChanged(angle);
-      updateGL();
+      update();
    }
 }
 
@@ -106,6 +107,20 @@ void GLWidget::paintGL()
 {
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+   int gl_width  = width()  * devicePixelRatioF();
+   int gl_height = height() * devicePixelRatioF();
+   int side = qMin(gl_width, gl_height);
+
+   glViewport((gl_width - side) / 2, (gl_height - side) / 2, side, side);
+
+   glMatrixMode(GL_PROJECTION);
+   glLoadIdentity();
+   glFrustum(-1.0, +1.0, -1.0, 1.0, 5.0, 60.0);
+
+   glMatrixMode(GL_MODELVIEW);
+   glLoadIdentity();
+   glTranslated(0.0, 0.0, -40.0);
+
    glPushMatrix();
    glRotated(xRot / 16.0, 1.0, 0.0, 0.0);
    glRotated(yRot / 16.0, 0.0, 1.0, 0.0);
@@ -118,19 +133,6 @@ void GLWidget::paintGL()
    drawGear(gear3, -3.1, -1.8, -2.2, +2.0 * (gear1Rot / 16.0) - 2.0);
 
    glPopMatrix();
-}
-
-void GLWidget::resizeGL(int width, int height)
-{
-   int side = qMin(width, height);
-   glViewport((width - side) / 2, (height - side) / 2, side, side);
-
-   glMatrixMode(GL_PROJECTION);
-   glLoadIdentity();
-   glFrustum(-1.0, +1.0, -1.0, 1.0, 5.0, 60.0);
-   glMatrixMode(GL_MODELVIEW);
-   glLoadIdentity();
-   glTranslated(0.0, 0.0, -40.0);
 }
 
 void GLWidget::mousePressEvent(QMouseEvent *event)
@@ -157,8 +159,35 @@ void GLWidget::mouseMoveEvent(QMouseEvent *event)
 
 void GLWidget::advanceGears()
 {
+   static bool showMsg = false;
+
+   if (! this->isValid()) {
+      if (showMsg) {
+         return;
+      }
+
+      showMsg = true;
+
+      const QSurfaceFormat format = this->format();
+
+      const int majorVersion = format.majorVersion();
+      const int minorVersion = format.minorVersion();
+
+      if (majorVersion < 2) {
+         QString msg = "Failed to create an OpenGL context, OpenGL version %1.%2 is too low, update video drivers";
+         ksMsg(nullptr, "Grabber", msg.formatArg(majorVersion).formatArg(minorVersion));
+
+      } else {
+         QString msg = "Failed to create an OpenGL context, OpenGL version %1.%2 may be too low, verify video drivers";
+         ksMsg(nullptr, "Grabber", msg.formatArg(majorVersion).formatArg(minorVersion));
+
+      }
+
+      return;
+   }
+
    gear1Rot += 2 * 16;
-   updateGL();
+   update();
 }
 
 GLuint GLWidget::makeGear(const GLfloat *reflectance, GLdouble innerRadius,
@@ -274,4 +303,14 @@ void GLWidget::normalizeAngle(int *angle)
    while (*angle > 360 * 16)  {
       *angle -= 360 * 16;
    }
+}
+
+QPixmap GLWidget::renderPixmap(int width, int height) {
+
+   QImage imageData = grabFramebuffer();
+   imageData = imageData.scaled(width, height);
+
+   QPixmap retval = QPixmap::fromImage(imageData);
+
+   return retval;
 }

@@ -20,10 +20,10 @@
 #ifndef GLWIDGET_H
 #define GLWIDGET_H
 
-#include <QGLWidget>
+#include <QOpenGLWidget>
 #include <QPoint>
 
-class GLWidget : public QGLWidget
+class GLWidget : public QOpenGLWidget
 {
    CS_OBJECT(GLWidget)
 
@@ -42,6 +42,8 @@ class GLWidget : public QGLWidget
    int zRotation() const {
       return zRot;
    }
+
+   QPixmap renderPixmap(int width, int height);
 
    CS_SLOT_1(Public, void setXRotation(int angle))
    CS_SLOT_2(setXRotation)
@@ -64,7 +66,6 @@ class GLWidget : public QGLWidget
  protected:
    void initializeGL() override;
    void paintGL() override;
-   void resizeGL(int width, int height) override;
    void mousePressEvent(QMouseEvent *event) override;
    void mouseMoveEvent(QMouseEvent *event) override;
 
