@@ -143,7 +143,6 @@ target_link_libraries(KitchenSink
    CopperSpice::CsCore
    CopperSpice::CsGui
    CopperSpice::CsNetwork
-   CopperSpice::CsOpenGL
    CopperSpice::CsScript
    CopperSpice::CsSql
    CopperSpice::CsSvg
@@ -208,7 +207,6 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/sampleMenu.xml  DESTINATI
 cs_copy_library(CsCore)
 cs_copy_library(CsGui)
 cs_copy_library(CsNetwork)
-cs_copy_library(CsOpenGL)
 cs_copy_library(CsScript)
 cs_copy_library(CsSql)
 cs_copy_library(CsSvg)
@@ -217,6 +215,7 @@ cs_copy_library(CsXmlPatterns)
 
 if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
    cs_copy_library(CsMultimedia)
+   cs_copy_library(CsOpenGL)
 endif()
 
 if("WebKit" IN_LIST COPPERSPICE_COMPONENTS)
