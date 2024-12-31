@@ -1766,16 +1766,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_mainwindow.h" line="327"/>
-        <source>JS Script *</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_mainwindow.h" line="328"/>
-        <source>JS Script</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../build/src/ui_mainwindow.h" line="329"/>
         <source>Close Window</source>
         <translation>Fermer la fenêtre</translation>
@@ -2092,44 +2082,6 @@
     <message>
         <location filename="../src/graphics/screenshot.cpp" line="127"/>
         <source>Save Screenshot</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Script</name>
-    <message>
-        <location filename="../src/script.cpp" line="112"/>
-        <source>Open Script File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/script.cpp" line="113"/>
-        <source>Script Files (*.js)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_script.h" line="129"/>
-        <source>Script</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_script.h" line="130"/>
-        <source>Open Script</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_script.h" line="131"/>
-        <source>Run JS Script</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_script.h" line="132"/>
-        <source>Close</source>
-        <translation>Fermer</translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_script.h" line="133"/>
-        <source>Display Script</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

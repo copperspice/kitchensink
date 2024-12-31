@@ -8,7 +8,6 @@ list(APPEND KITCHENSINK_INCLUDES
    ${CMAKE_CURRENT_SOURCE_DIR}/international.h
    ${CMAKE_CURRENT_SOURCE_DIR}/ks_build_info.h
    ${CMAKE_CURRENT_SOURCE_DIR}/mainwindow.h
-   ${CMAKE_CURRENT_SOURCE_DIR}/script.h
    ${CMAKE_CURRENT_SOURCE_DIR}/stdpath.h
    ${CMAKE_CURRENT_SOURCE_DIR}/style_dw.h
    ${CMAKE_CURRENT_SOURCE_DIR}/style_edit.h
@@ -32,7 +31,6 @@ list(APPEND KITCHENSINK_SOURCES
    ${CMAKE_CURRENT_SOURCE_DIR}/include_test.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/mainwindow.cpp
-   ${CMAKE_CURRENT_SOURCE_DIR}/script.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/stdpath.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/style_dw.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/style_edit.cpp
@@ -63,7 +61,6 @@ list(APPEND KITCHENSINK_SOURCES
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/stdpath.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/style_dw.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/style_edit.ui
-   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/script.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/tabdialog.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/tablewidget_view.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/xml.ui
@@ -119,7 +116,6 @@ COPPERSPICE_RESOURCES(
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/stdpath.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/style_dw.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/style_edit.ui
-   ${CMAKE_CURRENT_SOURCE_DIR}/../forms/script.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/tabdialog.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/tablewidget_view.ui
    ${CMAKE_CURRENT_SOURCE_DIR}/../forms/xml.ui
@@ -143,7 +139,6 @@ target_link_libraries(KitchenSink
    CopperSpice::CsCore
    CopperSpice::CsGui
    CopperSpice::CsNetwork
-   CopperSpice::CsScript
    CopperSpice::CsSql
    CopperSpice::CsSvg
    CopperSpice::CsXml
@@ -200,14 +195,12 @@ else()
    install(TARGETS KitchenSink DESTINATION .)
 endif()
 
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/script.js       DESTINATION ./resources)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../resources/sampleMenu.xml  DESTINATION ./resources)
 
 # installs the CopperSpice libraries
 cs_copy_library(CsCore)
 cs_copy_library(CsGui)
 cs_copy_library(CsNetwork)
-cs_copy_library(CsScript)
 cs_copy_library(CsSql)
 cs_copy_library(CsSvg)
 cs_copy_library(CsXml)

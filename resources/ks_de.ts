@@ -1766,16 +1766,6 @@
         <translation>Video-Widget</translation>
     </message>
     <message>
-        <location filename="../build/src/ui_mainwindow.h" line="327"/>
-        <source>JS Script *</source>
-        <translation>JS Script *</translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_mainwindow.h" line="328"/>
-        <source>JS Script</source>
-        <translation>JS Script</translation>
-    </message>
-    <message>
         <location filename="../build/src/ui_mainwindow.h" line="329"/>
         <source>Close Window</source>
         <translation>Fenster schließen</translation>
@@ -2093,44 +2083,6 @@
         <location filename="../src/graphics/screenshot.cpp" line="127"/>
         <source>Save Screenshot</source>
         <translation>Screenshot speichern</translation>
-    </message>
-</context>
-<context>
-    <name>Script</name>
-    <message>
-        <location filename="../src/script.cpp" line="112"/>
-        <source>Open Script File</source>
-        <translation>Öffne Script-Datei</translation>
-    </message>
-    <message>
-        <location filename="../src/script.cpp" line="113"/>
-        <source>Script Files (*.js)</source>
-        <translation>Script-Dateien (*.js)</translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_script.h" line="129"/>
-        <source>Script</source>
-        <translation>Script</translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_script.h" line="130"/>
-        <source>Open Script</source>
-        <translation>Öffne Script</translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_script.h" line="131"/>
-        <source>Run JS Script</source>
-        <translation>Starte JS-Script</translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_script.h" line="132"/>
-        <source>Close</source>
-        <translation>Schließen</translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_script.h" line="133"/>
-        <source>Display Script</source>
-        <translation>Script anzeigen</translation>
     </message>
 </context>
 <context>
