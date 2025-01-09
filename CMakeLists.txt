@@ -81,7 +81,7 @@ include(CPack)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_INCLUDE_DIRECTORIES_BEFORE ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 if("Multimedia" IN_LIST COPPERSPICE_COMPONENTS)
   # multimedia found and will be linked with this project
