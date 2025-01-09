@@ -7,16 +7,25 @@ demonstrate the capabilities and functionality of the CopperSpice libraries. The
 code is intentionally simplistic and not optimized.
 
 
-### Building
+### Binary Files
 
-KitchenSink prebuilt binaries are available for Linux, Mac OS X, and Windows.
+KitchenSink prebuilt binaries are available for all supported platforms.
 
 https://download.copperspice.com/kitchensink/binary/
 
-To build KitchenSink from source a current copy of the CopperSpice libraries, a C++17 compiler, and a C++17 standard
-library are required.
+CopperSpice prebuilt binaries are available for all supported platforms.
 
-CMake build files are provided with the KitchenSink source distribution.
+https://github.com/copperspice/copperspice/releases/
+https://download.copperspice.com/copperspice/binary/
+
+
+### System Requirements
+
+Building KitchenSink requires a C++20 compiler and a C++20 standard library. You will also need a current copy of the
+CopperSpice libraries. KitchenSink links with CsCore, CsGui, CsMultimedia, CsNetwork, CsOpenGl, CsSql, CsSvg, CsXml,
+and CsXmlPatterns.
+
+CMake build files are provided with the source distribution to build this application.
 
 
 ###### OpenSSL
@@ -34,14 +43,12 @@ https://www.copperspice.com/documentation-kitchensink.html
 
 ### Presentations
 
-Our YouTube channel contains videos about C++, graphics, build systems, CopperSpice, DoxyPress, and other
-topics related to software development.
+Our YouTube channel contains over 75 videos about C++, programming fundamentals, Unicode/Strings, multithreading,
+graphics, CopperSpice, DoxyPress, and other software development topics.
 
 https://www.youtube.com/copperspice
 
-
-Links to technical presentations recorded at CppCon, CppNow, embBO++, MeetingC++, and code::dive, can be
-found on our presentation page.
+Links to additional videos can be found on our website.
 
 https://www.copperspice.com/presentations.html
 
