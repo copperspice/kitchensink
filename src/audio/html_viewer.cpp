@@ -22,7 +22,12 @@
 
 #include "html_viewer.h"
 
+#include <QFileDialog>
+#include <QInputDialog>
+#include <QLineEdit>
 #include <QMenu>
+#include <QMenuBar>
+#include <QMessageBox>
 #include <QWebFrame>
 
 Html_Viewer::Html_Viewer()
