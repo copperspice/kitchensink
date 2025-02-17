@@ -158,6 +158,11 @@ endif()
 if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
    set_target_properties(KitchenSink PROPERTIES OUTPUT_NAME kitchensink)
 
+   target_compile_definitions(KitchenSink
+      PUBLIC
+      GL_SILENCE_DEPRECATION
+   )
+
    target_link_libraries(KitchenSink
       "-framework OpenGL"
    )
