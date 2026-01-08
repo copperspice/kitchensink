@@ -1,7 +1,7 @@
 /***********************************************************************
 *
-* Copyright (c) 2012-2025 Barbara Geller
-* Copyright (c) 2012-2025 Ansel Sermersheim
+* Copyright (c) 2012-2026 Barbara Geller
+* Copyright (c) 2012-2026 Ansel Sermersheim
 *
 * Copyright (c) 2015 The Qt Company Ltd.
 *
@@ -458,7 +458,7 @@ void MainWindow::actionAbout()
          "</table></font>"
          "<br>"
 
-         "<p><small>Copyright 2012-2025 BG Consulting, released under the 2-Clause BSD license<br>"
+         "<p><small>Copyright 2012-2026 BG Consulting, released under the 2-Clause BSD license<br>"
          "This program is provided AS IS with no warranty of any kind.<br></small></p>";
 
    QMessageBox msgB;
